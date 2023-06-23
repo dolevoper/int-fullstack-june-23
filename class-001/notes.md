@@ -1,4 +1,4 @@
-[Class board](https://excalidraw.com/#json=svuMyjtbuDsuPNxsOWljN,PwT2C2VWm0IEgAihiWBDEQ)
+![Class board](board.png)
 
 # Agenda
 * Intro
