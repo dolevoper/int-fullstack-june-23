@@ -40,3 +40,9 @@ li::before {
     content: "⚫ ";
     font-size: 0.6rem;
 }
+
+h1 {
+    text-align: center;
+    background: blue;
+    color: white;
+}
