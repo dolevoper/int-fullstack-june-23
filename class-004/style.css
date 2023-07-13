@@ -1,0 +1,16 @@
+html {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    background: hsl(0deg 0% 0% / 0.2);
+}
+
+nav, ol, li {
+    display: inline;
+}
