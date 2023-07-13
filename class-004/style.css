@@ -45,4 +45,6 @@ h1 {
     text-align: center;
     background: blue;
     color: white;
+    width: fit-content;
+    margin-inline: auto;
 }
