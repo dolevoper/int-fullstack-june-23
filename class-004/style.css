@@ -1,3 +1,13 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
 html {
     font-size: 1.2rem;
     line-height: 1.6;
@@ -11,6 +21,22 @@ header {
     background: hsl(0deg 0% 0% / 0.2);
 }
 
-nav, ol, li {
+ul, li {
     display: inline;
+}
+
+nav {
+    display: inline-block;
+    width: 350px;
+    border: 2px solid red;
+    margin-left: 3rem;
+}
+
+button {
+    float: right;
+}
+
+li::before {
+    content: "⚫ ";
+    font-size: 0.6rem;
 }
