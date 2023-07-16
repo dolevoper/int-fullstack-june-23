@@ -15,21 +15,24 @@ html {
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 header {
     background: hsl(0deg 0% 0% / 0.2);
+    margin-inline: block;
 }
 
 ul, li {
     display: inline;
+    margin-inline: auto;
 }
 
 nav {
     display: inline-block;
-    width: 350px;
+    max-width: 600px;
     border: 2px solid red;
-    margin-left: 3rem;
+    margin-left: 10rem;
 }
 
 button {
@@ -47,4 +50,10 @@ h1 {
     color: white;
     width:fit-content;
     margin-inline: auto;
+}
+
+main {
+    margin-left: 5rem;
+    margin-right: 5rem;
+    min-width: 20rem;
 }
