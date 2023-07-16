@@ -45,7 +45,10 @@ h1 {
     text-align: center;
     background: blue;
     color: white;
-    display: inline-block;
-    margin-left: 150px;
+    width: 300px;
+     margin-inline: auto;
+     border: 3px solid yellow;
+     border-radius: 10px;
+    m
     
 }

@@ -1,0 +1,58 @@
+*{margin: 0;}
+
+
+nav, ul, :invalid
+{
+  
+    display: inline;
+    
+}
+li
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: antiquewhite;
+    border: 4px solid yellow;
+    margin: 5px;
+    content: "*"; 
+    display: inline;
+   
+    
+}
+nav
+{
+    display: inline-block;
+    width: 70%;
+    border: 5px solid red;
+    margin: 10px;
+    padding: 3px;
+}
+main
+h2
+{
+    text-align: center;
+}
+main
+{
+    background: rgb(222, 187, 162);
+}
+header
+{
+    background-color: rgb(218, 228, 225);
+    margin: 0;
+    
+}
+body
+{
+    background-color: rgb(102, 174, 236);
+}
+button:hover
+{
+    background-color: blueviolet;   
+}
+button
+{
+    float: right;
+}
+
+
+

@@ -1,48 +1,16 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-* {
-    margin: 0;
-}
-
-html {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-header {
-    background: hsl(0deg 0% 0% / 0.2);
-}
-
-ul, li {
-    display: inline;
-}
-
-nav {
-    display: inline-block;
-    width: 350px;
-    border: 2px solid red;
-    margin-left: 3rem;
-}
-
-button {
-    float: right;
-}
-
-li::before {
-    content: "⚫ ";
-    font-size: 0.6rem;
-}
-
-h1 {
+header
+{
+    background-color: beige;
     text-align: center;
-    background: blue;
-    color: white;
+    width: 300px;
+    margin-inline: auto;
+    border: 4px dashed black;
+    border-radius: 10px;
+}
+.had1
+{
+    background-color: rgb(231, 237, 217);
+    display: inline;
+    border: 3px solid yellow;
+    margin: 10px;
 }
