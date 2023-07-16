@@ -1,0 +1,26 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body{
+max-width: 50%;
+min-width: 10%;
+padding-left: 1rem;
+padding-right: 1rem;
+margin-inline: auto;
+} 
+header{
+    background-color: red;
+    color: azure;
+    width: fit-content;
+}
+article{
+    margin-top: 10px;
+    font-size: large;
+}
