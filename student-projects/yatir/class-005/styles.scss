@@ -31,7 +31,7 @@ main {
     margin-inline: auto;
     width: fit-content;
 
-    li+li::before{
+    >li+li::before{
         content:"/";
     }
 
