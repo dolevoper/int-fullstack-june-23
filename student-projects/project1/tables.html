@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML Tables quickguide</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+
+<h1>HTML Table quickguide</h1>
+<header style="display: flex; flex-direction: column; align-items: center; text-align: left; width:100%">
+    <nav style="background-color: blue; color: white; width: 100%; display: flex; justify-content: left; list-style: none; padding: 0; margin: 0;">
+        <ul style="display: flex; list-style: none; padding: 0; margin: 0;">
+            <li style="margin-right: 10px;"><a href="home.html" style="color: white;">Home</a></li>
+            <li style="margin-right: 10px;"><a href="basics.html" style="color: white;">Basic text</a></li>
+            <li style="margin-right: 10px;"><a href="tables.html" style="color: white;">Tables</a></li>
+            <li style="margin-right: 10px;"><a href="colors.html" style="color: white;">Color codenames</a></li>
+            <li style="margin-right: 10px;"><a href="basiccss.html" style="color: white;">CSS basics</a></li>
+        </ul>
+    </nav>
+</header>
+
+<body style="background-color: lightskyblue;">
+    <img src="s-l400.jpg" width="550px"> 
+
+    <h3>the following code will generate the followng table:</h3>
+
+    <pre>&lt;table&gt;
+        &lt;caption&gt;Sample Table&lt;/caption&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Tag&lt;/th&gt;
+                &lt;th&gt;Attribute&lt;/th&gt;
+                &lt;th&gt;Explanation&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&amp;lt;table&amp;gt;&lt;/td&gt;
+                &lt;td&gt;&lt;/td&gt;
+                &lt;td&gt;The table element represents tabular data.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&amp;lt;thead&amp;gt;&lt;/td&gt;
+                &lt;td&gt;&lt;/td&gt;
+                &lt;td&gt;The thead element represents the header section of a table.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&amp;lt;tbody&amp;gt;&lt;/td&gt;
+                &lt;td&gt;&lt;/td&gt;
+                &lt;td&gt;The tbody element represents the body content of a table.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&amp;lt;caption&amp;gt;&lt;/td&gt;
+                &lt;td&gt;&lt;/td&gt;
+                &lt;td&gt;The caption element represents the title or caption for a table.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&amp;lt;tr&amp;gt;&lt;/td&gt;
+                &lt;td&gt;&lt;/td&gt;
+                &lt;td&gt;The tr element represents a row in a table.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&amp;lt;th&amp;gt;&lt;/td&gt;
+                &lt;td&gt;&lt;/td&gt;
+                &lt;td&gt;The th element represents a header cell in a table.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&amp;lt;td&amp;gt;&lt;/td&gt;
+                &lt;td&gt;&lt;/td&gt;
+                &lt;td&gt;The td element represents a data cell in a table.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&amp;lt;colgroup&amp;gt;&lt;/td&gt;
+                &lt;td&gt;span&lt;/td&gt;
+                &lt;td&gt;The colgroup element specifies a group of columns in a table.&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&amp;lt;col&amp;gt;&lt;/td&gt;
+                &lt;td&gt;span, width&lt;/td&gt;
+                &lt;td&gt;The col element defines attributes for a single column in a table.&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;</pre>
+    
+
+    <table>
+        <caption>Sample Table</caption>
+        <thead>
+            <tr>
+                <th>Tag</th>
+                <th>Attribute</th>
+                <th>Explanation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&lt;table&gt;</td>
+                <td></td>
+                <td>The table element represents tabular data.</td>
+            </tr>
+            <tr>
+                <td>&lt;thead&gt;</td>
+                <td></td>
+                <td>The thead element represents the header section of a table.</td>
+            </tr>
+            <tr>
+                <td>&lt;tbody&gt;</td>
+                <td></td>
+                <td>The tbody element represents the body content of a table.</td>
+            </tr>
+            <tr>
+                <td>&lt;caption&gt;</td>
+                <td></td>
+                <td>The caption element represents the title or caption for a table.</td>
+            </tr>
+            <tr>
+                <td>&lt;tr&gt;</td>
+                <td></td>
+                <td>The tr element represents a row in a table.</td>
+            </tr>
+            <tr>
+                <td>&lt;th&gt;</td>
+                <td></td>
+                <td>The th element represents a header cell in a table.</td>
+            </tr>
+            <tr>
+                <td>&lt;td&gt;</td>
+                <td></td>
+                <td>The td element represents a data cell in a table.</td>
+            </tr>
+            <tr>
+                <td>&lt;colgroup&gt;</td>
+                <td>span</td>
+                <td>The colgroup element specifies a group of columns in a table.</td>
+            </tr>
+            <tr>
+                <td>&lt;col&gt;</td>
+                <td>span, width</td>
+                <td>The col element defines attributes for a single column in a table.</td>
+            </tr>
+            <tr>
+                <td>&lt;caption&gt;</td>
+                <td></td>
+                <td>The caption element represents the title or caption for a table.</td>
+            </tr>
+            <!-- Add more rows as needed with additional tags and attributes -->
+        </tbody>
+    </table>
+
+</body>
+
+<footer>
+    <p style="background-color: blue; color:orange; width: 100%">HTML and CSS Only Webpage</p>
+</footer>
+</html>
