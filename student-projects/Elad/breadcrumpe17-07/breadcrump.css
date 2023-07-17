@@ -8,17 +8,57 @@
     margin: 0;
 }
 
-html {
-    font-size: 1.2rem;
-    line-height: 1.6;
+header{
+    background-color: rgba(128, 255, 0, 0.099);
+    font-size: large;
+    border: 1px solid gray;
+    max-height: 50px;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-}
-
-nav {
+ul.bread{
+    padding: 10px 5px;
+    list-style: none;
+    background-color: rgb(169, 255, 148);
     display: inline-block;
-    
+    text-align: center;
+}
+
+ul.bread li {
+    display: inline;
+    font-size: 18px;
+}
+
+ul.bread li+li ::before {
+    padding: 10px;
+    color: black;
+    content: "/\00a0";
+}
+
+ul.bread li a:hover {
+    color: whitesmoke;
+    background-color: blue;
+}
+
+ul.bread li a {
+    text-decoration: none;
+}
+
+.active{
+    color: blue;
+    background-color: whitesmoke;
+    font-size:x-large;
+    border-radius: 5px;
+}
+
+h1{
+    color: blueviolet;
+    background-color: rgba(255, 255, 0, 0.09);
+    margin: center;
+    text-align: center;
+}
+
+main.card {
+    box-shadow: 2px 3px 8px;
+    margin: 5% 20% 5% 20%; 
+    padding: 1%;   
 }
