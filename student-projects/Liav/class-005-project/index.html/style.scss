@@ -1,0 +1,97 @@
+/* SASS - syntactically awesome stylesheets */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    /* width: min(65ch, 100% - 3rem); */
+    width: calc(100% - 3rem);
+    max-width: 65ch;
+    margin-inline: auto;
+}
+
+.breadcrumbs {
+    list-style: none;
+    padding: 0;
+    margin-inline: auto;
+    width: fit-content;
+
+    >li {
+        display: inline;
+    }
+}
+/* .breadcrumbs>li {
+    display: inline;
+} */
+
+.breadcrumbs>li:not(:first-child)::before{
+    content: "/";
+}
+
+.topic-menu {
+    visibility: hidden;
+
+    .topic-crumb:hover & {
+        visibility: visible;
+    }
+}
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: green;
+        border-radius: 34px;
+        transition: 0.4s;
+
+        &::before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            transition: 0.4s;
+        }
+    }
+
+    input:checked + .slider {
+        background-color: #ccc;
+
+        &::before {
+            transform: translateX(26px);
+        }
+    }
+}

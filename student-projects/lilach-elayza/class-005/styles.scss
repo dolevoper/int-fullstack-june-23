@@ -30,18 +30,28 @@ main {
     padding: 0;
     margin-inline: auto;
     width: fit-content;
-    border: 2px solid black;
+
+    >li {
+        display: inline;
+    }
 }
- .breadcrumbs>li {
+
+/* .breadcrumbs>li {
     display: inline;
-    
-    
-} 
+} */
+
 .topic-menu {
     visibility: hidden;
-   
 
     .topic-crumb:hover & {
         visibility: visible;
+    }
+}
+
+ol.breadcrumbs {
+    >li+li:before {
+        padding: 8px;
+        color: black;
+        content: "/";
     }
 }
