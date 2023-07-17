@@ -1,0 +1,204 @@
+
+/* ------------------------------------------------------------ */
+/*                      Home Menu                               */
+/* ------------------------------------------------------------ */
+
+.home-menu {
+    margin: 16px 0;
+}
+
+/* ------------------------------------------------------------ */
+/* Overall Legend */
+
+.overall-legend {
+    width: 35%;
+
+    display: inline-block;
+    vertical-align:top;
+
+}
+
+.legend {
+    width: 80%;
+
+    background-color: black;
+    border: solid 2px #382418;
+    font-size: 1em;
+
+    margin: 0 auto 6px auto;
+    padding: 8px;
+    
+    text-align: left;
+
+}
+
+.legend:last-child {
+    margin: 0 auto;
+}
+
+/* Legend Title */
+.legend-title {
+    margin: 0 auto;
+    
+    cursor: pointer;
+    
+    font-size: 1.25em; 
+    font-weight: 300;
+
+}
+
+.legend-title.centered {
+    text-align: center;
+}
+
+.legend.not-clickable > summary {
+    list-style: none;
+    pointer-events: none;
+}
+
+.legend.not-clickable::marker {
+    display: none;
+}
+
+.legend-menu {
+    margin-top: 6px;
+}
+
+
+
+/* ------------------------------------------------------------ */
+/* Actions Menu */
+
+.actions-menu {
+    display: inline-block;
+    text-align: center;
+
+    width: 60%;
+}
+
+.actions-menu .action-button {
+    width: 152px;
+    height: 126px;
+
+    background: url("../assets/index/button-bg.gif") no-repeat center ;
+    appearance: none;
+    
+    border: none;
+    padding: 0;
+    margin: 0 2px 6px 0;
+
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    
+    vertical-align: middle;
+    /* white-space: pre-line; */
+    /* text-align: center; */
+}
+
+/* ------------------------------------------------------------ */
+/* News & Updates  */
+
+
+.news-scroll {
+    display: block;
+    margin-top: 32px;
+    background: url("../assets/index/scroll-bg.gif") repeat-y top center/90%;
+    /* vertical-align: center; */
+    color: black;
+
+    text-align: center;
+}
+
+.news-scroll .scroll-edge.top {
+    margin-top: -24px;
+}
+
+.news-scroll .scroll-edge.bottom {
+    margin-bottom: -9px;
+    transform: rotate(180);
+}
+
+.news-scroll .scroll-header {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.scroll-header-title {
+    color: #6D4211;
+    text-shadow: 1px 1px 1px black;
+    white-space: pre-line;
+    margin: 0;
+
+    font-size:3em;
+    font-weight: bolder;
+    font-family: initial;
+}
+
+.scroll-header-message {
+    margin: 6px 0;
+}
+
+.scroll-news {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.scroll-news-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.scroll-news .news-list {
+    margin: 16px 32px;
+    text-align: left;
+}
+
+.scroll-news .news-post-thumbnail {
+    display: inline-block;
+    width: 35%; 
+}
+
+.scroll-news .news-post-content {
+    display: inline-block;
+    width: 60%;
+    margin: 0 8px;
+    vertical-align: top;
+}
+
+.news-post-content .post-content-title {
+    color: #6D4211;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.news-post-content .post-content-time {
+    font-weight: 300;
+    font-style: italic;
+}
+
+.news-post-content .post-content-description {
+    margin: 8px 0;
+}
+
+.news-post-content .post-content-readmore {
+    color: #7B4F17;
+    font-size: 1em;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.news-post .news-post-divider {
+    border-color: transparent; 
+    border-top: 0.25px solid #6B7B17; 
+}
+
+.scroll-news .scroll-news-socialtip {
+    font-size: 0.75rem;
+    margin: 8px;
+    
+}
+.scroll-news .scroll-news-socialtip .social {
+    font-weight: 600;
+    color: #7B4F17;
+}

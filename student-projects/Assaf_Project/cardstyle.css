@@ -1,0 +1,74 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* ^^josh reset^^ */
+
+h1 {
+  font-size: 1.4rem;
+  padding-bottom: 1rem;
+}
+
+a {
+  font-weight: 600;
+}
+
+a:visited {
+  color: aliceblue
+}
+
+.rounded {
+  border-radius: 10px 10px 0 0;
+}
+
+.card {
+  margin: 1rem 0 1rem 0;
+  max-width: 30vw;
+  min-width: 30ch;
+  margin-inline: auto;
+  box-shadow: -1px 0px 6px 5px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: -1px 0px 6px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: -1px 0px 6px 5px rgba(0, 0, 0, 0.25);
+}
+
+.about {
+  padding: 1rem;
+  text-align: start;
+}
+
+.textonphoto {
+  transform: translateY(-120%);
+  margin-right: .5rem;
+  line-height: 1;
+  font-size: relative;
+  color: aliceblue;
+  position: relative;
+  left: .5rem;
+}
