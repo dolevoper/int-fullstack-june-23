@@ -1,0 +1,111 @@
+
+
+.color {
+    color: red;
+  }
+  
+  .font-size {
+    font-size: 16px;
+  }
+  
+  .background-color {
+    background-color: yellow;
+  }
+  
+  .margin {
+    margin: 10px;
+  }
+  
+  .padding {
+    padding: 20px;
+  }
+  
+  .width {
+    width: 200px;
+  }
+  
+  .height {
+    height: 300px;
+  }
+  
+  .display {
+    display: block;
+  }
+  
+  .position {
+    position: absolute;
+    top: 1000px; 
+    left: 15px;
+
+  }
+  
+  .float {
+    float: inline-end;
+  }
+  
+  .border {
+    border: 1px solid black;
+  }
+  
+  .text-align {
+    text-align: center;
+  }
+  
+  .text-decoration {
+    text-decoration: underline;
+  }
+  
+  .transition {
+    transition: width 1s;
+  }
+  
+  .box-shadow {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .opacity {
+    opacity: 0.5;
+  }
+  
+  .font-family {
+    font-family: Arial, sans-serif;
+  }
+  
+  .text-transform {
+    text-transform: uppercase;
+  }
+  
+  .text-align {
+    text-align: right;
+  }
+  
+  .border-radius {
+    border-radius: 5px;
+  }
+  
+  .overflow {
+    overflow: hidden;
+  }
+  
+  .background-image {
+    background-image: url("keith-haring.jpg");
+    font-size: 50px;
+    text-shadow:
+    0 0 5px white,
+    0 0 10px white,
+    0 0 15px white;
+  color: black;
+  }
+  
+  .line-height {
+    line-height: 1.5;
+  }
+  
+  .box-sizing {
+    box-sizing: border-box;
+  }
+  
+  .z-index {
+    z-index: 999;
+  }
+  
