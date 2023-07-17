@@ -1,8 +1,3 @@
-header{
-    width: 50vw;
-   /* /* width: 1000px */
-}
-
 img{
     width: 100%;
    /* /*width: 1000px; */
@@ -11,7 +6,7 @@ img{
 header{
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
     padding: 16px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin: auto;
     border-radius: 15px;
+    width: 50vw;
 }
