@@ -1,0 +1,115 @@
+body{
+    /* background-color: rgba(155, 239, 213, 0.477); */
+}
+nav{
+    background-color: #1c3046;
+    display: flex;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    padding: 2%;
+    /* margin-top: 0%; */
+}
+h1{
+   color: rgb(255, 255, 255);
+   font-family: Georgia, 'Times New Roman', Times, serif; 
+   padding: 10px;
+   margin-top: 0px;
+   font-size: 2rem;
+}
+
+.plane-icone{
+    width: 5%;
+    height: 5%;
+    padding-left: 5px;
+    padding-top: 5px;
+    /* margin-top: 0px; */
+}
+
+.france{
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+    padding: 16px;
+    margin: 5% 10% 5% 10%;
+    border-radius: 15px;
+    background-color: black;
+}
+
+.eiffel{
+    width: 100%;
+}
+
+.linkfr{
+    color: white;
+    text-decoration: none;
+}
+
+.destination {
+    margin-top: 8.4%;
+}
+.france:hover{
+    background-color: white;
+}
+.linkfr:hover{
+    color: black;
+}
+
+.israel{
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+    padding: 16px;
+    margin: 5% 10% 5% 10%;
+    border-radius: 15px;
+    background-color: black;
+}
+.kotel{
+    width: 100%;
+}
+
+.linkisr{
+    color: white;
+    text-decoration: none;
+}
+
+.linkisr:hover{
+    color: black;
+}
+
+.israel:hover{
+    background-color: white;
+}
+
+.grece{
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+    padding: 16px;
+    margin: 5% 10% 5% 10%;
+    border-radius: 15px;
+    background-color: black;
+}
+
+.santorini{
+    width: 100%;
+}
+
+.linkgr{
+    color: white;
+    text-decoration: none;
+}
+
+.linkgr:hover{
+    color: black;
+}
+
+.grece:hover{
+    background-color: white;
+}
+
+footer{
+    border-top: 1px solid black;
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.monlogo{
+    width: 75px;
+    border-radius: 1000px;
+}
+
