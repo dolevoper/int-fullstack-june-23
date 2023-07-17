@@ -81,3 +81,10 @@ h1 {
     margin: auto;
     text-align: center;
   }
+
+  .imagetext{
+    position: relative;
+    bottom: 40px;
+    left: 5px;
+    color: brown;
+  }
