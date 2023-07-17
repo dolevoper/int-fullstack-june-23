@@ -39,12 +39,19 @@ h1 {
 a {
   font-weight: 600;
 }
-a:visited { color: aliceblue 
+
+a:visited {
+  color: aliceblue
+}
+
+.rounded {
+  border-radius: 10px 10px 0 0;
 }
 
 .card {
   margin: 1rem 0 1rem 0;
-  width: 40vw;
+  max-width: 30vw;
+  min-width: 20rem;
   margin-inline: auto;
   box-shadow: -1px 0px 6px 5px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: -1px 0px 6px 5px rgba(0, 0, 0, 0.25);
