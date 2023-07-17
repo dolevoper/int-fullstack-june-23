@@ -1,0 +1,17 @@
+header{
+    width: 50vw;
+   /* /* width: 1000px */
+}
+
+img{
+    width: 100%;
+   /* /*width: 1000px; */
+}
+
+header{
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+    padding: 16px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 15px;
+}
