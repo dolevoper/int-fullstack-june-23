@@ -1,4 +1,4 @@
-/* SASS - syntactically awesome Stylesheets */
+/* SASS - syntactically awesome stylesheets */
 *,
 *::before,
 *::after {
@@ -30,6 +30,10 @@ main {
     padding: 0;
     margin-inline: auto;
     width: fit-content;
+
+    >li+li::before{
+        content:"/";
+    }
 
     >li {
         display: inline;

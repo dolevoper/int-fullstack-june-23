@@ -1,0 +1,159 @@
+/* SASS - syntactically awesome Stylesheets */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+#root, #__next {
+    isolation: isolate;
+}
+
+body {
+    background-color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+}
+
+// Variable decleration start
+
+// Variable decleration end
+
+main {
+    /* width: min(65ch, 100% - 3rem); */
+    width: calc(100% - 3rem);
+    max-width: 65ch;
+    margin-inline: auto;
+}
+
+.breadcrumbs {
+    list-style: none;
+    padding: 0;
+    margin-inline: auto;
+    width: fit-content;
+
+    > li {
+        display: inline;
+        position: relative;
+        padding: 0 10px; /* Adjust the spacing of the slash*/
+
+        a {
+            text-decoration: none;
+            color: #000; /* Link color here */
+        }
+
+        &::after {
+            content: "/";
+            position: absolute;
+            right: -5px; /* Adjust spacing */
+            top: 50%;
+            transform: translateY(-50%);
+            color: #000; /* Slash color */
+            user-select: none; /* Make the slash unselectable */
+        }
+
+        &:last-child::after {
+            content: none;
+        }
+    }
+}
+
+.topic-menu {
+    visibility: hidden;
+
+    .topic-crumb:hover & {
+        visibility: visible;
+    }
+}
+
+.toggle-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #333399;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:hover {
+    background-color: #212123;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}

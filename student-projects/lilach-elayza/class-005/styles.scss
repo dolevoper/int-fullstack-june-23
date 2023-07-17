@@ -1,4 +1,4 @@
-/* SASS - syntactically awesome Stylesheets */
+/* SASS - syntactically awesome stylesheets */
 *,
 *::before,
 *::after {
@@ -35,6 +35,7 @@ main {
         display: inline;
     }
 }
+
 /* .breadcrumbs>li {
     display: inline;
 } */
@@ -44,5 +45,13 @@ main {
 
     .topic-crumb:hover & {
         visibility: visible;
+    }
+}
+
+ol.breadcrumbs {
+    >li+li:before {
+        padding: 8px;
+        color: black;
+        content: "/";
     }
 }

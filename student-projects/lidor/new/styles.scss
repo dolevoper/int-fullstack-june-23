@@ -1,4 +1,4 @@
-/* SASS - syntactically awesome Stylesheets */
+/* SASS - syntactically awesome stylesheets */
 *,
 *::before,
 *::after {
@@ -30,17 +30,16 @@ main {
     padding: 0;
     margin-inline: auto;
     width: fit-content;
-
-    >li {
-        display: inline;
-    }
+    border: 2px solid black;
 }
-/* .breadcrumbs>li {
+ .breadcrumbs>li {
     display: inline;
-} */
-
+    
+    
+} 
 .topic-menu {
     visibility: hidden;
+   
 
     .topic-crumb:hover & {
         visibility: visible;

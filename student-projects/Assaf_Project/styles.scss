@@ -1,4 +1,4 @@
-/* SASS - syntactically awesome Stylesheets */
+/* SASS - syntactically awesome stylesheets */
 *,
 *::before,
 *::after {
@@ -33,6 +33,11 @@ main {
 
     >li {
         display: inline;
+
+    ::after {
+            content: " / ";
+            font-size: 1rem;
+        }
     }
 }
 /* .breadcrumbs>li {
@@ -46,3 +51,6 @@ main {
         visibility: visible;
     }
 }
+
+
+
