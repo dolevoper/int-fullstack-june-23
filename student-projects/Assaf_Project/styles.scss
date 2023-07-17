@@ -34,7 +34,7 @@ main {
     >li {
         display: inline;
 
-    ::after {
+        ::after {
             content: " / ";
             font-size: 1rem;
         }
