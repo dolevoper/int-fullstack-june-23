@@ -49,7 +49,7 @@ main {
 }
 
 ol.breadcrumbs {
-    >li:before {
+    >li+li:before {
         padding: 8px;
         color: black;
         content: "/";
