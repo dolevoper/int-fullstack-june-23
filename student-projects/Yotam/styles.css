@@ -1,0 +1,43 @@
+header {
+    color:lightpink;
+    background-color:black; 
+    text-align: center;
+    }
+
+
+h1 {
+    color: black;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  h2 {
+    color: white;
+    background-color: darkolivegreen;
+    font-family: Arial, sans-serif;
+    text-align: left;
+  }
+  
+  h3 {
+    color: blue;
+    font-size: 22px;
+    text-align: right;
+  }
+  
+  h4 {
+    background-color: green;
+    font-family: Verdana, sans-serif;
+    text-align: center;
+  }
+  
+  p {
+    color: purple;
+    font-size: 26px;
+    text-align: justify;
+  }
+
+  .blacknwhite {
+    color: white;
+    background-color: black;
+  }
+  
