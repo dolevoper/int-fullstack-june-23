@@ -1,0 +1,60 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: 1rem;
+    line-height: 1.6;
+    
+}
+
+
+.all{
+    width: 500px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    border-radius: 10px;
+    margin-top: 3px;
+    
+}
+
+.words {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    display: inline;
+
+}
+
+ img {
+    width: 500px;
+    
+    
+}
+.imge {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.credit {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+
+}
+
+
+
+
+
+
+
