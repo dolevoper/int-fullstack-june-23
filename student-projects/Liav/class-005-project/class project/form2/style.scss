@@ -116,8 +116,7 @@ main {
       width: 110px;
       height: 35px;
       margin: 0 10px;
-      background-color: $primary-color;
-      background-image: linear-gradient(160deg, $primary-color 0%, $secondary-color 100%);
+      background:  linear-gradient(160deg, $primary-color 0%, $secondary-color 100%);
       border-radius: 30px;
       border: 0;
       outline: none;
@@ -152,7 +151,7 @@ main {
 }
 
 #progress2 {
-  background-image: linear-gradient(160deg, $primary-color 0%, $secondary-color 100%);
+  background: linear-gradient(160deg, $primary-color 0%, $secondary-color 100%);
   height: 100%;
   width: 120px;
 }
