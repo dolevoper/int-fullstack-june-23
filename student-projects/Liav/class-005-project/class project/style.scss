@@ -1,0 +1,160 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    5. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    6. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    7. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    8. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+/*----------------------------------------------- */
+/* Import the Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,700&display=swap');
+
+/* Global styles */
+$primary-color: #0093E9;
+$secondary-color: #80D0C7;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Roboto', sans-serif;
+  background: url('https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v1016-c-08_1-ksh6mza3.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=f584d8501c27c5f649bc2cfce50705c0');
+  background-size: cover;
+  background-position: center;
+}
+
+main {
+  width: 350px;
+  height: 600px;
+  margin: 8% auto;
+  background: white;
+  border-radius: 5px;
+  position: relative;
+
+  form {
+    width: 280px;
+    position: absolute;
+    top: 100px;
+    left: 40px;
+
+    h3 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: gray;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 5px;
+      margin: 5px 0;
+      border: 0;
+      border-bottom: 1px solid gray;
+      outline: none;
+      background: transparent;
+      color: black;
+
+      &::placeholder {
+        color: gray;
+      }
+    }
+  }
+
+  .button-form {
+    width: 100%;
+    margin: 30px auto;
+    text-align: center;
+
+    button {
+      width: 110px;
+      height: 35px;
+      margin: 0 10px;
+      background-color: $primary-color;
+      background-image: linear-gradient(160deg, $primary-color 0%, $secondary-color 100%);
+      border-radius: 30px;
+      border: 0;
+      outline: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  .step-row {
+    width: 360px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -1 5px -1px black;
+    position: relative;
+
+    .step-col {
+      width: 120px;
+      text-align: center;
+      color: gray;
+      position: relative;
+      font-family: 'Roboto', sans-serif;
+    }
+  }
+}
+
+#progress {
+  position: absolute;
+  height: 100%;
+  width: 120px;
+  background-color: $primary-color;
+  background-image: linear-gradient(160deg, $primary-color 0%, $secondary-color 100%);
+}
+
+
+
+
+

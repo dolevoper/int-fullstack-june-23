@@ -25,32 +25,30 @@ main {
     margin-inline: auto;
 }
 
+
 .breadcrumbs {
     list-style: none;
     padding: 0;
     margin-inline: auto;
     width: fit-content;
-
-    >li {
+    
+    > li {
         display: inline;
-
-        ::after {
-            content: " / ";
-            font-size: 1rem;
-        }
     }
-}
-/* .breadcrumbs>li {
-    display: inline;
-} */
+    li + li ::before {
+        content: "/";
+    }
+    }
 
 .topic-menu {
+
+    li ::before {
+        content: "";
+    }
     visibility: hidden;
 
     .topic-crumb:hover & {
         visibility: visible;
     }
+   
 }
-
-
-
