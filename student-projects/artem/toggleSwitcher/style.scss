@@ -1,6 +1,43 @@
-$color_checkbox_success:#099e22;
-$color_checkbox_default:#c6cbcc;
-$transition: .3s cubic-bezier(0.95, 0.05, 0.795, 0.035);
-$width: 4em;
-$height: $width/2;
+$usedColor: #0f076e;
+
+body {
+  background-color: $usedColor;
+}
+
+.switch {
+  position: relative;
+  margin: 33% 50%;
+  input[type='checkbox'] {
+    visibility: hidden;
+    &:checked {
+      + label {
+        background-color:lighten($color: $usedColor, $amount: 85%);
+        &:after {
+          left: 27px;
+        }
+      }
+    }
+  }
+  label {
+    position: absolute;
+    width: 50px;
+    height: 23px;
+    top: 0;
+    left: 0;
+    background-color: lighten($color: $usedColor, $amount: 50%);;
+    border-radius: 50px;
+    &:after {
+      content: '';
+      width: 25px;
+      height: 25px;
+      background-color: lighten($color: $usedColor, $amount: 45%);
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      border-radius: 50px;
+      box-shadow: 0 0 5px $usedColor;
+    }
+  }
+}
+
 
