@@ -18,6 +18,15 @@ body {
     background-position: center;
 }
 
+#page-title {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    color: rgb(232, 123, 201);
+}
+
 .wrapper {
     width: 420px;
     background: transparent;
@@ -66,7 +75,14 @@ body {
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
-    color: #fff;
+}
+
+.wrapper .input-box .user-logo {
+    color: #4b4b4b;
+}
+
+.wrapper .input-box .lock-logo {
+    color: #4b4b4b;
 }
 
 .wrapper .remember-forgot {
