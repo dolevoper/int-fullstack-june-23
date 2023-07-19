@@ -63,6 +63,11 @@ main {
         opacity: 0;
         width: 0;
         height: 0;
+
+    & :checked>.slider{
+        background-color: aqua;
+    }    
+
     }
 }
 
@@ -83,9 +88,9 @@ main {
         height: 30px;
         width: 30px;
         left: 4px;
-        
+        bottom: 4px;
+        background-color: yellow;
     }
 
 }
-
 
