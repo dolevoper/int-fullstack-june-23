@@ -1,0 +1,61 @@
+
+  
+.box {
+    display: block;
+    text-align: center;
+    margin: 50px auto;
+    width: 300px;
+    height: 200px;
+    border: 50px solid #007bff;
+    padding: 30px;
+    background-color: #f8f8f8;
+    position: relative;
+    transition: border-color 0.3s;
+    font-size: 3rem;
+    background-color: darkblue;
+    color: lightskyblue;
+  }
+  
+  .box:hover {
+    border-color: gray;
+  }
+  
+
+  p {
+    font-size: 1rem;
+    color:palegoldenrod;
+  }
+
+  p.marg {
+    position: absolute;
+    top: -100px;
+    left: -45px;
+    color: black;
+  }
+
+  p.padd {
+    position: absolute;
+    top: 215px;
+    left: 5px;
+  }
+
+  p.bord {
+    position: absolute;
+    top: -50px;
+  }
+  
+  p.marg:hover {
+    color: red;
+  }
+  
+  p.padd:hover {
+    color: red;
+  }
+  
+  p.bord:hover {
+    color: red;
+  }
+
+  
+
+  
