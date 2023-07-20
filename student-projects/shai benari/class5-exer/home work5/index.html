@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stayl.css">
+    <title>Basic form</title>
+</head>
+
+<body>
+    <main>
+        <form>
+            <h1>Settings</h1>
+            <div>
+                <label for="email">Email</label>
+                <input id="email" type="email" />
+            </div>
+            <div>
+                <label for="phone">Phone</label>
+                <input id="phone" inputmode="numeric" />
+            </div>
+            <section>
+                <h2>Email notifications</h2>
+                <div>
+                    <input id="notify-mentions" type="checkbox" />
+                    <label for="notify-mentions">Mentions</label>
+                </div>
+                <div>
+                    <input id="notify-mentions" type="checkbox" />
+                    <label for="notify-mentions">Direct messages</label>
+                </div>
+                <div>
+                    <input id="notify-mentions" type="checkbox" />
+                    <label for="notify-mentions">Promotions and marketing</label>
+                </div>
+            </section>
+            <div>
+                <label>Who can see me?</label>
+                <select>
+                    <option>No one</option>
+                    <option>Friends</option>
+                    <option>Friends of friends</option>
+                    <option>Everyone</option>
+                </select>
+            </div>
+            <div>
+                <button>Apply</button>
+                <button>Reset</button>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>
