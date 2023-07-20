@@ -38,10 +38,11 @@ h1 {
 
 a {
   font-weight: 600;
-}
 
-a:visited {
-  color: aliceblue
+  &:visited {
+    color: aliceblue
+  }
+
 }
 
 .rounded {
@@ -61,6 +62,7 @@ a:visited {
 .about {
   padding: 1rem;
   text-align: start;
+
 }
 
 .textonphoto {
@@ -70,5 +72,5 @@ a:visited {
   font-size: relative;
   color: aliceblue;
   position: relative;
-  left: .5rem;
+  left: 16px;
 }
