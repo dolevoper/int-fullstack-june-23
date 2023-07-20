@@ -1,0 +1,93 @@
+* , ::after , ::before {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 40px 0px 30px 80px;
+    background-color: rgb(236, 255, 203);
+    font-family: 'Courier New', Courier, monospace;
+}
+main {
+    padding: 120px 0px 200px 50px;
+    padding-left: 50px;
+    padding-top: 100px;
+    background-image: url(flower.jpg); 
+    background-size:100%;
+}
+
+
+li {
+    display: inline;
+    padding: 12px;
+    border: 5px solid lightgreen;
+    text-align: center;
+    display: inline;
+    border-radius: 15px;
+    margin-left: -16px;
+    background-color:white;
+    color: rgb(255, 155, 205);
+}
+
+li:hover {
+    padding: 18px;
+    transition: all 0.3s ease-in-out;
+}
+
+span {
+    display: inline-block;
+    margin-left: 85px;
+    margin-top: -38px;
+}
+
+form {
+    font-size: large;
+    line-height: 40px;
+    font-weight:700;
+    letter-spacing: 0.5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1 , div , span , h3 {
+    color: rgb(255, 155, 205);
+}
+
+input {
+    margin-left: 10px;
+    border: 2px solid rgb(255, 155, 205);
+}
+
+input[type=checkbox] {
+    visibility: hidden;
+}
+
+.geekmark {
+    position: absolute;
+    margin: 9px 0px 0px 3px;
+    height: 17px;
+    width: 17px;
+    border: rgb(255, 155, 205) solid 2px;
+    border-radius: 3px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.geekmark:hover , input:hover {
+    padding: 2px;
+    transition: all 0.01s ease-in-out;
+}
+
+.geekmark:active , input:active {
+    padding: 2px;
+    border: rgb(255, 155, 205) solid 3px;
+}
+
+input:checked ~ .geekmark:after {
+    background: pink;
+}
+
+
+ 
+
+
+
