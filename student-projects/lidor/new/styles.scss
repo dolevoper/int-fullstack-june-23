@@ -1,0 +1,47 @@
+/* SASS - syntactically awesome stylesheets */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    /* width: min(65ch, 100% - 3rem); */
+    width: calc(100% - 3rem);
+    max-width: 65ch;
+    margin-inline: auto;
+}
+
+.breadcrumbs {
+    list-style: none;
+    padding: 0;
+    margin-inline: auto;
+    width: fit-content;
+    border: 2px solid black;
+}
+ .breadcrumbs>li {
+    display: inline;
+    
+    
+} 
+.topic-menu {
+    visibility: hidden;
+   
+
+    .topic-crumb:hover & {
+        visibility: visible;
+    }
+}

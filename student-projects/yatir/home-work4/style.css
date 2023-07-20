@@ -1,0 +1,99 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+body{
+    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url(felix-lam-J7fxkhtOqt0-unsplash.jpg);
+    background-size: 200%;
+
+   
+    min-width: 200px;
+    max-width: 800px;
+    padding: 10px;
+}
+
+
+
+nav{
+    display: inline-block;
+
+    background: hsl(0deg 0% 0% / 0.2);
+    border-radius: 7%;
+}
+
+.start ::marker{
+    appearance: none;
+    
+}
+
+ul .breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    
+}
+
+ul .breadcrumb li {
+    display: inline;
+    font-size: 18rem;
+}
+
+ul .breadcrumb li+li :before {
+    padding: 8px;
+    color: black;
+    content: "/";
+}
+
+ul .breadcrumb li a {
+    color: white;
+    text-decoration: none;
+}
+
+ul .breadcrumb a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+h1{
+    text-align: center;
+    width: fit-content;
+    margin-inline: auto;
+}
+
+p{
+    margin: 8px;
+    color: wheat;
+    box-shadow: 2PX 2PX 5PX rgba(0, 0, 0, 0.5);
+    border: 2ch;
+    border-radius: 2%;
+    font-style: italic; 
+    text-shadow: 2px 2px 5px black;
+
+}
+ button{
+    float: right
+ }
+
+ button:hover{
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+ }
+
+ summary{
+    text-shadow: 2px 2px 5px rgb(247, 245, 245);
+
+ }

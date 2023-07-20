@@ -1,0 +1,87 @@
+
+/* ------------------------------------------------------------ */
+/* Main Defaults */
+
+/* set main width, bg, font */
+body {
+    width: 100%;
+    background: url("../assets/global/background.jpg");
+    font-family: Arial;
+    font-size: 0.75em;
+    color: white;
+}
+
+/* Reset all link elements */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ------------------------------------------------------------ */
+/* Main stylings */
+
+/* center a parent elements to background's limits */
+.main-bg-wrapper {
+    width: 910px;
+    background: url("../assets/global/main-bg.jpg") repeat-y center top ;
+    margin: 0 auto;
+}
+
+.main-container {
+    width: 89%;
+    margin: 0 auto;
+    /* Prevent collapsing margins with edge margins */
+    overflow: auto; 
+}
+
+/* ------------------------------------------------------------ */
+/* Main Elements */
+
+/* Main Login Navigation */
+.main-nav {
+    background-color: black;
+    border: solid 2px #382418;
+
+    margin: 16px 8px;
+    margin-bottom: 0;
+    padding: 6px 12px;
+
+    text-align: right;
+}
+
+/* Main Header */
+.main-header {
+    text-align: center;
+}
+
+/* Main Content */
+/* .main-content {
+    background-color: red;
+} */
+
+/* Main Footer */
+.main-footer {
+    font-size: 0.75em; 
+    margin-top: 32px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.hire-me {
+    display: inline-block;
+    margin: 16px auto 24px auto;
+    font-weight: bold; 
+    color: gold; 
+    font-size: 2em;
+}
+
+/* ------------------------------------------------------------ */
+/* Misc Elements */
+
+.green-link {
+    color: #90c040;
+}
+
+.blue-link {
+    color: aquamarine;
+}

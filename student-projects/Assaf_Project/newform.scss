@@ -1,0 +1,245 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+  */
+* {
+    margin: 0;
+}
+
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*
+    5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+    6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+    7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/*
+    8. Create a root stacking context
+  */
+#root,
+#__next {
+    isolation: isolate;
+}
+
+/* mine */
+
+a {
+    text-decoration: none;
+
+    >:visited {
+        color: inherit;
+    }
+}
+
+.center {
+    margin-top: 5vh;
+    padding: .5rem;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.lefty div {
+    overflow-wrap: break-word;
+    text-align: left;
+}
+
+.boundery {
+    overflow-wrap: break-word;
+    overflow-x: auto;
+}
+
+.card {
+    border-radius: 10%;
+    border: 2px solid black;
+    box-shadow: 6px 6px 6px 2px rgba(0, 0, 0, 0.3);
+    background-image: url(https://images.unsplash.com/photo-1508020268086-b96cf4f4bb2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80);
+    background-size: 200%;
+    min-width: 50ch;
+    width: calc(100% - 38vw);
+    max-width: 60ch;
+}
+
+.bolder {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.toleft {
+    float: left;
+    margin-left: 15%;
+}
+
+.toright {
+    float: right;
+    margin-right: 15%;
+}
+
+.buttonstyle {
+    padding: 5px 14px;
+    background-color: #5e5e5e8f;
+    color: #fff;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #00000079;
+        transition: all 0.3s;
+    }
+
+    &:active {
+        background-color: #000000b4;
+        border: 1px solid rgba(255, 255, 255, 0.612);
+        box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 0.39) inset;
+        transition: all 0.2s;
+    }
+}
+
+.gap {
+    padding-bottom: .5rem;
+}
+
+.breakgap {
+    display: block;
+}
+
+.pbar {
+    display: block;
+    width: 50%;
+    background-color: white;
+    margin: 1rem auto;
+    border: 1px solid black;
+    border-radius: 10px;
+
+
+}
+
+.thirty3rd {
+    color: white;
+    display: grid;
+    background-color: rgb(0, 125, 39);
+    position: static;
+    border-radius: 10px 0 0 10px;
+    width: 33%;
+}
+
+.sixty6th {
+    color: white;
+    display: grid;
+    background-color: rgb(0, 125, 39);
+    position: static;
+    border-radius: 10px 0 0 10px;
+    width: 66%;
+}
+
+/* toggle */
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-bottom: 1vh;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #970000;
+    -webkit-transition: .4s;
+    transition: .4s;
+
+    &:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+}
+
+input:checked+.slider {
+    background-color: rgb(0, 125, 39);
+
+    &:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.295);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+
+    &:before {
+        border-radius: 50%;
+    }
+}
