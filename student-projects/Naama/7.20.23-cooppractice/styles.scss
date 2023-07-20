@@ -1,0 +1,11 @@
+.modal-wrapper {
+    content-visibility: hidden;
+}
+
+input:checked {
+
+    ~.modal-wrapper {
+        color: red;
+        content-visibility: visible;
+    }
+}
