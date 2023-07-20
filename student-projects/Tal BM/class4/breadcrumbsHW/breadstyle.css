@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font: 20px  sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+  
+  .breadcrumb li{
+    float:right;
+    padding:5px;
+    border-radius:50px;
+    position:relative;
+    margin-left:-40px;
+    margin-top:3px;
+    background:rgb(255, 243, 196);
+    transition:all 0.2s ease-in-out;
+    list-style: none;
+  }
+  
+  .breadcrumb li a{
+    
+    overflow:hidden;
+    border-radius:50px;
+    transition:all 0.3s ease-in-out;
+    text-decoration:none;
+    width:120px;
+    height:50px;
+    color:rgb(255, 61, 61);
+    background:rgb(255, 216, 139);
+    text-align:center;
+    display:block;
+    line-height:50px;
+    padding-left:52px;
+    padding-right:33.33px;
+    
+  }
+  .breadcrumb li a .icon{
+    display:inline-block;
+  }
+
+  .breadcrumb li a .text{
+    display:none;
+    opacity:0;
+  }
+
+  .breadcrumb li a:hover{
+    width:180px;
+    background:#ffccff;
+  }
+  
+  .breadcrumb li a:hover .text{
+    display:inline-block;
+    opacity:1;
+  }
+  
+  .breadcrumb li:last-child a{
+    padding:0;
+  }
+  .breadcrumb li:last-child:hover{
+    padding:3px;
+    margin-top:0;
+  }
+  
+  .breadcrumb li:last-child:hover a{
+    width:130px;
+    height:60px;
+    line-height:60px;
+  }
+  
+  .icon {
+    opacity: 1;
+    margin-top: 5px;
+  }

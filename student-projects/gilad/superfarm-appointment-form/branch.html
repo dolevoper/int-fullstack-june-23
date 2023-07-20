@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>קליק פארם | סופר-פארם</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <a class="main-header__logo" href="#">
+            <img class="main-header__logo-image" src="assets/clickpharm-logo.svg" alt="click-pharm logo">
+        </a>
+        <h1 class="main-header__title">זימון תור לבית המרקחת</h1>
+        <button class="main-header__button-back" title="חזור אחורה">
+            <a class="main-header__button-back--content" href="123"></a>
+        </button>
+    </header>
+
+    <main class="main-form">
+        <!-- Main Form Navigation Indicator  -->
+        <menu class="progress-indicator">
+            <li class="progress-indicator__bar-wrapper">
+                <progress class="progress-indicator__bar" max="3" value="2"></progress>
+            </li>
+            <li class="progress-indicator__item">
+                <p class="progress-indicator__item--index completed ">1</p>
+                <p class="progress-indicator__item--title">סניף</p>
+            </li>
+            <li class="progress-indicator__item">
+                <p class="progress-indicator__item--index completed">2</p>
+                <p class="progress-indicator__item--title">יום ושעה</p>
+            </li>
+            <li class="progress-indicator__item">
+                <p class="progress-indicator__item--index ">3</p>
+                <p class="progress-indicator__item--title">פרטים אישיים</p>
+            </li>
+            <li class="progress-indicator__item">
+                <p class="progress-indicator__item--index ">4</p>
+                <p class="progress-indicator__item--title">סיום</p>
+            </li>
+
+        </menu>
+
+        <!-- Branch Selection Form -->
+
+
+        <section class="main-form">
+            <header class="main-form__header">
+                <h2 class="main-form__header__title">איזה סניף?</h2>
+                <div class="main-form__header__title-icon"></div>
+                <input class="main-form__header__searchbar"type="search" name="" id="">
+            </header>
+
+            <h3 class="main-form__title">רשימת סניפים</h3>
+            <input class="main-form__prescription-checkbox"type="checkbox" name="" id="">
+            <ul class="main-form__result-list">
+                <li class="main-form__result-list__item">
+                    <article class="main-form__result-list__item__branch">
+                        <h4 class="main-form__result-list__item__branch-name">רמת גן - קניון איילון</h4>
+                        <section class="main-form__result-list__item__branch-info">
+                            <p class="main-form__result-list__item__branch-info__address">
+                                <span>כתובת:</span>
+                                אבא הלל 301 ,קניון אילון
+                            </p>
+                            <p class="main-form__result-list__item__branch-info__phonenumber">
+                                <span>טלפון:</span>
+                                0778880100
+                            </p>
+                            <ul class="main-form__result-list__item__branch-info__branches-list">
+                                <li class="main-form__result-list__item__branch-info__branches-list__item"><img src="assets/branch-icons/clalit.png" alt=""></li>
+                                <li class="main-form__result-list__item__branch-info__branches-list__item"><img src="assets/branch-icons/leumit.png" alt=""></li>
+                                <li class="main-form__result-list__item__branch-info__branches-list__item"><img src="assets/branch-icons/maccabi.png" alt=""></li>
+                                <li class="main-form__result-list__item__branch-info__branches-list__item"><img src="assets/branch-icons/meuhedet.png" alt=""></li>
+                            </ul>
+                        </section>
+                        <section class="main-form__result-list__item__branch-open-hours">
+                            <p class="main-form__result-list__item__branch-open-hours__title">שעות פתיחה:</p>
+                            <table class="main-form__result-list__item__branch-open-hours__table">
+                                <tr class="main-form__result-list__item__branch-open-hours__table__row">
+                                    <th class="main-form__result-list__item__branch-open-hours__table__row__days">א' - ה'</th>
+                                    <td class="main-form__result-list__item__branch-open-hours__table__hours">08:00 - 23:00</td>
+                                </tr>
+                                <tr class="main-form__result-list__item__branch-open-hours__table__row">
+                                    <th class="main-form__result-list__item__branch-open-hours__table__row__days">ו'</th>
+                                    <td class="main-form__result-list__item__branch-open-hours__table__hours">08:00 - 17:00</td>
+                                </tr>
+                                <tr class="main-form__result-list__item__branch-open-hours__table__row">
+                                    <th class="main-form__result-list__item__branch-open-hours__table__row__days">שבת</th>
+                                    <td class="main-form__result-list__item__branch-open-hours__table__hours">חצי שעה לאחר צאת השבת - 00:00</td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section class="main-form__result-list__item__branch__select-branch">
+                            <button class="main-form__result-list__item__branch__select-branch__button">בחירת סניף</button>
+                        </section>
+                    </article>
+                </li>
+            </ul>
+        </section>
+
+        </article>
+
+    </main>
+
+</body>
+
+</html>

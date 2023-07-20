@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/styles.css" />
+
+</head>
+<body>
+
+    <div id="tirgool">
+
+        <div class="flex-container-steps">
+            <div><span class="num bg1">1</span></div>
+            <div class="line"><span class="ln1"></span></div>
+            <div><span class="num bg2">2</span></div>
+            <div class="line"><span class="ln2"></span></div>
+            <div><span class="num bg3">3</span></div>
+        </div>
+
+        <form action="">
+
+            <section class="mySec" id="step_1">
+                <fieldset>
+
+                    <legend>Personal Information</legend>
+
+                    <label>
+                        <span>First Name</span>
+                        <input type="text" placeholder="Enter First Name" class="bgPerson">
+                    </label>
+
+                    <label>
+                        <span>Last Name</span>
+                        <input type="text" placeholder="Enter Last Name" class="bgPerson">
+                    </label>
+
+                    <label>
+                        <span>Email</span>
+                        <input type="text"  placeholder="Enter Email" class="bgEmail">
+                    </label>
+
+                    <label>
+                        <span>Phone</span>
+                        <input type="text" placeholder="Enter Phone" class="bgPhone">
+                    </label>
+
+                    <div class="radios">
+                        <label>
+                            <input type="radio" name="myRadioStep1">
+                            <span class="rad">Male</span>
+                        </label>
+
+                        &nbsp;&nbsp;
+
+                        <label>
+                            <input type="radio" name="myRadioStep1">
+                            <span class="rad">Female</span>
+                        </label>
+                    </div>
+                    
+                    <div class="btns">
+                        <a href="javascript:void(0)" onclick="curPage(2)">Next &rsaquo;</a>
+                    </div>
+
+                </fieldset>
+            </section>
+
+            <section class="mySec" id="step_2">
+                <fieldset>
+
+                    <legend>Address</legend>
+
+                    <label>
+                        <span>Country</span>
+                        <select>
+                            <option>Israel</option>
+                            <option>Gordan</option>
+                            <option>Siria</option>
+                            <option>Lebanon</option>
+                            <option>Egept</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        <span>City</span>
+                        <input type="text" placeholder="Enter City" class="bgCity">
+                    </label>
+
+                    <label>
+                        <span>Street</span>
+                        <input type="text" placeholder="Enter Street" class="bgStreet">
+                    </label>
+
+                    <label>
+                        <span>Number</span>
+                        <input type="text" placeholder="Enter Number">
+                    </label>
+
+
+                    <label>
+                        <span>Post Code:</span>
+                        <input type="text" placeholder="Enter Post Code" class="bgPostcode">
+                    </label>
+
+                    <div class="btns">
+                        <a href="javascript:void(0)" onclick="curPage(1)">&lsaquo; Prev</a>
+                        <a href="javascript:void(0)" onclick="curPage(3)">Next &rsaquo;</a>
+                    </div>
+
+                </fieldset>
+            </section>
+
+            <section class="mySec" id="step_3">
+
+                <fieldset>
+
+                    <legend>Credit Card</legend>
+
+                    <div class="radios">
+                        <label>
+                            <input type="radio" name="myRadioStep3">
+                            <span class="rad"><img src="images/visa.png" alt="" title="">VISA</span>
+                        </label>
+
+                        &nbsp;&nbsp;
+
+                        <label>
+                            <input type="radio" name="myRadioStep3">
+                            <span class="rad"><img src="images/amex.png" alt="" title="">AmEx</span>
+                        </label>
+
+                        &nbsp;&nbsp;
+
+                        <label>
+                            <input type="radio" name="myRadioStep3">
+                            <span class="rad"><img src="images/mastercard.png" alt="" title="">mastercard</span>
+                        </label>
+                    </div>
+
+                    <label>
+                        <span>Card Number</span>
+                        <input type="text" placeholder="Enter Card Number">
+                    </label>
+
+                    <label>
+                        <span>Security Code</span>
+                        <input type="text" placeholder="Enter Security Code">
+                    </label>
+
+                    <label>
+                        <span>Credit Card Validity</span>
+                        <input type="text" placeholder="Enter Credit Card Validity">
+                    </label>
+
+                    <div class="btns">
+                        <a href="javascript:void(0)" onclick="curPage(2)">&lsaquo; Prev</a>
+                        <input type="reset">
+                        <input type="submit" value="Submit">
+                    </div>
+
+                </fieldset>
+
+            </section>
+
+        </form>
+
+    </div>
+</body>
+</html>
