@@ -1,0 +1,754 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#tirgool {
+    max-width: 1920px;
+    display: block;
+    direction: ltr;
+    font-size: 1vw;
+    color: #000000;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto 2% auto;
+    font-family: arial;
+    border: 0px solid green;
+}
+
+#tirgool header {
+    width: 100%;
+    display: inline-block;
+    background: #ffffff;
+    box-sizing: border-box;
+    padding: 0.5% 0.5% 0.5% 0.5%;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+#tirgool .flex-container-left {
+    display: flex;
+    align-items: center;
+    float: left;
+    width: 17%;
+    border: 0px solid green;
+}
+  
+#tirgool .flex-container-left > div {
+    text-align: left;
+    border: 0px solid green;
+}
+
+#tirgool .flex-container-left > div img.logo {
+    width: 80%;
+    vertical-align: middle;
+}
+
+#tirgool .flex-container-left > div.L_side {
+    width: 20%;
+    margin: 0 3% 0 0;
+    text-align: center;
+}
+
+#tirgool .flex-container-left > div.R_side {
+    width: 80%;
+}
+
+#tirgool .flex-container-left > div .searchWrap {
+    width: 100%;
+    background: #fafafa;
+    border-radius: 20px;
+    padding: 3% 5% 3% 5%;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 0px solid green;
+}
+
+#tirgool .flex-container-left > div .searchWrap img {
+    width: 11%;
+    margin: 0 3% 0 0;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+#tirgool .flex-container-left > div .searchWrap input {
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: 0.8em;
+    color: #292929;
+    display: inline-block;
+    background: transparent;
+    vertical-align: middle;
+}
+
+#tirgool .flex-container-right {
+    display: flex;
+    justify-content: space-between;
+    width: 18%;
+    float: right;
+    align-items: center;
+    border: 0px solid green;
+}
+  
+#tirgool .flex-container-right > div {
+    width: 22%;
+    text-align: center;
+    box-sizing: border-box;
+    border: 0px solid green;
+}
+
+#tirgool .flex-container-right > div a {
+    width: 100%;
+    color: gray;
+    font-size: 0.7em;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 0px solid red;
+}
+
+#tirgool .flex-container-right > div a:hover {
+    color: lightgray;
+}
+
+#tirgool .flex-container-right > div img.write {
+    width: 34%;
+    margin: 0 5% 0 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#tirgool .flex-container-right > div span {
+    vertical-align: middle;
+}
+
+#tirgool .flex-container-right > div.S_2 a {
+    color: #ffffff;
+    font-size: 0.8em;
+    text-align: center;
+    padding: 6% 11% 6% 11%;
+    border-radius: 20px;
+    transition: 0.3s all;
+    background: rgba(26, 137, 23, 0.7);
+}
+
+#tirgool .flex-container-right > div.S_2:hover {
+    border-radius: 20px;
+    background: rgba(26, 137, 23, 1);
+}
+
+#tirgool .flex-container-right > div.S_3 {
+    display: block;
+    line-height: 100%;
+    text-align: center;
+    padding: 5% 0 5% 0;
+}
+
+#tirgool .flex-container-right > div.S_4 {
+    position: relative;
+}
+
+#tirgool .flex-container-right > div.S_4:hover .profilePopup {
+    display: block;
+}
+
+/********** Popup Profile ************/
+#tirgool .flex-container-right > div.S_4 .profilePopup {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 15%;
+    z-index: 1;
+    width: 380%;
+    border-radius: 10px;
+    padding: 45% 0 30% 0;
+    background: #ffffff;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px gray;
+    border: 0px solid green;
+}
+
+#tirgool .flex-container-right > div.S_4 .profilePopup h3 {
+    font-size: 0.9em;
+}
+
+#tirgool .flex-container-right > div.S_4 .profilePopup a.signup {
+    width: 80%;
+    font-size: 0.8em;
+    color: #ffffff;
+    margin: 6% 0 0 0;
+    text-align: center;
+    background: green;
+    padding: 2% 3% 2% 3%;
+    border-radius: 10px;
+    background: rgba(26, 137, 23, 0.7);
+    border: 1px solid rgba(26, 137, 23, 0.7);
+}
+
+#tirgool .flex-container-right > div.S_4 .profilePopup a.signup:hover {
+    background: rgba(26, 137, 23, 1);
+}
+
+#tirgool .flex-container-right > div.S_4 .profilePopup a.signin {
+    width: 80%;
+    font-size: 0.8em;
+    color: #000000;
+    margin: 6% 0 0 0;
+    text-align: center;
+    background: ffffff;
+    padding: 2% 3% 2% 3%;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+#tirgool .flex-container-right > div.S_4 .profilePopup a.signin:hover {
+    border: 1px solid #000000;
+}
+
+#tirgool .flex-container-right > div.S_4 .profilePopup ul {
+    list-style-type: none;
+    width: 100%;
+    margin: 10% 0 0 0;
+    padding: 5% 0 0 0;
+    border-top: 1px solid lightgray;
+}
+
+#tirgool .flex-container-right > div.S_4 .profilePopup ul li {
+    line-height: 120%;
+    padding: 2% 4% 2% 4%;
+    border-top: 0px solid orange;
+}
+
+#tirgool .flex-container-right > div.S_4 .profilePopup ul li a {
+    font-size: 0.7em;
+    text-align: left;
+}
+
+#tirgool .flex-container-right > div.S_4 .profilePopup ul li a:hover {
+    color: #000000;
+}
+
+#tirgool .flex-container-right > div.S_4 img {
+    width: 50%;
+    border-radius: 50%;
+    vertical-align: middle;
+    box-shadow: 1px 1px 3px gray;
+}
+
+#tirgool .flex-container-right > div.S_4 span {
+    font-size: 2em;
+    line-height: 100%;
+    margin: 0 0 0 20%;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    transform: rotate(90deg);
+}
+
+#tirgool .fs {
+    width: 37%;
+    margin: 0 auto;
+    text-align: left;
+    display: inline-block;
+    border: 0px solid green;
+}
+
+#tirgool .fs h1 {
+    font-size: 1.85em;
+    line-height: 130%;
+    font-weight: 800;
+}
+
+#tirgool .fs .flex-container-fs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 4% 0 0 0;
+    line-height: 100%;
+    border: 0px solid green;
+}
+
+#tirgool .fs .flex-container-fs > div {
+    border: 0px solid green;
+}
+
+#tirgool .fs .flex-container-fs > div.L_side {
+    width: 6%;
+    border: 0px solid green;
+}
+
+#tirgool .fs .flex-container-fs > div.L_side img {
+    width: 100%;
+}
+
+#tirgool .fs .flex-container-fs > div.R_side {
+    width: 94%;
+    border: 0px solid green;
+}
+
+#tirgool .fs .flex-container-fs > div.R_side p {
+    font-size: 0.8em;
+    padding: 0 0 0 2%;
+    line-height: 130%;
+}
+
+#tirgool .fs .flex-container-fs > div.R_side p a.cr {
+    color: #000000;
+    text-decoration: none;
+}
+
+#tirgool .fs .flex-container-fs > div.R_side p a.cr:hover {
+    text-decoration: underline;
+}
+
+#tirgool .fs .flex-container-fs > div.R_side p span.po {
+    padding: 0 1% 0 1%;
+}
+
+#tirgool .fs .flex-container-fs > div.R_side p a.fo {
+    color: green;
+    text-decoration: none;
+}
+
+#tirgool .fs .flex-container-fs > div.R_side span.cram {
+    display: block;
+    font-size: 0.8em;
+}
+
+#tirgool .fs .flex-container-icons {
+    display: flex;
+    align-items: stretch;
+    margin: 4% 0 0 0;
+    padding: 1.5% 0 1.5% 0;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+  
+#tirgool .fs .flex-container-icons > div {
+    width: 9%;
+    line-height: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    border: 0px solid red;
+}
+
+#tirgool .fs .flex-container-icons > div a {
+    position: relative;
+    display: inline-block;
+    border: 0px solid green;
+}
+
+#tirgool .fs .flex-container-icons > div a:hover .tooltip {
+    display: block;
+}
+
+#tirgool .fs .flex-container-icons > div .tooltip {
+    display: none;
+    position: absolute;
+    top: -190%;
+    left: -70%;
+    z-index: 1;
+    font-size: 0.7em;
+    border-radius: 5px;
+    line-height: 100%;
+    color: #ffffff;
+    background: #000000;
+    box-sizing: border-box;
+    padding: 50% 50% 50% 50%;
+    border: 0px solid green;
+}
+
+#tirgool .fs .flex-container-icons > div .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+
+#tirgool .fs .flex-container-icons > div img {
+    width: 100%;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border: 0px solid orange;
+}
+
+#tirgool .fs .flex-container-icons > div span {
+    margin: 0 0 0 5%;
+    font-size: 0.8em;
+    vertical-align: middle;
+}
+
+#tirgool .fs .flex-container-icons > div.empty {
+    width: 40%;
+}
+
+#tirgool .fs .cont {
+    color: #292929;
+    font-size: 1.05em;
+    font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+#tirgool .fs .cont .par {
+    font-size: 1em;
+    margin: 2% 0 0 0;
+    line-height: 140%;
+    border: 0px solid green;
+}
+
+#tirgool .fs .cont .par span.bl {
+    font-weight: bold;
+}
+
+#tirgool .fs .cont .par a {
+    color: #292929;
+}
+
+#tirgool .fs .cont img {
+    width: 100%;
+    display: block;
+    margin: 5% auto 0 auto;
+}
+
+#tirgool .fs .cont img.imgSml {
+    width: 80%;
+}
+
+#tirgool .fs .cont h2 {
+    font-weight: 800;
+    font-size: 1.2em;
+    margin: 5% 0 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/**************** FAQ's ****************************/
+
+#tirgool .fs .cont .wrapFAQs {
+    margin: 5% 0 0 0;
+    direction: rtl;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 0px solid green;
+}
+
+#tirgool .fs .cont .wrapFAQs details {
+    text-align: left;
+    margin: 0 auto 2% auto;
+    border-radius: 10px 10px 0 0;
+    background: rgba(95, 160, 182, 0.1);
+    border: 0px solid green;
+}
+
+#tirgool .fs .cont .wrapFAQs details summary {
+    display: flex;
+    color: #00d7fd;
+    cursor: pointer;
+    list-style: none;
+    line-height: 100%;
+    background: #030169;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 2% 2% 2% 2%;
+    border-radius: 10px 10px 10px 10px;
+    justify-content: space-between;
+}
+
+#tirgool .fs .cont .wrapFAQs details summary::-webkit-details-marker {
+    display: none;
+}
+
+#tirgool .fs .cont .wrapFAQs details summary:after {
+    content: "\203A";
+    color: gray;
+    font-size: 1.5em;
+    transform: rotate(-90deg);
+}
+
+#tirgool .fs .cont .wrapFAQs details[open] summary {
+    border-bottom: 1px solid #aaaaaa;
+}
+
+#tirgool .fs .cont .wrapFAQs details[open] summary:after {
+    content: "\203A";
+    transform: rotate(90deg);
+}
+
+#tirgool .fs .cont .wrapFAQs details div {
+    width: 95%;
+    margin: 0 auto;
+    font-size: 1em;
+    color: #000000;
+    line-height: 150%;
+    text-align: right;
+    box-sizing: border-box;
+    background: #f9fbfd;
+    box-shadow: -5px 0 5px -5px lightgray, 5px 0 5px -5px lightgray;
+}
+
+#tirgool .fs .cont .wrapFAQs details div ul {
+    list-style-type: none;
+    /*border-radius: 0 0 5px 5px;*/
+    border: 0px solid green;
+}
+
+#tirgool .fs .cont .wrapFAQs details div ul li {
+    position: relative;
+    padding: 0.5% 10% 0.5% 0;
+    transition: 0.3s all;
+
+    background-position: 95% 20%;
+    background-repeat: no-repeat;
+    background-size: 3.5%;
+
+    border-bottom: 1px solid lightgray;
+}
+
+#tirgool .fs .cont .wrapFAQs details div ul li:hover {
+    background-color: lightgray;
+}
+
+#tirgool .fs .cont .wrapFAQs details div ul li::before {
+    position: absolute;
+    content: "\2022";
+    top: 10%;
+    right: 0.2em;
+    color: #4caf50;
+    font-size: 2em;
+    border: 0px solid yellow;
+}
+
+#tirgool .fs .cont .wrapFAQs details div ul li a {
+    width: 100%;
+    color:#030169;
+    line-height: 100%;
+    font-size: 0.85em;
+    transition: 0.3s all;
+    display: inline-block;
+    text-decoration: none;
+}
+
+#tirgool .fs .cont .wrapFAQs details div ul li a:hover {
+    color: #000d6b;
+    font-weight: bold;
+}
+
+#tirgool .fs .cont details div ul li.bg1 {
+    background-image: url(../images/icon_1.png);
+}
+
+#tirgool .fs .cont .wrapFAQs details div ul li.bg2 {
+    background-image: url(../images/icon_2.png);
+}
+
+#tirgool .fs .cont .wrapFAQs details div ul li.bg3 {
+    background-image: url(../images/icon_3.png);
+}
+
+#tirgool .fs .cont .wrapFAQs details div ul li.bg4 {
+    background-image: url(../images/icon_4.png);
+}
+
+#tirgool .fs .cont .wrapFAQs details div ul li.bg5 {
+    background-image: url(../images/icon_5.png);
+}
+
+#tirgool .fs .cont .wrapFAQs details div ul li.bg6 {
+    background-image: url(../images/icon_6.png);
+}
+
+#tirgool .fs .cont .flex-container-links {
+    align-items: center;
+    display: flex;
+    margin: 5% 0 0 0;
+    border: 0px solid green;
+}
+
+#tirgool .fs .cont .flex-container-links > div {
+    flex-grow: 1;
+    flex-basis: auto;
+    line-height: 140%;
+    margin: 2% 2% 2% 2%;
+    border-radius: 15px;
+    transition: 0.3s all;
+    background: #f2f2f2;
+    
+    padding: 0.3% 1% 0.3% 1%;
+}
+
+#tirgool .fs .cont .flex-container-links > div:hover {
+    background: #e6e6e6;
+}
+
+#tirgool .fs .cont .flex-container-links > div a {
+    width: 100%;
+    color: #292929;
+    font-size: 0.7em;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    #tirgool header {
+        padding: 3% 0.5% 3% 0.5%;
+    }
+
+    #tirgool .flex-container-left > div.R_side {
+        display: none;
+    }
+
+    #tirgool .flex-container-right > div.S_1 {
+        display: none;
+    }
+
+    #tirgool .flex-container-right > div.S_2 a {
+        font-size: 3em;
+    }
+
+    #tirgool .flex-container-right > div.S_3 {
+        display: none;
+    }
+
+    #tirgool .flex-container-right {
+        width: 40%;
+    }
+
+    #tirgool .flex-container-right > div {
+        width: 43%;
+    }
+
+    #tirgool .flex-container-right > div.S_2 a {
+        font-size: 3.5em;
+    }
+
+    #tirgool .flex-container-right > div.S_4 span {
+        font-size: 10em;
+    }
+
+    #tirgool .fs .flex-container-icons > div .tooltip {
+        font-size: 3em;
+    }
+
+    /************* Profile Popup ****************/
+
+    #tirgool .flex-container-right > div.S_4 .profilePopup {
+        width: 430%;
+        padding: 35% 0 20% 0;
+    }
+
+    #tirgool .flex-container-right > div.S_4 .profilePopup h3 {
+        font-size: 4.5em;
+    }
+
+    #tirgool .flex-container-right > div.S_4 .profilePopup a.signup {
+        font-size: 4em;
+    }
+
+    #tirgool .flex-container-right > div.S_4 .profilePopup a.signin {
+        font-size: 4em;
+    }
+
+    #tirgool .flex-container-right > div.S_4 .profilePopup ul li {
+        padding: 4% 4% 4% 4%;
+    }
+
+    #tirgool .flex-container-right > div.S_4 .profilePopup ul li a {
+        font-size: 3.5em;
+    }
+
+    #tirgool .flex-container-left > div.L_side {
+        width: 80%;
+    }
+
+    #tirgool .fs {
+        width: 90%;
+        margin: 5% auto 0 auto;
+    }
+
+    #tirgool .fs h1 {
+        font-size: 7.5em;
+    }
+
+    #tirgool .fs .flex-container-icons > div {
+        width: 12%;
+    }
+
+    #tirgool .fs .flex-container-fs > div.L_side {
+        width: 15%;
+    }
+
+    #tirgool .fs .flex-container-fs > div.R_side {
+        width: 85%;
+    }
+
+    #tirgool .fs .flex-container-fs > div.R_side p {
+        font-size: 4em;
+        line-height: 120%;
+    }
+
+    #tirgool .fs .flex-container-icons > div span {
+        font-size: 3em;
+    }
+
+    #tirgool .fs .cont .par {
+        font-size: 4em;
+        margin: 5% 0 0 0;
+    }
+
+    #tirgool .fs .cont h2 {
+        font-size: 4.5em;
+    }
+
+    #tirgool .fs .cont img.imgSml {
+        width: 100%;
+    }
+
+    #tirgool .fs .cont .flex-container-links {
+        flex-wrap: wrap;
+    }
+
+    #tirgool .fs .cont .flex-container-links > div {
+        flex-grow: inherit;
+        padding: 2% 4% 3% 4%;
+    }
+
+    #tirgool .fs .cont .flex-container-links > div a {
+        font-size: 3.9em;
+        line-height: 100%;
+    }
+
+    #tirgool .fs .cont .wrapFAQs details summary {
+        font-size: 4em;
+        padding: 3% 4% 3% 4%;
+    }
+
+    #tirgool .fs .cont .wrapFAQs details div ul li {
+        padding: 3% 13% 3% 0;
+        background-size: 5%;
+        background-position: 95% 25%;
+    }
+
+    #tirgool .fs .cont .wrapFAQs details div ul li::before {
+        top: 30%;
+        font-size: 6em;
+    }
+
+    #tirgool .fs .cont .wrapFAQs details div ul li a {
+        font-size: 3.5em;
+    }
+
+}
+
+@media screen and (min-width: 1920px) {
+    #tirgool {
+        font-size: 1.2em;
+    }
+}

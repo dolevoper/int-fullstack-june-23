@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link rel="stylesheet" href="dist/formstyle.css">
+</head>
+<body>
+    <header>
+        <ul class="breadcrumbs">
+            <li>Personal info</li>
+            <li>Payment</li>
+            <li>Confirmation</li>
+        </ul>
+    </header>
+    <main>
+        <form>
+            <h1>Personal info</h1>
+            <div>
+                <label for="name">Full name</label>
+                <input id="name" type="text"/>
+            </div>
+            <div>
+                <label for="phone">Phone number</label>
+                <input id="phone" type="numeric"/>
+            </div> 
+            <div>
+                <label for="email">Email</label>
+                <input id="email" type="email" />
+            </div>
+            <h3>Gender</h3>
+            <span>
+                <div>
+                    <a class="geekmark"></a>
+                    <input class="gender" id="gender" type="checkbox" /> 
+                    <label for="gender">Male</label>
+                </div>
+                <div>
+                    <a class="geekmark"></a>
+                    <input class="gender" id="gender" type="checkbox" />
+                    <label for="gender">Female</label>
+                </div>
+                <div>
+                    <a class="geekmark"></a>
+                    <input class="gender" id="gender" type="checkbox" />
+                    <label for="gender">Other</label>
+                </div>
+            </span>
+        </form>
+    </main>
+    
+</body>
+</html>
