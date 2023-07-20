@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #tirgool {
+            max-width: 1920px;
+            display: block;
+            direction: ltr;
+            font-size: 1vw;
+            color: #000000;
+            text-align: center;
+            box-sizing: border-box;
+            margin: 0 auto 2% auto;
+            font-family: arial;
+            border: 0px solid green;
+        }
+
+        .container {
+            position: relative;
+            width: 20em;
+            height: 5em;
+            display: inline-block;
+            border: 0px solid green;
+        }
+
+        .container span {
+            position: absolute;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            background: yellow;
+            border-radius: 2.5em 2.5em 2.5em 2.5em;
+            border: 1px solid red;
+        }
+
+        .container span:before {
+            content: "";
+            position: absolute;
+            top: 8%;
+            right: 5%;
+            bottom: 0;
+            width: 20%;
+            height: 80%;
+            background: red;
+            border-radius: 50%;
+            transition: 0.5s all;
+            background-image: radial-gradient(white 20%, green 60%);
+            border: 1px solid black;
+        }
+
+        .container input:checked ~ span:before {
+            right: 74%;
+        }
+
+
+        /***********************************************/
+
+
+        .myCont {
+            position: relative;
+            width: 10em;
+            height: 2em;
+            display: inline-block;
+            border: 0px solid green;
+        }
+
+        .myCont span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: cyan;
+            border-radius: 2.4em;
+            border: 0px solid green;
+        }
+
+        .myCont span::before {
+            content: "";
+            position: absolute;
+            top: 6%;
+            right: 2%;
+            width: 17%;
+            height: 85%;
+            border-radius: 50%;
+            transition: 2s all;
+            background-image: radial-gradient(black 20%, red 60%);
+            border: 0px solid orange;
+        }
+
+        .myCont input:checked ~ span::before {
+            right: 80%;
+            background-image: radial-gradient(orange 20%, black 60%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="tirgool">
+
+
+        <label class="myCont">
+            <input type="radio" name="meir">
+            <span></span>
+        </label>
+
+        <br>
+        <br>
+        
+        <label class="myCont">
+            <input type="radio" name="meir">
+            <span></span>
+        </label>
+
+        <br>
+        <br>
+
+        <label class="myCont">
+            <input type="radio" name="meir">
+            <span></span>
+        </label>
+
+        <br>
+        <br>
+        <!---------------------------------->
+        <hr>
+        <br>
+        <br>
+        
+        <label class="container">
+            <input type="checkbox">
+            <span></span>
+        </label>
+        <br>
+        <br>
+        <label class="container">
+            <input type="checkbox" checked>
+            <span></span>
+        </label>
+
+    </div>
+</body>
+
+</html>
+<!--<input type="radio" name="meir">-->

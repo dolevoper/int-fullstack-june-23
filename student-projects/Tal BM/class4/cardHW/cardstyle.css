@@ -1,0 +1,23 @@
+
+img {
+    width: 100%;
+    border-top-left-radius: 3%;
+    border-top-right-radius: 3%;
+}
+
+.card {
+    box-shadow: 4px 8px 16px 4px rgb(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 2%;
+    margin-inline: 20%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 20px;
+}
+
+.card:hover {
+    box-shadow: 8px 16px 24px 8px rgba(0,0,0,0.2);
+}
+
+.container {
+    padding: 2px 16px;
+}
