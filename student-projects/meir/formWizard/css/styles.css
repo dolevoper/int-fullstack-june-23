@@ -1,0 +1,357 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#tirgool {
+    max-width: 1920px;
+    display: block;
+    direction: ltr;
+    font-size: 1vw;
+    color: #000000;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto 2% auto;
+    font-family: arial;
+    border: 0px solid green;
+}
+
+#tirgool img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#tirgool h1, #tirgool h2, #tirgool h3, #tirgool h4, #tirgool h5, #tirgool h6 {
+    font-weight: normal;
+    line-height: 100%;
+}
+
+#tirgool .flex-container-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+    margin: 2% auto 0 auto;
+    border: 0px solid green;
+}
+
+#tirgool .flex-container-steps > div {
+    width: 4.5%;
+    border: 0px solid orange;
+}
+
+#tirgool .flex-container-steps > div span.num {
+    width: 1.7em;
+    height: 1.7em;
+    font-size: 1em;
+    color: #ffffff;
+    line-height: 100%;
+    font-weight: bold;
+    text-align: center;
+    padding: 20% 0 0 0;
+    border-radius: 50%;
+    display: inline-block;
+    /*background: #10386c;*/
+    border: 0px solid green;
+}
+
+#tirgool .flex-container-steps > div span.bg1 {
+    background: #10386c;
+}
+
+#tirgool .flex-container-steps > div span.bg2 {
+    background: gray;
+}
+
+#tirgool .flex-container-steps > div span.bg3 {
+    background: gray;
+}
+
+#tirgool .flex-container-steps > div.line {
+    width: 43.25%;
+}
+
+#tirgool .flex-container-steps > div.line span {
+    width: 100%;
+    display: inline-block;
+    
+}
+
+#tirgool .flex-container-steps > div.line span.ln1 {
+    border: 0.15em solid #10386c;
+}
+
+#tirgool .flex-container-steps > div.line span.ln2 {
+    border: 0.15em solid gray;
+}
+
+#tirgool form {
+    width: 40%;
+    margin: 2% auto 0 auto;
+    border: 0px solid green;
+}
+
+#tirgool #step_1 {
+    display: block;
+}
+
+#tirgool #step_2 {
+    display: none;
+}
+
+#tirgool #step_3 {
+    display: none;
+}
+
+#tirgool fieldset {
+    padding: 2% 0 3% 2%;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+}
+
+#tirgool fieldset legend {
+    color: #10386c;
+    text-align: left;
+    margin: 0 0 0 2%;
+    font-weight: bold;
+    padding: 0 1% 0 1%;
+}
+
+#tirgool fieldset label {
+    float: left;
+    width: 48%;
+    text-align: left;
+    margin: 4% 2% 0 0;
+    border: 0px solid cyan;
+}
+
+#tirgool fieldset label span {
+    display: block;
+    font-size: 0.9em;
+    text-align: left;
+    line-height: 100%;
+}
+
+#tirgool fieldset label input[type='text'] {
+    width: 100%;
+    outline: none;
+    font-size: 0.9em;
+    margin: 1% 0 0 0;
+    border-radius: 5px;
+    transition: 0.3s all;
+    padding: 1.2% 12% 1.2% 2%;
+    border: 1px solid #000000;
+}
+
+#tirgool fieldset label input[type='text']:focus {
+    background: lightgray;
+}
+
+#tirgool fieldset label input[type='text'].bgPerson {
+    background-image: url(../images/person.png);
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: 11%;
+}
+
+#tirgool fieldset label input[type='text'].bgEmail {
+    background-image: url(../images/email.png);
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: 11%;
+}
+
+#tirgool fieldset label input[type='text'].bgPhone {
+    background-image: url(../images/phone.png);
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: 11%;
+}
+
+#tirgool fieldset label input[type='text'].bgCity {
+    background-image: url(../images/city.png);
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: 11%;
+}
+
+#tirgool fieldset label input[type='text'].bgStreet {
+    background-image: url(../images/street.png);
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: 10%;
+}
+
+#tirgool fieldset label input[type='text'].bgPostcode {
+    background-image: url(../images/postcode.png);
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: 10%;
+}
+
+#tirgool fieldset .radios {
+    width: 98%;
+    text-align: left;
+    margin: 2% 2% 0 0;
+    display: inline-block;
+    border: 0px solid green;
+}
+
+#tirgool fieldset .radios label{
+    float: none;
+}
+
+#tirgool fieldset label input[type='radio'] {
+    width: auto;    
+    vertical-align: middle;
+}
+
+#tirgool fieldset label select {
+    width: 100%;
+    outline: none;
+    font-size: 0.9em;
+    border-radius: 5px;
+    padding: 1.2% 0 0.9% 2%;
+}
+
+#tirgool fieldset label span.rad {
+    display: inline-block;
+}
+
+#tirgool fieldset label span.rad img {
+    width: 19%;
+    margin: 0px 6% 0 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#tirgool ::placeholder {
+    color: rgb(5, 94, 124);
+    font-size: 0.8em;
+}
+
+#tirgool .btns {
+    width: 98%;
+    float: right;
+    line-height: 100%;
+    text-align: right;
+    margin: 4% 2% 0 0;
+    border: 0px solid green;
+}
+        
+#tirgool .btns a, #tirgool .btns input[type='submit'], #tirgool .btns input[type='reset'] {
+    border: none;
+    cursor: pointer;
+    color: #000000;
+    margin: 0 0 0 2%;
+    font-size: 0.9em;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 1% 4% 1% 4%;
+    transition: 0.3s all;
+    text-decoration: none;
+    display: inline-block;
+    background: lightblue;
+}
+
+#tirgool .btns a:hover, #tirgool .btns input[type='submit']:hover, #tirgool .btns input[type='reset']:hover {
+    color: gray;
+    box-shadow: 2px 2px 5px lightgray;
+    background: lightgreen;
+}
+
+@media screen and (max-width: 1024px) {
+
+    #tirgool .flex-container-steps {
+        width: 90%;
+    }
+
+    #tirgool .flex-container-steps > div span.num {
+        font-size: 4em;
+        padding: 40% 0 0 0;
+    }
+
+    #tirgool form {
+        width: 90%;
+        margin: 5% auto 0 auto;
+    }
+
+    #tirgool fieldset {
+        padding: 2% 3% 3% 3%;
+    }
+
+    #tirgool fieldset legend {
+        font-size: 4em;
+    }
+
+    #tirgool fieldset label {
+        width: 100%;
+    }
+
+    #tirgool fieldset label span {
+        width: 60%;
+        font-size: 4em;
+        vertical-align: middle;
+    }
+
+    #tirgool fieldset label input[type='text'] {
+        font-size: 5em;
+    }
+
+    #tirgool fieldset .radios {
+        margin: 1% 2% 5% 0;
+    }
+
+    #tirgool fieldset label input[type='radio'] {
+        margin: 0 2% 0 0;
+        vertical-align: middle;
+    }
+
+    #tirgool .btns a, #tirgool .btns input[type='submit'], #tirgool .btns input[type='reset'] {
+        font-size: 4.5em;
+        padding: 5% 5% 5% 5%;
+    }
+
+    #tirgool .btns input[type='submit'], #tirgool .btns input[type='reset'] {
+        padding: 2.5% 5% 2.5% 5%;
+    }
+
+    #tirgool fieldset label select {
+        font-size: 4.6em;
+    }
+
+    #tirgool fieldset label span.rad img {
+        width: 16%;
+    }
+
+    #tirgool fieldset .radios label {
+        float: left;
+    }
+
+    #tirgool .btns {
+        margin: 7% 0% 0 0;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+@media screen and (min-width: 1920px) {
+    #tirgool {
+        font-size: 1.2em;
+    }
+}

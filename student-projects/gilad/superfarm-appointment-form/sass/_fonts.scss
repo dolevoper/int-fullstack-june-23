@@ -1,0 +1,35 @@
+// Main Font
+@font-face {
+    font-family: 'main-font-light';
+    src: url("../assets/fonts/main-font/fbextaza-light.woff2") format('woff2');
+}
+@font-face {
+    font-family: 'main-font-regular';
+    src: url("../assets/fonts/main-font/fbextaza-regular.woff2") format('woff2');
+}
+@font-face {
+    font-family: 'main-font-bold';
+    src: url("../assets/fonts/main-font/fbextaza-bold.woff2") format('woff2');
+}
+
+// Fallback Font
+@font-face {
+    font-family: 'fallback-font-light';
+    src: url("../assets/fonts/fallback-font/Roboto-Light.ttf") format('ttf');
+}
+@font-face {
+    font-family: 'fallback-font-regular';
+    src: url("../assets/fonts/fallback-font/Roboto-Regular.ttf") format('ttf');
+}
+@font-face {
+    font-family: 'fallback-font-bold';
+    src: url("../assets/fonts/fallback-font/Roboto-Bold.ttf") format('ttf');
+}
+
+
+$font-size-small: 0.75rem;
+$font-size-medium: 1rem;
+$font-size-big: 1.5rem;
+$font-size-bigger: 2rem;
+
+$font-size-header-title: 2rem;

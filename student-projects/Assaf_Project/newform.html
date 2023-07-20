@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New form</title>
+    <link rel="stylesheet" href="dist/newform.css">
+</head>
+
+<body>
+    <main>
+        <form class="card center">
+            <h1>This Form</h1>
+            <section class="boundery">
+                <div>
+                    <label for="email">Email</label>
+                    <input id="email" type="email" />
+                </div>
+                <div>
+                    <label for="phone">phone</label>
+                    <input id="phone" inputmode="tel" />
+                </div>
+            </section>
+            <section class="lefty">
+                <h2>Who can contact?</h2>
+                <div>
+                    <input id="no-one" type="radio" name="approach-me" />
+                    <label for="no-one"></label>No one
+                </div>
+                <div>
+                    <input id="friends" type="radio" name="approach-me" />
+                    <label for="friends"></label>Friends
+                </div>
+                <div>
+                    <input id="family" type="radio" name="approach-me" />
+                    <label for="family"></label>Family
+                </div>
+                <div>
+                    <input id="friends&family" type="radio" name="approach-me" />
+                    <label for="friends&family"></label>Friends & Family
+                </div>
+            </section>
+            <div class="boundery gap">
+                <label class="bolder breakgap">What's Your Age?</label>
+                <select>
+                    <option></option>
+                    <option>Under 18</option>
+                    <option>18-32</option>
+                    <option>33-50</option>
+                    <option>None of your buisness</option>
+                </select>
+            </div>
+            <div class="boundery">
+                <input class="toleft buttonstyle" id="reset" type="reset" />
+                <label for="reset"></label>
+                <a href="newform2.html" class="toright buttonstyle" type="submit" value="Next">Next</a>
+            </div>
+            <section class="pbar">
+                <div class="thirty3rd">33%</div>
+            </section>
+        </form>
+    </main>
+</body>
+
+</html>
