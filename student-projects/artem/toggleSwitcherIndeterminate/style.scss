@@ -9,6 +9,15 @@ body {
   margin: 33% 50%;
   input[type='checkbox'] {
     visibility: hidden;
+    &:indeterminate {
+        + label {
+            background-color:lighten($color: $usedColor, $amount: 65%);
+            &:after {
+                left: 13px;
+            }
+        }
+    }   
+    
     &:checked {
       + label {
         background-color:lighten($color: $usedColor, $amount: 85%);

@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+body {
+    background-color: rgb(255, 255, 240);
+    margin: 60px;
+    border: 1px solid black;
+    padding:50px;
+    box-shadow: 1px 4px 5px 1px;
+    border-radius: 8px;
+}
+
+.mail,.phone {
+    display: inline-block;
+    padding-right: 10px;
+
+    & input {
+        background-color: rgb(50, 0, 0);
+        color: white;
+    }
+}
+
+h1,h2{
+    text-shadow: 1px 1px 2px;
+}
+
+section{
+    padding: 2px;
+}
+
+button {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+button:hover{
+    color: red;
+    text-shadow: 1px 1px 1px;
+    font-size: large;
+}
+
+.select-card{
+    
+    & option{
+        background-color:greenyellow;
+    }
+}
+
+section input{
+    background-color: aqua;
+
+}

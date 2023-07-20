@@ -24,6 +24,7 @@ body {
     padding: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 600;
+    font-size: 2rem;
     color: rgb(232, 123, 201);
 }
 
@@ -39,7 +40,7 @@ body {
 }
 
 .wrapper h1 {
-    font-size: 36px;
+    font-size: 30px;
     text-align: center;
     color: rgb(232, 123, 201);
 }
@@ -67,6 +68,7 @@ body {
 .input-box input::placeholder {
     color: #fff;
     opacity: 0.7;
+    font-size: 1.1rem;
 }
 
 .wrapper .input-box i {
@@ -78,11 +80,11 @@ body {
 }
 
 .wrapper .input-box .user-logo {
-    color: #4b4b4b;
+    color: white;
 }
 
 .wrapper .input-box .lock-logo {
-    color: #4b4b4b;
+    color: white;
 }
 
 .wrapper .remember-forgot {
@@ -134,4 +136,12 @@ body {
 
 .register-link p a:hover {
     text-decoration: underline;
+}
+
+.checkbox:checked {
+    accent-color: #7d2ae8;
+}
+
+.checkbox:checked ~ label {
+    color: #7d2ae8;
 }
