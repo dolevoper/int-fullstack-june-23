@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="dist/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./dist/style.css">
+  <title>Professional Website</title>
 </head>
 
 <body>
-    <header class="header">
-        <h1>Lorem ipsum</h1>
-        <nav>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a class="sign-up" href="">Sign up</a></li>
-                <li><a href="">Sign in</a></li>
-            </ul>
-        </nav>
-    </header>
+  <main>
+    <h1>Class- 006 - HomeWork</h1>
+    <p>This is a professional website with text references, tooltips, a modal, and a dropdown menu.</p>
 
-    <main>
-        <div class="card">
-        <div class="content">
-        <h2>Lorem, ipsum.</h2>
-        <div class="tooltip">Learn more!
-            <span class="tooltiptext">
-                Originally from Latin, Lorem ipsum has no intelligible meaning. It is simply a display of letters to be viewed as a sample with given graphical elements in a file. "Lipsum" (a portmanteau of lorem and ipsum) generators are commonly used to form generic text in a file.</span>
-        </div>
-        <p><a target="_blank" href="https://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum dolor sit amet</a>, In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design. <br>
-            Lorem ipsum is typically a corrupted version of De finibus bonorum et malorum, a 1st-century BC text by the Roman statesman and philosopher Cicero, with words altered, added, and removed to make it nonsensical and improper Latin. The first two words themselves are a truncation of 'dolorem ipsum' ('pain itself'). <br>
-            Versions of the Lorem ipsum text have been used in typesetting at least since the 1960s, when it was popularized by advertisements for Letraset transfer sheets.[1] Lorem ipsum was introduced to the digital world in the mid-1980s, when Aldus employed it in graphic and word-processing templates for its desktop publishing program PageMaker. Other popular word processors, including Pages and Microsoft Word, have since adopted Lorem ipsum, as have many LaTeX packages, web content managers such as Joomla! and WordPress, and CSS libraries such as Semantic UI.</p>
-        </div>
-        </div>
-        
-        <div class="modal">
-            
-        </div>
-    </main>
+    <h2>Text Reference</h2>
+    <p>In this paragraph, I will add a reference<sup class="reference"><a href="">[1]</a> to show you how it works.</p>
+
+    <h2>Tooltip</h2>
+    <p>Hover over the text below to see a tooltip: <span class="tooltip">Hover over me<span class="tooltiptext">Working Tooltip</span></span></p>
+
+    <h2>Modal</h2>
+    <input type="checkbox" id="modal-checkbox" class="modal-checkbox">
+    <label for="modal-checkbox" class="modal-button">Open Modal</label>
+    <div class="modal-overlay">
+      <div class="modal">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <h3>Modal Title</h3>
+        <p>This is a modal. You can use it to display additional information or actions.</p>
+      </div>
+    </div>
+
+    <h2>Dropdown Menu</h2>
+    <div class="dropdown">
+      <input type="checkbox" id="dropdown-checkbox" class="dropdown-checkbox">
+      <label for="dropdown-checkbox" class="dropdown-button">Select Option</label>
+      <div class="dropdown-content">
+        <a href="#">Option 1</a>
+        <a href="#">Option 2</a>
+        <a href="#">Option 3</a>
+      </div>
+    </div>
+  </main>
 </body>
+
 </html>
