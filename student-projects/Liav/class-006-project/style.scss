@@ -70,6 +70,12 @@ h2 {
   transform: translateX(-50%);
   z-index: 1;
   text-transform: lowercase;
+  width: 200px;
+}
+
+.tooltip-image{
+  border: 1px solid black;
+  border-radius: 15px;
 }
 
 .tooltip:hover .tooltiptext {
