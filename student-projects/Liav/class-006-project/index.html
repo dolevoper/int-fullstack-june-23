@@ -14,10 +14,10 @@
     <p>This is a homework with text references, tooltips, a modal, and a dropdown menu.</p>
 
     <h2>Text Reference</h2>
-    <p>In this paragraph, I will add a reference<a class="reference" href="https://en.wikipedia.org/wiki/Reference">[1]</a>to show you how it works.</p>
+    <p>In this paragraph, I will add a reference<a class="reference" id="refrence-top" href="#reference-content">[9]</a> to show you how it works.</p>
 
     <h2>Tooltip</h2>
-    <p>Hover the text below to see a tooltip: <span class="tooltip">Hover me<span class="tooltiptext">Working Tooltip</span></span></p>
+    <p>Hover the text below to see a tooltip: <span class="tooltip">Hover me<span class="tooltiptext"><img class="tooltip-image" src="https://cdn.iconscout.com/icon/free/png-256/free-css-37-226088.png" width="50px" height="50px" alt="css image"><br>Tooltips display text (or other content) when you hover over an HTML element.</span></span></p>
 
     <h2>Modal</h2>
     <input type="checkbox" id="modal-checkbox" class="modal-checkbox">
@@ -26,8 +26,8 @@
       <div class="modal">
         <input type="checkbox" id="modal-checkbox" class="modal-checkbox">
         <label for="modal-checkbox" class="close-button">&times;</label>
-        <h3>You won a price!</h3>
-        <p>You won 1000000000000$.</p>
+        <h3>You won a prize!</h3>
+        <p>You won $1,000,000,000,000.</p>
       </div>
     </div>
 
@@ -40,11 +40,29 @@
         <a href="#">Friend</a>
         <a href="#">Message</a>
       </div>
-        <a href="" class="dropdown-button">Home</a>
-        <a href="" class="dropdown-button">About</a>
-        <a href="" class="dropdown-button">Sigin up</a>
-        <a href="" class="dropdown-button">Sigin in</a>
+      <a href="#home" class="dropdown-button">Home</a>
+      <a href="#about" class="dropdown-button">About</a>
+      <a href="#signup" class="dropdown-button">Sign up</a>
+      <a href="#signin" class="dropdown-button">Sign in</a>
     </div>
+
+
+
+    <div id="reference-content" class="reference-content">
+      <h2>Reference</h2>
+      <p>1.Reference - Lorem ipsum dolor sit amet.</p>
+      <p>2.Reference - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos ab velit voluptatibus! Maiores sunt excepturi consequatur ipsa adipisci aspernatur harum!</p>
+      <p>3.Reference - Odio, nemo perspiciatis facilis similique illo sed aspernatur maiores cupiditate doloremque voluptatibus ad omnis ut asperiores ipsam a excepturi! Cupiditate!</p>
+      <p>4.Reference - Nemo dicta alias incidunt assumenda vero, nisi quae mollitia optio expedita delectus labore consectetur, ad a tenetur explicabo deserunt consequatur.</p>
+      <p>5.Reference - Nostrum odit accusamus veritatis nisi, ea optio vero eos recusandae quo delectus reiciendis, facere, quam consectetur. Omnis doloremque quo qui!</p>
+      <p>6.Reference - Quo nobis corrupti eius nulla impedit ad suscipit quibusdam eaque recusandae excepturi, optio esse, quidem ratione harum nemo expedita tempore?</p>
+      <p>7.Reference - Deserunt provident rem incidunt id blanditiis. Temporibus molestias dolores possimus non hic porro, perferendis beatae? Placeat enim quia autem similique?</p>
+      <p>8.Reference - Ut ratione excepturi cupiditate asperiores voluptatibus optio modi fugit incidunt distinctio provident necessitatibus eum, nihil eius architecto animi iste deleniti!</p>
+      <p>9.Reference - Voluptatum odio quo aspernatur soluta, cum cumque. <a href="#refrence-top">Lorem </a> cumque temporibus cupiditate unde iusto nam incidunt, illo odit sed, asperiores provident.</p>
+      <p>10.Reference - Alias accusantium eos ullam architecto ea! Ducimus amet, autem qui quam harum rerum nulla quas adipisci commodi quia! Voluptas, sint.</p>
+    </div>
+
+
   </main>
 </body>
 
