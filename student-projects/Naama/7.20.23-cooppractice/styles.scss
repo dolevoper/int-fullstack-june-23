@@ -1,5 +1,12 @@
 .modal-wrapper {
     content-visibility: hidden;
+    background-color: aqua;
+    box-shadow: 3px 3px;
+    position: fixed;
+    top: 35%;
+    left: 30%;
+    width: 50ch;
+
 }
 
 input:checked {
