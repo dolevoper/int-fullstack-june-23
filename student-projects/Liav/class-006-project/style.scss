@@ -123,23 +123,24 @@ main {
         border-bottom: 1px dotted black;
       }
       
-      
       .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 25rem;
+        opacity: 0;
+        width: 27rem;
         background-color: rgba(0, 0, 0, 0.8);
-        color: #fff;
+        color: white;
         text-align: center;
         padding: 5px 0;
         border-radius: 6px;
-       
-    
         position: absolute;
         z-index: 1;
+        transition: 0.3s ease-in-out;
+        user-select: none;
+        top: 100%;
+        left: 100px;
       }
       
       .tooltip:hover .tooltiptext {
-        visibility: visible;
+        opacity: 1;
       }
 
       a{
@@ -147,24 +148,9 @@ main {
       }
 }
 
-    .modal{
-        text-align: center;
-        margin: 20px;
-
-        button{
 
 
-        }
-    }
 
-    .popup{
-        position: absolute;
-        z-index: 100;
-        top: 50%;
-        background: white;
-        text-align: center;
-        visibility: hidden;
 
-    }
     
     
