@@ -1,0 +1,26 @@
+#modal-toggle {
+
+    position: relative;
+
+    &:checked {
+        background: purple;
+        & ~ .modal-wrapper {
+            background: green;
+            margin:32px;
+            visibility: visible;
+        }
+    }
+}
+
+.modal-wrapper {
+    background-color: red;
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+
+    position: absolute;
+}
+
+.close-button {
+    background: red;
+}
