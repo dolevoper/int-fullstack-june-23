@@ -146,3 +146,25 @@ main {
         color: blue;
       }
 }
+
+    .modal{
+        text-align: center;
+        margin: 20px;
+
+        button{
+
+
+        }
+    }
+
+    .popup{
+        position: absolute;
+        z-index: 100;
+        top: 50%;
+        background: white;
+        text-align: center;
+        visibility: hidden;
+
+    }
+    
+    
