@@ -1,0 +1,97 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+header {
+    background: black;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+a {
+    color: white;
+    
+}
+
+a:hover {
+    color: orange;
+}
+
+sup a {
+    color: blue;
+    font-size: 0.8rem;
+    transition: 0.3s all;
+}
+
+nav {
+    display: inline;
+    margin-inline-start: 2rem;
+}
+
+.navigation-links {
+    display: inline;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    margin-inline-start: 1rem;
+}
+
+main {
+    width: min(70ch, 100% - 3rem);
+    margin-inline: auto;
+    margin-block-start: 5rem;
+}
+
+.main-action {
+    position: fixed;
+    left: 10%;
+    bottom: 10%;
+    font-size: 2rem;
+    width: 75px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.card {
+    background: hsl(0deg 0% 0% / 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+
+    figure {
+        margin-inline: -1rem;
+        margin-block-start: -1rem;
+        position: relative;
+    }
+
+    figcaption {
+        position: absolute;
+        color: white;
+        font-weight: 600;
+        bottom: 0.75rem;
+        left: 1rem;
+        line-height: 1;
+    }
+
+    img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        display: block;
+        object-fit: cover;
+        border-radius: 8px 8px 0 0;
+    }
+}
