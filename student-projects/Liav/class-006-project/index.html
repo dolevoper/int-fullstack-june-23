@@ -1,42 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="dist/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./dist/style.css">
+  <title>HomeWork - 006</title>
 </head>
 
 <body>
-    <header class="header">
-        <h1>Lorem ipsum</h1>
-        <nav>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a class="sign-up" href="">Sign up</a></li>
-                <li><a href="">Sign in</a></li>
-            </ul>
-        </nav>
-    </header>
+  <main>
+    <h1>Class- 006 - HomeWork</h1>
+    <p>This is a homework with text references, tooltips, a modal, and a dropdown menu.</p>
 
-    <main>
-        <div class="card">
-        <div class="content">
-        <h2>Lorem, ipsum.</h2>
-        <div class="tooltip">Learn more!
-            <span class="tooltiptext">
-                Originally from Latin, Lorem ipsum has no intelligible meaning. It is simply a display of letters to be viewed as a sample with given graphical elements in a file. "Lipsum" (a portmanteau of lorem and ipsum) generators are commonly used to form generic text in a file.</span>
-        </div>
-        <p><a target="_blank" href="https://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum dolor sit amet</a>, In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design. <br>
-            Lorem ipsum is typically a corrupted version of De finibus bonorum et malorum, a 1st-century BC text by the Roman statesman and philosopher Cicero, with words altered, added, and removed to make it nonsensical and improper Latin. The first two words themselves are a truncation of 'dolorem ipsum' ('pain itself'). <br>
-            Versions of the Lorem ipsum text have been used in typesetting at least since the 1960s, when it was popularized by advertisements for Letraset transfer sheets.[1] Lorem ipsum was introduced to the digital world in the mid-1980s, when Aldus employed it in graphic and word-processing templates for its desktop publishing program PageMaker. Other popular word processors, including Pages and Microsoft Word, have since adopted Lorem ipsum, as have many LaTeX packages, web content managers such as Joomla! and WordPress, and CSS libraries such as Semantic UI.</p>
-        </div>
-        </div>
-        
-        <div class="modal">
-            
-        </div>
-    </main>
+    <h2>Text Reference</h2>
+    <p>In this paragraph, I will add a reference<a class="reference" id="refrence-top" href="#reference-content">[9]</a> to show you how it works.</p>
+
+    <h2>Tooltip</h2>
+    <p>Hover the text below to see a tooltip: <span class="tooltip">Hover me<span class="tooltiptext"><img class="tooltip-image" src="https://cdn.iconscout.com/icon/free/png-256/free-css-37-226088.png" width="50px" height="50px" alt="css image"><br>Tooltips display text (or other content) when you hover an HTML element.</span></span></p>
+
+    <h2>Modal</h2>
+    <input type="checkbox" id="modal-checkbox" class="modal-checkbox">
+    <label for="modal-checkbox" class="modal-button">Open Modal</label>
+    <div class="modal-overlay">
+      <div class="modal">
+        <input type="checkbox" id="modal-checkbox" class="modal-checkbox">
+        <label for="modal-checkbox" class="close-button">&times;</label>
+        <h3>You won a prize!</h3>
+        <p>You won $1,000,000,000,000.</p>
+      </div>
+    </div>
+
+    <h2>Dropdown Menu</h2>
+    <div class="dropdown">
+      <input type="checkbox" id="dropdown-checkbox" class="dropdown-checkbox">
+      <label for="dropdown-checkbox" class="dropdown-button">Profile</label>
+      <div class="dropdown-content">
+        <a href="#">Setting</a>
+        <a href="#">Friend</a>
+        <a href="#">Message</a>
+      </div>
+      <a href="#home" class="dropdown-button">Home</a>
+      <a href="#about" class="dropdown-button">About</a>
+      <a href="#signup" class="dropdown-button">Sign up</a>
+      <a href="#signin" class="dropdown-button">Sign in</a>
+    </div>
+
+
+
+    <div id="reference-content" class="reference-content">
+      <h2>Reference</h2>
+      <p>1. Reference - Lorem ipsum dolor sit amet.</p>
+      <p>2. Reference - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos ab velit voluptatibus! Maiores sunt excepturi consequatur ipsa adipisci aspernatur harum!</p>
+      <p>3. Reference - Odio, nemo perspiciatis facilis similique illo sed aspernatur maiores cupiditate doloremque voluptatibus ad omnis ut asperiores ipsam a excepturi! Cupiditate!</p>
+      <p>4. Reference - Nemo dicta alias incidunt assumenda vero, nisi quae mollitia optio expedita delectus labore consectetur, ad a tenetur explicabo deserunt consequatur.</p>
+      <p>5. Reference - Nostrum odit accusamus veritatis nisi, ea optio vero eos recusandae quo delectus reiciendis, facere, quam consectetur. Omnis doloremque quo qui!</p>
+      <p>6. Reference - Quo nobis corrupti eius nulla impedit ad suscipit quibusdam eaque recusandae excepturi, optio esse, quidem ratione harum nemo expedita tempore?</p>
+      <p>7. Reference - Deserunt provident rem incidunt id blanditiis. Temporibus molestias dolores possimus non hic porro, perferendis beatae? Placeat enim quia autem similique?</p>
+      <p>8. Reference - Ut ratione excepturi cupiditate asperiores voluptatibus optio modi fugit incidunt distinctio provident necessitatibus eum, nihil eius architecto animi iste deleniti!</p>
+      <p>9. Reference - Voluptatum odio quo aspernatur soluta, cum cumque. <a href="#refrence-top">Lorem </a> cumque temporibus cupiditate unde iusto nam incidunt, illo odit sed, asperiores provident.</p>
+      <p>10.Reference - Alias accusantium eos ullam architecto ea! Ducimus amet, autem qui quam harum rerum nulla quas adipisci commodi quia! Voluptas, sint.</p>
+    </div>
+
+
+  </main>
 </body>
+
 </html>

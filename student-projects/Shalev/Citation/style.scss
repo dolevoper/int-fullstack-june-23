@@ -1,6 +1,4 @@
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
@@ -15,7 +13,6 @@ body {
 }
 
 header {
-    z-index: 1;
     background: black;
     color: white;
     position: fixed;
@@ -31,7 +28,7 @@ header {
         display: inline;
         margin-inline-start: 2rem;
     }
-
+    
     .navigation-links {
         display: inline;
         padding: 0;
@@ -46,18 +43,18 @@ header {
 main {
     width: min(70ch, 100% - 3rem);
     margin-inline: auto;
-    margin-block-start: 2rem;
+    margin-block-start: 5rem;
 }
 
-// .main-action {
-//     position: fixed;
-//     left: 10%;
-//     bottom: 10%;
-//     font-size: 2rem;
-//     width: 75px;
-//     aspect-ratio: 1;
-//     border-radius: 50%;
-// }
+.main-action {
+    position: fixed;
+    left: 10%;
+    bottom: 10%;
+    font-size: 2rem;
+    width: 75px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
 
 .card {
     background: hsl(0deg 0% 0% / 0.1);
@@ -88,42 +85,38 @@ main {
     }
 }
 
-:modal {
-    border: 5px solid red;
-    background-color: yellow;
-    box-shadow: 3px 3px 10px rgba(0 0 0 / 0.5);
-    display: none;
-
-    // &:active {}
+a.citation {
+    color: rgb(32, 110, 255);
+    text-decoration: none;
+    position: relative;
+    font-size: 1.1rem;
+    transition: font-size 500ms;
 }
 
-.reference {
-    display: inline-flex;
-
-
-    &::before {
-        content: "[";
-        font-size: .8rem;
-    }
-
-    &::after {
-        content: "]";
-        font-size: .8rem;
-    }
-
-    >a {
-        text-decoration: none;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
+a.citation:hover {
+    font-size: 1.2rem;
 }
 
-
-#cite_note-refrence#1 {
-    color: red;
-&::after {
-    content: "\f08e";
+a.citation::before {
+    margin-right: 0.2rem;
 }
+
+.tooltip {
+    visibility: hidden;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+a.citation:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
 }
