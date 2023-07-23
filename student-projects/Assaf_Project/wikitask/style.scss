@@ -46,7 +46,7 @@ header {
 main {
     width: min(70ch, 100% - 3rem);
     margin-inline: auto;
-    margin-block-start: 2rem;
+    margin-block-start: 10vh;
 }
 
 // .main-action {
@@ -77,6 +77,18 @@ main {
         bottom: 0.75rem;
         left: 1rem;
         line-height: 1;
+
+        >a {
+            text-decoration: none;
+
+            &:visited {
+                color: inherit;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 
     img {
@@ -120,10 +132,26 @@ main {
     }
 }
 
+.modal-wrapper {
+    display: none;
 
-#cite_note-refrence#1 {
-    color: red;
-&::after {
-    content: "\f08e";
+    &:active {
+        display: block;
+    }
 }
+
+
+.references {
+    font-size: .8rem;
+
+    li {
+
+        &::after {
+            content: "\2197";
+        }
+    }
+}
+
+.toright {
+    float: right;
 }
