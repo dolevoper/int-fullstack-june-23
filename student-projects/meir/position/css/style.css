@@ -30,8 +30,11 @@
 }
 
 #tirgool header {
-    padding: 0.3% 0 0.3% 0;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
     background: #000000;
+    padding: 0.3% 0 0.3% 0;
     border: 0px solid orange;
 }
 
@@ -224,14 +227,15 @@
     border: none;
 }
 
-#tirgool header input[type='text'].search:focus {
+#tirgool header input[type='text'].search:focus, #tirgool header input[type='text'].search:valid {
     width: 10%;
     background-size: 9%;
 }
 
 #tirgool main {
     width: 35%;
-    margin: 2% auto 0 auto;
+    margin: 0 auto;
+    padding: 5% 0 0 0;
     border: 0px solid green;
 }
 
