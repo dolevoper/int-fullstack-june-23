@@ -93,6 +93,7 @@
     left: 0;
     z-index: 1;
     background: #000000;
+    border-radius: 5px 5px 5px 5px;
     border: 1px solid gray;
 }
 
@@ -111,6 +112,7 @@
     text-decoration: none;
     width: 100%;
     font-size: 0.8em;
+    border-radius: 5px 5px 5px 5px;
     display: inline-block;
 }
 
@@ -133,6 +135,7 @@
     left: 100%;
     width: 10em;
     background: #000000;
+    border-radius: 5px 5px 5px 5px;
     border: 1px solid gray;
 }
 
@@ -150,6 +153,7 @@
     text-decoration: none;
     width: 100%;
     font-size: 0.8em;
+    border-radius: 5px 5px 5px 5px;
     display: inline-block;
 }
 
@@ -172,6 +176,7 @@
     left: 99%;
     width: 10em;
     background: #000000;
+    border-radius: 5px 5px 5px 5px;
     border: 1px solid gray;
 }
 
@@ -189,6 +194,7 @@
     text-decoration: none;
     width: 100%;
     font-size: 0.8em;
+    border-radius: 5px 5px 5px 5px;
     display: inline-block;
 }
 
