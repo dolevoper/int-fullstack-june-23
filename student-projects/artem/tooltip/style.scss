@@ -1,0 +1,49 @@
+$mainColor: darkslategray;
+
+html {
+    background-color: $mainColor
+}
+.hooverText {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+   
+    color: #fff;
+}
+.tooltipText {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    width: 250px;
+    color: white;
+    font-size: 25px;
+    background-color: lighten($color: $mainColor, $amount: 15%);;
+    border-radius: 5px;
+    padding: 10px 15 px;   
+    }
+.duck {
+    border-radius: 5px 5px 0 0 ;
+}
+// .video {
+//     aspect-ratio: 16/9;
+// }
+
+
+.hooverText:hover .tooltipText {
+    visibility: visible;
+    transition: duration 2s;
+    top: -225px;
+    left: -90%;
+}
+
+
+
+
+.tooltipText::before {
+    content: "";
+    position: absolute;
+    transform: rotate(45deg);
+    background-color: azure;
+    z-index: 1;
+}
