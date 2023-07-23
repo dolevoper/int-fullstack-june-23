@@ -134,20 +134,40 @@ h2 {
   transform: translate(-50%, -50%);
   background-color: black;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 60px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   z-index: 2;
 }
 
+.modal h3{
+  -webkit-text-stroke: 1px white;
+  color: transparent;
+  background-color: red;
+  border-radius: 100px;
+  padding: 40px;
+  margin: 0;
+}
+
+.modal span{
+  margin: auto;
+  padding-left: 40px;
+  color: darkgreen;
+  position: absolute;
+  font-weight: 700;
+  top: 60%;
+}
+
+
 .close-button {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 20px;
   cursor: pointer;
   font-size: 1.2em;
   background-color: transparent;
   color: white;
   z-index: 3;
+
 }
 
 .close-button:active + .modal {
