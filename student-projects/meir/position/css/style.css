@@ -270,7 +270,7 @@
 #tirgool main .modalePopup {
     display: none;
     position: fixed;
-    top: 50%;
+    top: 15%;
     left: 0;
     right: 0;
     z-index: 4;
@@ -278,11 +278,12 @@
     margin: 0 auto;
     background: red;
     border-radius: 10px 10px 10px 10px;
-    border: 1px solid green;
+    border: 0px solid green;
 }
 
 #tirgool main .modalePopup span {
     display: block;
+    font-size: 1.5em;
     font-weight: bold;
     background: yellow;
     padding: 3% 3% 3% 3%;
@@ -313,6 +314,7 @@
     position: absolute;
     bottom: 2%;
     left: 2%;
+    font-size: 1.1em;
     color: #ffffff;
     font-weight: bold;
     border: 0px solid green;
@@ -351,7 +353,7 @@
 
 #tirgool main article sup a {
     color: blue;
-    font-size: 0.7em;
+    font-size: 1em;
     transition: 0.3s all;
     text-decoration: none;
     transition: 0.3s all;
@@ -430,59 +432,73 @@
 }
 
 
+@media screen and (max-width: 1024px) {
 
+    #tirgool main {
+        width: 95%;
+    }
 
+    #tirgool main label.openPopup {
+        font-size: 4em;
+        padding: 4% 2% 4% 2%;
+    }
 
+    #tirgool main article {
+        margin: 7% 0 3% 0;
+    }
 
+    #tirgool main article.card figure figcaption {
+        font-size: 4em;
+    }
 
+    #tirgool main article.card h2 {
+        font-size: 5em;
+        padding: 5% 2% 0 2%;
+    }
 
+    #tirgool main article.card p {
+        font-size: 4em;
+    }
 
+    #tirgool main article h2 {
+        font-size: 4.5em;
+    }
 
+    #tirgool main article a.tool span.toolCont {
+        width: 17em;
+    }
 
+    #tirgool main article a.tool span.toolCont span.txt {
+        font-size: 1.1em;
+    }
 
+    #tirgool main article a.tool span.toolCont:before {
+        top: -2%;
+    }
 
+    #tirgool main article p {
+        font-size: 3.5em;
+    }
 
-/*
-#tirgool main .container {
-    position: relative;
-    width: 20em;
-    height: 5em;
-    display: inline-block;
-    border: 0px solid green;
+    #tirgool main a.up {
+        width: 3em;
+        height: 3em;
+        font-size: 4em;
+        padding: 4% 0 0 0;
+    }
+
+    #tirgool main .modalePopup {
+        width: 85%;
+    }
+
+    #tirgool main .modalePopup span {
+        font-size: 6em;
+    }
+
 }
 
-#tirgool main .container span {
-    position: absolute;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-    background: yellow;
-    border-radius: 2.5em 2.5em 2.5em 2.5em;
-    border: 1px solid red;
+@media screen and (min-width: 1920px) {
+    #tirgool {
+        font-size: 1.2em;
+    }
 }
-
-#tirgool main .container span:before {
-    content: "";
-    position: absolute;
-    top: 8%;
-    right: 5%;
-    bottom: 0;
-    width: 20%;
-    height: 80%;
-    background: red;
-    border-radius: 50%;
-    transition: 0.5s all;
-    background-image: radial-gradient(white 20%, green 60%);
-    border: 1px solid black;
-}
-
-input[type=checkbox]:checked ~ .mask {
-    display: block;
-}
-*/
-/*
-.container input:checked ~ span:before {
-    right: 74%;
-}
-*/
