@@ -55,20 +55,21 @@
 
 #tirgool header nav {
     margin: 0 0 0 2%;
-    display: inline-block;
+    display: inline;
     vertical-align: middle;
     border: 0px solid green;
 }
 
 #tirgool header nav ul.navigation-links {
     list-style-type: none;
-    display: inline-block;
+    display: inline;
     border: 0px solid yellow;
 }
 
 #tirgool header nav ul.navigation-links > li {
     position: relative;
     display: inline-block;
+    padding: 0.5% 2% 0.5% 0;
     border: 0px solid purple;
 }
 
@@ -168,7 +169,7 @@
     list-style-type: none;
     position: absolute;
     top: 0;
-    left: 100%;
+    left: 99%;
     width: 10em;
     background: #000000;
     border: 1px solid gray;
@@ -200,7 +201,7 @@
     float: right;
 }
 
-#tirgool header input[type='text'] {
+#tirgool header input[type='text'].search {
     width: 5%;
     outline: none;
     font-size: 0.8em;
@@ -217,7 +218,7 @@
     border: none;
 }
 
-#tirgool header input[type='text']:focus {
+#tirgool header input[type='text'].search:focus {
     width: 10%;
     background-size: 9%;
 }
@@ -433,6 +434,10 @@
 
 
 @media screen and (max-width: 1024px) {
+
+    #tirgool header input[type='text'].search {
+        display: none;
+    }
 
     #tirgool main {
         width: 95%;
