@@ -1,0 +1,660 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #536a70;
+}
+
+#tirgool {
+    max-width: 1920px;
+    display: block;
+    direction: ltr;
+    font-size: 1vw;
+    color: #ffffff;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto 2% auto;
+    font-family: arial;
+    border: 0px solid green;
+}
+
+#tirgool img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#tirgool h1, #tirgool h2, #tirgool h3, #tirgool h4, #tirgool h5, #tirgool h6{
+    font-weight: normal;
+    line-height: 100%;
+}
+
+/******************** Menu ********************/
+
+.webMenu {
+    display: block;
+}
+
+.mobMenu {
+    display: none;
+}
+
+#tirgool .myMenu {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    padding: 1% 2% 1% 2%;
+    background: lightblue;
+    box-sizing: border-box;
+    border: 0px solid green;
+}
+
+#tirgool .myMenu .menu .webMenu {
+    text-align: left;
+    box-sizing: border-box;
+    border: 0px solid yellow;
+}
+
+#tirgool .myMenu .menu .webMenu a.logo {
+    width: 4%;
+    line-height: 100%;
+    display: inline-block;
+    border: 0px solid blue;
+}
+
+#tirgool .myMenu .menu .webMenu a.logo img {
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    border: 0px solid green;
+}
+
+#tirgool .myMenu .menu .webMenu ul {
+    list-style-type: none;
+    display: inline;
+    margin: 0 0 0 1%;
+    border: 0px solid red;
+}
+
+#tirgool .myMenu .menu .webMenu ul li {
+    display: inline;
+    margin: 0 1% 0 0;
+    border: 0px solid green;
+}
+
+#tirgool .myMenu .menu .webMenu ul li a {
+    color: #000000;
+    font-weight: bold;
+    font-size: 1em;
+    transition: 0.4s all;
+    text-decoration: none;
+}
+
+#tirgool .myMenu .menu .webMenu ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/******************** Home page ********************/
+
+#tirgool .myIndex {
+    position: relative;
+    width: 100%;
+    background: gray;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 0px solid green;
+}
+
+#tirgool .myIndex .index {
+    width: 60%;
+    text-align: left;
+    margin: 3% auto 3% auto;
+    border: 0px solid green;
+}
+
+#tirgool .myIndex .index h2 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#tirgool .myIndex .index p {
+    font-size: 1.1em;
+    margin: 1% 0 0 0;
+    line-height: 160%;
+}
+
+/******************** About us ********************/
+
+#tirgool .myAboutus {
+    position: relative;
+    width: 100%;
+    margin: 4% 0 0 0;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 0px solid green;
+}
+
+#tirgool .myAboutus .aboutus {
+    width: 64%;
+    text-align: left;
+    margin: 2% auto 0 auto;
+    border: 0px solid green;
+}
+
+#tirgool .myAboutus .aboutus h2 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#tirgool .myAboutus .aboutus p {
+    font-size: 1.1em;
+    margin: 1% 0 0 0;
+    line-height: 160%;
+}
+
+/******************** Products ********************/
+#tirgool .myProducts {
+    position: relative;
+    width: 100%;
+    margin: 4% 0 0 0;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 0px solid green;
+}
+
+#tirgool .myProducts .products {
+    width: 64%;
+    text-align: left;
+    margin: 2% auto 0 auto;
+    border: 0px solid green;
+}
+
+#tirgool .myProducts .products h2 {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#tirgool .myProducts .products p {
+    font-size: 1.1em;
+    margin: 1% 0 0 0;
+    line-height: 160%;
+}
+
+#tirgool .myProducts .flex-container-myProducts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 70%;
+    border: 0px solid yellow;
+}
+
+#tirgool .myProducts .flex-container-myProducts > div {
+    width: 26%;
+    background: #97a197;
+    padding: 2% 0.5% 2% 0.5%;
+    margin: 2% 2% 2% 2%;
+    border-radius: 2%;
+    transition: 0.3s all;
+    border: 3px solid #ffffff;
+}
+
+#tirgool .myProducts .flex-container-myProducts > div:hover {
+    box-shadow: 0px 0px 15px #ffffff;
+}
+
+#tirgool .myProducts .flex-container-myProducts > div img {
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 3px solid gray;
+}
+
+#tirgool .myProducts .flex-container-myProducts > div a {
+    color: #000000;
+    display: block;
+    font-size: 1.2em;
+    margin: 5% 0 0 0;
+    font-weight: bold;
+    transition: 0.3s all;
+    text-decoration: none;
+    border: 0px solid green;
+}
+
+#tirgool .myProducts .flex-container-myProducts > div a:hover {
+    color: gray;
+}
+
+#tirgool .myProducts .flex-container-myProducts > div p {
+    font-size: 1em;
+    margin: 3% 0 0 0;
+    line-height: 130%;
+}
+
+#tirgool .myProducts .flex-container-myProducts > div a.order {
+    width: 60%;
+    font-size: 1.1em;
+    color: #ffffff;
+    padding: 2% 0 2% 0;
+    border-radius: 10px;
+    margin: 7% auto 0 auto;
+    background-image: linear-gradient(#000000, #ffffff);
+    transition: 2s all;
+    border: 0px solid green;
+}
+
+#tirgool .myProducts .flex-container-myProducts > div a.order:hover {
+    transform: scaleY(1.2);
+}
+
+
+/***************** Contact Us *****************/
+
+#tirgool .myContactUs {
+    position: relative;
+    width: 100%;
+    margin: 4% 0 0 0;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 0px solid green;
+}
+
+#tirgool .myContactUs .contactus {
+    width: 64%;
+    text-align: left;
+    margin: 2% auto 0 auto;
+    border: 0px solid green;
+}
+
+#tirgool .myContactUs .contactus h2 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#tirgool .myContactUs .contactus p {
+    font-size: 1.1em;
+    margin: 1% 0 0 0;
+    line-height: 160%;
+}
+
+#tirgool .myContactUs .flex-container-myContactUs {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: 2% auto 0 auto;
+    border: 0px solid green;
+}
+
+#tirgool .myContactUs .flex-container-myContactUs > div {
+    width: 47%;
+    border: 0px solid blue;
+}
+
+#tirgool .myContactUs .flex-container-myContactUs > div p {
+    line-height: 140%;
+    text-align: justify;
+}
+
+#tirgool .myContactUs .flex-container-myContactUs > div .myForm {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 10px;
+    padding: 5% 4% 5% 4%;
+    box-sizing: border-box;
+    background: rgba(123,153,217,0.2);
+    border: 0px solid yellow;
+}
+
+#tirgool .myContactUs .flex-container-myContactUs > div .myForm h3 {
+    font-weight: bold;
+    margin: 0 0 5% 0;
+}
+
+#tirgool .myContactUs .flex-container-myContactUs > div .myForm label {
+    width: 100%;
+    margin: 0 0 5% 0;
+    text-align: left;
+    display: inline-block;
+}
+
+#tirgool .myContactUs .flex-container-myContactUs > div .myForm label span {
+    display: block;
+    font-size: 0.9em;
+}
+
+#tirgool .myContactUs .flex-container-myContactUs > div .myForm label input {
+    width: 100%;
+    border: none;
+    font-size: 1.1em;
+    margin: 1% 0 0 0;
+    border-radius: 5px;
+    padding: 0.5% 0.5% 0.5% 1.5%;
+    box-sizing: border-box;
+}
+
+#tirgool .myContactUs .flex-container-myContactUs > div .myForm button {
+    font-size: 1em;
+    cursor: pointer;
+    padding: 1% 5% 1% 5%;
+    font-weight: bold;
+    background: lightblue;
+    border: 0 solid green;
+    color: #000000;
+    border-radius: 5px;
+}
+
+#tirgool .myContactUs .flex-container-myContactUs > div .myForm button:hover {
+    background: lightsteelblue;
+}
+
+/******************** FAQ's ********************/
+
+#tirgool .myFaqs {
+    width: 100%;
+    margin: 4% 0 0 0;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 0px solid green;
+}
+
+#tirgool .myFaqs .Faqs {
+    width: 50%;
+    text-align: left;
+    margin: 2% auto 0 auto;
+    border: 0px solid green;
+}
+
+#tirgool .myFaqs .Faqs h2 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#tirgool .myFaqs .Faqs p {
+    font-size: 1.1em;
+    margin: 1% 0 0 0;
+    line-height: 160%;
+}
+
+#tirgool .myFaqs .wrapFAQs {
+    margin: 2% 0 0 0;
+    border: 0px solid green;
+}
+
+#tirgool .myFaqs details {
+    width: 50%;
+    text-align: left;
+    margin: 0 auto 1% auto;
+    border: 0px solid green;
+}
+
+#tirgool .myFaqs details summary {
+    display: flex;
+    cursor: pointer;
+    list-style: none;
+    line-height: 100%;
+    background: gray;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 1em 1em 1em 1em;
+    border-radius: 10px 10px 0 0;
+    justify-content: space-between;  
+    transition: height 1s ease;
+}
+  
+#tirgool .myFaqs details summary::-webkit-details-marker {
+    display: none;
+}
+
+#tirgool .myFaqs details summary:after{
+    content: "+";
+    font-size: 1.5em;
+}
+
+#tirgool .myFaqs details[open] summary {
+    border-bottom: 1px solid #aaaaaa;
+}
+
+#tirgool .myFaqs details[open] summary:after{
+    content: "x";
+}
+
+#tirgool .myFaqs details div {
+    color: #000000;
+    font-size: 1em;
+    line-height: 150%;
+    text-align: justify;
+    padding: 1% 2% 1% 2%;
+    background: lightgray;
+    border-radius: 0 0 10px 10px;
+}
+
+/******************** Mail ********************/
+
+#tirgool .mail {
+    width: 100%;
+    padding: 3% 0 2% 0;
+    display: inline-block;
+    box-sizing: border-box;
+    background: #536a70;
+    border: 0px solid green;
+}
+
+#tirgool .mail a {
+    color: #ffffff;
+    transition: 0.3s all;
+}
+
+#tirgool .mail a:hover {
+    color: lightgray;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .webMenu {
+        display: none;
+    }
+
+    .mobMenu {
+        display: block;
+        
+    }
+
+    #tirgool .myMenu .menu .mobMenu {
+        
+        text-align: left;
+        border: 0px solid yellow;
+    }
+
+    #tirgool .myMenu .menu .mobMenu ul {
+        display: none;
+        width: 85%;
+        margin: 4% 0 0 0;
+        list-style-type: none;
+        border: 0px solid green;
+    }
+
+    #tirgool .myMenu .menu .mobMenu ul li {
+        text-align: left;
+        margin: 0 0 8% 0;
+        border: 0px solid blue;
+    }
+
+    #tirgool .myMenu .menu .mobMenu ul li a {
+        width: 100%;
+        font-size: 4em;
+        color: #000000;
+        font-weight: bold;
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    #tirgool .myMenu .menu .mobMenu a.humburger {
+        float: right;
+        font-size: 6em;
+        color: #000000;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    /*===============================================*/
+    #tirgool .myIndex .index {
+        width: 95%;
+    }
+
+    #tirgool .myIndex .index h2 {
+        font-size: 6em;
+    }
+
+    #tirgool .myIndex .index p {
+        font-size: 4em;
+    }
+
+    #tirgool .myAboutus .aboutus {
+        width: 95%;
+        margin: 8% auto 0 auto;
+    }
+
+    #tirgool .myAboutus .aboutus h2 {
+        font-size: 6em;
+    }
+
+    #tirgool .myAboutus .aboutus p {
+        font-size: 4em;
+    }
+
+    #tirgool .myProducts .products {
+        width: 95%;
+        margin: 8% auto 0 auto;
+    }    
+
+    #tirgool .myProducts .products h2 {
+        font-size: 6em;
+    }
+
+    #tirgool .myProducts .products p {
+        font-size: 4em;
+    }
+
+    #tirgool .myProducts .flex-container-myProducts {
+        width: 95%;
+        margin: 8% auto 0 auto;
+    }
+
+    #tirgool .myProducts .flex-container-myProducts > div {
+        width: 100%;
+        margin: 2% 2% 8% 2%;
+        padding: 6% 3% 6% 3%;
+    }    
+
+    #tirgool .myProducts .flex-container-myProducts > div img {
+        border: 10px solid gray;
+    }
+
+    #tirgool .myProducts .flex-container-myProducts > div a {
+        font-size: 7em;
+    }
+
+    #tirgool .myProducts .flex-container-myProducts > div p {
+        font-size: 5em;
+    }
+
+    #tirgool .myProducts .flex-container-myProducts > div a.order {
+        font-size: 5em;
+    }
+
+    #tirgool .myContactUs .contactus {
+        width: 95%;
+        margin: 7% auto 0 auto;
+    }
+
+    #tirgool .myContactUs .contactus h2 {
+        font-size: 6em;
+    }
+
+    #tirgool .myContactUs .contactus p {
+        font-size: 4em;
+    }
+
+    #tirgool .myContactUs .flex-container-myContactUs {
+        width: 95%;
+        flex-wrap: wrap;
+    }
+
+    #tirgool .myContactUs .flex-container-myContactUs > div {
+        width: 100%;
+    }
+
+    #tirgool .myContactUs .flex-container-myContactUs > div p {
+        font-size: 4em;
+    }
+
+    #tirgool .myContactUs .flex-container-myContactUs > div .myForm {
+        width: 95%;
+        margin: 5% auto 0 auto;
+    }
+
+    #tirgool .myContactUs .flex-container-myContactUs > div .myForm h3 {
+        font-size: 5em;
+    }
+
+    #tirgool .myContactUs .flex-container-myContactUs > div .myForm label span {
+        font-size: 4em;
+    }
+
+    #tirgool .myContactUs .flex-container-myContactUs > div .myForm label input {
+        font-size: 6em;
+    }
+
+    #tirgool .myContactUs .flex-container-myContactUs > div .myForm button {
+        font-size: 4.5em;
+    }
+
+    #tirgool .myFaqs .wrapFAQs {
+        margin: 8% 0 0 0;
+    }
+
+    #tirgool .myFaqs .Faqs {
+        width: 95%;
+        margin: 8% auto 0 auto;
+    }
+
+    #tirgool .myFaqs .Faqs h2 {
+        font-size: 6em;
+    }
+
+    #tirgool .myFaqs .Faqs p {
+        font-size: 4em;
+    }
+
+    #tirgool .myFaqs details {
+        width: 95%;
+        margin: 0 auto 4% auto;
+    }
+
+    #tirgool .myFaqs details summary {
+        font-size: 3.5em;
+    }
+
+    #tirgool .myFaqs details div {
+        font-size: 3.5em;
+    }
+
+    #tirgool .mail {
+        font-size: 4em;
+        padding: 10% 0 0 0;
+    }
+
+
+}
+
+@media screen and (min-width: 1920px) {
+    #tirgool {
+        font-size: 1.2em;
+    }
+}

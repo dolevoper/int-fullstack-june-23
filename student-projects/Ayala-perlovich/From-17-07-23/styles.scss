@@ -1,0 +1,53 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+*{
+    margin: 0;
+}
+html{
+    font-size: 1rem;
+    line-height: 1;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: bisque;
+}
+main{
+    
+    margin-top: 100px;
+    margin-inline: auto;
+}
+
+form{
+    text-align: center;
+    width: 40vw;
+    height: 50vh;
+    border: solid 5px black;
+    border-radius: 10px;
+    
+    margin: 0 auto;
+    color: rgb(52, 115, 115);
+    padding: 20px;
+
+    button {
+        border-radius: 40px;
+        width:5rem;
+        height: 2rem;
+        margin:15px 15px 0 0 ;
+        background-color: green;
+        color: white;
+        padding: 10px;
+    }
+}
+
+
+section{
+    margin-top: 50px;
+}
+input{
+    width: 10rem;
+
+}
+

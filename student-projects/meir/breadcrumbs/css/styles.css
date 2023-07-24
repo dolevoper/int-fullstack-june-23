@@ -1,0 +1,480 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#tirgool {
+    max-width: 1920px;
+    display: block;
+    direction: ltr;
+    font-size: 1vw;
+    color: #000000;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto 2% auto;
+    font-family: arial;
+    border: 0px solid green;
+}
+
+#tirgool img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#tirgool h1, #tirgool h2, #tirgool h3, #tirgool h4, #tirgool h5, #tirgool h6 {
+    font-weight: normal;
+    line-height: 100%;
+}
+
+#tirgool .menu {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    text-align: left;
+    background: gray;
+    display: block;
+    padding: 0.5% 0 0.5% 0;
+    border: 0px solid green;
+}
+
+#tirgool .menu ul {
+    margin: 0 1% 0 1%;
+    list-style-type: none;
+    border: 0px solid red;
+}
+
+#tirgool .menu ul li {
+    display: inline;
+    margin: 0 0.2% 0 0;
+    border: 0px solid green;
+}
+
+#tirgool .menu ul li a {
+    color: #000000;
+    transition: 0.3s all;
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5% 1% 0.5% 1%;
+    background: rgba(125,125,125,0.2);
+    border-radius: 5px 5px 5px 5px;
+    border: 0px solid orange;
+}
+
+#tirgool .menu ul li a:hover {
+    color: #ffffff;
+    background: rgba(0,0,0,0.5);
+}
+
+#tirgool .menu ul li a.logo {
+    padding: 0;
+    display: inline;
+    cursor: default;
+}
+
+#tirgool .menu ul li a.logo:hover {
+    background: none;
+}
+
+#tirgool .menu ul li a.logo img {
+    width: 5%;
+    display: inline-block;
+    vertical-align: middle;
+    border: 0px solid green;
+}
+
+#tirgool .menu ul li a.active {
+    border: 2px solid orange;
+}
+
+#tirgool .breadcrumbs {
+    width: 98%;
+    text-align: left;
+    margin: 5% 0 0 0;
+    display: inline-block;
+    border: 0px solid green;
+}
+
+#tirgool .breadcrumbs a {
+    color: #ffffff;
+    font-size: 0.9em;
+    font-weight: bold;
+    background: gray;
+    margin: 0 0 0 -0.7em;
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.3% 1.5% 0.3% 1.5%;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%, 10px 50%);
+    border: 0px solid green;
+}
+
+#tirgool .breadcrumbs a:hover {
+    color: #000000;
+    background: lightskyblue;
+}
+
+#tirgool .breadcrumbs a:first-child {
+    margin: 0 0 0 0;
+}
+
+#tirgool .breadcrumbs a.active {
+    color: #000000;
+    background: limegreen;
+}
+
+#tirgool .wrapCont img {
+    margin: 1% 0 0 0;
+}
+
+#tirgool .contentCard {
+    width: 100%;
+    margin: 1% 0 0 0;
+    display: inline-block;
+    border: 0px solid green;
+}
+
+#tirgool h1 {
+    font-size: 2em;
+    font-weight: bold;
+    border: 0px solid green;
+}
+
+#tirgool .contentCard .flex-container-contentCard {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 2% auto 0 auto;
+    border: 0px solid green;    
+}
+
+#tirgool .contentCard .flex-container-contentCard > div {
+    width: 30%;
+    padding: 2% 0 2% 0;
+    margin: 0 0 2% 0;
+    background: #000000;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 10px gray;
+    border: 0px solid green;    
+}
+
+#tirgool .contentCard .flex-container-contentCard > div img.circ {
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ffffff;
+}
+
+#tirgool .contentCard .flex-container-contentCard > div .txtCard {
+    color: #ffffff;
+    padding: 10% 6% 0 6%;
+    border: 0px solid red;
+}
+
+#tirgool .contentCard .flex-container-contentCard > div .txtCard h2 {
+    font-size: 1.1em;
+    line-height: 140%;
+    font-weight: bold;
+}
+
+#tirgool .contentCard .flex-container-contentCard > div .txtCard p {
+    font-size: 0.9em;
+    margin: 2% 0 0 0;
+    line-height: 145%;
+    text-align: justify;
+}
+
+#tirgool .aboutus {
+    width: 100%;
+    margin: 1% 0 0 0;
+    display: inline-block;
+    border: 0px solid green;
+}
+
+#tirgool .aboutus .txtAboutus {
+    width: 70%;
+    margin: 0 auto;
+    border: 0px solid green;
+}
+
+#tirgool .aboutus .txtAboutus p {
+    font-size: 0.9em;
+    margin: 2% 0 0 0;
+    line-height: 130%;
+    text-align: justify;
+}
+
+#tirgool .aboutus .line {
+    margin: 3% 0 3% 0;
+    border-top: 2px solid gray;
+}
+
+#tirgool .aboutus  .flex-container-txtAboutus {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    border: 0px solid green;
+}
+
+#tirgool .aboutus  .flex-container-txtAboutus > div {
+    width: 30%;
+    text-align: left;
+    margin: 0 0 3% 0;
+    border: 0px solid green;
+}
+
+#tirgool .aboutus  .flex-container-txtAboutus > div h2 {
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 5% 2% 0 2%;
+
+}
+
+#tirgool .aboutus  .flex-container-txtAboutus > div p {
+    padding: 2% 2% 0 2%;
+}
+
+#tirgool .prod {
+    width: 100%;
+    margin: 1% 0 0 0;
+    display: inline-block;
+    border: 0px solid green;
+}
+
+#tirgool .prod h1 {
+    font-size: 2em;
+    font-weight: bold;
+    border: 0px solid green;
+}
+
+#tirgool .prod .flex-container-prod {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 2% auto 0 auto;
+    border: 0px solid cyan;
+}
+
+#tirgool .prod .flex-container-prod > div {
+    position: relative;
+    width: 23%;
+    margin: 0 0 3% 0;
+    border: 0px solid red;
+}
+
+#tirgool .prod .flex-container-prod > div span {
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 2em;
+    padding: 0.5% 3% 0.5% 3%;
+    background: rgba(255,255,255,0.7);
+}
+
+#tirgool .contactus {
+    width: 100%;
+    margin: 1% 0 0 0;
+    display: inline-block;
+    border: 0px solid green;
+}
+
+#tirgool .contactus h1 {
+    font-size: 2em;
+    font-weight: bold;
+    border: 0px solid green;
+}
+
+#tirgool .contactus .flex-container-contactus {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 2% auto 0 auto;
+    border: 0px solid green;
+}
+
+#tirgool .contactus .flex-container-contactus > div {
+    width: 48%;
+    margin: 0 0 2% 0;
+    border: 0px solid red;
+}
+
+#tirgool .contactus .flex-container-contactus > div label span {
+    display: block;
+    font-weight: bold;
+    text-align: left;
+    font-size: 0.9em;
+}
+
+#tirgool .contactus .flex-container-contactus > div label input[type='text'], #tirgool .contactus .flex-container-contactus > div label select {
+    width: 100%;
+    font-size: 0.9em;
+    margin: 0.5% 0 0 0;
+    padding: 1% 0 1% 1%;
+}
+
+#tirgool .contactus button {
+    font-size: 1em;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: bold;
+    background: blue;
+    transition: 0.3s all;
+    padding: 0.5% 1% 0.5% 1%;
+    border-radius: 5px 5px 5px 5px;
+    border: 0px solid green;
+}
+
+#tirgool .contactus button:hover {
+    box-shadow: 3px 3px 5px gray;
+}
+
+@media screen and (max-width: 1024px) {
+
+    #tirgool .menu {
+        padding: 2% 0 2% 0;
+    }
+
+    #tirgool .menu ul {
+        margin: 0 2% 0 2%;
+    }
+
+    #tirgool .menu ul li {
+        margin: 0 2% 0 0;
+    }
+
+    #tirgool .menu ul li a.logo img {
+        width: 15%;
+    }
+
+    #tirgool .menu ul li a {
+        font-size: 3.8em;
+    }
+
+    #tirgool .breadcrumbs {
+        margin: 15% 0 2% 0;
+    }
+
+    #tirgool .breadcrumbs a {
+        font-size: 4em;
+        margin: 0 0 0 -0.4em;
+        padding: 2% 5% 2% 5%;
+    }
+
+    #tirgool h1 {
+        font-size: 6em;
+    }
+
+    #tirgool .contentCard {
+        margin: 6% 0 0 0;
+    }
+
+    #tirgool .contentCard .flex-container-contentCard {
+        width: 95%;
+        margin: 4% auto 0 auto;
+    }
+
+    #tirgool .contentCard .flex-container-contentCard > div {
+        width: 100%;
+        margin: 0 0 6% 0;
+        padding: 8% 0 8% 0;
+    }
+
+    #tirgool .contentCard .flex-container-contentCard > div .txtCard h2 {
+        font-size: 5em;
+    }
+
+    #tirgool .contentCard .flex-container-contentCard > div .txtCard p {
+        font-size: 4em;
+    }
+
+    #tirgool .aboutus {
+        margin: 6% 0 0 0;
+    }
+
+    #tirgool .aboutus .txtAboutus {
+        width: 95%;
+    }
+
+    #tirgool .aboutus .txtAboutus p {
+        font-size: 4em;
+    }
+
+    #tirgool .aboutus .line {
+        margin: 7% 0 7% 0;
+    }
+
+    #tirgool .aboutus .flex-container-txtAboutus > div {
+        width: 100%;
+        margin: 0 0 10% 0;
+    }
+
+    #tirgool .aboutus .flex-container-txtAboutus > div h2 {
+        font-size: 5em;
+    }
+
+    #tirgool .prod {
+        margin: 6% 0 0 0;
+    }
+
+    #tirgool .prod h1 {
+        font-size: 6em;
+    }
+
+    #tirgool .prod .flex-container-prod {
+        width: 95%;
+    }
+
+    #tirgool .prod .flex-container-prod > div {
+        width: 48%;
+        margin: 0 0 5% 0;
+    }
+
+    #tirgool .prod .flex-container-prod > div span {
+        font-size: 3.5em;
+    }
+
+    #tirgool .contactus {
+        margin: 6% 0 0 0;
+    }
+
+    #tirgool .contactus h1 {
+        font-size: 6em;
+    }
+
+    #tirgool .contactus .flex-container-contactus {
+        width: 95%;
+    }
+
+    #tirgool .contactus .flex-container-contactus > div {
+        width: 100%;
+    }
+
+    #tirgool .contactus .flex-container-contactus > div label span {
+        font-size: 3.5em;
+    }
+
+    #tirgool .contactus .flex-container-contactus > div label input[type='text'], #tirgool .contactus .flex-container-contactus > div label select {
+        font-size: 5em;
+        padding: 1% 0 1% 1%;
+    }
+
+    #tirgool .contactus button {
+        font-size: 5em;
+        margin: 5% 0 0 0;
+        padding: 2% 5% 1% 5%;
+    }
+
+}
+
+
+@media screen and (min-width: 1920px) {
+    #tirgool {
+        font-size: 1.2em;
+    }
+}

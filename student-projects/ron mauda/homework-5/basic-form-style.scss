@@ -1,0 +1,116 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+body{
+    background-color: rgb(220, 211, 211);
+}
+form {
+    display: block;
+    padding: 15px; 
+    box-shadow: 0 1px 4px;
+    background-color: burlywood;
+    margin-inline: auto;
+    margin-top: 20px;
+    width: 600px;
+    
+    h1{
+        padding-bottom: 1rem;
+    }    
+
+    .information, .information-email{
+    display: inline-block;
+    padding-bottom: 0px;
+    
+        >input{
+        position: relative;
+        width: 283px;
+        height: 50px;
+        padding-left: 6px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: larger;
+        border-radius: 1ch; 
+        
+            &:hover{
+            background-color: rgb(228, 217, 217);
+            }
+
+            &::placeholder{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: medium; 
+            }     
+        }
+
+        .message{
+            display: inline-block;
+            width: 570px;
+            height: 150px;
+               
+            &::placeholder{
+            position: absolute;
+            top: 15px;
+            }
+        }
+    
+    }
+
+    .information-email {
+    padding-bottom: 15px;
+
+        >input{
+        width:  570px;
+        }
+    }
+
+    section{
+    padding-top: 10px;
+    padding-bottom: 15px;
+
+        >div{
+        font-size: large;
+        padding-top: 10px;
+        }
+    }
+
+    .option{
+    display: inline-block;
+    font-size: large;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+        >label{
+        padding-right: 10px;
+        }
+    }
+
+
+    .buttons{
+    padding-left: 365px;
+    padding-top: 10px;
+
+        >button{
+        width: 100px;
+        height: 30px;
+        font-size: medium;
+        }
+    }
+
+}
+
+
+
+    
+    
+
+
+   
+
+
+
+    
+    
