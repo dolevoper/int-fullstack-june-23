@@ -47,6 +47,13 @@ h2 {
 .reference {
   font-size: 0.8em;
   vertical-align: top;
+  transition: 0.3s ease-in-out;
+  color: darkblue;
+
+}
+
+.reference:hover{
+  color: black
 }
 
 /* ToolTip */
@@ -57,10 +64,11 @@ h2 {
   color: black;
   text-transform: uppercase;
   text-decoration: underline;
+  
 }
 
 .tooltiptext {
-  visibility: hidden;
+  opacity: 0;
   background-color: #555;
   color: #fff;
   text-align: center;
@@ -74,7 +82,9 @@ h2 {
   z-index: 1;
   text-transform: lowercase;
   width: 200px;
+  transition: 0.3s ease-in-out;
 }
+
 
 .tooltip-image{
   border: 1px solid black;
@@ -82,7 +92,7 @@ h2 {
 }
 
 .tooltip:hover .tooltiptext {
-  visibility: visible;
+  opacity: 1;
 }
 
 .tooltip .tooltiptext::after {
