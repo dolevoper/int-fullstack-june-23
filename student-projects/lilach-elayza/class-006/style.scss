@@ -5,6 +5,7 @@
 html {
     font-size: 1.2rem;
     line-height: 1.6;
+    scroll-padding-top: 2rem;
 }
 
 body {
@@ -15,40 +16,30 @@ body {
 header {
     background: black;
     color: white;
+    z-index: 9;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-}
 
-a {
-    color: white;
+    a {
+        color: white;
+    }
+
+    nav {
+        display: inline;
+        margin-inline-start: 2rem;
+    }
     
-}
+    .navigation-links {
+        display: inline;
+        padding: 0;
 
-a:hover {
-    color: orange;
-}
-
-sup a {
-    color: blue;
-    font-size: 0.8rem;
-    transition: 0.3s all;
-}
-
-nav {
-    display: inline;
-    margin-inline-start: 2rem;
-}
-
-.navigation-links {
-    display: inline;
-    padding: 0;
-}
-
-li {
-    display: inline;
-    margin-inline-start: 1rem;
+        li {
+            display: inline;
+            margin-inline-start: 1rem;
+        }
+    }
 }
 
 main {
@@ -93,5 +84,22 @@ main {
         display: block;
         object-fit: cover;
         border-radius: 8px 8px 0 0;
+    }
+}
+
+.ref-link {
+    font-size: 0.5rem;
+    position: relative;
+    bottom: 0.3rem;
+}
+
+.ref {
+    font-size: 0.8rem;
+    color: black;
+    text-decoration: none;
+
+    .back {
+        position: relative;
+        top: 0.05rem;
     }
 }
