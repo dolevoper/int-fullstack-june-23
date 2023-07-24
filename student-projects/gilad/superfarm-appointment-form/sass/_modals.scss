@@ -1,0 +1,106 @@
+@use 'colors' as colors;
+@use 'fonts' as fonts;
+@use 'fixed_sizes' as fixed;
+
+.modal-cookies {
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: rgba(colors.$bg-color-shadow, 0.75);
+
+    &__body {
+
+        display: block;
+        width: 100%;
+        height: 30%;
+        padding: 3rem;
+
+        position: absolute;
+        bottom: 0;
+
+        background-color: white;
+
+    }
+
+    &__icon {
+        display: inline-block;
+        width: fixed.$icon-huge;
+        height: fixed.$icon-huge;
+
+        background: url("../assets/modals/cookies/cookie.svg") no-repeat center / 90% ;
+        
+        vertical-align: middle;
+    }
+
+    &__message {
+        
+        display: inline-block;
+        width: 50%;
+        padding: 1rem;
+        
+        font-size: fonts.$font-size-medium;
+        font-family: fonts.$font-face-bold;
+
+        vertical-align: top;
+    }
+
+    &__options {
+        display: inline-block;
+        width: 30%;
+        text-align: left;
+        vertical-align: baseline;
+        line-height: 10rem;
+
+
+    }
+
+    &__button {
+        display: inline-block;
+        width: 12rem;
+        height: 4rem;
+        // padding: 1rem;
+
+        border: solid 4px colors.$brand-color-main;
+        border-radius: 4rem;
+
+        font-size: fonts.$font-size-big;
+        font-family: fonts.$font-face-bold;
+        
+        text-align: center;
+        vertical-align: baseline;
+        line-height: 3.5rem;
+        transition: box-shadow 0.5s;
+
+        cursor: pointer;
+
+        &--accept {
+            background-color: colors.$brand-color-main;
+            color: white;
+        }
+
+        &:hover {
+            box-shadow: 2px 2px 6px rgb(colors.$bg-color-shadow, 0.5);
+        }
+        
+    }
+
+    // Checkbox show-hide functionality
+    &__checkbox {
+        display: none;
+    }
+
+    &:has(#{&}__checkbox:checked) {
+        background-color: green;
+        display: none;
+    }
+
+}
+
