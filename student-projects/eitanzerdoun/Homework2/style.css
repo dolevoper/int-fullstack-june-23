@@ -1,0 +1,21 @@
+.button1{
+    font-size: 2em;
+    border-radius: 5px;
+    border: white solid 2px;
+    box-shadow: 3px 3px 3px black;
+    background-color: white;
+}
+.saluttoi1{
+    box-shadow: 3px 3px 8px black;
+    margin: 10px;
+    padding:10px;
+    border-radius: 10px;
+    background-color: bisque;
+}
+
+.section1{
+    box-shadow: 3px 3px 10px black;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+}
