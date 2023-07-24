@@ -5,6 +5,8 @@
 @use 'colors' as colors;
 @use 'fixed_sizes' as fixed;
 @use 'screens' as screens;
+/* ___________________Components ____________________ */
+@use 'modals';
 /* __________________________________________________ */
 /* __________________ END OF IMPORTS ________________ */
 /* __________________________________________________ */
@@ -369,6 +371,10 @@
         padding: 16px 16px 0 16px;
 
         border-bottom: solid 1px rgba(colors.$bg-color-shadow, 0.05);
+
+        &:hover {
+            background-color: rgb(colors.$bg-color-shadow, 0.05);
+        }
     }
 
 }
@@ -534,5 +540,5 @@
     color: colors.$font-color-main;
     font-size: fonts.$font-size-small;
     vertical-align: bottom;
-    margin: 0.5rem;
+    margin: 0.5rem 0 0 0;
 }
