@@ -16,101 +16,453 @@
 
     <!-- Main Header -->
     <header class="main-header">
+        <button class="main-header__back" title="חזור אחורה">
+            <!-- Error: The element a must not appear as a descendant of the button element. -->
+            <a class="main-header__back-content" href="123"></a>
+        </button>
+        <h1 class="main-header__title">זימון תור לבית המרקחת</h1>
         <a class="main-header__logo" href="#">
             <img class="main-header__logo-image" src="assets/clickpharm-logo.svg" alt="click-pharm logo">
         </a>
-        <h1 class="main-header__title">זימון תור לבית המרקחת</h1>
-        <button class="main-header__button-back" title="חזור אחורה">
-            <a class="main-header__button-back--content" href="123"></a>
-        </button>
     </header>
 
-    <main class="main-form">
-        <!-- Main Form Navigation Indicator  -->
-        <menu class="progress-indicator">
-            <li class="progress-indicator__bar-wrapper">
-                <progress class="progress-indicator__bar" max="3" value="2"></progress>
-            </li>
-            <li class="progress-indicator__item">
-                <p class="progress-indicator__item--index completed ">1</p>
-                <p class="progress-indicator__item--title">סניף</p>
-            </li>
-            <li class="progress-indicator__item">
-                <p class="progress-indicator__item--index completed">2</p>
-                <p class="progress-indicator__item--title">יום ושעה</p>
-            </li>
-            <li class="progress-indicator__item">
-                <p class="progress-indicator__item--index ">3</p>
-                <p class="progress-indicator__item--title">פרטים אישיים</p>
-            </li>
-            <li class="progress-indicator__item">
-                <p class="progress-indicator__item--index ">4</p>
-                <p class="progress-indicator__item--title">סיום</p>
-            </li>
+    <main class="main">
 
-        </menu>
+        <!-- Main Form Navigation Indicator  -->
+
+        <!-- W3C Validator - Warning: Section lacks heading. Consider using h2-h6 elements to add identifying headings to all sections, or else use a div element instead for any cases where no heading is needed. -->
+        <div class="progress-indicator">
+            <progress class="progress-indicator__progressbar" max="3" value="1"></progress>
+
+            <menu class="progress-indicator__menu">
+                <li class="progress-indicator__item">
+                    <p class="progress-indicator__index completed ">1</p>
+                    <p class="progress-indicator__title">סניף</p>
+                </li>
+                <li class="progress-indicator__item">
+                    <p class="progress-indicator__index">2</p>
+                    <p class="progress-indicator__title">יום ושעה</p>
+                </li>
+                <li class="progress-indicator__item">
+                    <p class="progress-indicator__index ">3</p>
+                    <p class="progress-indicator__title">פרטים אישיים</p>
+                </li>
+                <li class="progress-indicator__item">
+                    <p class="progress-indicator__index ">4</p>
+                    <p class="progress-indicator__title">סיום</p>
+                </li>
+            </menu>
+        </div>
 
         <!-- Branch Selection Form -->
 
+        <article class="main-form">
 
-        <section class="main-form">
-            <header class="main-form__header">
-                <h2 class="main-form__header__title">איזה סניף?</h2>
-                <div class="main-form__header__title-icon"></div>
-                <input class="main-form__header__searchbar"type="search" name="" id="">
+            <header class="branch-header">
+                <div class="branch-header__icon"></div>
+                <h2 class="branch-header__title">איזה סניף?</h2>
             </header>
 
-            <h3 class="main-form__title">רשימת סניפים</h3>
-            <input class="main-form__prescription-checkbox"type="checkbox" name="" id="">
-            <ul class="main-form__result-list">
-                <li class="main-form__result-list__item">
-                    <article class="main-form__result-list__item__branch">
-                        <h4 class="main-form__result-list__item__branch-name">רמת גן - קניון איילון</h4>
-                        <section class="main-form__result-list__item__branch-info">
-                            <p class="main-form__result-list__item__branch-info__address">
-                                <span>כתובת:</span>
-                                אבא הלל 301 ,קניון אילון
-                            </p>
-                            <p class="main-form__result-list__item__branch-info__phonenumber">
-                                <span>טלפון:</span>
-                                0778880100
-                            </p>
-                            <ul class="main-form__result-list__item__branch-info__branches-list">
-                                <li class="main-form__result-list__item__branch-info__branches-list__item"><img src="assets/branch-icons/clalit.png" alt=""></li>
-                                <li class="main-form__result-list__item__branch-info__branches-list__item"><img src="assets/branch-icons/leumit.png" alt=""></li>
-                                <li class="main-form__result-list__item__branch-info__branches-list__item"><img src="assets/branch-icons/maccabi.png" alt=""></li>
-                                <li class="main-form__result-list__item__branch-info__branches-list__item"><img src="assets/branch-icons/meuhedet.png" alt=""></li>
+            <div class="branch-searchbar ">
+                <input class="branch-searchbar__input" type="search" name="branch-searchbar__input"
+                id="branch-searchbar__input" title="חיפוש סניף" placeholder="בחר מהרשימה או הקלד יישוב"
+                pattern="[A-z]">
+                <div class="branch-searchbar__icon"></div>
+            </div>
+
+            <section class="branch-search">
+                <h3 class="branch-search__title">רשימת סניפים</h3>
+                <input class="branch-search__prescription-checkbox" type="checkbox"
+                    name="branch-search__prescription-checkbox" id="result-header__prescription-checkbox">
+                <label class="branch-search__prescription-label" for="result-header__prescription-checkbox">קבלת
+                    מרשמים</label>
+            </section>
+
+
+            <ul class="branch-results">
+
+                <li class="branch-results__item">
+
+                    <article class="branch">
+
+                        <h4 class="branch__name">רמת גן - קניון איילון</h4>
+
+                        <section class="branch-info">
+                            <div class="branch-info__row">
+                                <h5 class="branch-info__title">כתובת:</h5>
+                                <p class="branch-info__description">
+                                    אבא הלל 301 ,קניון אילון
+                                </p>
+                            </div>
+                            <div class="branch-info__row">
+                                <h5 class="branch-info__title">טלפון:</h5>
+                                <p class="branch-info__description">
+                                    0778880100
+                                </p>
+                            </div>
+                            <ul class="branch-info__row">
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/clalit.png" title="כללית" alt="כללית">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/leumit.png" title="לאומית" alt="לאומית">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/maccabi.png" title="מכבי" alt="מכבי">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/meuhedet.png" title="מאוחדת" alt="מאוחדת">
+                                </li>
                             </ul>
                         </section>
-                        <section class="main-form__result-list__item__branch-open-hours">
-                            <p class="main-form__result-list__item__branch-open-hours__title">שעות פתיחה:</p>
-                            <table class="main-form__result-list__item__branch-open-hours__table">
-                                <tr class="main-form__result-list__item__branch-open-hours__table__row">
-                                    <th class="main-form__result-list__item__branch-open-hours__table__row__days">א' - ה'</th>
-                                    <td class="main-form__result-list__item__branch-open-hours__table__hours">08:00 - 23:00</td>
+
+                        <section class="branch-hours">
+                            <h5 class="branch-hours__title">שעות פתיחה:</h5>
+
+                            <table class="branch-hours__table">
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">א' - ה'</th>
+                                    <td class="branch-hours__hours">08:00 - 23:00</td>
                                 </tr>
-                                <tr class="main-form__result-list__item__branch-open-hours__table__row">
-                                    <th class="main-form__result-list__item__branch-open-hours__table__row__days">ו'</th>
-                                    <td class="main-form__result-list__item__branch-open-hours__table__hours">08:00 - 17:00</td>
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">ו'</th>
+                                    <td class="branch-hours__hours">08:00 - 17:00</td>
                                 </tr>
-                                <tr class="main-form__result-list__item__branch-open-hours__table__row">
-                                    <th class="main-form__result-list__item__branch-open-hours__table__row__days">שבת</th>
-                                    <td class="main-form__result-list__item__branch-open-hours__table__hours">חצי שעה לאחר צאת השבת - 00:00</td>
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">שבת</th>
+                                    <td class="branch-hours__hours">חצי שעה לאחר צאת שבת</td>
                                 </tr>
                             </table>
                         </section>
-                        <section class="main-form__result-list__item__branch__select-branch">
-                            <button class="main-form__result-list__item__branch__select-branch__button">בחירת סניף</button>
+
+                        <section class="branch-selection">
+                            <button class="branch-selection__button">בחירת סניף</button>
                         </section>
+
+                    </article>
+                </li>
+                
+                <li class="branch-results__item">
+
+                    <article class="branch">
+
+                        <h4 class="branch__name">רמת גן - קניון איילון</h4>
+
+                        <section class="branch-info">
+                            <div class="branch-info__row">
+                                <h5 class="branch-info__title">כתובת:</h5>
+                                <p class="branch-info__description">
+                                    אבא הלל 301 ,קניון אילון
+                                </p>
+                            </div>
+                            <div class="branch-info__row">
+                                <h5 class="branch-info__title">טלפון:</h5>
+                                <p class="branch-info__description">
+                                    0778880100
+                                </p>
+                            </div>
+                            <ul class="branch-info__row">
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/clalit.png" title="כללית" alt="כללית">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/leumit.png" title="לאומית" alt="לאומית">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/maccabi.png" title="מכבי" alt="מכבי">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/meuhedet.png" title="מאוחדת" alt="מאוחדת">
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section class="branch-hours">
+                            <h5 class="branch-hours__title">שעות פתיחה:</h5>
+
+                            <table class="branch-hours__table">
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">א' - ה'</th>
+                                    <td class="branch-hours__hours">08:00 - 23:00</td>
+                                </tr>
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">ו'</th>
+                                    <td class="branch-hours__hours">08:00 - 17:00</td>
+                                </tr>
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">שבת</th>
+                                    <td class="branch-hours__hours">חצי שעה לאחר צאת שבת</td>
+                                </tr>
+                            </table>
+                        </section>
+
+                        <section class="branch-selection">
+                            <button class="branch-selection__button">בחירת סניף</button>
+                        </section>
+                        
+                    </article>
+                </li>
+
+                <li class="branch-results__item">
+
+                    <article class="branch">
+
+                        <h4 class="branch__name">רמת גן - קניון איילון</h4>
+
+                        <section class="branch-info">
+                            <div class="branch-info__row">
+                                <h5 class="branch-info__title">כתובת:</h5>
+                                <p class="branch-info__description">
+                                    אבא הלל 301 ,קניון אילון
+                                </p>
+                            </div>
+                            <div class="branch-info__row">
+                                <h5 class="branch-info__title">טלפון:</h5>
+                                <p class="branch-info__description">
+                                    0778880100
+                                </p>
+                            </div>
+                            <ul class="branch-info__row">
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/clalit.png" title="כללית" alt="כללית">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/leumit.png" title="לאומית" alt="לאומית">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/maccabi.png" title="מכבי" alt="מכבי">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/meuhedet.png" title="מאוחדת" alt="מאוחדת">
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section class="branch-hours">
+                            <h5 class="branch-hours__title">שעות פתיחה:</h5>
+
+                            <table class="branch-hours__table">
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">א' - ה'</th>
+                                    <td class="branch-hours__hours">08:00 - 23:00</td>
+                                </tr>
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">ו'</th>
+                                    <td class="branch-hours__hours">08:00 - 17:00</td>
+                                </tr>
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">שבת</th>
+                                    <td class="branch-hours__hours">חצי שעה לאחר צאת שבת</td>
+                                </tr>
+                            </table>
+                        </section>
+
+                        <section class="branch-selection">
+                            <button class="branch-selection__button">בחירת סניף</button>
+                        </section>
+                        
+                    </article>
+                </li>
+
+                <li class="branch-results__item">
+
+                    <article class="branch">
+
+                        <h4 class="branch__name">רמת גן - קניון איילון</h4>
+
+                        <section class="branch-info">
+                            <div class="branch-info__row">
+                                <h5 class="branch-info__title">כתובת:</h5>
+                                <p class="branch-info__description">
+                                    אבא הלל 301 ,קניון אילון
+                                </p>
+                            </div>
+                            <div class="branch-info__row">
+                                <h5 class="branch-info__title">טלפון:</h5>
+                                <p class="branch-info__description">
+                                    0778880100
+                                </p>
+                            </div>
+                            <ul class="branch-info__row">
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/clalit.png" title="כללית" alt="כללית">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/leumit.png" title="לאומית" alt="לאומית">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/maccabi.png" title="מכבי" alt="מכבי">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/meuhedet.png" title="מאוחדת" alt="מאוחדת">
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section class="branch-hours">
+                            <h5 class="branch-hours__title">שעות פתיחה:</h5>
+
+                            <table class="branch-hours__table">
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">א' - ה'</th>
+                                    <td class="branch-hours__hours">08:00 - 23:00</td>
+                                </tr>
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">ו'</th>
+                                    <td class="branch-hours__hours">08:00 - 17:00</td>
+                                </tr>
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">שבת</th>
+                                    <td class="branch-hours__hours">חצי שעה לאחר צאת שבת</td>
+                                </tr>
+                            </table>
+                        </section>
+
+                        <section class="branch-selection">
+                            <button class="branch-selection__button">בחירת סניף</button>
+                        </section>
+                        
+                    </article>
+                </li>
+
+                <li class="branch-results__item">
+
+                    <article class="branch">
+
+                        <h4 class="branch__name">רמת גן - קניון איילון</h4>
+
+                        <section class="branch-info">
+                            <div class="branch-info__row">
+                                <h5 class="branch-info__title">כתובת:</h5>
+                                <p class="branch-info__description">
+                                    אבא הלל 301 ,קניון אילון
+                                </p>
+                            </div>
+                            <div class="branch-info__row">
+                                <h5 class="branch-info__title">טלפון:</h5>
+                                <p class="branch-info__description">
+                                    0778880100
+                                </p>
+                            </div>
+                            <ul class="branch-info__row">
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/clalit.png" title="כללית" alt="כללית">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/leumit.png" title="לאומית" alt="לאומית">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/maccabi.png" title="מכבי" alt="מכבי">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/meuhedet.png" title="מאוחדת" alt="מאוחדת">
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section class="branch-hours">
+                            <h5 class="branch-hours__title">שעות פתיחה:</h5>
+
+                            <table class="branch-hours__table">
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">א' - ה'</th>
+                                    <td class="branch-hours__hours">08:00 - 23:00</td>
+                                </tr>
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">ו'</th>
+                                    <td class="branch-hours__hours">08:00 - 17:00</td>
+                                </tr>
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">שבת</th>
+                                    <td class="branch-hours__hours">חצי שעה לאחר צאת שבת</td>
+                                </tr>
+                            </table>
+                        </section>
+
+                        <section class="branch-selection">
+                            <button class="branch-selection__button">בחירת סניף</button>
+                        </section>
+                        
+                    </article>
+                </li>
+
+                <li class="branch-results__item">
+
+                    <article class="branch">
+
+                        <h4 class="branch__name">רמת גן - קניון איילון</h4>
+
+                        <section class="branch-info">
+                            <div class="branch-info__row">
+                                <h5 class="branch-info__title">כתובת:</h5>
+                                <p class="branch-info__description">
+                                    אבא הלל 301 ,קניון אילון
+                                </p>
+                            </div>
+                            <div class="branch-info__row">
+                                <h5 class="branch-info__title">טלפון:</h5>
+                                <p class="branch-info__description">
+                                    0778880100
+                                </p>
+                            </div>
+                            <ul class="branch-info__row">
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/clalit.png" title="כללית" alt="כללית">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/leumit.png" title="לאומית" alt="לאומית">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/maccabi.png" title="מכבי" alt="מכבי">
+                                </li>
+                                <li class="branch-info__services-item">
+                                    <img class="branch-info__branch-icon" src="assets/branch-icons/meuhedet.png" title="מאוחדת" alt="מאוחדת">
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section class="branch-hours">
+                            <h5 class="branch-hours__title">שעות פתיחה:</h5>
+
+                            <table class="branch-hours__table">
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">א' - ה'</th>
+                                    <td class="branch-hours__hours">08:00 - 23:00</td>
+                                </tr>
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">ו'</th>
+                                    <td class="branch-hours__hours">08:00 - 17:00</td>
+                                </tr>
+                                <tr class="branch-hours__row">
+                                    <th class="branch-hours__days">שבת</th>
+                                    <td class="branch-hours__hours">חצי שעה לאחר צאת שבת</td>
+                                </tr>
+                            </table>
+                        </section>
+
+                        <section class="branch-selection">
+                            <button class="branch-selection__button">בחירת סניף</button>
+                        </section>
+                        
                     </article>
                 </li>
             </ul>
-        </section>
-
         </article>
 
     </main>
 
+    <footer class="main-footer">
+        <!-- Error: Bad value for attribute src on element img: Must be non-empty. -->
+        <img class="main-footer__logo" src="" alt="">
+        <p class="main-footer__disclaimer">This site is protected by
+            <a class="main-footer__refference" href="#">reCAPTCHA</a>
+            and the Google
+            <a class="main-footer__refference" href="#">Privacy Policy</a>
+            and
+            <a class="main-footer__refference" href="#">Terms of Service</a>
+            apply.
+        </p>
+    </footer>
 </body>
 
 </html>

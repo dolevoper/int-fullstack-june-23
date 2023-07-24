@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 20px;
+    }
+
+    .form-container {
+      max-width: 400px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    select {
+      height: 38px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input[type="radio"] {
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Job Application Form</h2>
+    <form action="#" method="post">
+      <label for="fullname">Full Name:</label>
+      <input type="text" id="fullname" name="fullname" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="e.g. 1234567890" required>
+
+
+      <div>
+        <label for="gender">Gender:</label>
+        <input type="radio" id="male" name="gender" value="male" style="margin-right: 15px" required>
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Male  Female</label>
+      </div>
+      
+
+      <label for="skills">Programming Languages:</label>
+      <select id="skills" name="skills" required>
+        <option value="" disabled selected>Select your skills</option>
+        <option value="html_css">HTML/CSS</option>
+        <option value="javascript">JavaScript</option>
+        <option value="python">Python</option>
+        <option value="java">Java</option>
+        <option value="php">PHP</option>
+        <option value="ruby">Ruby</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="experience">Years of Experience:</label>
+      <input type="number" id="experience" name="experience" min="0" required>
+
+      <label for="comments">Additional Comments:</label>
+      <textarea id="comments" name="comments" rows="4"></textarea>
+
+      <input type="checkbox" id="agree" name="agree" required>
+      <label for="agree">I agree to the terms and conditions</label>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>
