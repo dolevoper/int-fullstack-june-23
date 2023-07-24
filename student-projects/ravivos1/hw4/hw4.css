@@ -1,0 +1,69 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+* {
+    overflow: auto;
+}
+
+.card {
+    margin: 10px;
+    box-shadow: 0 0 8px rgb(0 0 0 / 0.2);
+    padding: 8px;
+    border-radius: 8px;
+    margin-inline: auto;
+    width: 600px;
+}
+
+.wim {
+    width: 580px;
+    border-radius: 2%;
+}
+
+h1 {
+    text-align: center;
+    color: green;
+    text-decoration: underline;
+}
+
+p {
+    margin: 20px;
+}
+
+.breadcrumb {
+    padding: 0 .9rem;
+}
+
+.breadcrumb ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+    
+.breadcrumb li:not(:last-child)::after {
+    display: inline-block;
+    margin: 0 .25rem;
+    content: "→";
+}
+
+.doubles1 {
+    width: 290px;
+    height: 250px;
+    border-top-left-radius: 2%;
+    border-bottom-left-radius: 2%;
+}
+
+.doubles2 {
+    width: 290px;
+    height: 250px;
+    border-top-right-radius: 2%;
+    border-bottom-right-radius: 2%;
+}
