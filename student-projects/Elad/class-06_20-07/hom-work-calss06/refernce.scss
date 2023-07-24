@@ -44,3 +44,17 @@ html {
     padding: 40px 60px 40px 60px;
     border-top: dotted gray;
 }
+
+.ref_place{
+    font-size: small;
+    position: relative;
+    bottom: 5px;
+    right: 1px;
+}
+
+.ref_place:before{
+    content: "(";
+}
+.ref_place::after{
+    content: ")";
+}
