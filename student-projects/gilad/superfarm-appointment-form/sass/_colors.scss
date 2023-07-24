@@ -1,16 +1,23 @@
-// Font Colors
-$font-color-main: rgb(55,86,146);
-$font-color-seconday: rgb(0, 0, 0);
 
-// Background Colors
 
-$bg-color-main: rgb(241,241,241);
-$bg-color-shadow: rgb(0, 0, 0);
+
 
 // Brand Colors
 $brand-color-main: rgb(55,86,146);
 $brand-color-secondary: rgb(223, 3, 47);
 
+// Font Colors
+$font-color-main: rgb(44, 74, 133);
+$font-color-seconday: rgb(0, 0, 0);
+
+// Button Colors
+$button-color-main: rgb(44, 74, 133);
+$button-color-seconday: rgb(27, 51, 99);
+
+
+// Background Colors
+$bg-color-main: rgb(241,241,241);
+$bg-color-shadow: rgb(0, 0, 0, 0.5);
 
 // Scroller Colors
 $scrollbar-color-thumb: #{$brand-color-secondary};

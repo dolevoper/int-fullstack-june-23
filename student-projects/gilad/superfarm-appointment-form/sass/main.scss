@@ -5,6 +5,8 @@
 @use 'colors' as colors;
 @use 'fixed_sizes' as fixed;
 @use 'screens' as screens;
+/* ___________________Components ____________________ */
+@use 'modals';
 /* __________________________________________________ */
 /* __________________ END OF IMPORTS ________________ */
 /* __________________________________________________ */
@@ -21,145 +23,522 @@
 
     $self: &;
     
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     box-shadow: 0px 0px 6px colors.$bg-color-shadow;
 
-    margin: 0 0 16px 0;
-    > * {
-    margin: 16px;
+    &__logo {
+        margin: 16px;
 
-    }
-    & &__logo {
-        & #{$self}__logo-image {
+        &-image {
             width: fit-content;
-
-            @media (max-width: screens.$medium) {
-                width: calc(screens.$small / 3);
+            @media (max-width: screens.$small) {
+                width: calc(screens.$small / 6);
             }
         }
     }
 
-    & &__title {
+    &__title {
         margin: 0;
         padding: 0;
         text-align: center;
         font-family: 'main-font-bold';
-        font-size: fonts.$font-size-header-title;
+        font-size: fonts.$font-size-bigger;
 
-        @media (max-width: screens.$medium) {
-            font-size: fonts.$font-size-big;
-        }
     }
 
-    & &__button-back {
+    &__back {
         border: none;
-        width: 4rem;
-        height: 4rem;
-        padding: 6px;
+        width:fixed.$icon-big;
+        height:fixed.$icon-big;
+        margin: 8px;
+        padding: 8px;
         text-align: center;
-        background-color: transparent;
-        
-        &>a  {
-            display: inline-block;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            background: url("../assets/main-nav-back-button.svg") no-repeat center/50%;
-        }
+        background: url("../assets/main-nav-back-button.svg") no-repeat center/40%;
+
 
         &:hover {
             cursor: pointer;
             background-color: rgba(colors.$font-color-main, 0.1);
             border-radius: 50%;
+            transition: background-color 1s;
+
         }
     }
 
+    @media (max-width: screens.$small) {
+
+        &__logo {
+            margin: 8px;
+        }
+        &__back {
+            width:fixed.$icon-medium;
+            height:fixed.$icon-medium;
+        }
+
+        &__title {
+            font-size: fonts.$font-size-regular;
+        }
+    }
 }
 
-.main-form {
-    width: 60%;
+.main {
+    width: 1020px;
+
     margin: 0 auto;
 
     @media (max-width: screens.$medium) {
-        width: calc(100% - 2rem);
+        width: calc(100% - 3rem);
+        // width: 100%;
         margin: 0 auto;
     }
+
     @media (max-width: screens.$small) {
         width: 100%;
-        margin: 0 ;
+        margin: 0 auto;
     }
 }
 
 .progress-indicator {
     $self: &;
-    
+    $indicator-item-size: fixed.$icon-big;
+
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    direction: rtl;
+    margin: 0 0 16px 0;
+
+    &__progressbar {
+        
+        width: 100%;
+        height: fixed.$progress-indicator-progress-height;
+        
+        position: relative;
+        top: calc(($indicator-item-size/2) + (fixed.$progress-indicator-progress-height));
+        z-index: -1;
+        
+        background-color: transparent;
+        
+        &::-webkit-progress-bar { 
+            background-color: white;
+            box-shadow: 0 2px 6px rgb( colors.$bg-color-shadow, 0.15);
+        }
+
+        &::-webkit-progress-value {
+            background: linear-gradient(to left, colors.$brand-color-secondary, rgb(255,255,255) 80%);
+        }
+
+    }
+
+    &__menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        text-align: center;
     
-    list-style-type: none;
+        list-style-type: none;
+    }
+
+    &__item {
+        display: inline-block;
+    }
+
+    &__index {
+        width: $indicator-item-size;
+        height: $indicator-item-size;
+        margin: 0 auto;
+        padding: 0;
+        
+        background-color: white;
+        border: calc($indicator-item-size / 18) solid colors.$brand-color-secondary;
+        border-radius: $indicator-item-size;
+        
+        color: colors.$brand-color-secondary;
+        font-family: 'main-font-bold';
+        font-size: calc($indicator-item-size /2);
+        line-height: calc($indicator-item-size / 1.05 );
+
+        &.completed {
+            color: white;
+            background-color: colors.$brand-color-secondary;
+        }
+        
+
+    }
+
+    &__title {
+        text-align: center;
+        margin: 16px 0;
+        white-space: pre-line;
+        font-family: fonts.$font-face-regular;
+        font-size: fonts.$font-size-big;
+    }
+
+    @media ( max-width: screens.$small) {
+        &__progressbar {
+            display: block;
+            position: static;
+            z-index: 0;
+
+            margin: 0 0 16px 0;
+        }
+
+        &__index {
+            display: none;
+        }
+
+        &__title {
+            margin: 0 16px;
+            font-size: fonts.$font-size-regular;
+        }
+    }
+}
+
+.main-form {
+    background-color: white;
+    border: 2px solid rgb(colors.$bg-color-shadow, 0.1);
+    border-radius: 2px;
+    box-shadow: 0 0 4px rgb(colors.$bg-color-shadow, 0.1);
+
+    @media (max-width: screens.$small) {
+        width: calc(100% - 3rem);
+        margin: 0 auto;
+        border: none;
+        box-shadow: none;
+        
+    }
+}
+
+.branch-header {
+
+    display: block;
+    width: fit-content;
+    margin: 32px auto 16px auto;
+
+    &__title {
+        display: inline-block;
+        font-size: fonts.$font-size-huge;
+        font-family: fonts.$font-face-bold;
+    }
+
+    &__icon {
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+        background: url("../assets/map-marker.svg");
+        vertical-align: baseline;
+    }
+
+    @media (max-width: screens.$small) {
+        margin: 16px auto 8px auto;
+
+        &__icon {
+            margin: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+        &__title {
+            font-size: fonts.$font-size-bigger;
+            margin: 0 auto 8px auto;
+        }
+
+    }
+}
+
+.branch-searchbar {
+    
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    border: 1px solid colors.$brand-color-main;
+
+    &:focus-within {
+    //    border-width: 2px;
+            box-shadow:inset 0px 0px 2px 1px colors.$brand-color-main;
+    }
+
+    &__input {
+        
+        width: 30rem;
+        height: fixed.$icon-big;
+        padding: 0;
+
+        border: transparent;
+        background-color: transparent;
+
+        font-family: fonts.$font-face-bold;
+        font-size: fonts.$font-size-big;
+        color: colors.$font-color-main;
+
+        text-align: center;
+        outline: none;
+        
+        vertical-align: middle;
+
+        &::-webkit-input-placeholder {
+            font-family: fonts.$font-face-regular;
+            color: inherit;
+        }
+    }
+
+    &__icon {
+        display: inline-block;
+        width: fixed.$icon-medium;
+        height: fixed.$icon-medium;
+        background: url("../assets/search.svg") no-repeat center;
+        text-align: center;
+        outline: none;
+        vertical-align: middle;
+    }
+
+    @media (max-width: screens.$small) {
+        width: calc(100% - 2rem);
+        text-align: center;
+        
+        &__input {
+            width: calc( 100% - fixed.$icon-medium);
+            height: fixed.$icon-medium;
+            font-size: fonts.$font-size-medium;
+        }
+
+        &__icon {
+            display: inline-block;
+            width:  fixed.$icon-small;
+            height:  fixed.$icon-small;
+            background-size: 100%;
+            text-align: left;
+        }
+    }
+
+}
+
+.branch-search {
+
+    display: block;
+    margin: 16px 64px 8px 0;
+    font-family: fonts.$font-face-bold;
+    
+    &__title {
+        font-size: fonts.$font-size-bigger;
+    }
+
+    &__prescription-label {
+        font-size: fonts.$font-size-big;
+        margin: 0 fixed.$icon-tiny 0 0;
+        cursor: pointer;
+        vertical-align: middle;
+    }
+
+    &__prescription-checkbox {
+        display: inline-block;
+        vertical-align: middle;
+        width: fixed.$icon-small;
+        height: fixed.$icon-small;
+
+        background-color: colors.$brand-color-main;
+
+        transition: background-color 1s;
+    }
+
+    @media (max-width: screens.$small) {
+        margin: fixed.$icon-small;
+        font-family: fonts.$font-face-regular;
+
+        &__title {
+            font-size: fonts.$font-size-medium;
+        }
+
+        &__prescription-label {
+            margin: 0;
+            font-size: fonts.$font-size-regular;
+        }
+    }
+}
+
+.branch-results {
+
+    display: block;
+    height: 50vh;
+    box-shadow: inset 0px 0px 1px 1px rgba(colors.$bg-color-shadow, 0.05);
+    overflow-y: scroll;
+    direction: ltr;
+
+    &__item {
+        direction: rtl;
+        width: 100%;
+
+        padding: 16px 16px 0 16px;
+
+        border-bottom: solid 1px rgba(colors.$bg-color-shadow, 0.05);
+
+        &:hover {
+            background-color: rgb(colors.$bg-color-shadow, 0.05);
+        }
+    }
+
+}
+
+.branch {
+
+    display: block;
+    height: 100%;
+    text-align: right;
+    
+    &__name {
+        display: block;
+        height: 20%;
+        font-family: fonts.$font-face-bold;
+        font-size: fonts.$font-size-big;
+    }
+
+    @media (max-width: screens.$small) {
+        font-family: fonts.$font-face-regular;
+    }
+
+}
+
+.branch-info {
+    display: inline-block;
+    width: 40%;
+    height: 80%;
+    font-family: fonts.$font-face-regular;
     font-size: fonts.$font-size-medium;
 
-    & &__bar-wrapper {
-        width: 100%;
-        & #{$self}__bar {
-            width: 100%;
-            height: fixed.$progress-indicator-progress-height;
-            padding: 0;
-            z-index: -1;
-            background-color: transparent;
-            position: relative;
-    
-            top: calc((fixed.$progress-indicator-item-size/2) + (fixed.$progress-indicator-progress-height));
-            
-            &::-webkit-progress-bar { 
-                background-color: white;
-                box-shadow: 0 2px 6px rgb( colors.$bg-color-shadow, 0.15);
-            }
-    
-            &::-webkit-progress-value {
-                background: linear-gradient(to left, colors.$brand-color-secondary 50%, rgb(255,255,255));
-            }
-        }
-    }
-
-
-    & &__item {
+    &__row {
         display: inline-block;
-        & #{$self}__item--index {
-            width: fixed.$progress-indicator-item-size;
-            height: fixed.$progress-indicator-item-size;
-            margin: 0 auto;
-            padding: 0;
-            color: colors.$brand-color-secondary;
-            background-color: white;
-            border: 4px solid colors.$brand-color-secondary;
-            border-radius: 32px;
+        width: 100%;
+        margin: 8px 0;
+        overflow: hidden;
+    }
 
-            font-family: 'main-font-bold';
-            font-size: 2rem;
-            text-align: center;
-            line-height: 3.75rem;
+    &__title {
+        display: inline-block;
+        width: 20%;
+        font-family: fonts.$font-face-bold;
+    }
 
-            &.completed {
-                color: white;
-                background-color: colors.$brand-color-secondary;
-            }
+    &__description {
+        display: inline-block;
+        width: 70%;
+        text-align: right;
+        vertical-align: middle;
+        white-space: nowrap;
+    }
+
+    &__services-item {
+        display: inline-block;
+
+        height: fixed.$icon-medium;
+        text-align: center;
+    }
+
+    &__branch-icon {
+        vertical-align: middle;
+        text-align: center;
+        margin: 0 8px;
+    }
+
+    @media (max-width: screens.$small) {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: fonts.$font-size-regular;
+
+        &>:not(:first-child){
+            display: none;
         }
+        &>:first-child>:not(:nth-child(2)) {
+            display: none;
 
-        & #{$self}__item--title {
-            text-align: center;
-            margin: 16px 0;
-            overflow: hidden;
-            white-space: pre-line;
-            font-family: 'main-font-regular';
-            font-size: fonts.$font-size-big;
         }
     }
+}
+
+.branch-hours {
+
+    display: inline-block;
+    width: 40%;
+    height: 80%;
+
+    vertical-align: top;
+
+    font-family: fonts.$font-face-regular;
+    font-size: fonts.$font-size-medium;
+
+    &__title {
+        font-family: fonts.$font-face-bold;
+        margin: 8px 0;
+
+    }
+
+    &__table {
+        width: 100%;
+    }
+
+    &__row {
+        line-height: 2rem;
+    }
+
+    &__days {
+    }
+
+    &__hours {
+
+    }
+
+    @media (max-width: screens.$small) {
+        display: none;
+    }
+}
+
+.branch-selection {
+    display: inline-block;
+    width: 18%;
+    height: 80%;
+    text-align: center;
+    vertical-align: top;
+    line-height: 8rem;
+
+    &__button {
+        width: 100%;
+        height: 3rem;
+
+        background-color: colors.$button-color-main;
+
+        color: white;
+        font-family: fonts.$font-face-regular;
+        font-size: 1.25rem;
+        border: none;
+
+        transition: background-color 1s;
+        transition: box-shadow 1s;
+        
+        &:hover {
+            box-shadow: 2px 2px 4px rgb(colors.$bg-color-shadow, 0.25);
+            background-color: colors.$button-color-seconday;
+            transition: box-shadow 0.25s;
+            transition: background-color 1s;
+
+        }
+
+        &:focus,
+        &:active {
+            background-color: colors.$button-color-seconday;
+            transition: box-shadow 1s;
+            box-shadow: 2px 2px 12px rgb(colors.$bg-color-shadow, 0.75);
+        }
+    }
+
+    @media (max-width: screens.$small) {
+            display: none;
+    }
+}
+
+.main-footer {
+    text-align: center;
+    color: colors.$font-color-main;
+    font-size: fonts.$font-size-small;
+    vertical-align: bottom;
+    margin: 0.5rem 0 0 0;
 }
