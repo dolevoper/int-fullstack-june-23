@@ -111,6 +111,11 @@ main {
 
 .reference {
     display: inline-flex;
+    line-height: normal;
+
+    &:target {
+        background-color: #eaf3ff;
+    }
 
 
     &::before {
@@ -142,16 +147,48 @@ main {
 
 
 .references {
-    font-size: .8rem;
+    font-size: .7rem;
 
     li {
 
+        &:target {
+            background-color: #eaf3ff;
+        }
+
         &::after {
-            content: "\2197";
+            content: '';
+            display: inline-block;
+            content: url(https://pic.onlinewebfonts.com/thumbnails/icons_572332.svg);
+            width: .5rem;
+            margin-inline-start: .1rem;
+        }
+
+        >a {
+            color: blue;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            &:active {
+                color: orange;
+            }
+
         }
     }
 }
 
 .toright {
     float: right;
+}
+
+#reflinks>h2 {
+    line-height: 1.375rem;
+    font-weight: 400;
+    font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #a2a9b1;
+    margin-block-start: 5rem;
+    margin-block-end: -.5rem;
 }
