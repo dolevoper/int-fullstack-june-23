@@ -1,0 +1,77 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+img {
+    display: block;
+}
+
+button, input, textarea {
+    font-size: inherit;
+    font-family: inherit;
+}
+
+main {
+    margin-block-start: 2rem;
+    width: min(65ch, 100% - 3rem);
+    margin-inline: auto;
+
+    > *+* {
+        margin-block-start: 1.5em;
+    }
+}
+
+footer {
+    margin-block-start: 2rem;
+}
+
+header, footer {
+    background: black;
+    color: white;
+
+    a {
+        color: inherit;
+    }
+}
+
+.brand {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.card {
+    padding: 1rem;
+    margin: 1rem;
+    background: hsl(0deg 0% 0% / 0.1);
+    border-radius: 8px;
+
+    >*+* {
+        margin-block-start: 1em;
+    }
+
+    img {
+        border-radius: 50%;
+        margin-inline: auto;
+    }
+}
+
+.tags li {
+    background: hotpink;
+    color: white;
+    font-weight: 600;
+    border-radius: 4px;
+    padding-inline: 0.5rem;
+}
