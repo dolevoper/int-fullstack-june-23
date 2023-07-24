@@ -1,0 +1,41 @@
+.page-header {
+    display: flex;
+    // flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1rem;
+
+    ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        gap: 0.5rem;
+    }
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    
+    >main {
+        flex: 1;
+
+        // flex: 1 1 0;
+
+        // flex-shrink: 1; // default is 1
+        // flex-grow: 1; // default is 0
+        // flex-basis: 0; // default is auto
+    }
+}
+.tags {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
