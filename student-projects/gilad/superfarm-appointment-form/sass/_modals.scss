@@ -1,6 +1,7 @@
 @use 'colors' as colors;
 @use 'fonts' as fonts;
 @use 'fixed_sizes' as fixed;
+@use 'screens' as screens;
 
 .modal-cookies {
     display: block;
@@ -21,19 +22,19 @@
         display: block;
         width: 100%;
         height: 30%;
-        padding: 3rem;
+        padding: 2rem;
 
         position: absolute;
         bottom: 0;
 
         background-color: white;
-
+        text-align: right;
     }
 
     &__icon {
         display: inline-block;
-        width: fixed.$icon-huge;
-        height: fixed.$icon-huge;
+        width: 4rem;
+        height: 4rem;
 
         background: url("../assets/modals/cookies/cookie.svg") no-repeat center / 90% ;
         
@@ -43,30 +44,27 @@
     &__message {
         
         display: inline-block;
-        width: 50%;
+        width: 35rem;
         padding: 1rem;
         
         font-size: fonts.$font-size-medium;
-        font-family: fonts.$font-face-bold;
+        font-family: fonts.$font-face-regular;
 
-        vertical-align: top;
+        vertical-align: middle;
+        text-align: right;
     }
 
     &__options {
         display: inline-block;
-        width: 30%;
-        text-align: left;
         vertical-align: baseline;
         line-height: 10rem;
-
-
+        white-space: nowrap;
     }
 
     &__button {
         display: inline-block;
         width: 12rem;
         height: 4rem;
-        // padding: 1rem;
 
         border: solid 4px colors.$brand-color-main;
         border-radius: 4rem;
@@ -98,9 +96,45 @@
     }
 
     &:has(#{&}__checkbox:checked) {
-        background-color: green;
         display: none;
     }
 
+    @media (max-width: screens.$medium) {
+
+            &__body {
+                height: 30%;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            &__icon {
+                width: 3rem;
+                height: 3rem;
+            }
+
+            &__message {
+                font-size: fonts.$font-size-regular;
+                width: calc(100% - 1rem);
+
+            }
+            &__options {
+                display: inline-block;
+                vertical-align: top;
+                line-height: 0;
+            }
+            &__button {
+                width: 8rem;
+                height: 3rem;
+                line-height: 2.75rem;
+                font-size: fonts.$font-size-regular;
+            }
+    }
+
+    @media (max-width: screens.$small) {
+        &__body {
+            height: 80%;
+            padding: 1rem;
+        }
+    }
 }
 
