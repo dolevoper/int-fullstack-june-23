@@ -26,10 +26,16 @@
     src: url("../assets/fonts/fallback-font/Roboto-Bold.ttf") format('ttf');
 }
 
+$font-face-light: 'main-font-light', 'fallback-font-light';
+$font-face-regular: 'main-font-regular', 'fallback-font-regular';
+$font-face-bold: 'main-font-bold', 'fallback-font-bold';
+
 
 $font-size-small: 0.75rem;
-$font-size-medium: 1rem;
+$font-size-regular: 1rem;
+$font-size-medium: 1.25rem;
 $font-size-big: 1.5rem;
 $font-size-bigger: 2rem;
+$font-size-huge: 3rem;
 
-$font-size-header-title: 2rem;
+$font-size-title: 2.5rem;
