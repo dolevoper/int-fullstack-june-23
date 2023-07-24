@@ -29,7 +29,7 @@ body {
   margin: 1rem;
   font-size: 2rem;
 }
-.side-nav :last-child {
+.side-nav :nth-last-child(2) {
   background-color: green;
   margin-top: auto;
 }
