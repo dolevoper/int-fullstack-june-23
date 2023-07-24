@@ -69,6 +69,7 @@ h2 {
 
 .tooltiptext {
   opacity: 0;
+  visibility: hidden;
   background-color: #555;
   color: #fff;
   text-align: center;
@@ -82,7 +83,7 @@ h2 {
   z-index: 1;
   text-transform: lowercase;
   width: 200px;
-  transition: 0.3s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 
@@ -93,6 +94,7 @@ h2 {
 
 .tooltip:hover .tooltiptext {
   opacity: 1;
+  visibility: visible;
 }
 
 .tooltip .tooltiptext::after {
