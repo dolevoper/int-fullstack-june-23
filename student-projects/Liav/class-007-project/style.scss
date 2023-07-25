@@ -92,17 +92,26 @@ h6 {
 
   li {
     list-style: none;
+
+    a {
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+  
+      &:hover {
+        color: white;
+      }
+
   }
+      box-icon{
+        color: black;
 
-  a {
-    color: black;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color 0.3s ease, background-color 0.3s ease;
+        &:hover{
+          animation: tada 0.8s ease;
+        }
+      }
 
-    &:hover {
-      color: white;
-    }
   }
 
   #sigin-up-btn {
@@ -111,6 +120,24 @@ h6 {
     border-radius: 20px;
   }
 
+}
+
+@keyframes tada {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.9) rotate(-3deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(3deg);
+  }
+  75% {
+    transform: scale(0.95) rotate(-3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
 }
 
 body {
@@ -164,7 +191,7 @@ body {
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: 0.3s ease;
     margin: auto;
   }
 
