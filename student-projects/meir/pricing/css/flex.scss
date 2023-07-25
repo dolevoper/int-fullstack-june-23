@@ -1,0 +1,60 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    
+    >main {
+        flex: 1;
+
+        // flex: 1 1 0;
+
+        // flex-shrink: 1; // default is 1
+        // flex-grow: 1; // default is 0
+        // flex-basis: 0; // default is auto
+    }
+}
+
+.page-header {
+
+    display: flex;
+    justify-content: left;
+    align-items: baseline;
+    padding: 1rem;
+    gap: 3rem;
+
+    ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        gap: 0.5rem;
+    }
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+        color: #ffffff;
+        background: red;
+        border-radius: 5px;
+        padding: 0 0.5rem 0 0.5rem;
+        /*padding-inline: 0.5rem;        כמו padding נותן רווח משני הצדדים   */ 
+    }
+}
+
+/*
+.tags {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+*/
