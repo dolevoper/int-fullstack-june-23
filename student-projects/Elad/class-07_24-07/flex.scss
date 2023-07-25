@@ -32,10 +32,12 @@ body {
     }
 }
 
-.tags {
-    display: flex;
+.tags{
+    
     list-style: none;
+    display: flex;
     padding: 0;
     gap: 0.5rem;
     flex-wrap: wrap;
+
 }

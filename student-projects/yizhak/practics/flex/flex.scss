@@ -31,9 +31,9 @@ body {
         // flex-basis: 0; // default is auto
     }
 }
-
 .tags {
     display: flex;
+    justify-content: space-between;
     list-style: none;
     padding: 0;
     gap: 0.5rem;
