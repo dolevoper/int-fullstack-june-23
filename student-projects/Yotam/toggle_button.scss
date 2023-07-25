@@ -1,0 +1,40 @@
+
+.toggle-switch {
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  position: relative;
+  cursor: pointer;
+
+  .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: grey;
+    border-radius: 34px;
+    &:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+  }
+
+  .toggle-input {
+    display: none;
+    
+    &:checked + .slider {
+      background-color: green;
+      &:before {
+        transform: translateX(30px);
+      }
+    }
+  }
+}

@@ -5,6 +5,7 @@
 }
 
 html {
+    scroll-padding-top: 8vh;
     font-size: 1.2rem;
     line-height: 1.6;
 }
@@ -46,7 +47,7 @@ header {
 main {
     width: min(70ch, 100% - 3rem);
     margin-inline: auto;
-    margin-block-start: 2rem;
+    margin-block-start: 10vh;
 }
 
 // .main-action {
@@ -77,6 +78,18 @@ main {
         bottom: 0.75rem;
         left: 1rem;
         line-height: 1;
+
+        >a {
+            text-decoration: none;
+
+            &:visited {
+                color: inherit;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 
     img {
@@ -99,6 +112,11 @@ main {
 
 .reference {
     display: inline-flex;
+    line-height: normal;
+
+    &:target {
+        background-color: #eaf3ff;
+    }
 
 
     &::before {
@@ -120,10 +138,58 @@ main {
     }
 }
 
+.modal-wrapper {
+    display: none;
 
-#cite_note-refrence#1 {
-    color: red;
-&::after {
-    content: "\f08e";
+    &:active {
+        display: block;
+    }
 }
+
+
+.references {
+    font-size: .7rem;
+
+    li {
+
+        &:target {
+            background-color: #eaf3ff;
+        }
+
+        &::after {
+            content: '';
+            display: inline-block;
+            content: url(https://pic.onlinewebfonts.com/thumbnails/icons_572332.svg);
+            width: .5rem;
+            margin-inline-start: .1rem;
+        }
+
+        >a {
+            color: blue;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            &:active {
+                color: orange;
+            }
+
+        }
+    }
+}
+
+.toright {
+    float: right;
+}
+
+#reflinks>h2 {
+    line-height: 1.375rem;
+    font-weight: 400;
+    font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #a2a9b1;
+    margin-block-start: 5rem;
+    margin-block-end: -.5rem;
 }

@@ -1,3 +1,48 @@
-.tooltip{
-  
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}  
+
+header{
+text-align: center;
+
+}
+
+.tooltip{
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+
+  .tooltiptext{
+    visibility: hidden;
+    width:200px;
+    background-color: black;
+    color:whitesmoke;
+    font-size: small;
+    text-align: start;
+    border-radius: 7px;
+    padding: 6px;
+    margin: 5px;
+
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    
+  }
+}
+
+.tooltip:hover .tooltiptext{
+  visibility: visible;
+}
+

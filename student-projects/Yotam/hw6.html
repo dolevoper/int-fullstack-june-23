@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lorem Ipsum with Links</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-overlay {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            display: none;
+        }
+
+        .modal-content {
+            pointer-events: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: lightgreen;
+            padding: 20px;
+            z-index: 2;
+        }
+    </style>
+    <script>
+        function openModal() {
+            var modalOverlay = document.getElementById('modalOverlay');
+            modalOverlay.style.display = 'block';
+            modalOverlay.style.pointerEvents = 'auto';
+        }
+
+        function closeModal() {
+            var modalOverlay = document.getElementById('modalOverlay');
+            modalOverlay.style.display = 'none';
+            modalOverlay.style.pointerEvents = 'none';
+        }
+
+        function scrollToLink(linkId) {
+            var linkElement = document.getElementById(linkId);
+            linkElement.scrollIntoView();
+        }
+    </script>
+</head>
+<body>
+    <h1>Lorem Ipsum</h1>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae mauris sed odio tempor
+        vestibulum. Nulla facilisi. Mauris vel sagittis justo. Suspendisse eu lectus justo. Aliquam
+        euismod dui sit amet nisi efficitur, a posuere libero faucibus. Nullam a tempor tellus, vitae
+        feugiat elit. Duis consectetur nisi eu massa vehicula tempus. Vivamus nec nisl est. Vivamus
+        eu aliquet odio.
+        <span class="tooltip">
+            <sup><a href="#link1">[1]</a></sup>
+            <span class="tooltiptext">Click here to see the link</span>
+        </span>
+    </p>
+
+    <p>
+        Vestibulum eu sagittis elit. Nullam quis libero non velit iaculis vulputate vitae at sapien.
+        Etiam sagittis arcu a ultrices venenatis. Praesent nec feugiat magna. Duis vitae nunc vel ex
+        bibendum euismod. Sed in luctus felis. Sed quis ipsum arcu. Sed sit amet vestibulum velit.
+        Curabitur rhoncus purus vel sapien tincidunt, ac venenatis velit eleifend.
+        <span class="tooltip">
+            <sup><a href="#link2">[2]</a></sup>
+            <span class="tooltiptext">Click here to see the link</span>
+        </span>
+    </p>
+
+    <p>
+        Phasellus id orci eu felis cursus imperdiet. Nam vel lacus eget justo pharetra auctor.
+        Curabitur sed justo nec mi vehicula eleifend. Integer luctus ligula at arcu euismod commodo.
+        Pellentesque id nulla in mi commodo fermentum a vitae ligula. Suspendisse potenti. Ut
+        venenatis eget odio et ultricies.
+        <span class="tooltip">
+            <sup><a href="#link3">[3]</a></sup>
+            <span class="tooltiptext">Click here to see the link</span>
+        </span>
+    </p>
+
+    <p>
+        Integer scelerisque, sem vitae faucibus sodales, dolor tortor semper nisi, vitae luctus elit
+        felis quis neque. In tristique mauris nec venenatis tempus. Donec eu venenatis orci. Integer
+        tincidunt dolor ac turpis posuere sagittis. Vivamus nec dui eget nisi dictum hendrerit at eu
+        lectus. Sed vitae lorem ut quam posuere elementum.
+        <span class="tooltip">
+            <sup><a href="#link4">[4]</a></sup>
+            <span class="tooltiptext">Click here to see the link</span>
+        </span>
+    </p>
+
+    <p>
+        Duis ultricies consequat massa nec condimentum. Praesent eget sagittis arcu, eget tristique
+        mauris. Nullam eu sagittis nisi. Proin eget tortor vel justo venenatis tincidunt. Vivamus
+        ullamcorper, neque eu auctor consectetur, neque neque gravida arcu, in cursus metus elit at
+        lectus.
+        <span class="tooltip">
+            <sup><a href="#link5">[5]</a></sup>
+            <span class="tooltiptext">Click here to see the link</span>
+        </span>
+    </p>
+
+    <p>
+        Phasellus id orci eu felis cursus imperdiet. Nam vel lacus eget justo pharetra auctor.
+        Curabitur sed justo nec mi vehicula eleifend. Integer luctus ligula at arcu euismod commodo.
+        Pellentesque id nulla in mi commodo fermentum a vitae ligula. Suspendisse potenti. Ut
+        venenatis eget odio et ultricies.
+        <span class="tooltip">
+            <sup><a href="#link6">[6]</a></sup>
+            <span class="tooltiptext">Click here to see the link</span>
+        </span>
+    </p>
+
+    <p>
+        Integer scelerisque, sem vitae faucibus sodales, dolor tortor semper nisi, vitae luctus elit
+        felis quis neque. In tristique mauris nec venenatis tempus. Donec eu venenatis orci. Integer
+        tincidunt dolor ac turpis posuere sagittis. Vivamus nec dui eget nisi dictum hendrerit at eu
+        lectus. Sed vitae lorem ut quam posuere elementum.
+        <span class="tooltip">
+            <sup><a href="#link7">[7]</a></sup>
+            <span class="tooltiptext">Click here to see the link</span>
+        </span>
+    </p>
+
+    <p>
+        Duis ultricies consequat massa nec condimentum. Praesent eget sagittis arcu, eget tristique
+        mauris. Nullam eu sagittis nisi. Proin eget tortor vel justo venenatis tincidunt. Vivamus
+        ullamcorper, neque eu auctor consectetur, neque neque gravida arcu, in cursus metus elit at
+        lectus.
+        <span class="tooltip">
+            <sup><a href="#link8">[8]</a></sup>
+            <span class="tooltiptext">Click here to see the link</span>
+        </span>
+    </p>
+
+    <p>
+        Duis ultricies consequat massa nec condimentum. Praesent eget sagittis arcu, eget tristique
+        mauris. Nullam eu sagittis nisi. Proin eget tortor vel justo venenatis tincidunt. Vivamus
+        ullamcorper, neque eu auctor consectetur, neque neque gravida arcu, in cursus metus elit at
+        lectus.
+        <span class="tooltip">
+            <sup><a href="#link9">[9]</a></sup>
+            <span class="tooltiptext">Click here to see the link</span>
+        </span>
+    </p>
+
+    <hr>
+
+    <hr>
+
+    <button onclick="openModal()">Open Modal</button>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <h2>Reference, tooltip and modal demo</h2>
+            <p>Made by Yotam</p>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <h2>Referral List</h2>
+    <ul>
+        <li><a href="https://www.youtube.com/watch?v=ZbZSe6N_BXs" target="_blank">Queen - Bohemian Rhapsody</a></li>
+        <li><a href="https://www.youtube.com/watch?v=d-diB65scQU" target="_blank">Bon Jovi - Livin' on a Prayer</a></li>
+        <li><a href="https://www.youtube.com/watch?v=8Pa9x9fZBtY" target="_blank">AC/DC - Back in Black</a></li>
+        <li><a href="https://www.youtube.com/watch?v=WZ9F__0vrQA" target="_blank">Led Zeppelin - Stairway to Heaven</a></li>
+        <li><a href="https://www.youtube.com/watch?v=bf2B1TuiQgg" target="_blank">Guns N' Roses - Sweet Child O' Mine</a></li>
+        <li><a href="https://www.youtube.com/watch?v=w2KSYfLUE8I" target="_blank">Nirvana - Smells Like Teen Spirit</a></li>
+        <li><a href="https://www.youtube.com/watch?v=OpQFFLBMEPI" target="_blank">Pink Floyd - Comfortably Numb</a></li>
+        <li><a href="https://www.youtube.com/watch?v=r3OnVvjwRIc" target="_blank">The Rolling Stones - Paint It Black</a></li>
+        <li><a href="https://www.youtube.com/watch?v=3mbBbFH9fAg" target="_blank">The Who - Baba O'Riley</a></li>
+    </ul>
+</body>
+</html>

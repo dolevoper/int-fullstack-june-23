@@ -1,0 +1,60 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}  
+
+.main_width{
+    width: calc(100% -3rem);
+    padding: 40px 60px 40px 60px;
+}
+
+.header_desine{
+    background-color: gainsboro;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    ol{
+        display: inline-block;
+
+
+        li{
+            display: inline;
+            padding: 5px;
+        }
+    }
+
+}
+.footer_styling{
+    width: calc(100% -3rem);
+    padding: 40px 60px 40px 60px;
+    border-top: dotted gray;
+}
+
+.ref_place{
+    font-size: small;
+    position: relative;
+    bottom: 5px;
+    right: 1px;
+}
+
+.ref_place:before{
+    content: "(";
+}
+.ref_place::after{
+    content: ")";
+}
