@@ -220,3 +220,19 @@ body {
 .product-item:hover{
   box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.8);
 }
+
+footer{
+  background: transparent;
+  text-align: center;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+
+  .Contact-info{
+    text-decoration: underline;
+  }
+
+  .headline{
+    color: black;
+    font-weight: 600;
+  }
+}
