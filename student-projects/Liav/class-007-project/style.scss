@@ -138,6 +138,16 @@ h6 {
 
 }
 
+.middlenav{
+  text-align: center;
+  width: 41%;
+  display: flex;
+
+  li{
+    margin: 5px;
+  }
+}
+
 @keyframes tada {
   0% {
     transform: scale(1);
