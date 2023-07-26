@@ -122,6 +122,22 @@ h6 {
 
 }
 
+.cart-count{
+  vertical-align: top;
+  background: red;
+  border-radius: 50%;
+  border: none;
+  font-size: 10px;
+  height: 15px;
+  width: 15px;
+  margin: 2px;
+  display: inline-flex;
+  color: white;
+  text-align: center;
+  justify-content: center;
+
+}
+
 @keyframes tada {
   0% {
     transform: scale(1);
