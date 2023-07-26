@@ -1,0 +1,22 @@
+body {
+    width: 70vw;
+    display: flex;
+}
+
+.left-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: bisque;
+    flex: 1;
+
+    ul {
+        list-style: none;
+    }
+}
+
+.content {
+    padding: 0 3rem;
+    flex: 3;
+    background-color: beige;
+}
