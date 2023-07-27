@@ -1,0 +1,44 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tooltip</title>
+    <link rel="stylesheet" href="dist/styletooltip.css">
+</head>
+<body>
+    <header>
+        <h1>Lorem</h1>
+        <ul>
+            <li>section1</li>
+            <li>section2</li>
+            <li>section3</li>
+        </ul>
+        <button>open hidden section
+            <input type="checkbox">
+            <div>
+                <img src="dist/tooltip.jpg" alt="peacock">
+                <h3>Lorem ipsum dolor sit amet.</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore ad quis architecto molestiae distinctio! Eligendi, corrupti distinctio totam labore unde nemo dolores fuga animi magnam ipsum ad tenetur, excepturi illo!</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem veritatis repudiandae iusto perferendis nemo magnam maxime placeat vero deleniti illo dolor eligendi alias accusantium voluptatem vitae, tempore itaque provident a?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dolor tempora autem quidem nisi vel non error iure totam unde. Dicta vel doloremque, assumenda minus doloribus in ipsum quibusdam tenetur.</p>
+            </div>
+        </button>
+    </header>
+    <main>
+        <h2>Lorem, ipsum dolor.</h2>
+        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, nesciunt veritatis, aut dicta maxime doloribus maiores asperiores quibusdam, temporibus repudiandae dolor. Inventore, odit? Libero maxime quod commodi corporis vel illo.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi laudantium earum pariatur! Exercitationem, repudiandae inventore. Veniam temporibus rem delectus, corporis similique, illum deserunt voluptas quibusdam ab, quasi doloribus modi illo!</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores natus velit explicabo aliquam, et nemo aliquid ullam perspiciatis culpa, quas magni aperiam reprehenderit facere autem dolorum quod saepe quaerat accusamus?</p>
+        <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit sed aspernatur eum non facilis tenetur, dolorum ipsa minus hic aliquid consequatur autem cumque. At ea nulla esse quisquam aspernatur quos.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ipsum porro, excepturi quasi error accusamus aliquid doloremque dignissimos iure mollitia saepe ut quisquam sequi tempore? Et facere dolorem aliquam non?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga est ab obcaecati perferendis quos mollitia eum iste nemo commodi, explicabo repellat similique sunt qui neque blanditiis nisi reiciendis, delectus autem.</p>
+        <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi voluptatibus hic sint quam nobis alias dolor optio, vel excepturi adipisci et ipsa illum aliquid earum iure amet deleniti quibusdam nemo.</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore dolor iste obcaecati error praesentium! Esse omnis ab dignissimos? Modi dolor id consectetur officia laudantium mollitia quisquam autem dignissimos sint maiores?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quia adipisci accusantium dolores fugit fugiat libero, quos sint atque amet saepe repellat corrupti, maxime doloremque nobis nostrum reprehenderit vel modi.</p>
+    </main>
+</body>
+</html>

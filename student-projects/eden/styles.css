@@ -8,6 +8,8 @@ h1 {
     color: rgb(131, 141, 88); 
     text-align: center;
     font-size: 70px;
+    display:block;
+    margin-top:-17px;
 }
 
 ul {
@@ -18,8 +20,8 @@ ul {
 }
 
 li{
-    display:flow-root ;
-    background-color: rgb(86, 226, 43);
+    display:block;
+    margin: top -10px;
 }
 
 h2 {
@@ -43,8 +45,10 @@ p {
 button {
     appearance: none;
     padding: 4px 8px;
-    border: 2px solid rgb(255, 94, 0);
-    text-transform: uppercase;
+    border: 2px solid rgba(238, 255, 0, 0.849);
+    text-transform: lowercase;
+    font-size: larger;
+    background-color: rgb(255, 166, 0);
 }
 
 .card {
@@ -67,15 +71,19 @@ h5 {
     color: rgb(216, 154, 112);
      text-align: center ; 
      font-size: 200%;
+     margin-inline-start: auto;
 }
 
 img {
-display: block;
-margin-right: auto;
-margin-left: auto;
-width: 500px;
-height: 400px;
+display:block
 size: 0cm;
+margin: :right;
+width: 500px; 
+padding: 50px;
+
+
+
+
 }
  
 h6 {
@@ -93,5 +101,28 @@ text-align: center;
 }
 
 button .class {
-border: 2px burlywood;
+border: 2px rgb(135, 222, 161);
 }
+
+
+header {
+background-color: rgb(17, 0, 255);
+text-overflow: clip;
+}
+
+nav {
+text-align: center;
+font-size: x-large;
+background-color: aqua;
+}
+
+article {
+text-align: center;
+font-size: xx-large
+}
+
+h4 {
+color: rgb(152, 204, 175);
+font-size: xx-large;
+}
+
