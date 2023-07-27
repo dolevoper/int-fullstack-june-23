@@ -1,0 +1,97 @@
+body {
+    background-image: url(2222.jpg) ;
+
+}
+
+
+h1 {
+    color: rgb(131, 141, 88); 
+    text-align: center;
+    font-size: 70px;
+}
+
+ul {
+
+    color: peru; 
+    text-align:center; 
+    font-size: large;
+}
+
+li{
+    display:flow-root ;
+    background-color: rgb(86, 226, 43);
+}
+
+h2 {
+    color: mediumpurple; text-align: left  ;
+     font-size: 200%;
+}
+
+
+h3 {
+    color: rgb(213, 216, 16); 
+    text-align: right;
+    font-size: 30px;
+}
+
+p {
+  font-size:x-large; 
+    text-align:right;
+}
+
+
+button {
+    appearance: none;
+    padding: 4px 8px;
+    border: 2px solid rgb(255, 94, 0);
+    text-transform: uppercase;
+}
+
+.card {
+    margin: 10px;
+    box-shadow: 0 0 8px rgb(0 0 0 / 0.2);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.card.smaller {
+    max-width: 45ch;
+}
+
+p.smaller {
+    font-size: 0.8rem;
+}
+
+
+h5 {
+    color: rgb(216, 154, 112);
+     text-align: center ; 
+     font-size: 200%;
+}
+
+img {
+display: block;
+margin-right: auto;
+margin-left: auto;
+width: 500px;
+height: 400px;
+size: 0cm;
+}
+ 
+h6 {
+    background-color: wheat; 
+    text-align: center;
+    font-size: larger;
+}
+
+
+header {
+background: coral;
+color: rgb(255, 187, 0);
+font-size: x-large;
+text-align: center;
+}
+
+button .class {
+border: 2px burlywood;
+}
