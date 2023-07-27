@@ -122,6 +122,32 @@ h6 {
 
 }
 
+.cart-count{
+  vertical-align: top;
+  background: red;
+  border-radius: 50%;
+  border: none;
+  font-size: 10px;
+  height: 15px;
+  width: 15px;
+  margin: 2px;
+  display: inline-flex;
+  color: white;
+  text-align: center;
+  justify-content: center;
+
+}
+
+.middlenav{
+  text-align: center;
+  width: 41%;
+  display: flex;
+
+  li{
+    margin: 5px;
+  }
+}
+
 @keyframes tada {
   0% {
     transform: scale(1);
@@ -145,6 +171,7 @@ body {
   background-image: linear-gradient(0deg, #B882B8 0%, #75B2BB 100%);
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
+  min-width: 494px;
 }
 
 .product-grid {
@@ -203,4 +230,13 @@ body {
 
 .product-item:hover{
   box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.8);
+}
+
+footer{
+  background: transparent;
+  text-align: center;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  margin: 20px;
+
 }

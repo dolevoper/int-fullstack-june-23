@@ -12,8 +12,10 @@
   <header>
     <nav class="topnav">
       <h1>L1avZh</h1>
+      <div class="middlenav">
       <li><a href="">Home</a></li>
-      <li><a href=""><box-icon name='cart'></box-icon></a></li>
+      <li><a href=""><box-icon name='cart'></box-icon><span class="cart-count">0</span></a></li>
+    </div>
       <li><a href="" id="sigin-up-btn">Sigin up</a></li>
       <li><a href="">Sigin in</a></li>
     </nav>
@@ -27,8 +29,8 @@
           <img src="https://www.idigital.co.il/files/MacBook_Pro_2021/MBP14/MacBookPro14_001.png" alt="Product Name">
           <h2>MacBook Air</h2>
           <p>Apple thinnest,lightest notebook.</p>
-          <span class="price">4,5485₪</span>
-          <button>Add to Cart</button>
+          <span class="price">4,485₪</span>
+          <button onclick="addToCart()" >Add to Cart</button>
         </div>
       </div>
 
@@ -40,7 +42,7 @@
           <p>
             Wireless, Noise-cancelling, Premium, Earbuds.</p>
           <span class="price">1,099₪</span>
-          <button>Add to Cart</button>
+          <button onclick="addToCart()">Add to Cart</button>
         </div>
       </div>
 
@@ -55,7 +57,7 @@
           <h2>iPhone 14</h2>
           <p>Futuristic, Powerful, Sleek, Innovative.</p>
           <span class="price">3,399₪</span>
-          <button>Add to Cart</button>
+          <button onclick="addToCart()">Add to Cart</button>
         </div>
       </div>
 
@@ -69,7 +71,7 @@
           <h2>Apple Watch 14</h2>
           <p>Stylish, Smart, Connected, Fitness-tracking.</p>
           <span class="price">1,449₪</span>
-          <button>Add to Cart</button>
+          <button onclick="addToCart()">Add to Cart</button>
         </div>
       </div>
 
@@ -77,10 +79,10 @@
       <div class="product-item-5">
         <div class="product-item">
           <img src="https://onestopav.com/wp-content/uploads/2021/05/Mac-Pro-Tower-2019.png" alt="Product Name">
-          <h2>Apple Mac pro</h2>
+          <h2>Mac pro</h2>
           <p>Powerful, Professional, Reliable, Expensive.</p>
           <span class="price">52,799₪</span>
-          <button>Add to Cart</button>
+          <button onclick="addToCart()">Add to Cart</button>
         </div>
       </div>
 
@@ -89,17 +91,22 @@
       <div class="product-item-6">
         <div class="product-item">
           <img src="https://ercell.co.il/wp-content/uploads/2022/02/ipad-air-select-wifi-spacegray-202009.png" alt="Product Name">
-          <h2>Apple iPad Air</h2>
+          <h2>iPad Air</h2>
           <p>Slim, Powerful, Apple Tablet.</p>
           <span class="price">2,445₪</span>
 
-          <button>Add to Cart</button>
+          <button onclick="addToCart()">Add to Cart</button>
         </div>
       </div>
 
     </section>
   </main>
+  <footer>
+    <p>This website created by Liav Zecharya. <br>
+  </footer>
+  
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
