@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#tirgool {
+    max-width: 1920px;
+    display: block;
+    direction: ltr;
+    font-size: 1vw;
+    color: #000000;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto 2% auto;
+    font-family: arial;
+    border: 0px solid green;
+}
+
+#tirgool img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#tirgool h1, #tirgool h2, #tirgool h3, #tirgool h4, #tirgool h5, #tirgool h6 {
+    font-weight: normal;
+    line-height: 100%;
+}
+
+#tirgool h1 {
+    font-size: 2em;
+    margin: 2% 0 0 0;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#tirgool .flex-tools {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2% 0 0 0;
+    border: 0px solid green;
+
+    > div {
+        width: 22rem;
+        margin: 0 0 2% 0;
+        border-radius: 10px;
+        padding: 2% 2% 2% 2%;
+        box-sizing: border-box;
+        background-image: linear-gradient(#ffffff, green);
+        border: 3px solid #2cd5c4;
+
+        img {
+            width: 80%;
+            margin: 0 auto;
+            border-radius: 50%;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #ffffff;
+            line-height: 130%; 
+            margin: 8% 0 0 0;
+            text-align: justify;
+            border: 0px solid green;
+        }
+
+        span.prc {
+            font-size: 1.1rem;
+            border: 1px solid yellow;
+            margin: 4% 0 0 0;
+            display: inline-block;
+            font-weight: bold;
+            color: yellow;
+            background: black;
+            padding: 1% 5% 1% 5%;
+            border-radius: 14px;
+        }
+
+        a {
+            display: block;
+            color: yellow;
+            margin: 5% 0 0 0;
+            font-weight: bold;
+            font-size: 1.4rem;
+            transition: 0.3s all;
+            text-decoration: none;
+            border: 0px solid green;
+
+            &:hover {
+                color: red;
+            }
+
+        }
+        
+
+    } 
+}
+
+@media screen and (max-width: 1024px) {
+
+    #tirgool h1 {
+        font-size: 8em;
+    }
+
+    #tirgool .flex-tools {
+        margin: 7% 0 0 0;
+    
+        > div {
+            padding: 2% 4% 2% 5%;
+
+            p {
+                font-size: 1.3rem;
+            }
+        }
+       
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    #tirgool {
+        font-size: 1.2em;
+    }
+}
