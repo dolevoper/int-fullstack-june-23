@@ -98,19 +98,20 @@ h6 {
       text-decoration: none;
       text-transform: uppercase;
       transition: color 0.3s ease;
-  
+
       &:hover {
         color: white;
       }
 
-  }
-      box-icon{
-        color: black;
+    }
 
-        &:hover{
-          animation: tada 0.8s ease;
-        }
+    box-icon {
+      color: black;
+
+      &:hover {
+        animation: tada 0.8s ease;
       }
+    }
 
   }
 
@@ -122,7 +123,7 @@ h6 {
 
 }
 
-.cart-count{
+.cart-count {
   vertical-align: top;
   background: red;
   border-radius: 50%;
@@ -138,12 +139,12 @@ h6 {
 
 }
 
-.middlenav{
+.middlenav {
   text-align: center;
   width: 41%;
   display: flex;
 
-  li{
+  li {
     margin: 5px;
   }
 }
@@ -152,15 +153,19 @@ h6 {
   0% {
     transform: scale(1);
   }
+
   25% {
     transform: scale(0.9) rotate(-3deg);
   }
+
   50% {
     transform: scale(1.1) rotate(3deg);
   }
+
   75% {
     transform: scale(0.95) rotate(-3deg);
   }
+
   100% {
     transform: scale(1) rotate(0);
   }
@@ -187,7 +192,7 @@ body {
 }
 
 
-.product-item{
+.product-item {
   background-color: rgba(255, 255, 255, 0.5);
   padding: 15px;
   text-align: center;
@@ -223,16 +228,16 @@ body {
   }
 
   button:hover {
-    background-color: rgb(0, 86, 179,0.8);
-    
+    background-color: rgb(0, 86, 179, 0.8);
+
   }
 }
 
-.product-item:hover{
+.product-item:hover {
   box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.8);
 }
 
-footer{
+footer {
   background: transparent;
   text-align: center;
   color: white;
