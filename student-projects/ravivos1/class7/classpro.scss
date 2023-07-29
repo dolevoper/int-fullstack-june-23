@@ -1,0 +1,40 @@
+* {
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    text-align: center;
+}
+
+.list {
+    list-style: none;
+    background-color: aqua;
+    width: 250px;
+    padding: 1rem;
+    align-items: center;
+    font-size: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-flow: column;
+
+
+    :nth-last-child(2) {
+        margin-top: auto;
+    }
+
+
+}
+
+.info {
+    align-items: center;
+    background-color: red;
+    padding: 1rem;
+    flex: 1;
+}
