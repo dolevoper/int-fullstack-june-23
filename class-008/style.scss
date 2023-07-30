@@ -13,15 +13,10 @@
 html {
     font-size: 1.2rem;
     line-height: 1.6;
-    height: 100%;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr;
-    height: 100%;
 }
 
 img {
@@ -44,14 +39,8 @@ h1, h2 {
 }
 
 .site-header {
-    grid-column: span 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background: var(--color-primary);
     padding: 1rem;
-    isolation: isolate;
-    z-index: 1;
 }
 
 .brand {
@@ -61,8 +50,6 @@ h1, h2 {
 }
 
 .user-menu {
-    position: relative;
-
     summary {
         list-style: none;
         cursor: pointer;
@@ -74,9 +61,6 @@ h1, h2 {
     }
 
     ul {
-        position: absolute;
-        right: 0;
-        top: calc(100% + 0.3rem);
         background: white;
         border-radius: 4px;
         box-shadow:
@@ -101,28 +85,16 @@ h1, h2 {
     height: 100%;
 }
 
-.navigation-links {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+.navigation-links li {
+    padding: 1rem;
 
-    li {
-        padding: 1rem;
-
-        &:hover {
-            background: hsl(0deg 100% 100% / 0.1);
-        }
-
-        &:last-child {
-            margin-top: auto;
-        }
+    &:hover {
+        background: hsl(0deg 100% 100% / 0.1);
     }
 }
 
 .main-content {
-    overflow: auto;
     padding: 0 1rem;
-    isolation: isolate;
 
     >*+* {
         margin-block-start: 1em;
