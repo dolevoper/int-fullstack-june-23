@@ -1,0 +1,29 @@
+html {
+    background-color: wheat;
+}
+body{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+}
+ul {
+    list-style-type: none;
+}
+.content {
+    padding: 1rem 3rem;
+    max-width: 45%;
+
+}
+.referense {
+    max-width: 20%;
+    display: flex;
+    flex-direction: column  ;
+    padding: 2rem 2rem;
+    justify-content: space-between;
+    align-items: center;
+
+    
+
+
+}

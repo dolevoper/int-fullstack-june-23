@@ -1,0 +1,110 @@
+body
+{
+    margin: 0 10% 0 10%;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 100ch;
+    border: 2px dashed gray;
+}
+.main
+{
+    background-color: rgb(230, 235, 239);
+}
+.had1
+{
+    display: block;
+    text-align: center;
+    background-color: antiquewhite;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    width: 26ch;
+    border: 3px solid bisque;
+   border-radius: 10px;
+}
+.email
+{
+    display: block;
+    margin: 5px 0 0 10%;
+    padding: 2px;
+    font-weight: 600;
+}
+#email
+{
+  border: 3px solid rgb(171, 169, 169);
+  box-shadow: 2px 5px rgb(192, 188, 188);
+  border-radius: 5px;
+  background-color: rgb(252, 252, 243);
+}
+.phone
+{
+    display: block;
+    margin: 5px 0 0 10%;
+    padding: 2px;
+    font-weight: 600;
+}
+#phone
+{
+  border: 3px solid rgb(171, 169, 169);
+  box-shadow: 2px 5px rgb(192, 188, 188);
+  border-radius: 5px;
+  background-color: rgb(252, 252, 243);
+}
+.sec1
+{
+    display: block;
+    margin: 5px 0 0 10%;
+    padding: 2px 2px;  }
+.div2
+{
+    margin: 5px 0;
+    padding: 2px 0;
+}
+.lb1
+{
+    display: block;
+    margin: 5px 2px 15px 10%;
+    color: white;
+    background-color: rgb(26, 25, 25);
+    width: 20ch;
+    text-align: center;
+    border-radius: 5px;
+}
+.sel1
+{
+    display: block;
+    margin: 5px 0 0 13%;
+    width: 20ch;
+    height: 4ch;
+    border-radius: 5px;
+    background-color: rgb(239, 239, 228);
+    color: rgb(19, 19, 202);
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 2px 4px gray;
+}
+.sel1:hover
+{
+    color: blueviolet;
+}
+.but1
+{
+    display: inline-block;
+    margin: 5px 10px 5px 85%;
+    padding: 3px 4px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    color: blue;
+    font-weight: 600;
+    box-shadow: 2px 3px rgb(152, 204, 152);   
+}
+.op1
+{
+    color: red;
+    background-color: rgb(203, 203, 188);
+}
+.div2:hover
+ {
+    background-color: #f68282;
+    width: 25ch;
+}

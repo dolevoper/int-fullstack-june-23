@@ -1,0 +1,31 @@
+body{
+background-color: rgb(103, 141, 106);
+
+}
+h1 {
+color: rgb(13, 45, 80);
+text-align: center;
+font-size: xx-large;
+}
+
+div {
+text-align: center;
+}
+
+h2 {
+text-align: center;
+color: brown;
+font-size:xx-large;
+}
+
+label {
+color: rgb(7, 56, 78);
+font-size: x-large;
+}
+
+h3{
+text-align: center;
+color: rgb(38, 0, 255);
+font-size:  x-large;
+}
+
