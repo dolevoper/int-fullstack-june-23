@@ -1,0 +1,143 @@
+body{
+    background-color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#headerbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color:#00098e;
+    margin: -10px;
+    padding: 20px;
+    img{
+        border-radius: 500px;
+        width: 100px;
+
+    }
+    .btn{
+        padding: 15px;
+        font-size: 20px;
+        border-radius: 15px;
+        border: solid 0px black;
+        background-color: white;
+        a{
+            color: black;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+    }
+}
+
+.headerbar_menu{
+    display: flex;
+    font-size: 30px;
+    gap: 100px;
+    color: white;
+    
+}
+
+.first_section{
+    color: white;
+    font-size: 1.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 150px;
+    margin-bottom: 200px;
+    flex-wrap: wrap;
+    .first_section_text{
+        display: flex;
+        flex-direction: column;
+        margin-right: 75px;
+        max-width: 500px;
+        align-items: center;
+        p{
+            text-align: justify;
+        }
+    }
+    img{
+        // width: 700px;
+        width: 50%;
+        border-radius: 25px;
+        margin: 50px;
+    }
+}
+
+.second_section{
+    background-color: #00098e;
+    // border-radius: 25px;
+    margin: -10px;
+    font-size: 1.9rem;
+    padding-bottom: 10px;
+    h2{
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 30px;
+        font-weight: bold;
+    }
+    .all_cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .first_card{
+            background-color: white ;
+            padding: 20px;
+            margin: 50px;
+            border-radius: 25px;
+            height: auto;
+            width: 300px;
+            img{
+                width: 200px;
+            }
+            button{
+                background-color: #00098e;
+                padding: 10px;
+                font-size: 1rem;
+                color: white;
+                border-radius: 10px;
+                border: 0px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+footer{
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    img{
+        border-radius: 500px;
+        width: 50px;
+    }
+    .footer_fcbk{
+        border-radius: 0px;
+        width: 40px;
+        opacity: 0.6;
+    }
+    .footer_insta{
+        border-radius: 0px;
+        width: 40px;
+        opacity: 0.6;
+    }
+    .footer_twitter{
+        border-radius: 5px;
+        width: 40px;
+        opacity: 0.6;
+    }
+}
+.footer_fcbk:hover{
+    opacity: 1;
+}
+.footer_insta:hover{
+    opacity: 1;
+}
+.footer_twitter:hover{
+    opacity: 1;
+}
