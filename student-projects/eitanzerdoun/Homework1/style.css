@@ -1,0 +1,35 @@
+.logo:hover{
+    text-decoration: dashed;
+    opacity: 0.5;
+}
+
+.montre:hover{
+    opacity: 0.5;
+}
+
+.iphone:hover{
+    opacity: 0.5;
+}
+
+.ipad:hover{
+    opacity: 0.5;
+}
+
+.mac:hover{
+    opacity: 0.5;
+}
+
+.num:hover{
+    opacity: 0.6;
+    text-decoration:underline;
+}
+
+.insta:hover{
+    opacity: 0.6;
+    text-decoration: underline;
+}
+
+.Face:hover{
+    opacity: 0.6;
+    text-decoration: underline;
+}
