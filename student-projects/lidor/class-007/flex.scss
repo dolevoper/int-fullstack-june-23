@@ -1,0 +1,81 @@
+.page-header {
+    display: flex;
+    // flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1rem;
+    background-color: gray;
+
+    ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        gap: 0.5rem;
+    }
+}
+
+html,
+body {
+    height: 100%;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+
+
+
+    >main {
+        flex: 1;
+
+
+        // flex: 1 1 0;
+
+        // flex-shrink: 1; // default is 1
+        // flex-grow: 1; // default is 0
+        // flex-basis: 0; // default is auto
+
+
+    }
+}
+
+
+
+h1 {
+    text-align: center;
+
+}
+
+article {
+    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+
+
+
+    .card {
+
+        flex: 0.1 0.1 0;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.8rem;
+        box-sizing: border-box;
+
+
+
+    }
+
+    img {
+        mix-blend-mode: multiply;
+        width: 100%;
+        display: block;
+        border-radius: 8px 8px 0 0;
+
+
+    }
+
+}
