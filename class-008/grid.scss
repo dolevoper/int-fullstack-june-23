@@ -1,5 +1,6 @@
 body {
     display: grid;
+    grid-template-rows: auto 1fr;
     grid-template-columns: auto 1fr;
 }
 
@@ -14,6 +15,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    isolation: isolate;
+    z-index: 1;
 }
 
 .user-menu {
@@ -47,6 +51,8 @@ html, body {
 .main-content {
     overflow: auto;
     padding-top: 0.5rem;
+
+    isolation: isolate;
 }
 
 .navigation-links {
@@ -56,5 +62,15 @@ html, body {
 
     .separate {
         margin-top: auto;
+    }
+}
+
+.courses {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
+
+    img {
+        z-index: 10000;
     }
 }
