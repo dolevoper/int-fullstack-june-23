@@ -1,0 +1,109 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    width: 100%;
+    
+}
+
+body{
+    header{
+        display: flex;
+        background-color: burlywood;
+        justify-content: space-between;
+        align-items: center;
+        h1{
+            font-size: large;
+            margin-left: 100px;
+            color: white;
+            
+
+        }
+        div{
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: baseline;
+            align-items: center;
+            position: relative;
+            margin-right: 200px;
+            >input{
+                height: 20px;
+            }
+            >label{
+                padding-bottom: 6px;
+                button{
+                    background-color: rgb(137, 137, 246);
+                    color: white;
+
+                }
+                
+            }
+            
+                
+        
+           
+        }
+        
+    }
+
+
+
+    main{
+        margin: 0.5rem;
+        padding-bottom: 1rem;
+        
+        nav{
+           display: flex;
+           list-style: none;
+           flex-wrap: wrap;
+           flex-direction: row;
+           gap: 0.5rem 0.5rem;
+           >li{
+            border: 1px solid rgb(189, 180, 180);
+            
+            height: 400px;
+            flex: 1 1 330px;
+            
+                img{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                border-radius: 10%;
+                }
+            }
+         
+            >.card1, .card6, .card11, .card16 {
+                background-color: burlywood; 
+                position: relative;    
+                  
+            }
+            >.card2, .card7, .card12, .card15 {
+                background-color: cadetblue;
+                position: relative;      
+            }
+            >.card3, .card8, .card9, .card14 {
+                background-color: brown;
+                position: relative;
+            }
+            >.card4, .card5, .card10, .card13 {
+                position: relative;
+            }  
+        }    
+    } 
+    footer{
+        >p{
+            background-color: black;
+            color: white;
+            padding-left: 1rem;
+        }
+    }
+
+    
+}
+
