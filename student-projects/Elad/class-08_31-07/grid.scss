@@ -1,6 +1,6 @@
 body {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto auto;
 }
 
 .site-header {
@@ -29,15 +29,9 @@ body {
 .summary {
     display: grid;
     // grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(4, auto);
+    grid-template-rows: repeat(3, auto);
     grid-auto-flow: column;
     column-gap: 1rem;
-    align-items: center;
-    justify-items: center;
-
-    h2 {
-        text-align: center;
-    }
 }
 
 html, body {

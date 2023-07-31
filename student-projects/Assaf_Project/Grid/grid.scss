@@ -1,6 +1,6 @@
 body {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto auto;
 }
 
 .site-header {
@@ -32,10 +32,7 @@ body {
     grid-template-rows: repeat(4, auto);
     grid-auto-flow: column;
     column-gap: 1rem;
-    align-items: center;
-    justify-items: center;
-
-    h2 {
+    a {
         text-align: center;
     }
 }
