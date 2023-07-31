@@ -1,0 +1,19 @@
+.parent {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.child {
+	flex: 0 1 300px;
+
+	flex: 1 1 300px;
+
+	border: 1px solid red;
+	background: lightpink;
+	font-size: 2rem;
+	text-align: center;
+}
+
+body {
+	font-family: system-ui, serif;
+}
