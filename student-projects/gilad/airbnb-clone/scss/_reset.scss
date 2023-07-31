@@ -1,0 +1,22 @@
+@use "defaults/fonts" as fonts;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+} 
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: fonts.$font-main;
+    -webkit-font-smoothing: antialiased;
+
+}
+
+li{
+    list-style: none;
+}
+
+

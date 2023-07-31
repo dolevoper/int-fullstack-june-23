@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "cereal";
+    src: url("../../assets/fonts/cereal.woff2") format('woff2');
+}
+@font-face {
+    font-family: "cereal";
+    font-weight: bold;
+    src: url("../../assets/fonts/cereal-bold.woff2") format('woff2');
+}
+@font-face {
+    font-family: "cereal-light";
+    font-weight: lighter;
+    src: url("../../assets/fonts/cereal-light.woff2") format('woff2');
+}
+$font-main: 'cereal', 'Arial', sans-serif;
+$font-light: 'cereal-light', 'Arial', sans-serif;
