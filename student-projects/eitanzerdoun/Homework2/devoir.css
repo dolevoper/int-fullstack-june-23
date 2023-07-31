@@ -1,0 +1,54 @@
+.signup{
+    font-size: 1em;
+    color: black;
+    padding: 3px;
+    margin: 10px 5px 10px 5px;
+    border-radius: 10px;
+    background-color: green;
+}
+.signin{
+    color: black;
+    font-size: 1em;
+    padding: 3px;
+    margin: 10px 5px 10px 5px;
+    text-align: right;
+    border-radius: 10px;
+}
+
+
+nav{
+    display: flex;
+    flex-direction: row;
+    border-bottom: solid rgb(210, 210, 210) 1px;
+    justify-content: space-between;
+}
+
+.buttons{
+    display: flex;
+    float: right;
+}
+.mylogo{
+    width: 50px;
+}
+
+.recherche{
+    width: 300px; /* largeur souhaitée */
+    height: 40px; /* hauteur souhaitée */
+    font-size: 16px; /* taille de la police souhaitée */
+    border-radius: 25px;
+    border-color: white;
+    appearance: none;
+    background-color: rgb(247, 247, 247);
+}
+.search{
+    float: right;
+}
+
+h1{
+    background: radial-gradient (to right, #0f0c29, #302b63);
+}
+
+
+
+
+

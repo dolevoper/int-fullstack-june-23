@@ -1,0 +1,257 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+  */
+* {
+    margin: 0;
+}
+
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+    line-height: 1.5;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*
+    5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+    6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+    7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/*
+    8. Create a root stacking context
+  */
+#root,
+#__next {
+    isolation: isolate;
+}
+
+// mine //
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+    background: linear-gradient(117deg, rgba(197, 203, 0, 1) 0%, rgba(9, 121, 36, 1) 53%, rgba(21, 64, 0, 1) 100%);
+    flex: 1;
+    align-items: center;
+    box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.46);
+    flex-wrap: wrap;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
+
+    button {
+        width: fit-content;
+        font-size: calc(1rem + .2vw);
+    }
+
+    >.brand {
+        font-size: calc(1.8rem + 1vw);
+        font-weight: 600;
+    }
+
+    ul {
+        display: flex;
+        list-style: none;
+        font-weight: 600;
+        font-size: calc(1rem + .5vw);
+        color: #c5cb00;
+        padding: 0;
+        gap: .5rem;
+        margin-top: .5rem;
+    }
+}
+
+main {
+    background: linear-gradient(180deg, rgba(255, 243, 173, 0.20135976753982843) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 243, 173, 0.20135976753982843) 100%);
+    // margin-right: -2rem;
+}
+
+.sales {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    flex: 1;
+    padding: 1rem;
+    gap: .3rem;
+
+}
+
+.card-box {
+    background: whitesmoke;
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.434);
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.226);
+    min-height: 32%;
+    min-width: 300px;
+    max-width: 450px;
+    flex: 1;
+    flex-direction: column;
+    // overflow-x: auto;
+}
+
+section.card-box {
+
+    p,
+    h2,
+    a,
+    .tooltip {
+        display: flex;
+        margin-inline: 1rem;
+    }
+
+    *+* {
+        padding-block: .3rem;
+    }
+
+    &:hover {
+        background: rgb(228, 228, 228);
+        transition: ease-in-out .2s;
+    }
+}
+
+.boxImage {
+    display: flex;
+    flex: 1;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+
+    >img {
+        aspect-ratio: auto;
+        margin: 0;
+        padding: 0;
+        height: 300px;
+        // margin-block: 2rem;
+    }
+}
+
+p.product-price {
+    color: rgb(8, 98, 0);
+
+    &::Before {
+        content: "Price:";
+        color: black;
+        padding-inline-end: .5ch;
+    }
+
+    &::after {
+        content: "₪";
+        position: relative;
+        font-weight: 600;
+        bottom: 10%;
+        left: .5%;
+        color: black;
+    }
+}
+
+p.product-description {
+    display: flex;
+    flex-direction: column;
+
+    &::before {
+        content: "Description:";
+        padding-inline-end: 1ch;
+        text-decoration: underline;
+        position: relative;
+        display: inline-flex;
+    }
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 600;
+    width: fit-content;
+    color: blue;
+
+    &:hover {
+        text-decoration: underline;
+
+        .tooltip-text {
+            visibility: visible;
+
+            &::after {
+                content: " ";
+                position: absolute;
+                top: 100%;
+                left: 25%;
+                margin-left: -5px;
+                border-width: 8px;
+                border-style: solid;
+                border-color: white transparent transparent transparent;;
+            }
+        }
+    }
+
+    .tooltip-text {
+        visibility: hidden;
+        width: 120px;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgba(0, 0, 0, 0.395);
+        box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.233);
+        color: #000000;
+        font-weight: 400;
+        text-align: center;
+        padding: .5rem;
+        border-radius: 8px;
+        position: absolute;
+        z-index: 1;
+        bottom: 90%;
+        left: 120%;
+        margin-left: -60px;
+        cursor: auto;
+
+    }
+}
