@@ -1,0 +1,147 @@
+*,*::before ::after
+{
+    box-sizing: border-box;
+ }
+html
+{
+    min-width: none;
+    overflow: auto;
+}
+
+body
+{
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: auto;
+    
+}
+
+header
+{
+    width: 30ch;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(220, 230, 226);
+    text-align: center;
+    border-radius: 10px;
+    margin-top: -24px;
+    box-shadow: 1px 2px gray;
+   
+       
+}
+main 
+{
+        margin: -20px 0;
+}
+.flax-continer
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+   
+}
+.flex-exer
+{
+    height: 250px;
+    border: 1px solid black;
+    flex-grow: 0.1;
+    flex-shrink: 0;
+    box-shadow: 2px 5px rgb(207, 204, 204);
+    border-radius: 6px;
+    background-color: rgb(234, 217, 217);
+    flex-basis: 150px;
+}
+.flex-exer:hover
+{
+    height: 280px;
+    transition: 600ms 200ms;
+    color: blue;
+}
+h5
+{
+    position: relative;
+    bottom: 20px;
+    text-align: center;
+    color: rgb(38, 38, 50);
+}
+.disc
+{
+    position: relative;
+    top: 150px;
+    text-align: center;
+}
+  
+
+#flex01 img
+{
+    width: 120px;
+    position: relative;
+    bottom: 30px;
+    left: 20px;
+}
+
+#flex02 img
+{
+    width: 120px;
+    position: relative;
+    bottom: 30px;
+    left: 20px;
+}
+#flex03 img
+{
+    width: 120px;
+    position: relative;
+    bottom: 30px;
+    left: 20px;
+}
+#flex04 img
+{
+    width: 120px;
+    position: relative;
+    bottom: 30px;
+    left: 20px;
+}
+#flex05 img
+{
+    width: 120px;
+    position: relative;
+    bottom: 30px;
+    left: 20px;
+}
+#flex06 img
+{
+    width: 120px;
+    position: relative;
+    bottom: 30px;
+    left: 20px;
+}
+#flex07 img
+{
+    width: 120px;
+    position: relative;
+    bottom: 30px;
+    left: 20px;
+}
+#flex08 img
+{
+    width: 120px;
+    position: relative;
+    bottom: 30px;
+    left: 20px;
+}
+#flex09 img
+{
+    width: 120px;
+    position: relative;
+    bottom: 30px;
+    left: 20px;
+}
+#flex10 img
+{
+    width: 120px;
+    position: relative;
+    bottom: 30px;
+    left: 20px;
+}
