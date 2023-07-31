@@ -1,22 +1,67 @@
-body {
-    width: 70vw;
-    display: flex;
+* {
+    margin: 0;
 }
 
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: 'Chelsea Market', cursive;
+    display: flex;
+    overflow: hidden;
+}
+
+$color1: #EFE1D1;
+$color2: #A78295;
+$color3: #3F2E3E;
+$color4: #331D2C;
+
+
 .left-menu {
+    background-color: $color4;
+    color: $color1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: bisque;
     flex: 1;
+    padding: 3rem 0;
+    text-align: center;
 
     ul {
         list-style: none;
+        padding: 0 2rem;
+        font-size: 1.3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
     }
 }
 
+
 .content {
-    padding: 0 3rem;
-    flex: 3;
-    background-color: beige;
+    background-color: $color3;
+    padding: 3rem 5rem;
+    flex: 8;
+    overflow: auto;
+
+    .header1 {
+        font-size: 2rem;
+        color: #EFE1D1;
+    }
+
+    .header2 {
+        font-size: 1.5rem;
+        padding-top: 2rem;
+        padding-bottom: 0.3rem;
+        color: $color1;
+    }
+
+    p {
+        width: min(700px, 65vw);
+        color: $color2;
+        line-height: 1.5rem;
+    }
 }
