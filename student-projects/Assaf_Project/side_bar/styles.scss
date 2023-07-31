@@ -1,0 +1,130 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+  */
+* {
+    margin: 0;
+}
+
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*
+    5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+    6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+    7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/*
+    8. Create a root stacking context
+  */
+#root,
+#__next {
+    isolation: isolate;
+}
+
+
+body,
+html {
+    height: 100%;
+}
+
+main {
+    display: flex;
+
+
+    .written {
+        display: flex;
+        flex-wrap: wrap;
+        flex: 5;
+        // overflow-y: scroll;
+
+        article {
+            margin-left: 10rem;
+            padding: 2rem;
+        }
+    }
+}
+
+.side_container {
+    display: flex;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.094);
+    flex: 1;
+    height: 100vh;
+    min-height: 100%;
+    max-width: fit-content;
+    box-shadow: 5px 0px 6px 0px rgba(0, 0, 0, 0.384);
+
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+
+        .side_bar_top {
+            display: flex;
+            flex-direction: column;
+            margin-block-start: 3vh;
+            gap: 2vh;
+        }
+
+        .side_bar_bottom {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: end;
+            color: red;
+            margin-block-end: 3vh;
+            gap: 2vh;
+        }
+
+        >ul {
+            display: flex;
+            padding-inline: 4vw;
+        }
+    }
+
+}
