@@ -30,7 +30,8 @@ $color4: #331D2C;
     padding: 3rem 0;
     text-align: center;
 
-    ul {
+    .top,
+    .bottom {
         list-style: none;
         padding: 0 2rem;
         font-size: 1.3rem;
@@ -59,8 +60,8 @@ $color4: #331D2C;
         color: $color1;
     }
 
-    p {
-        width: min(700px, 65vw);
+    .text {
+        width: min(800px, 65vw);
         color: $color2;
         line-height: 1.5rem;
     }
