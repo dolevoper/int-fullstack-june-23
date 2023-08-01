@@ -1,17 +1,20 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700;900&family=Source+Code+Pro:wght@200&display=swap');
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr) 3fr; 
     grid-gap: 10px;
-    height: 100vh; 
+    height: 100vh;
+    background-color: black;
+
 .box {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
+    background-color: gray;
+    border: 1px solid gray;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -26,20 +29,23 @@ body {
         flex: 1;
         margin-bottom: 10px;
         padding: 5px;
-        border: 1px solid #ccc;
+        border: 1px solid white;
+        background-color: white;
+        font-family: 'Source Code Pro', monospace;
     }
 }
 
 }
+
 
 box-icon{
     vertical-align: middle;
 }
 
-.outcome {
+.output {
     grid-column: 1 / span 3;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
+    background-color: gray;
+    border: 1px solid gray;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -54,6 +60,7 @@ box-icon{
         margin-bottom: 10px;
         padding: 5px;
         border: 1px solid #ccc;
+        font-family: 'Source Code Pro', monospace;
     }
 }
 
@@ -61,12 +68,12 @@ box-icon{
     
     body {
         grid-template-columns: 1fr; 
-        grid-template-rows: auto;
+        grid-template-rows: repeat(3, 1fr) auto;
     }
 
-    .big-box {
+    .output {
         grid-column: 1;
-        grid-row: 2; 
+        grid-row: 4; 
     }
 }
 
@@ -74,12 +81,12 @@ box-icon{
     
     body {
         grid-template-columns: repeat(2, 1fr); 
-        grid-template-rows: repeat(4, 1fr); 
+        grid-template-rows: repeat(3, 1fr) auto;
     }
 
-    .big-box {
+    .output {
         grid-column: 1 / span 2; 
-        grid-row: 3 / span 2; /* Place the big box in the third and fourth rows */
+        grid-row: 4;
     }
 }
 
