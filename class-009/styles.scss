@@ -124,17 +124,32 @@ figcaption {
 
 .accordion {
     width: 100%;
-    background: white;
     border-radius: 6px;
+    overflow: hidden;
 
-    summary {
-        list-style: none;
+    input {
+        display: none;
+
+        &:checked+label {
+            &::before {
+                rotate: 90deg;
+            }
+        }
+
+        &:checked~p {
+            height: 100%;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-right: 0.5rem;
+        }
+    }
+
+    label {
         padding: 0.5rem;
         background: brown;
         color: white;
         font-weight: 500;
         display: flex;
-        border-radius: 6px;
         cursor: pointer;
 
         &::before {
@@ -148,17 +163,11 @@ figcaption {
     }
 
     p {
-        padding: 0.5rem;
         padding-left: 2.5rem;
-    }
-
-    &[open] {
-        summary {
-            border-radius: 6px 6px 0 0;
-
-            &::before {
-                rotate: 90deg;
-            }
+        background: white;
+        height: 0;
+        transition: height 300ms,
+        padding 300ms;
+        overflow: hidden;
         }
-    }
-}
+        }
