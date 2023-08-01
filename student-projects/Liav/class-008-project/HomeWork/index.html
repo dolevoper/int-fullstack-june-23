@@ -1,48 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grid-based Layout</title>
-    <link rel="stylesheet" href="dist/style.css">
+    <title>Grid HomeWork</title>
+    <link rel="stylesheet" href="dist/style.css"> 
 </head>
 <body>
-    <div class="grid-container">
-        <div class="card java">
-            <header>
-                <h2>JAVA <box-icon type='logo' name='java'></box-icon></h2>
-            </header>
-            <div class="textbox">
-                <input type="text" readonly placeholder="System.out.println(Hello, World!);">
-            </div>
-        </div>
-        <div class="card typescript">
-            <header>
-                <h2>TYPESCRIPT <box-icon name='typescript' type='logo' ></box-icon></h2>
-            </header>
-            <div class="textbox">
-                <input type="text" readonly placeholder="console.log(Hello, World!);
-                ">
-            </div>
-        </div>
-        <div class="card javascript">
-            <header>
-                <h2>JAVASCRIPT <box-icon name='javascript' type='logo' ></box-icon></h2>
-            </header>
-            <div class="textbox">
-                <input type="text" readonly placeholder="console.log(Hello, World!);
-                ">
-            </div>
-        </div>
+    <div class="box">
+        <div class="box-header">Java <box-icon type='logo' name='java'></box-icon></div>
+        <input type="text" class="box-input" placeholder="Enter Java code here">
+    </div>
 
-        <div class="card outcome">
-            <header>
-                <h2>OUTPUT</h2>
-            </header>
-            <div class="textbox">
-                <textarea readonly placeholder="Hello, World!"></textarea>
-            </div>
-        </div>
+    <div class="box">
+        <div class="box-header">JavaScript <box-icon name='javascript' type='logo' ></box-icon></div>
+        <input type="text" class="box-input" placeholder="Enter JavaScript code here">
+    </div>
+
+    <div class="box">
+        <div class="box-header">TypeScript <box-icon name='typescript' type='logo' ></box-icon></div>
+        <input type="text" class="box-input" placeholder="Enter TypeScript code here">
+    </div>
+
+    <div class="outcome">
+        <div class="outcome-header">OutCome</div>
+        <input type="text" class="box-input" placeholder="Enter TypeScript code here">
     </div>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>

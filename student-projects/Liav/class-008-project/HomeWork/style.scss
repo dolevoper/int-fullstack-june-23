@@ -1,132 +1,85 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700;900&display=swap');
 
-/*
-  1. Use a more-intuitive box-sizing model.
-*/
-*, *::before, *::after {
-    box-sizing: border-box;
-}
 
-/*
-  2. Remove default margin
-*/
-* {
-    margin: 0;
-}
-
-/*
-  Typographic tweaks!
-  3. Add accessible line-height
-  4. Improve text rendering
-*/
 body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    font-family: 'Poppins', sans-serif;
-}
-
-/*
-  5. Improve media defaults
-*/
-img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-}
-
-/*
-  6. Remove built-in form typography styles
-*/
-input, button, textarea, select {
-    font: inherit;
-}
-
-/*
-  7. Avoid text overflows
-*/
-p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-}
-
-/*
-  8. Create a root stacking context
-*/
-#root, #__next {
-    isolation: isolate;
-}
-
-body{
-    background: black;
-    overflow-x: hidden;
-    min-width: 680px;
-
-    box-icon{
-        vertical-align: middle;
-    }
-}
-
-.grid-container {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    grid-template-rows: min-content auto;
-    grid-gap: 1rem;
-    font-size: 1rem;
-    min-width: 680px;
-
-    .card {
-        padding: 2rem; 
-        background-color: #f0f0f0;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        
-
-        header {
-            background-color: #007bff;
-            color: white;
-            padding: 1rem;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
-            text-align: center;
-        }
-
-        .textbox {
-            text-align: left;
-            margin-top: 1rem;
-
-            input,
-            textarea {
-                width: 100%;
-                height: 200px;
-                padding: 1.5rem; 
-                font-family: "Courier New", monospace; 
-                font-size: 1.2rem;
-                background-color: transparent;
-                border: none;
-                outline: none; 
-                resize: vertical;
-            }
-        }
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); 
-        grid-template-rows: repeat(auto-fit, auto);
-    }
-}
-
-.java {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr) 3fr; 
+    grid-gap: 10px;
+    height: 100vh; 
+.box {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
     display: flex;
     flex-direction: column;
+
+    &-header {
+        font-size: 20px;
+        font-weight: bold;
+        padding-bottom: 10px;
+    }
+
+    &-input {
+        flex: 1;
+        margin-bottom: 10px;
+        padding: 5px;
+        border: 1px solid #ccc;
+    }
 }
 
-.typescript, .javascript {
-    text-align: center;
+}
+
+box-icon{
+    vertical-align: middle;
 }
 
 .outcome {
-    grid-area: 2 / 1 / 3 / 4;
-    font-size: 1rem;
+    grid-column: 1 / span 3;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+    &-header {
+        font-size: 20px;
+        font-weight: bold;
+        padding-bottom: 10px;
+    }
+    &-input {
+        flex: 1;
+        margin-bottom: 10px;
+        padding: 5px;
+        border: 1px solid #ccc;
+    }
 }
 
+@media screen and (max-width: 768px) {
+    
+    body {
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto;
+    }
+
+    .big-box {
+        grid-column: 1;
+        grid-row: 2; 
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    
+    body {
+        grid-template-columns: repeat(2, 1fr); 
+        grid-template-rows: repeat(4, 1fr); 
+    }
+
+    .big-box {
+        grid-column: 1 / span 2; 
+        grid-row: 3 / span 2; /* Place the big box in the third and fourth rows */
+    }
+}
 
