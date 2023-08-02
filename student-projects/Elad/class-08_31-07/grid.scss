@@ -4,14 +4,16 @@ body {
     grid-template-rows: auto auto 1fr; 
     gap: 0px 0px; 
     grid-template-areas: 
-    /* "header header header"
-    "aside banner banner"
-    "aside main main";  */
+    "header header header"
+    "aside span banner"
+    "aside main main"; 
+
 }
-/* header { grid-area: header; }
+
+header { grid-area: header; }
 aside { grid-area: aside; }
 span { grid-area: banner; }
-main { grid-area: main; } */
+main { grid-area: main; }
 
 
 .site-header {
