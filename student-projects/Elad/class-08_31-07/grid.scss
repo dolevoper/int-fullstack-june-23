@@ -1,8 +1,18 @@
 body {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-template-columns: auto 1fr;
+    display: grid; 
+    grid-template-columns: auto 1fr 1fr; 
+    grid-template-rows: auto auto 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    /* "header header header"
+    "aside banner banner"
+    "aside main main";  */
 }
+/* header { grid-area: header; }
+aside { grid-area: aside; }
+span { grid-area: banner; }
+main { grid-area: main; } */
+
 
 .site-header {
     grid-column: span 3;
@@ -54,7 +64,7 @@ html, body {
     padding-top: 0.5rem;
 
     isolation: isolate;
-    
+     
 }
 
 .navigation-links {
@@ -81,10 +91,13 @@ html, body {
     background: linear-gradient(90deg, #2200ff, #eaff00, #00b7ff, #ffffff);
     background-size: 400% 400%;
     animation: gradientAnimation 7s ease infinite;
-    display: grid;
+    /* display: grid; */
     align-items: center;
     justify-items: center;
-    width: 100%;
+    /* width: 80%; */
+    /* position: absolute; */
+
+    grid-column: span 3;
     
 }
 
@@ -99,3 +112,5 @@ html, body {
       background-position: 0% 50%;
     }
   }
+
+  
