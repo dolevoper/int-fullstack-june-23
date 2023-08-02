@@ -103,10 +103,16 @@ footer {
     cursor: pointer;
     color: white;
     text-decoration: none;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 50px;
+    margin: 5px
+    
   }
 
   .tabs__radio{
-    
+
+    display: none;
 
     &:checked + .tabs__label{
       font-weight: bold;
