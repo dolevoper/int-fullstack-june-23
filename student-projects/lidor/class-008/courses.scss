@@ -1,10 +1,3 @@
-.courses {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: repeat(auto, 1fr);
-    //grid-template-rows:repeat(auto, 1fr);
-    gap: 0.5rem;
-}
 .card {
     background: hsl(0deg 0% 0% / 0.1);
     padding: 0.5rem;
