@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accordion Menu</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: lightblue;
+        }
+
+        .menu-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+            text-decoration: none;
+        }
+
+        .menu-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+
+        .accordion-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .menu-content {
+            display: none;
+            margin: 5px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+        }
+
+        .menu-button.active + .menu-content {
+            display: block;
+        }
+    </style>
+    <script>
+        function toggleAccordion(btn) {
+            btn.classList.toggle("active");
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="accordion-item">
+            <button class="menu-button" onclick="toggleAccordion(this)">Home</button>
+            <div class="menu-content">Content for Home</div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="menu-button" onclick="toggleAccordion(this)">Basics</button>
+            <div class="menu-content">Content for Basics</div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="menu-button" onclick="toggleAccordion(this)">Tables</button>
+            <div class="menu-content">Content for Tables</div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="menu-button" onclick="toggleAccordion(this)">Colors</button>
+            <div class="menu-content">Content for Colors</div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="menu-button" onclick="toggleAccordion(this)">Basic CSS</button>
+            <div class="menu-content">Content for Basic CSS</div>
+        </div>
+    </header>
+</body>
+</html>
