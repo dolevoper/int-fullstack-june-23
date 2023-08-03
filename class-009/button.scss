@@ -7,9 +7,16 @@
     color: white;
     font-weight: 500;
     cursor: pointer;
+    transition: scale 300ms;
+    will-change: scale;
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
 
     &:hover {
         background: hsl(325deg 99% 72%);
+        scale: 1.3;
     }
 
     &:active {

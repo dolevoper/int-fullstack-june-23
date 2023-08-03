@@ -2,7 +2,7 @@
     --ball-size: 30px;
     --slot-padding: 1px;
     --slot-height: calc(var(--ball-size) + 2 * var(--slot-padding));
-    --slot-width: calc((var(--ball-size) + var(--slot-padding)) * 2);
+    --slot-width: calc(var(--ball-size) * 2 + var(--slot-padding) * 2);
     cursor: pointer;
 
     input {
@@ -12,8 +12,8 @@
             background: green;
 
             .ball {
-                left: unset;
-                right: var(--slot-padding);
+                // left: calc(var(--slot-width) - var(--ball-size) - var(--slot-padding));
+                translate: 100%;
             }
         }
     }
@@ -34,5 +34,7 @@
         position: absolute;
         top: var(--slot-padding);
         left: var(--slot-padding);
+        // transition: left 1s ease-out;
+        transition: translate 300ms ease-out;
     }
 }

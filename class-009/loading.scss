@@ -3,6 +3,7 @@
     width: 1em;
     height: 1em;
     position: relative;
+    animation: rotate 3s infinite linear;
 
     .ball {
         --size: 0.2em;
@@ -44,5 +45,14 @@
 
     .b6 {
         --degrees: 300deg;
+    }
+}
+@keyframes rotate {
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 360deg;
     }
 }
