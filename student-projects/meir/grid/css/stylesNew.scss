@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+#tirgool {
+    max-width: 1920px;
+    display: block;
+    direction: ltr;
+    font-size: 1vw;
+    color: #000000;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto 2% auto;
+    font-family: arial;
+    border: 0px solid green;
+}
+
+#tirgool img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#tirgool h1, #tirgool h2, #tirgool h3, #tirgool h4, #tirgool h5, #tirgool h6 {
+    font-weight: normal;
+    line-height: 100%;
+}
+
+#tirgool .parent {
+    display: grid;
+    grid-template-columns: 10em auto;
+    grid-template-rows: 4em auto;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 100vh;
+}
+
+.div1 { 
+    grid-area: 1 / 1 / 2 / 6; 
+    background: #1d2e5d;
+    display: flex;
+    border: 0px solid green;
+}
+
+.div2 { 
+    grid-area: 2 / 1 / 6 / 2; 
+    background: #000000;
+    border: 0px solid green;
+}
+
+.div3 { 
+    grid-area: 2 / 2 / 3 / 6; 
+    background: blue;
+    border: 0px solid green;
+}
+
+.div4 { 
+    grid-area: 3 / 2 / 6 / 6; 
+    background: #ffffff;
+    overflow: auto;
+    border: 0px solid green;
+}
+
+.flex-content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 98%;
+    margin: 0 auto;
+    border: 0px solid yellow;
+
+    > div {
+        border: 0px solid green;
+
+        .brand {
+            color: #ffffff;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        details {
+            position: relative;
+
+            summary {
+                list-style: none;
+
+                img {
+                    width: 100%;
+                    margin: 0 auto;
+                    cursor: pointer;
+                    border-radius: 50%;
+                }
+            }
+
+            ul {
+                position: absolute;
+                top: 110%;
+                right: 0;
+                width: 6em;
+                border-radius: 8px;
+                list-style-type: none;
+                background: #ffffff;
+                border: 1px solid #000000;
+
+                a {
+                    width: 100%;
+                    font-size: 1em;
+                    color: #000000;
+                    padding: 10% 0 10% 0;
+                    text-decoration: none;
+                    display: inline-block;
+
+                    &:hover {
+                        background: lightgray;
+                    }
+                }
+            }        
+        }
+    }
+}
+
+/******************* Nav *******************/
+
+.site-navigation {
+    height: 100%;
+    padding: 5% 0 5% 0;
+    border: 0px solid green;
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 90%;
+        margin: 0 auto;
+        list-style-type: none;
+        border: 0px solid yellow;
+    }
+
+    li {
+        text-align: left;
+        border: 0px solid cyan;
+    }
+
+    a {
+        width: 100%;
+        color: #ffffff;
+        padding: 8% 0 8% 0;
+        transition: 0.3s all;
+        display: inline-block;
+        text-decoration: none;
+
+        &:hover {
+            color: gray;
+        }
+    }
+
+    li.separate {
+        margin-top: auto;
+    }
+}
+
+/******************* Banner *******************/
+#tirgool .banner {
+    width: 100%;
+    height: 3em;
+    background-image: url(../../images/banner.png);
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-color: lightgray;
+    border: 0px solid green;
+}
+
+/******************* Main *******************/
+
+#tirgool .main-content {
+    height: 100vh;
+    text-align: left;
+    padding: 1%;
+    border: 0px solid green;
+
+    h1 {
+        font-size: 1.7em;
+        font-weight: bold;
+        border: 0px solid green;
+    }
+
+    p {
+        font-size: 1em;
+        padding: 2% 0 0 0;
+    }
+
+    .summary {
+        display: grid;
+        /*grid-template-columns: auto auto auto;*/
+        grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+        justify-content: space-evenly;
+        gap: 50px;
+        width: 75%;
+        margin: 3% auto 0 auto;
+        border: 0px solid green;
+
+        .box {
+            width: auto;
+            text-align: center;
+            border: 0px solid green;
+
+            img {
+                width: 50%;
+                margin: 0 auto 8% auto;
+            }
+
+            h2 {
+                font-size: 1em;
+                font-weight: bold;
+                margin: 2% 0 0 0;
+            }
+
+            a {
+                margin: 3% 0 0 0;
+                display: inline-block;
+            }
+
+        }
+
+        
+    }
+}
