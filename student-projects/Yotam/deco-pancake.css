@@ -1,0 +1,20 @@
+
+body {
+    background-color: lightblue;
+}
+.parent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .box {
+    flex: 1 1 150px; 
+    margin: 5px;
+    background: blue;
+    color: yellow;
+    gap: 1rem;
+  }
+  
+  
+  
