@@ -42,26 +42,26 @@ html, body {
 }
 
 .div1 { 
-    grid-area: 1 / 1 / 2 / 6; 
+    grid-area: 1 / 1 / 2 / 3; 
     background: #1d2e5d;
     display: flex;
     border: 0px solid green;
 }
 
 .div2 { 
-    grid-area: 2 / 1 / 6 / 2; 
+    grid-area: 2 / 1 / 4 / 2; 
     background: #000000;
     border: 0px solid green;
 }
 
 .div3 { 
-    grid-area: 2 / 2 / 3 / 6; 
+    grid-area: 2 / 2 / 3 / 3; 
     background: blue;
     border: 0px solid green;
 }
 
 .div4 { 
-    grid-area: 3 / 2 / 6 / 6; 
+    grid-area: 3 / 2 / 4 / 3; 
     background: #ffffff;
     overflow: auto;
     border: 0px solid green;
@@ -229,6 +229,47 @@ html, body {
 
         }
 
-        
     }
+}
+
+.courses {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    list-style-type: none;
+    margin: 2% 0 0 0;
+
+    img {
+        z-index: 10000;
+    }
+
+    .card {
+        background: hsl(0deg 0% 0% / 0.1);
+        padding: 0.5rem;
+        border-radius: 6px;
+    
+        >*+* {
+            margin-block-start: 0.5em;
+        }
+    
+        .thumbnail {
+            margin: -0.5rem;
+            position: relative;
+            border-radius: 6px 6px 0 0;
+            overflow: hidden;
+    
+            img {
+                width: 100%;
+            }
+    
+            h2 {
+                position: absolute;
+                bottom: 0.5rem;
+                left: 0.5rem;
+                color: white;
+            }
+        }
+    }
+    
+
 }
