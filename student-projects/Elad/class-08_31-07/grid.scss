@@ -1,11 +1,11 @@
 body {
     display: grid; 
-    grid-template-columns: auto auto auto auto; 
-    grid-template-rows: auto auto auto auto; 
+    grid-template-columns: repeat(3, auto); 
+    grid-template-rows: repeat(3, auto); 
     gap: 0px 0px; 
     grid-template-areas: 
     "header header header"
-    "aside span banner"
+    "aside banner banner"
     "aside main main"; 
 
 }
@@ -27,7 +27,7 @@ main { grid-area: main; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    
     isolation: isolate;
     z-index: 1;
 }
