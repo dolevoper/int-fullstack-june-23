@@ -46,10 +46,6 @@
 
         +label {
             border-bottom: 1px solid black;
-
-            &::before {
-                rotate: 90deg;
-            }
         }
 
         ~.content {
