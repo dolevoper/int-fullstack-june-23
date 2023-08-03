@@ -1,15 +1,7 @@
-.courses {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: repeat(auto, 1fr);
-    //grid-template-rows:repeat(auto, 1fr);
-    gap: 0.5rem;
-}
 .card {
     background: hsl(0deg 0% 0% / 0.1);
     padding: 0.5rem;
     border-radius: 6px;
-    
 
     >*+* {
         margin-block-start: 0.5em;
@@ -33,3 +25,22 @@
         }
     }
 }
+
+.courses {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(20ch, 1fr) );
+    grid-gap: 1rem;
+}
+
+// .banner {
+//     display: grid;
+//     grid-auto-flow: column;
+//     background-color: red;
+//     grid-column-start: 2;
+//     grid-column-end: 4;
+//     grid-row-start: 2;
+//     grid-row-end: 4;
+//     position: fixed;
+//     z-index: 1;
+    
+// }
