@@ -151,6 +151,10 @@ footer {
     width: 98%;
   }
 
+  box-icon{
+    vertical-align: middle;
+  }
+
 @media screen and (max-width: 700px) {
   body {
     grid-template-columns: repeat(3, 1fr);
