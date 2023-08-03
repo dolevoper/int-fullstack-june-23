@@ -48,28 +48,17 @@
     }
 
     &.steps {
-        animation: rotate 3s infinite step-end ;
+        animation: rotate 3s infinite steps(4,jump-start) ;
+
+        // or
+        // animation: rotate 3s infinite step-start ;
+        // but then we must set the keyframes individually
 
     }
 }
 @keyframes rotate {
     0% {
         rotate: 0deg;
-    }
-
-    25% {
-        rotate: 90deg;
-
-    }
-
-    50% {
-        rotate: 180deg;
-
-    }
-
-    75% {
-        rotate: 260deg;
-
     }
 
     100% {
