@@ -12,7 +12,8 @@
             background: green;
 
             .ball {
-                left: calc(var(--slot-width) - var(--ball-size) - var(--slot-padding));
+                left: unset;
+                right: var(--slot-padding);
             }
         }
     }
@@ -33,10 +34,5 @@
         position: absolute;
         top: var(--slot-padding);
         left: var(--slot-padding);
-        transition: left 300ms ease-out;
-
-        @media (prefers-reduced-motion: reduce) {
-            transition: none;
-        }
     }
 }

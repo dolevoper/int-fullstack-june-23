@@ -29,13 +29,11 @@
             content: "👉";
             width: 1rem;
             height: 1rem;
-            transition: rotate 300ms;
         }
     }
 
     .content {
         max-height: 0;
-        transition: max-height 300ms;
     }
 
     p {

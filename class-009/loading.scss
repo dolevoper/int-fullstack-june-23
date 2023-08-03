@@ -3,11 +3,6 @@
     width: 1em;
     height: 1em;
     position: relative;
-    animation: spin 3s infinite linear;
-
-    &.steps {
-        animation-timing-function: steps(5, jump-start);
-    }
 
     .ball {
         --size: 0.2em;
@@ -49,15 +44,5 @@
 
     .b6 {
         --degrees: 300deg;
-    }
-}
-
-@keyframes spin {
-    from {
-        rotate: 0deg;
-    }
-
-    to {
-        rotate: 360deg;
     }
 }
