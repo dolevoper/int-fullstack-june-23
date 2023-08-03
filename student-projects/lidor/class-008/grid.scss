@@ -50,7 +50,7 @@ html, body {
 
 .main-content {
     overflow: auto;
-    padding-top: 0.5rem;
+   
 
     isolation: isolate;
 }
@@ -67,10 +67,22 @@ html, body {
 
 .courses {
     display: grid;
-    gap: 0.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
-
+    grid-template-rows: repeat(3, auto);
+    gap: 10px;
+    overflow: auto;
+    isolation: isolate;
+    margin: 0;
+ 
     img {
         z-index: 10000;
+    }
+    .courses-header {
+        display: flex;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        text-align: center;
+        margin: auto;
+        margin-bottom: 30px;
+      
     }
 }

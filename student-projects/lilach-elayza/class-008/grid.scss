@@ -1,7 +1,15 @@
 body {
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto 1fr;
     grid-template-columns: auto 1fr;
+}
+
+aside {
+    grid-row: span 2;
+}
+
+.banner {
+    grid-column: span 2;
 }
 
 .site-header {
