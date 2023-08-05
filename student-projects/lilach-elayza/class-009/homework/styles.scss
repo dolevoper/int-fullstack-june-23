@@ -94,7 +94,7 @@ body {
         250px 0 0 30px sandybrown,
         290px 0 0 30px sandybrown,
         620px 0 0 30px sandybrown;
-    animation: hills-motion 25s linear infinite reverse;
+    animation: hills-motion 35s linear infinite reverse;
 }
 
 .grass {
@@ -103,6 +103,17 @@ body {
     width: 590px;
     height: 100px;
     top: 190px;
+}
+
+.pine-trees {
+    position: absolute;
+    top: 120px;
+    left: 600px;
+    animation: trees-motion 7s 10s infinite linear;
+
+    >img {
+        width: 100px;
+    }
 }
 
 .road {
@@ -163,6 +174,16 @@ body {
 
     to {
         transform: translateX(1600px);
+    }
+}
+
+@keyframes trees-motion {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-750px);
     }
 }
 
