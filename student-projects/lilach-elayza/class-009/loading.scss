@@ -3,9 +3,14 @@
     width: 1em;
     height: 1em;
     position: relative;
-    animation: rotate 3s steps(3) infinite;
+    animation: rotate 3s linear infinite;
+
     @media (prefers-reduced-motion: reduce) {
         animation: none;
+    }
+
+    &.steps {
+        animation: rotate 3s steps(1) infinite;
     }
 
 
@@ -13,27 +18,33 @@
         0% {
             rotate: 0deg;
         }
+
         16% {
             rotate: 60deg;
         }
+
         33% {
             rotate: 120deg;
         }
+
         50% {
-             rotate: 180deg;
+            rotate: 180deg;
         }
+
         66% {
-             rotate: 240deg;
+            rotate: 240deg;
         }
+
         83% {
-             rotate: 300deg;
+            rotate: 300deg;
         }
+
         100% {
-             rotate: 360deg;
+            rotate: 360deg;
         }
     }
 
- 
+
     .ball {
         --size: 0.2em;
         position: absolute;
