@@ -1,0 +1,172 @@
+*,
+* ::before,
+::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+
+}
+
+
+html {
+    font-size: 1.2rem;
+
+    line-height: 1;
+}
+
+body {
+    // display: flex;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+// .gallery{
+//     display: flex;
+//     align-content: center;
+//     flex-wrap: wrap;
+//     flex: 1;
+//     box-sizing: border-box;
+//     height: 900px;
+//     width: 100%;
+//     .card{
+//         width: 200px;
+//         height: 200px;
+//         border: 1px solid black;
+//         padding: 10px;
+//         margin: 5px;
+//         width: calc(25% - 10px);
+//         align-items: center;
+//         justify-content: center;
+//         border-radius: 10px;
+//     }
+
+
+// }
+
+
+
+.ccotainer-flud {
+    width: 100%;
+    padding: 0 16px;
+}
+
+.cotainer {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+header {
+    min-height: 80px;
+    background-color: black;
+    color: white;
+}
+
+header .cotainer {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+header h2 {
+    margin-right: 16px;
+    color: gold;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0 12px;
+}
+
+header nav a:hover {
+    color: gold;
+    text-decoration: underline;
+}
+
+.strip {
+    min-height: 300px;
+    background-color: skyblue;
+
+}
+
+.strip .cotainer {
+    max-width: 400px;
+    min-height: inherit;
+    padding: 8px;
+    color: white;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.strip button {
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 12px 32px;
+    margin: 10px;
+    border-radius: 30px;
+}
+.strip button:hover{
+    background-color: orange;
+}
+p{
+    max-width: 400px;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+main {
+    display: flex;
+    min-height: 200px;
+    background-color:wheat;
+    color: black;
+    // flex: 1;
+    // flex-wrap: wrap;
+    
+    // flex-direction: column;
+   
+}
+
+main .cotainer {
+    display: flex;
+  
+    justify-content: space-between;
+    gap: 0.5rem;
+    
+    
+    
+}
+
+main .box_top {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    border: 1px solid orangered;
+    border-radius: 5px;
+    // min-height: 100px;
+grid-auto-flow:column;
+}
+
+
+
+
+
+  
+
+footer {
+    margin-top: 80px;
+    min-height: 6px;
+    background-color: gray;
+    color: white;
+}
