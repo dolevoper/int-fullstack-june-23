@@ -10,6 +10,9 @@
     background: hsl(255deg 48% 90%);
     isolation: isolate;
     z-index: 1;
+&:has(input:checked) {
+    box-shadow: 0 5px 5px hsl(0deg 0% 0% / 0.2);
+}
 }
 
 .categories {
@@ -42,9 +45,11 @@
     }
 
     ul {
-        display: none;
+        max-height: 0;
+        overflow: hidden;
         list-style: none;
         padding: 0;
+        transition: max-height 300ms;
 
         a {
             text-decoration: none;
@@ -56,7 +61,29 @@
     }
 
     input:checked+ul {
-        display: block;
+        max-height: 100vh;
+        }
+
+        #hamburger rect {
+            transition: rotate 300ms;
+        }
+
+        label:has(+input:checked) #hamburger {
+            rect:first-of-type {
+                rotate: 45deg;
+                translate: 40%;
+                transform-origin: top left;
+            }
+
+            rect:nth-of-type(2) {
+                opacity: 0;
+            }
+
+            rect:nth-of-type(3) {
+                rotate: -45deg;
+                translate: 40% 10%;
+                transform-origin: bottom left;
+            }
     }
 }
 
@@ -84,6 +111,11 @@ main {
 
     h1 {
         line-height: 1.1;
+        animation: brandEntrance 2s ease-out;
+        }
+
+        p {
+            animation: copyEntrance 2s ease-out;
     }
 
     a {
@@ -95,11 +127,13 @@ main {
         font-weight: 500;
         border: none;
         text-transform: uppercase;
+        animation: ctaEntrance 2s ease-out;
     }
 
     img {
         width: 100%;
         object-fit: cover;
+        animation: imgEntrance 2s ease-out;
     }
 }
 
@@ -179,5 +213,45 @@ main {
             align-items: center;
             gap: 0.5rem;
         }
+    }
+}
+@keyframes brandEntrance {
+    from {
+        translate: -1rem -0.3rem;
+        opacity: 0;
+    }
+}
+
+@keyframes copyEntrance {
+    0% {
+        translate: -1rem;
+        opacity: 0;
+    }
+
+    10% {
+        translate: -1rem;
+        opacity: 0;
+    }
+}
+
+@keyframes ctaEntrance {
+    0% {
+        translate: 0 1rem;
+        opacity: 0;
+    }
+
+    20% {
+        translate: 0 1rem;
+        opacity: 0;
+    }
+}
+
+@keyframes imgEntrance {
+    0% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0;
     }
 }
