@@ -49,3 +49,42 @@ figcaption {
     font-weight: 500;
     margin-bottom: 2rem;
 }
+
+.surprise{
+
+    text-align: center;
+    
+    .title{
+        margin-top: 38px;
+        font-weight: 400;
+        color: yellow;
+    }
+
+    >box-icon{
+        margin: 40px;
+
+        &:hover{
+            animation: bigger 1s ease-in-out;
+            will-change: scale;
+        }
+    }
+
+
+
+}
+
+
+@keyframes bigger {
+    0%{
+        scale: 2;
+    }
+
+    50%{
+        scale: 20;
+    }
+
+    100%{
+        scale: 500;
+    }
+
+}

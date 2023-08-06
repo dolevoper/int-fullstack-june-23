@@ -49,3 +49,29 @@ figcaption {
     font-weight: 500;
     margin-bottom: 2rem;
 }
+
+.surprise {
+    text-align: center;
+
+    >box-icon {
+        scale: 2;
+
+        &:hover {
+            animation: lemon 900ms cubic-bezier(.77, 0, .23, 1);
+        }
+    }
+}
+
+@keyframes lemon {
+    0% {
+        transform: rotate(0) scale(1);
+    }
+
+    50% {
+        transform: rotate(720deg) scale(1.3);
+    }
+
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+}

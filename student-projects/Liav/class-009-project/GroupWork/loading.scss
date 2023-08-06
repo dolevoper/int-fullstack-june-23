@@ -3,8 +3,37 @@
     width: 1em;
     height: 1em;
     position: relative;
-    animation: rotate 3s infinite linear ;
+    animation: rotate 3s steps(3) infinite;
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
 
+
+    @keyframes rotate {
+        0% {
+            rotate: 0deg;
+        }
+        16% {
+            rotate: 60deg;
+        }
+        33% {
+            rotate: 120deg;
+        }
+        50% {
+             rotate: 180deg;
+        }
+        66% {
+             rotate: 240deg;
+        }
+        83% {
+             rotate: 300deg;
+        }
+        100% {
+             rotate: 360deg;
+        }
+    }
+
+ 
     .ball {
         --size: 0.2em;
         position: absolute;
@@ -45,23 +74,5 @@
 
     .b6 {
         --degrees: 300deg;
-    }
-
-    &.steps {
-        animation: rotate 3s infinite steps(4,jump-start) ;
-
-        // or
-        // animation: rotate 3s infinite step-start ;
-        // but then we must set the keyframes individually
-
-    }
-}
-@keyframes rotate {
-    0% {
-        rotate: 0deg;
-    }
-
-    100% {
-        rotate: 360deg;
     }
 }
