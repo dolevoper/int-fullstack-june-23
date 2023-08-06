@@ -29,7 +29,15 @@
             content: "👉";
             width: 1rem;
             height: 1rem;
+            transition: transform 0.5s ease-in-out;
+            transform: rotate(0deg);
         }
+
+    }
+
+    input:checked ~ label::before {
+        transition: transform 0.5s ease-in-out;
+        transform: rotate(90deg);
     }
 
     .content {
@@ -44,12 +52,28 @@
     input:checked {
         background: red;
 
-        +label {
+        + label {
             border-bottom: 1px solid black;
         }
 
-        ~.content {
-            max-height: auto;
+        ~ .content {
+            max-height: unset;
+            animation: showAns 0.5s linear;
+            border: 0px solid green;
         }
     }
+
+    @keyframes showAns {
+        0% {
+            max-height: 0;
+            animation: meir 0.5s linear;
+        }
+        100% {
+            max-height: 400px;
+        }
+    }
+
+    
+
+
 }
