@@ -17,7 +17,9 @@
         translate: calc(0.3em * sin(var(--degrees))) calc(0.3em * cos(var(--degrees)));
     }
 
-    .b1, .b3, .b5 {
+    .b1,
+    .b3,
+    .b5 {
         background: hsl(240deg 40% 50%);
     }
 
@@ -49,7 +51,7 @@
     0% {
         rotate: 0deg;
     }
-    
+
     100% {
         rotate: 360deg;
     }
