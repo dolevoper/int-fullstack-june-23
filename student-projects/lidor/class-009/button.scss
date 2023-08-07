@@ -1,0 +1,28 @@
+button {
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    border-radius: calc(2rem + 1.6em);
+    border: 2px solid white;
+    background: rgb(4, 240, 23);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    
+}
+
+
+
+  
+    button:hover{
+        animation: click 0.2s infinite;
+        
+    }
+
+    @keyframes click {
+        0% { transform: rotate(0deg) }
+        25% { transform: rotate(1.5deg) }
+        50% { transform: rotate(-1.5deg) }
+        75% { transform: rotate(1.5deg) }
+        100% { transform: rotate(-1.5deg) }
+       }
+    
