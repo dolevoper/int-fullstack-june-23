@@ -3,7 +3,7 @@
     width: 100%;
     border: 1px solid black;
     border-bottom: none;
-
+    
     &:first-of-type {
         border-radius: 6px 6px 0 0;
     }
@@ -30,6 +30,11 @@
             width: 1rem;
             height: 1rem;
         }
+        
+    }
+     :hover #isAccordion1Open
+    {
+        transform: rotate(90deg);
     }
 
     .content {
@@ -41,15 +46,36 @@
         padding: 0.5rem 2rem;
     }
 
-    input:checked {
+    .check1:checked {
         background: red;
-
         +label {
             border-bottom: 1px solid black;
         }
 
         ~.content {
-            max-height: auto;
+            max-height: unset;
         }
+        
     }
+    .check2:checked {
+        background: red;
+        .check1
+        +label {
+            border-bottom: 1px solid black;
+        }
+
+        ~.content {
+            max-height: unset;
+        }
+        
+    }
+
+}
+.check1:checked ~.content
+{
+    transform: rotate(90deg);
+}
+.check1:checked +label:first-child
+{
+    transform: rotate(90deg);
 }

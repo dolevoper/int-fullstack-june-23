@@ -7,19 +7,21 @@
     color: white;
     font-weight: 500;
     cursor: pointer;
-    transition: scale 300ms;
-    will-change: scale;
+    rotate: 180deg;
+    transition: rotate 300ms;
+    will-change: rotate;
+   
 
-    @media (prefers-reduced-motion: reduce) {
-        transition: none;
-    }
-
-    &:hover {
+    &:hover{
         background: hsl(325deg 99% 72%);
-        scale: 1.3;
+        transform: rotate(180deg);
+        scale: 1.2;
     }
 
     &:active {
-        background: hsl(335deg 100% 70%);
+        background: hsl(133, 100%, 70%);
     }
+   
 }
+
+
