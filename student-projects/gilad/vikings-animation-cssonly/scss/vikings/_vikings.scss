@@ -1,0 +1,87 @@
+/* Main Viking File */
+
+// Import Floating objects :)
+@use "viking-swimming";
+@use "octopus";
+
+/*
+    Vikings Manager -
+    Overall usage is to scope a shared viking object size.
+    Also used to mark an element that may contain viking objects,
+    for further global control options
+*/
+.vikings-manager {
+    // viking size
+    --viking-size: 18vh;
+}
+
+/*
+    Ordinary Viking -
+    Just a template design for default vikings.
+*/
+.viking {
+
+    width: var(--viking-size);
+    height: var(--viking-size);
+
+    background: url("../../assets/viking/viking.svg") no-repeat center bottom;
+    background-size: contain; 
+
+    // Sets a hitbox of a full viking size,
+    // if the viking has any type of control element (radio/checkbox)
+    .hitbox {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+}
+
+/*
+    Viking Boat Placeable objects 
+
+    Here lies vikings and objects that are placeable inside the viking boat.
+    Those objects appear as sailing on the viking boat, and placed according
+    to HTML order using a grid '.boat-slots' representing available space and
+    positions on the boat.
+
+*/
+
+/*  
+    Sailing Vikings -
+    Main viking actions animation, based on the global day-cycle timer.
+    Vikings will fall asleep at night, and possibly do more interesting
+    actions along the day. 
+*/
+.viking.sailing {
+    animation: --anim-viking-actions var(--day-cycle-time) infinite step-end;
+}
+
+/* 
+    Sailing Barrels -
+    Simple barrels object to showcase the ability of placing other simple
+    objects on the viking boat, according to the grid '.boat-slots' system.
+    Those barrels will float according to boat's float animation and do
+    nothing interesting at all.
+*/
+.barrels {
+    width: var(--viking-size);
+    height: var(--viking-size);
+
+    background: url("../../assets/boat/barrels.svg") no-repeat center bottom;
+    background-size: contain; 
+}
+
+@keyframes --anim-viking-actions {
+
+    25% { // night start
+        // Vikings go to sleep
+        background-image: url("../../assets/viking/viking-sleep.svg");
+    }
+
+    75% { // day start
+        // Vikings waking up
+        background-image: url("../../assets/viking/viking.svg");
+    }
+}
+
+

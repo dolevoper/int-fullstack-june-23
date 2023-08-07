@@ -1,0 +1,65 @@
+.carusel {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    border: 0px solid green;
+
+    .weapCarusel {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 15px;
+        border: 0px solid red;
+        
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+    }
+
+    .flex-container-carusel {
+        display: flex;
+        justify-content: center;
+        width: 500%;
+        margin: 0 auto;
+        border: 0px solid green;
+
+        > div {
+            position: relative;
+            width: 100%;
+            border: 0px solid orange;
+            scroll-snap-align: start;
+
+            img {
+                width: 100%;
+                border-radius: 15px;
+            }
+        }
+
+        span {
+            position: absolute;
+            bottom: 10%;
+            left: 2%;
+            color: yellow;
+            font-size: 1.5em;
+            font-weight: bold;
+            border: 0px solid green;
+        }
+    }
+
+    .bullWrap {
+        border: 0px solid green;
+
+        a {
+            line-height: 100%;
+            display: inline-block;
+            text-decoration: none;
+            border: 0px solid red;
+
+            span {
+                font-size: 3em;
+                display: inline-block;
+                vertical-align: middle;
+                border: 0px solid red;
+            }
+        }
+    }
+
+}

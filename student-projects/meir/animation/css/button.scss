@@ -1,0 +1,53 @@
+.button {
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    border-radius: calc(2rem + 1.6em);
+    border: 2px solid white;
+    background: hotpink;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: scale 300ms;
+    will-change: scale;
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+
+    &:hover {
+        background: hsl(325deg 99% 72%);
+        /*scale: 1.3;*/
+        animation: shake 0.3s linear infinite;
+
+    }
+
+    &:active {
+        background: hsl(335deg 100% 70%);
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(5px,5px) rotate(0deg);
+    }
+
+    20%{
+        transform: translate(-5px,-5px) rotate(5deg);
+    }
+
+    40%{
+        transform: translate(5px,5px) rotate(0deg);
+    }
+
+    60%{
+        transform: translate(-5px,-5px) rotate(-5deg);
+    }
+
+    80%{
+        transform: translate(5px,5px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-5px,-5px) rotate(5deg);
+    }
+}
