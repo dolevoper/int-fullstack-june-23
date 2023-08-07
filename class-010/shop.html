@@ -7,6 +7,7 @@
     <title>Contoso - Shop</title>
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/styles.css" />
+    <link rel="stylesheet" href="dist/bem.css" />
 </head>
 
 <body>
@@ -33,150 +34,258 @@
         </nav>
     </header>
     <main>
-        <article class="tags-container">
+        <article class="no-margin-collapse">
             <ul class="tags">
-                <li>Toshiba</li>
-                <li>HiSense</li>
-                <li>Sharp</li>
-                <li>Panasonic</li>
-                <li>LG</li>
+                <li class="tags__tag">Toshiba</li>
+                <li class="tags__tag">HiSense</li>
+                <li class="tags__tag">Sharp</li>
+                <li class="tags__tag">Panasonic</li>
+                <li class="tags__tag">LG</li>
             </ul>
         </article>
-        <ul class="products">
-            <li>
-                <img src="https://picsum.photos/300?random=1" />
-                <h2>Lorem ipsum</h2>
-                <span class="price">250</span>
+        <ul class="products flow-spacing">
+            <li class="products__card flow-spacing">
+                <img class="products__card__img" src="https://picsum.photos/300?random=1" />
+                <h2 class="products__card__productName">Lorem ipsum</h2>
+                <span class="products__card__price">250</span>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
-                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                    Add to cart
-                </button>
+                <div class="actions">
+                    <button class="button button--secondary">
+                        <svg viewBox="0 0 32 32" width="1em" height="1em" enable-background="new 0 0 32 32" version="1.1"
+                            xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            fill="#000000">
+                            <path
+                                d="M30.9,10.6C30.8,10.2,30.4,10,30,10h0h-9l-4.1-8.4C16.7,1.2,16.4,1,16,1v0c0,0,0,0,0,0 c-0.4,0-0.7,0.2-0.9,0.6L11,10H2c-0.4,0-0.8,0.2-0.9,0.6c-0.2,0.4-0.1,0.8,0.2,1.1l6.6,7.6L5,29.7c-0.1,0.4,0,0.8,0.3,1 s0.7,0.3,1.1,0.1l9.6-4.6l9.6,4.6C25.7,31,25.8,31,26,31h0h0h0c0.5,0,1-0.4,1-1c0-0.2,0-0.3-0.1-0.5l-2.8-10.3l6.6-7.6 C31,11.4,31.1,10.9,30.9,10.6z"
+                                fill="#FE9803"></path>
+                        </svg>
+                        Add to wishlist
+                    </button>
+                    <button class="button button--primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        Add to cart
+                    </button>
+                </div>
             </li>
-            <li>
-                <img src="https://picsum.photos/300?random=2" />
-                <h2>Dolor sit</h2>
-                <span class="price">250</span>
+            <li class="products__card flow-spacing">
+                <img class="products__card__img" src="https://picsum.photos/300?random=2" />
+                <h2 class="products__card__productName">Dolor sit</h2>
+                <span class="products__card__price">250</span>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
-                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                    Add to cart
-                </button>
+                <div class="actions">
+                    <button class="button button--secondary">
+                        <svg viewBox="0 0 32 32" width="1em" height="1em" enable-background="new 0 0 32 32" version="1.1"
+                            xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            fill="#000000">
+                            <path
+                                d="M30.9,10.6C30.8,10.2,30.4,10,30,10h0h-9l-4.1-8.4C16.7,1.2,16.4,1,16,1v0c0,0,0,0,0,0 c-0.4,0-0.7,0.2-0.9,0.6L11,10H2c-0.4,0-0.8,0.2-0.9,0.6c-0.2,0.4-0.1,0.8,0.2,1.1l6.6,7.6L5,29.7c-0.1,0.4,0,0.8,0.3,1 s0.7,0.3,1.1,0.1l9.6-4.6l9.6,4.6C25.7,31,25.8,31,26,31h0h0h0c0.5,0,1-0.4,1-1c0-0.2,0-0.3-0.1-0.5l-2.8-10.3l6.6-7.6 C31,11.4,31.1,10.9,30.9,10.6z"
+                                fill="#FE9803"></path>
+                        </svg>
+                        Add to wishlist
+                    </button>
+                    <button class="button button--primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        Add to cart
+                    </button>
+                </div>
             </li>
-            <li>
-                <img src="https://picsum.photos/300?random=3" />
-                <h2>Amet consectetur</h2>
-                <span class="price">250</span>
+            <li class="products__card flow-spacing">
+                <img class="products__card__img" src="https://picsum.photos/300?random=3" />
+                <h2 class="products__card__productName">Amet consectetur</h2>
+                <span class="products__card__price">250</span>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
-                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                    Add to cart
-                </button>
+                <div class="actions">
+                    <button class="button button--secondary">
+                        <svg viewBox="0 0 32 32" width="1em" height="1em" enable-background="new 0 0 32 32" version="1.1"
+                            xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            fill="#000000">
+                            <path
+                                d="M30.9,10.6C30.8,10.2,30.4,10,30,10h0h-9l-4.1-8.4C16.7,1.2,16.4,1,16,1v0c0,0,0,0,0,0 c-0.4,0-0.7,0.2-0.9,0.6L11,10H2c-0.4,0-0.8,0.2-0.9,0.6c-0.2,0.4-0.1,0.8,0.2,1.1l6.6,7.6L5,29.7c-0.1,0.4,0,0.8,0.3,1 s0.7,0.3,1.1,0.1l9.6-4.6l9.6,4.6C25.7,31,25.8,31,26,31h0h0h0c0.5,0,1-0.4,1-1c0-0.2,0-0.3-0.1-0.5l-2.8-10.3l6.6-7.6 C31,11.4,31.1,10.9,30.9,10.6z"
+                                fill="#FE9803"></path>
+                        </svg>
+                        Add to wishlist
+                    </button>
+                    <button class="button button--primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        Add to cart
+                    </button>
+                </div>
             </li>
-            <li>
-                <img src="https://picsum.photos/300?random=4" />
-                <h2>Adipisicing elit</h2>
-                <span class="price">250</span>
+            <li class="products__card flow-spacing">
+                <img class="products__card__img" src="https://picsum.photos/300?random=4" />
+                <h2 class="products__card__productName">Adipisicing elit</h2>
+                <span class="products__card__price">250</span>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
-                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                    Add to cart
-                </button>
+                <div class="actions">
+                    <button class="button button--secondary">
+                        <svg viewBox="0 0 32 32" width="1em" height="1em" enable-background="new 0 0 32 32" version="1.1"
+                            xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            fill="#000000">
+                            <path
+                                d="M30.9,10.6C30.8,10.2,30.4,10,30,10h0h-9l-4.1-8.4C16.7,1.2,16.4,1,16,1v0c0,0,0,0,0,0 c-0.4,0-0.7,0.2-0.9,0.6L11,10H2c-0.4,0-0.8,0.2-0.9,0.6c-0.2,0.4-0.1,0.8,0.2,1.1l6.6,7.6L5,29.7c-0.1,0.4,0,0.8,0.3,1 s0.7,0.3,1.1,0.1l9.6-4.6l9.6,4.6C25.7,31,25.8,31,26,31h0h0h0c0.5,0,1-0.4,1-1c0-0.2,0-0.3-0.1-0.5l-2.8-10.3l6.6-7.6 C31,11.4,31.1,10.9,30.9,10.6z"
+                                fill="#FE9803"></path>
+                        </svg>
+                        Add to wishlist
+                    </button>
+                    <button class="button button--primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        Add to cart
+                    </button>
+                </div>
             </li>
-            <li>
-                <img src="https://picsum.photos/300?random=5" />
-                <h2>Quam iusto</h2>
-                <span class="price">250</span>
+            <li class="products__card flow-spacing">
+                <img class="products__card__img" src="https://picsum.photos/300?random=5" />
+                <h2 class="products__card__productName">Quam iusto</h2>
+                <span class="products__card__price">250</span>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
-                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                    Add to cart
-                </button>
+                <div class="actions">
+                    <button class="button button--secondary">
+                        <svg viewBox="0 0 32 32" width="1em" height="1em" enable-background="new 0 0 32 32" version="1.1"
+                            xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            fill="#000000">
+                            <path
+                                d="M30.9,10.6C30.8,10.2,30.4,10,30,10h0h-9l-4.1-8.4C16.7,1.2,16.4,1,16,1v0c0,0,0,0,0,0 c-0.4,0-0.7,0.2-0.9,0.6L11,10H2c-0.4,0-0.8,0.2-0.9,0.6c-0.2,0.4-0.1,0.8,0.2,1.1l6.6,7.6L5,29.7c-0.1,0.4,0,0.8,0.3,1 s0.7,0.3,1.1,0.1l9.6-4.6l9.6,4.6C25.7,31,25.8,31,26,31h0h0h0c0.5,0,1-0.4,1-1c0-0.2,0-0.3-0.1-0.5l-2.8-10.3l6.6-7.6 C31,11.4,31.1,10.9,30.9,10.6z"
+                                fill="#FE9803"></path>
+                        </svg>
+                        Add to wishlist
+                    </button>
+                    <button class="button button--primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        Add to cart
+                    </button>
+                </div>
             </li>
-            <li>
-                <img src="https://picsum.photos/300?random=6" />
-                <h2>Ipsa accusantium</h2>
-                <span class="price">250</span>
+            <li class="products__card flow-spacing">
+                <img class="products__card__img" src="https://picsum.photos/300?random=6" />
+                <h2 class="products__card__productName">Ipsa accusantium</h2>
+                <span class="products__card__price">250</span>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
-                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                    Add to cart
-                </button>
+                <div class="actions">
+                    <button class="button button--secondary">
+                        <svg viewBox="0 0 32 32" width="1em" height="1em" enable-background="new 0 0 32 32" version="1.1"
+                            xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            fill="#000000">
+                            <path
+                                d="M30.9,10.6C30.8,10.2,30.4,10,30,10h0h-9l-4.1-8.4C16.7,1.2,16.4,1,16,1v0c0,0,0,0,0,0 c-0.4,0-0.7,0.2-0.9,0.6L11,10H2c-0.4,0-0.8,0.2-0.9,0.6c-0.2,0.4-0.1,0.8,0.2,1.1l6.6,7.6L5,29.7c-0.1,0.4,0,0.8,0.3,1 s0.7,0.3,1.1,0.1l9.6-4.6l9.6,4.6C25.7,31,25.8,31,26,31h0h0h0c0.5,0,1-0.4,1-1c0-0.2,0-0.3-0.1-0.5l-2.8-10.3l6.6-7.6 C31,11.4,31.1,10.9,30.9,10.6z"
+                                fill="#FE9803"></path>
+                        </svg>
+                        Add to wishlist
+                    </button>
+                    <button class="button button--primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        Add to cart
+                    </button>
+                </div>
             </li>
-            <li>
-                <img src="https://picsum.photos/300?random=7" />
-                <h2>Minima natus</h2>
-                <span class="price">250</span>
+            <li class="products__card flow-spacing">
+                <img class="products__card__img" src="https://picsum.photos/300?random=7" />
+                <h2 class="products__card__productName">Minima natus</h2>
+                <span class="products__card__price">250</span>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
-                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                    Add to cart
-                </button>
+                <div class="actions">
+                    <button class="button button--secondary">
+                        <svg viewBox="0 0 32 32" width="1em" height="1em" enable-background="new 0 0 32 32" version="1.1"
+                            xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            fill="#000000">
+                            <path
+                                d="M30.9,10.6C30.8,10.2,30.4,10,30,10h0h-9l-4.1-8.4C16.7,1.2,16.4,1,16,1v0c0,0,0,0,0,0 c-0.4,0-0.7,0.2-0.9,0.6L11,10H2c-0.4,0-0.8,0.2-0.9,0.6c-0.2,0.4-0.1,0.8,0.2,1.1l6.6,7.6L5,29.7c-0.1,0.4,0,0.8,0.3,1 s0.7,0.3,1.1,0.1l9.6-4.6l9.6,4.6C25.7,31,25.8,31,26,31h0h0h0c0.5,0,1-0.4,1-1c0-0.2,0-0.3-0.1-0.5l-2.8-10.3l6.6-7.6 C31,11.4,31.1,10.9,30.9,10.6z"
+                                fill="#FE9803"></path>
+                        </svg>
+                        Add to wishlist
+                    </button>
+                    <button class="button button--primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        Add to cart
+                    </button>
+                </div>
             </li>
-            <li>
-                <img src="https://picsum.photos/300?random=8" />
-                <h2>Provident nostrum</h2>
-                <span class="price">250</span>
+            <li class="products__card flow-spacing">
+                <img class="products__card__img" src="https://picsum.photos/300?random=8" />
+                <h2 class="products__card__productName">Provident nostrum</h2>
+                <span class="products__card__price">250</span>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
-                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                    Add to cart
-                </button>
+                <div class="actions">
+                    <button class="button button--secondary">
+                        <svg viewBox="0 0 32 32" width="1em" height="1em" enable-background="new 0 0 32 32" version="1.1"
+                            xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            fill="#000000">
+                            <path
+                                d="M30.9,10.6C30.8,10.2,30.4,10,30,10h0h-9l-4.1-8.4C16.7,1.2,16.4,1,16,1v0c0,0,0,0,0,0 c-0.4,0-0.7,0.2-0.9,0.6L11,10H2c-0.4,0-0.8,0.2-0.9,0.6c-0.2,0.4-0.1,0.8,0.2,1.1l6.6,7.6L5,29.7c-0.1,0.4,0,0.8,0.3,1 s0.7,0.3,1.1,0.1l9.6-4.6l9.6,4.6C25.7,31,25.8,31,26,31h0h0h0c0.5,0,1-0.4,1-1c0-0.2,0-0.3-0.1-0.5l-2.8-10.3l6.6-7.6 C31,11.4,31.1,10.9,30.9,10.6z"
+                                fill="#FE9803"></path>
+                        </svg>
+                        Add to wishlist
+                    </button>
+                    <button class="button button--primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        Add to cart
+                    </button>
+                </div>
             </li>
-            <li>
-                <img src="https://picsum.photos/300?random=9" />
-                <h2>Nemo et</h2>
-                <span class="price">250</span>
+            <li class="products__card flow-spacing">
+                <img class="products__card__img" src="https://picsum.photos/300?random=9" />
+                <h2 class="products__card__productName">Nemo et</h2>
+                <span class="products__card__price">250</span>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
-                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                    Add to cart
-                </button>
+                <div class="actions">
+                    <button class="button button--secondary">
+                        <svg viewBox="0 0 32 32" width="1em" height="1em" enable-background="new 0 0 32 32" version="1.1"
+                            xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            fill="#000000">
+                            <path
+                                d="M30.9,10.6C30.8,10.2,30.4,10,30,10h0h-9l-4.1-8.4C16.7,1.2,16.4,1,16,1v0c0,0,0,0,0,0 c-0.4,0-0.7,0.2-0.9,0.6L11,10H2c-0.4,0-0.8,0.2-0.9,0.6c-0.2,0.4-0.1,0.8,0.2,1.1l6.6,7.6L5,29.7c-0.1,0.4,0,0.8,0.3,1 s0.7,0.3,1.1,0.1l9.6-4.6l9.6,4.6C25.7,31,25.8,31,26,31h0h0h0c0.5,0,1-0.4,1-1c0-0.2,0-0.3-0.1-0.5l-2.8-10.3l6.6-7.6 C31,11.4,31.1,10.9,30.9,10.6z"
+                                fill="#FE9803"></path>
+                        </svg>
+                        Add to wishlist
+                    </button>
+                    <button class="button button--primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="1em" height="1em"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21 5L19 12H7.37671M20 16H8L6 3H3M16 5.5H13.5M13.5 5.5H11M13.5 5.5V8M13.5 5.5V3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        Add to cart
+                    </button>
+                </div>
             </li>
         </ul>
     </main>

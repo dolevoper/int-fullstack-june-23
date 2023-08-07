@@ -10,9 +10,9 @@
     background: hsl(255deg 48% 90%);
     isolation: isolate;
     z-index: 1;
-&:has(input:checked) {
-    box-shadow: 0 5px 5px hsl(0deg 0% 0% / 0.2);
-}
+    &:has(input:checked) {
+        box-shadow: 0 5px 5px hsl(0deg 0% 0% / 0.2);
+    }
 }
 
 .categories {
@@ -62,28 +62,28 @@
 
     input:checked+ul {
         max-height: 100vh;
+    }
+
+    #hamburger rect {
+        transition: rotate 300ms;
+    }
+
+    label:has(+input:checked) #hamburger {
+        rect:first-of-type {
+            rotate: 45deg;
+            translate: 40%;
+            transform-origin: top left;
         }
 
-        #hamburger rect {
-            transition: rotate 300ms;
+        rect:nth-of-type(2) {
+            opacity: 0;
         }
 
-        label:has(+input:checked) #hamburger {
-            rect:first-of-type {
-                rotate: 45deg;
-                translate: 40%;
-                transform-origin: top left;
-            }
-
-            rect:nth-of-type(2) {
-                opacity: 0;
-            }
-
-            rect:nth-of-type(3) {
-                rotate: -45deg;
-                translate: 40% 10%;
-                transform-origin: bottom left;
-            }
+        rect:nth-of-type(3) {
+            rotate: -45deg;
+            translate: 40% 10%;
+            transform-origin: bottom left;
+        }
     }
 }
 
@@ -112,10 +112,10 @@ main {
     h1 {
         line-height: 1.1;
         animation: brandEntrance 2s ease-out;
-        }
+    }
 
-        p {
-            animation: copyEntrance 2s ease-out;
+    p {
+        animation: copyEntrance 2s ease-out;
     }
 
     a {
@@ -137,7 +137,7 @@ main {
     }
 }
 
-.tags-container {
+.no-margin-collapse {
     border: 1px solid transparent;
 }
 
@@ -149,7 +149,7 @@ main {
     flex-wrap: wrap;
     margin-block-start: 1rem;
 
-    li {
+    &__tag {
         font-size: 0.7rem;
         background: var(--color-primary);
         color: white;
@@ -159,11 +159,15 @@ main {
     }
 }
 
+.flow-spacing>*+* {
+    margin-block-start: 1em;
+}
+
 .products {
     list-style: none;
     padding: 0;
 
-    li {
+    &__card {
         border: 1px solid var(--color-primary);
         border-radius: 8px;
         margin-block-start: 1rem;
@@ -172,49 +176,29 @@ main {
         display: flex;
         flex-direction: column;
 
-        >*+* {
-            margin-block-start: 1em;
-        }
-
-        img {
+        &__img {
             width: calc(100% + 2rem);
             margin-inline: -1rem;
             margin-block-start: -1rem;
             border-bottom: 1px solid var(--color-primary);
         }
 
-        .price {
+        &__productName {
+            font-size: 1.2rem;
+            line-height: 1.1;
+            color: var(--color-primary);
+        }
+
+        &__price {
             display: block;
 
             &::after {
                 content: "$";
             }
         }
-
-        h2 {
-            font-size: 1.2rem;
-            line-height: 1.1;
-            color: var(--color-primary);
-        }
-
-        button {
-            appearance: none;
-            background: var(--color-primary);
-            color: white;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            font-family: inherit;
-            border: none;
-            border-radius: calc(1em + 0.4rem);
-            padding: 0.2rem 0.5rem;
-            font-weight: 500;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-        }
     }
-}
+    }
+
 @keyframes brandEntrance {
     from {
         translate: -1rem -0.3rem;
