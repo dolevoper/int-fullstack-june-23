@@ -7,7 +7,11 @@
     .weapCarusel {
         width: 100%;
         overflow: hidden;
+        border-radius: 15px;
         border: 0px solid red;
+        
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
     }
 
     .flex-container-carusel {
@@ -21,6 +25,7 @@
             position: relative;
             width: 100%;
             border: 0px solid orange;
+            scroll-snap-align: start;
 
             img {
                 width: 100%;
