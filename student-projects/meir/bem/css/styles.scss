@@ -10,7 +10,6 @@
     background: hsl(255deg 48% 90%);
     isolation: isolate;
     z-index: 1;
-
     &:has(input:checked) {
         box-shadow: 0 5px 5px hsl(0deg 0% 0% / 0.2);
     }
@@ -18,6 +17,7 @@
 
 .categories {
     padding: 0.5rem;
+
 
     label {
         padding: 0.3rem;
@@ -238,4 +238,14 @@ main {
     30% {
         opacity: 0;
     }
+}
+
+@media screen and (min-width: 1024px) {
+    
+}
+
+@media screen and (min-width: 1920px) {
+    /*#tirgool {
+        font-size: 1.2em;
+    }*/
 }
