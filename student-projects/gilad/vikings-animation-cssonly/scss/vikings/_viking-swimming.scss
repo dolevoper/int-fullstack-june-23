@@ -1,0 +1,125 @@
+/* Swimming Viking Animation File */
+
+/*
+    Swimming Viking Scene-
+
+    The swimming viking is a special usecase animation scene due to the need
+    of controlling several seperate objects at once.
+    Had to seperate this specific animation to draw the shockwave behind
+    the parent Viking and make everything float and timed together.
+*/
+.swimming-viking {
+
+    // Adjust dimensions because swimming viking asset is a little smaller
+    // Creates the effect that this viking is closer to the 'camera'.
+    width: calc(var(--viking-size) * 1.25) ;
+    height: calc(var(--viking-size) * 1.25);
+
+    // Position viking above sea level and to the left ot the screen
+    position: absolute;
+    bottom: calc(var(--sea-level));
+    left: 10%;
+
+
+    .viking.swimming {
+
+        // Position actual viking in the center of the whole animation scene
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        
+        // The default and starting asset of the swimming viking.
+        // When hitbox is unchecked, viking returns to this default asset.
+        background: url("../../assets/viking/swim/viking-swim.svg") no-repeat center bottom;
+        background-size: contain;
+
+        // Set a custom jellyfish pointer to represent 'electrify viking'
+        .hitbox:hover {
+            cursor: url("../../assets/cursors/cursor-medusa.svg"), auto;
+        }
+
+        // Checks whether the hitbox (checkbox) overlaying the viking is pressed
+        &:has(.hitbox:checked) {
+
+            // Start main shocked viking animation using step-end to prevent
+            // interpolation between two background images.
+            animation: --anim-shock 2s 2 step-end;
+
+            // When shock animation is done, and hitbox is still checked, 
+            // viking doesn't return to original default asset, but to an event-end
+            // asset that represents the viking has been shocked and burnt.
+            background-image: url("../../assets/viking/swim/viking-swim-burnt.svg");
+            
+            // After viking is pressed & shocked, give the effect of a viking recovering
+            // from the shock using custom beer pointer.
+            // Used to reset the animation when hitbox is unchecked.
+            & .hitbox:hover {
+                cursor: url("../../assets/cursors/cursor-beer.svg"), auto;
+            }
+        }
+
+    }
+
+    // Selects the shockwave when the hitbox is checked, 
+    // sets the shockwave's real dimensions and starts a stepped animation 4 times.
+    &:has(.hitbox:checked) .shockwave {
+        // Set doulbe the width and height of the viking, to cover the whole viking asset.
+        width: 200%;
+        height: 200%;
+
+        // Positioned mainly using trial and error
+        position: relative;
+        bottom: 50%;
+        right: 55%;
+
+        // Default shockwave image is none, because we want to hide it when the animation
+        // is done and the hitbox is still checked.
+        background-image: none;
+
+        // Main shockwave stepped animation
+        animation: --anim-shockwave 1s 4 step-end;
+    }
+}
+
+/*
+    Viking Shock Animation
+    Swaps the viking asset between shocked and 'bones' images to represent electrification.
+    Notice that after the animation ends, it'll not return to the original default asset 
+    but to an event-end asset that represents this shock animation is done.
+*/
+@keyframes --anim-shock {
+
+    0%,50%,100% {
+        background-image: url("../../assets/viking/swim/viking-swim-shocked-bones.svg");
+    }
+
+    25%, 75% {
+        background-image: url("../../assets/viking/swim/viking-swim-shocked.svg");
+    }
+}
+
+/*
+    Shockwave Animation
+    Slightly rotates the shockwave left and right using stepped animation.
+    It set the shockwave image only at the start of the animation, so the shockwave
+    can return to a 'none' image when the animation is done. 
+*/
+@keyframes --anim-shockwave {
+
+    0% {
+        background: url("../../assets/viking/swim/shockwave.svg") no-repeat center center;
+        background-size: contain;
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(5deg);
+    }
+
+}
+

@@ -29,11 +29,24 @@
             content: "👉";
             width: 1rem;
             height: 1rem;
+            transition: rotate 300ms ease ;
+
+            @media (prefers-reduced-motion: reduce) {
+                transition: none;
+            }
+            
         }
+
+
+
     }
 
     .content {
         max-height: 0;
+        transition: max-height 0.5s;
+        @media (prefers-reduced-motion: reduce) {
+            transition: none;
+        }
     }
 
     p {
@@ -43,13 +56,22 @@
 
     input:checked {
         background: red;
+        
 
         +label {
             border-bottom: 1px solid black;
+
+            &::before {
+                rotate: 90deg;
+            }
         }
 
         ~.content {
-            max-height: unset;
+            max-height: 100vh;
         }
     }
+
+
 }
+
+

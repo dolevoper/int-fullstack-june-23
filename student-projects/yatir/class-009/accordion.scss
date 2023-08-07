@@ -29,11 +29,13 @@
             content: "👉";
             width: 1rem;
             height: 1rem;
+            
         }
     }
 
     .content {
         max-height: 0;
+        transition: max-height 1s;
     }
 
     p {
@@ -49,7 +51,22 @@
         }
 
         ~.content {
-            max-height: unset;
+            max-height: 100px;
+            transition: max-height 1s;
+        }
+        +::before{
+                animation: rotate 1s;
+
         }
     }
 }
+@keyframes hend{
+    from{
+        rotate: 0 deg
+    }
+to{
+    rotate: 90 deg
+}
+}
+
+
