@@ -1,0 +1,73 @@
+
+/*
+    Waves Tide Animation
+
+    The waves tide animation moves the whole waves block towards 
+    x position + tide range, and then brings the waves block back to
+    it's orignialy position.
+*/
+@keyframes --anim-waves-tide {
+    
+    0% {
+        transform: translateX( 0 );
+    }
+
+    50% {
+        transform: translateX( var(--wave-tide-range) );
+    }
+
+    100% {
+        transform: translateX( 0 );
+    }
+}
+
+
+/* 
+    Floating Object Animation 
+
+    This animation will control any marked floating object under the 'tide-animation-manager'.
+    It rotates the object sideways and moves it up&down the Y axis to represent floatation.
+
+    The intensity of the floating is controlled by the intensity of the tides !
+    The intensity changes are pre-calculated at the initial values set up.
+
+*/
+@keyframes --anim-float {
+    
+    0% {
+        transform: translateY(0) rotate(var(--float-rotation));
+    }
+
+    50% {
+        transform: translateY(var(--float-y)) rotate(0);
+    }
+
+    100% {
+
+        transform: translateY(0) rotate(var(--float-rotation));
+
+    }
+}
+
+/*
+    Reversed Floating Object Animation 
+
+    To make the effect that not all floating objects are the same <3 
+    
+*/
+@keyframes --anim-float-reverse {
+    
+    0% {
+        transform: translateY(var(--float-y)) rotate(0) ;
+    }
+
+    50% {
+        transform: translateY(0) rotate(var(--float-rotation));
+    }
+
+    100% {
+
+        transform: translateY(var(--float-y)) rotate(0) ;
+
+    }
+}

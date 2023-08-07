@@ -1,0 +1,76 @@
+
+/*
+    Day Cycle Animation
+
+    This animation represents a full day cycle day to night.
+    This animation is timed according to the global day-cycle time
+    variable, and other animations that depends on day/night time
+    are coupled to this animation's timer.
+
+    For example - Planets orbit according to day cycle, and vikings
+    will go to sleep at night.
+*/
+
+@keyframes anim-day-cycle {
+
+    // 25% night start
+    
+    50% { // peak of night
+        background-color: var(--night-color);
+    }
+
+    // 75% day start
+
+    100% { // peak of day
+        background-color: var(--day-color);
+    }
+}
+
+
+/*
+    Planet Orbit Animation. 
+
+    This cool animation CSS'ly mimics the circular euqation : 
+
+    (x – h)2+ (y – k)2 = r2
+
+    It uses pythagorean theorem but without calculations,
+    with the following steps:
+    1. first, we rotate the object towards a timed-coupled degree value.
+    2. Then, after it faces the desired degree, we move the object upwards the amount 
+        of the circle's radius.
+    
+    With infinitly changing degree value, the object will always be located on the outer
+    ring of the circle - forcing it to orbit around the object's starting position.
+
+    3. When rotating the objects at the start of the transformation, the planets seem to always
+    face towards the starting position. 
+    It looks like the planets rotate massivly during a 1 night/day span.
+
+    to fix this, we rotate the planets back to their initial rotation degree, 
+    making it to stop looking towards the center of the screen but rather their initial rotation. 
+*/
+
+@keyframes anim-planet-orbit {
+    // Mimics circular equation.
+    // rotate, move circle's radius long towards rotation, rotate backwards to maintain planet's original rotation
+
+    0% {
+        transform: rotate(var(--start-degree)) translate(var(--planets-radius)) rotate(calc(0deg - (var(--start-degree))));
+    }
+
+    25% {
+        // fade planet as it goes away
+        opacity: 0.75;
+    }
+
+    50% {
+        // sets moon opacity to highest in the middle of the night, 
+        // when sun is invisible
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotate(calc(var(--start-degree) - 360deg)) translate(var(--planets-radius)) rotate(calc(0deg - (var(--start-degree) - 360deg)));
+    }
+}

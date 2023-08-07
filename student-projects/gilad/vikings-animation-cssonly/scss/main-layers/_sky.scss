@@ -1,0 +1,79 @@
+/* MAIN SKY FILE */
+
+// Import main day-cycle 
+@use "sky-animations";
+
+
+/*
+    Day Cycle Time
+
+    This value represents a full day cycle day-to-night and vice versa.
+    This variable controls the global day-cycle based animations accross other
+    objects.
+*/
+
+:root {
+    // Main global day cycle timing 
+    --day-cycle-time: 30s;
+}
+
+
+.sky {
+
+    // sky color vars
+    --day-color: #E1FAFF;
+    --night-color: #2F5962;
+
+    // Main planets orbit animation
+    background-color: var(--day-color);
+    animation: anim-day-cycle var(--day-cycle-time) infinite ease-in-out;
+
+    // Make sky overlay screen
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.planet {
+
+    // planets orbit equation vars
+    --planets-radius: 90vh;
+    --planet-size: calc(var(--planets-radius) / 2);
+
+    width: var(--planet-size);
+    height: var(--planet-size);
+
+    // position planets at the center & bottom of the screen, 
+    // works better than setting on sea level. 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    // Main planets orbit animation
+    animation: anim-planet-orbit var(--day-cycle-time) infinite linear;
+
+
+    &.sun {
+        background: url("../../assets/sky/sun.svg") no-repeat center top;
+        background-size: contain;
+
+        // Sun starting degree
+        --start-degree: -90deg;
+        opacity: 1;
+    }
+
+    &.moon {
+        background: url("../../assets/sky/moon.svg") no-repeat center top;
+        background-size: contain;
+        // Moon starting degreem, opposite of the sun.
+        --start-degree: 90deg;
+        // Moon reflects sun's light, 
+        // therefore it's less visible when sun rises and shines the sky.
+        opacity: 0.25;
+    }
+}
+
