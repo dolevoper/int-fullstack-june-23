@@ -1,0 +1,17 @@
+.accord
+{
+    overflow: hidden;
+    width: 100px;
+    border: 2px solid black;
+    border-radius: 6px 6px 0 0 ;
+}
+&--check
+{
+   display: none;
+}
+&--head
+{
+    display: flex;
+    background-color: red;
+   color: white;
+}
