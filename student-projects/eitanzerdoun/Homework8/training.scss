@@ -1,0 +1,17 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.headerbar{
+    background-color: black;
+    position: fixed;
+    isolation: isolate;
+    width: 100%;
+    display: flex;
+    .headerbar__logo{
+        width: 200px;
+        height: 50px;
+        margin: 30px;
+    }
+}
