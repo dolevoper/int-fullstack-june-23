@@ -18,6 +18,16 @@ body {
     background: hsl(0deg 0% 80%);
 }
 
+html,
+body {
+  height: 100%;
+}
+
+img,
+svg {
+  display: block;
+}
+
 button {
     appearance: none;
     font-size: inherit;
@@ -48,22 +58,4 @@ figcaption {
     font-size: 1.1rem;
     font-weight: 500;
     margin-bottom: 2rem;
-}
-.drill-had
-{
-    text-align: center;
-    
-}
-img
-{
-    width: 40%;
-    align-items: center;
-}
-.drill
-{
- text-align: center;
-}
-img:hover
-{
-    transform: scale(1.3);
 }

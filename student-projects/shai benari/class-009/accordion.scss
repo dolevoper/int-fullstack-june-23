@@ -59,8 +59,7 @@
     }
     .check2:checked {
         background: red;
-        .check1
-        +label {
+        .check1+label {
             border-bottom: 1px solid black;
         }
 

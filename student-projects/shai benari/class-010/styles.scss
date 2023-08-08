@@ -109,16 +109,16 @@ main {
     margin-inline: -1rem;
     clip-path: ellipse(100% 63% at 23% 37%);
 
-    &--hader {
+    &__hader {
         line-height: 1.1;
         animation: brandEntrance 2s ease-out;
     }
 
-    &--para {
+    &__para {
         animation: copyEntrance 2s ease-out;
     }
 
-    &--link {
+    &__link {
         text-decoration: none;
         padding: 0.5rem 1rem;
         border-radius: 2rem;
@@ -130,7 +130,7 @@ main {
         animation: ctaEntrance 2s ease-out;
     }
 
-    &--img {
+    &__img {
         width: 100%;
         object-fit: cover;
         animation: imgEntrance 2s ease-out;
