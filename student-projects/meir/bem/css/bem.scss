@@ -1,6 +1,6 @@
 .actions {
     display: flex;
-    justify-content: end;
+    justify-content: center;
     gap: 0.3rem;
 
 }
@@ -8,9 +8,10 @@
 .button {
     appearance: none;
     text-transform: uppercase;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     font-family: inherit;
     border: none;
+    cursor: pointer;
     border-radius: calc(1em + 0.4rem);
     padding: 0.2rem 0.5rem;
     font-weight: 500;
