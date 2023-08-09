@@ -24,11 +24,17 @@
         margin: 1% auto 0 auto;
         
         a {
-            text-decoration: none;
+            display: block;
             color: black;
             font-weight: 600;
-            display: block;
+            transition: 0.3s all;
             padding: 0.2rem 1rem;
+            text-decoration: none;
+
+            &:hover {
+                color: red;
+                transform: translateX(0.2em);
+            }
         }
     }
 } 
