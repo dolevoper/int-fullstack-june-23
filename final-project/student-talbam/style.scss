@@ -119,10 +119,13 @@ html, body {
     &--orange {
         grid-area: 8/ 5/ 10/ 6;
         background-color: var(--Yello);
-
     }
 }
 
+.bobfill {
+    grid-area: span 1;
+    background-color: var(--Neutral300);
+}
 
 
 
