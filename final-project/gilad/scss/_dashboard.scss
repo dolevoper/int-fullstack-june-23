@@ -1,0 +1,25 @@
+.dashboard {
+
+
+    background-color: red;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.topbar {
+    background-color: green;
+
+    flex: 0 0 6%;
+}
+
+.filtermenu {
+    background-color: blue;
+    flex: 0 0 6%;
+}
+
+.calendar {
+    background-color: yellow;
+    flex: 1;
+}

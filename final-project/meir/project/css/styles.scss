@@ -17,6 +17,7 @@ body {
 
 #tirgool {
     max-width: 1920px;
+    height: 100vh;
     display: block;
     direction: ltr;
     font-size: 1vw;
@@ -65,12 +66,16 @@ header ul li {
 }
 
 header ul li a {
-    color: #3f6ff3;
+    color: gray;
     text-decoration: none;
 }
 
 header ul li.logo {
     font-weight: bold;
+}
+
+header ul li.logo a {
+    color: #3f6ff3;
 }
 
 header ul li.home {
@@ -89,21 +94,41 @@ header ul li.bell::after {
 }
 
 header ul li.calandar {
-    color: #3f6ff3;
     border-left: 4px solid #3f6ff3;
 }
 
+header ul li.calandar a {
+    color: #3f6ff3;
+   
+}
+
 main {
-    padding: 0 1% 0 1%;
     border: 1px solid green;
 }
 
+main .flex-content-top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid green;
+}
 
+main .flex-content-top > div {
+    width: 33%;
+    text-align: center;
+    border: 1px solid green;
+}
 
+main .flex-content-top > div.txt {
+    text-align: left;
+    padding: 0 0 0 1%;
+    font-weight: bold;
+    font-size: 1.5em;
+}
 
 @media screen and (max-width: 1024px) {
     body {
-        ///grid-template-rows: auto;
         grid-template-rows: auto auto;
     }
     

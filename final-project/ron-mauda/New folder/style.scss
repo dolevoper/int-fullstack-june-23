@@ -1,0 +1,61 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+*{
+    margin: 0;
+}
+.aside{
+    box-shadow: 2px 2px rgb(202, 201, 201);
+    &__title{
+        color: blue;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+
+}
+
+.main{
+   
+    &__menu{
+        &__week{ 
+            width: 4rem;
+            height: 2rem;
+            border-radius:10px;
+            background-color: rgb(224, 224, 247);
+            color: blue;  
+            &:hover{
+                cursor: pointer;
+                background-color: rgb(209, 207, 207);     
+            }   
+        }
+        &__today{
+            width: 4rem;
+            height: 2rem;
+            border-radius:10px;
+            background-color:  rgb(224, 224, 247);
+            color: blue;  
+            &:hover{
+                cursor: pointer;
+                background-color: rgb(209, 207, 207);     
+            }   
+        } 
+        &__august{
+          margin-inline: auto;
+        }
+    }
+    
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__calendar{
+        font-size: 3rem;
+        font-weight: bold;
+        margin-left: 2rem;
+    }
+
+    
+
+}
