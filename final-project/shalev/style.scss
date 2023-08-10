@@ -4,15 +4,33 @@ body {
 	overflow: hidden;
 }
 
+.side-menu {
+	display: flex;
+	position: absolute;
+	left: 0;
+	background: white;
+	width: 100px;
+	height: 100vh;
+	box-shadow: 1px 5px 32px 1px rgba(0, 0, 0, 0.39);
+	&__title {
+		display: flex;
+		position: absolute;
+		top: 0;
+		left: 20px;
+		color: #3f6ff3;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 4.1rem;
+	}
+}
+
 .calendar-container {
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
 	position: absolute;
-	gap: 0.6rem;
 	margin-top: 8rem;
 
 	&__rectangle {
-		border: 1px solid black;
+		border: 0.1px solid rgba(0, 0, 0, 0.1);
 		width: 200px;
 		height: 80px;
 		transition: transform 500ms;
@@ -26,8 +44,8 @@ body {
 	&__day {
 		list-style-type: none;
 		text-align: center;
-		font-size: 2.1rem;
-		font-family: 'REM', sans-serif;
+		font-size: 1.8rem;
+		font-family: 'Times New Roman', Times, serif;
 		transition: transform 500ms;
 
 		&:hover {
@@ -38,6 +56,32 @@ body {
 		&:active {
 			transform: scale(0.9);
 			cursor: default;
+		}
+	}
+
+	&--active-blue {
+		background: #3f6ff3;
+	}
+
+	&--active-green {
+		background: #70d36b;
+	}
+
+	&--active-yellow {
+		background: #ffcb05;
+	}
+
+	&__text {
+		color: white;
+		text-align: center;
+		font-family: 'REM', sans-serif;
+		font-size: 2rem;
+
+		&--small {
+			text-align: center;
+			font-size: 1.5rem;
+			color: white;
+			font-size: 1.7rem;
 		}
 	}
 }
@@ -76,7 +120,7 @@ body {
 	left: 55rem;
 
 	&__btn {
-		background: #c5cfdd;
+		background: #e0eafc;
 		border: none;
 		border-radius: 5px;
 		text-align: center;
@@ -99,5 +143,72 @@ body {
 		text-align: center;
 		font-size: 2rem;
 		margin-top: -1rem;
+	}
+}
+
+.today-box-container {
+	position: absolute;
+	top: 20px;
+	left: 250px;
+
+	&__box {
+		position: absolute;
+		background: #e2e9fd;
+		width: 80px;
+		height: 40px;
+		border-radius: 10px;
+		transition: transform 500ms;
+
+		&:hover {
+			transform: scale(1.05);
+			cursor: default;
+		}
+
+		&:active {
+			transform: scale(0.9);
+			cursor: default;
+		}
+	}
+
+	&__text {
+		color: #3f6ff3;
+		text-align: center;
+		font-size: 1.5rem;
+		margin-top: 8px;
+		font-family: 'Times New Roman', Times, serif;
+	}
+}
+
+.top-toggle-container {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	top: 20px;
+
+	&__toggle--active {
+		background: #3f6ff3;
+		width: 90px;
+		height: 50px;
+		border-radius: 10px;
+	}
+	&__toggle--inactive {
+		background: #c5cfdd;
+		width: 90px;
+		height: 50px;
+		border-radius: 10px;
+	}
+
+	&__text--active {
+		color: white;
+		font-size: 1.8rem;
+		text-align: center;
+		margin-top: 10px;
+	}
+
+	&__text--inactive {
+		color: #e2e9fd;
+		font-size: 1.8rem;
+		text-align: center;
+		margin-top: 10px;
 	}
 }
