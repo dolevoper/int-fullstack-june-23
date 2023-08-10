@@ -106,7 +106,7 @@ border: 2px rgb(135, 222, 161);
 
 
 header {
-background-color: rgb(17, 0, 255);
+background-color: rgb(0, 217, 255);
 text-overflow: clip;
 }
 
@@ -125,4 +125,38 @@ h4 {
 color: rgb(152, 204, 175);
 font-size: xx-large;
 }
+
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0; 
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+
+   { /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+
+  h5 {
+text-align: center;
+  }
+  
 
