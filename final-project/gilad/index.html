@@ -101,17 +101,46 @@
             <header class="topbar">
                 <h1 class="topbar__title">Calendar</h1>
 
-                <menu class="topbar__type-menu">
-                    <li class="topbar__type-item">
-                        <div class="topbar__type-btn">
-                            <input class="topbar__type-btn__state" id="caltype-1" type="radio" name="calendar-type-radios">
-                            <label class="topbar__type-btn__hitbox" for="caltype-1">Calendar</label>
-                        </div>
+                <menu class="topbar__menu">
+                    <li class="topbar__item">
+                        <button class="topbar__btn">
+                            <input class="topbar__state-radio" id="caltype-1" type="radio" name="calendar-type-radios">
+                            <label class="topbar__hitbox" for="caltype-1">Calendar</label>
+                        </button>
+                    </li>
+                    <li class="topbar__item">
+                        <button class="topbar__btn">
+                            <input class="topbar__state-radio" id="caltype-2" type="radio"
+                                name="calendar-type-radios">
+                            <label class="topbar__hitbox" for="caltype-2">Agenda</label>
+                        </button>
                     </li>
                 </menu>
+
+                <menu class="topbar__menu">
+                    <li class="topbar__item">
+                        <button class="topbar__btn">
+                            <!-- kebab -->
+                            <svg fill="currentColor" viewBox="0 0 24 24" width="1em" height="1em"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M6 12a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0zm6 2a2 2 0 100-4 2 2 0 000 4z">
+                                </path>
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="topbar__item">
+                        <button class="topbar__btn">
+                            Create event
+                        </button>
+                    </li>
+                </menu>
+
             </header>
 
-            <menu class="filtermenu"></menu>
+            <menu class="filtermenu">
+
+            </menu>
 
             <article class="calendar"></article>
         </main>
