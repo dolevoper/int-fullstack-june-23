@@ -1,7 +1,7 @@
 @use "defaults" as defaults;
 
 @use "navbar";
-@use "dashboard";
+@use "dashboard/dashboard";
 
 .main-wrapper {
     
@@ -11,17 +11,11 @@
     // main flex to support mobile breakpoint
     display: flex;
     justify-content: flex-start;
-
     background-color: defaults.$color-Neutral-300;
-
-
+    gap: 1rem;
     // @media (max-width: defaults.$screen-mobile) {
     //     flex-direction: column;
     // }
-}
-
-.navbar {
-    flex: 0 0 5rem;
 }
 
 .dashboard {
