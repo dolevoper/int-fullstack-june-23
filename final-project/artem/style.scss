@@ -12,9 +12,13 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: start;
+    align-items: center;
+    padding: 0;
+    margin: 0;
 
-    .side-menu-icons{
+    .side-menu-buttons{
         list-style: none;
+        padding: 0;
     }
     .side-menu-top{
         color: #3f6ff3;
@@ -22,7 +26,12 @@ body{
 }
 .upper-menu-upperRow{
     display: flex;
-    flex-direction: row;    
+    flex-direction: row;   
+    justify-content: space-between; 
+    align-items: baseline;
+    
+    // padding: 0;
+    // margin: 0;
 }
 .upper-menu-secondRow{
     display: flex;
@@ -34,7 +43,28 @@ body{
 }
 .calendar-chessBoard-days-and-dates{
     list-style: none;
-    grid-row: 1;
 }
 
+.calendar-chessBoard-time-interval-peariod{
+    grid-column: 1;
+}
+.first-event{
+    grid-row: 2/4;
+    grid-column: 2/3;
+
+}
+.second-event{
+    grid-row: 4;
+    grid-column: 3;
+}
+
+.third-event{
+    grid-row: 3/5;
+    grid-column: 3;
+}
+.fourth-event{
+    grid-row: 7/8;
+    grid-column: 3;
+
+}
 
