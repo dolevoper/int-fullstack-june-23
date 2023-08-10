@@ -1,0 +1,260 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    background-color: #f8f9fb;
+
+
+
+
+
+}
+
+
+header {
+    display: flex;
+    flex-direction: column;
+    width: 60px;
+    height: 100vh;
+    box-shadow: 0 0 0 1px rgb(196, 193, 193);
+
+    .header_hum_bell {
+        margin-left: 19px;
+        margin-top: 10px;
+        list-style: none;
+        color: rgb(151, 146, 146);
+        cursor: pointer;
+
+        &:hover {
+            color: black;
+        }
+    }
+
+
+
+    .logo {
+        flex: 1;
+        width: 60px;
+        justify-content: flex-start;
+        margin-left: 3px;
+
+
+        li {
+            margin-left: 10px;
+
+        }
+
+
+        img {
+            width: 50px;
+            height: 45px;
+            mix-blend-mode: multiply;
+        }
+
+    }
+
+    aside {
+        flex: 3;
+
+        display: flex;
+        align-items: center;
+
+        .nav-links {
+            list-style: none;
+            flex-direction: column;
+            align-items: center;
+            font-size: 1.2rem;
+            gap: 6px;
+            color: rgb(151, 146, 146);
+
+
+            li {
+                padding-left: 20px;
+                cursor: pointer;
+
+                &:hover {
+                    color: black;
+                }
+
+
+
+                svg {
+                    margin-top: 25px;
+                }
+            }
+
+
+
+
+        }
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+main {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+
+    .main_header {
+        flex: 0 0 1;
+        display: flex;
+        justify-content: space-between;
+
+        h1 {
+            margin-left: 10px;
+            padding-top: 10px;
+        }
+
+        .switch {
+            margin-top: 10px;
+            position: relative;
+            display: inline-block;
+            width: 150px;
+            height: 35px;
+
+            input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+            .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ccc;
+                -webkit-transition: .4s;
+                transition: .4s;
+
+                &:before {
+                    position: absolute;
+                    content: "";
+                    height: 30px;
+                    width: 75px;
+                    left: 2px;
+                    bottom: 3px;
+                    background-color: rgb(156, 152, 152);
+                    -webkit-transition: .4s;
+                    transition: .4s;
+                }
+
+                .slider.round:before {
+                    border-radius: 50%;
+                }
+            }
+
+            input:checked+.slider:before {
+                -webkit-transform: translateX(70px);
+                -ms-transform: translateX(70px);
+                transform: translateX(70px);
+            }
+
+            input:checked+.slider {}
+
+            input:focus+.slider {
+                box-shadow: 0 0 1px #2196F3;
+            }
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+            border: transparent;
+            color: #f8f9fb;
+            background-color: #3f6ff3;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+
+        }
+
+        .main_header_end_button {
+            margin-top: 10px;
+        }
+
+
+    }
+
+    .main_date {
+        
+        flex: 0 0 1;
+        display: flex;
+        text-decoration: none;
+        margin-top: 10px;
+        
+
+
+
+
+        .main_date_button {
+            flex: 0 0 1;
+            margin-left: 3px;
+            text-decoration: none;
+            list-style: none;
+           
+
+            button {
+
+                width: 100px;
+                height: 30px;
+                border: transparent;
+                color:  #3f6ff3;
+                background-color: #c5cfdd;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 0.8rem;
+            }
+
+
+        }
+
+        .main_date_text {
+            flex: 1;
+            align-items: flex-end;
+            list-style: none;
+            text-align: center;
+            margin-right: 300px;
+            cursor: pointer;
+            
+           
+          
+            
+
+
+        }
+    }
+
+    .main_calender {
+        display: grid;
+        grid-template-columns: repeat(12,0.5fr);
+        grid-template-rows: repeat(8,0.5fr);
+        flex: 1;
+
+        ul{
+            
+        }
+    }
+
+
+}
