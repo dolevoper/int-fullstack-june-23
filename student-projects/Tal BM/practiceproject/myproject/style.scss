@@ -1,0 +1,155 @@
+*, ::after, ::before {
+    margin: 0;
+    padding: 0;
+    font-family:"karma", sans-serif;
+    font-weight: 300;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    padding: 1rem 3rem 0.2rem;
+    justify-content: space-between;
+    align-items: baseline;
+    position: sticky;
+    top: 0;
+    background: white;
+    &__burger {
+        width: 1.2rem;
+        position: relative;
+        cursor: pointer;
+    }
+    &__checkbox {
+        display: none; 
+        &:checked {
+            +.header__nav {
+                transform: translateX(0);
+            }
+        }
+    }
+    &__nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgb(255, 255, 255);
+        width: 160PX;
+        height: 100%;
+        font-size: 1.5rem;
+        text-transform: capitalize;
+        transform: translateX(-160px);
+        transition: transform 0.6s ease-in-out;
+        &__list {
+            list-style: none; 
+            &__item {
+                &__link {
+                    padding: 1rem;
+                    text-decoration: none;
+                    color: black;
+                    display: block;
+                    &:hover {
+                        background-color: rgb(198, 198, 198);
+                    }
+                }
+                &__close {
+                    display: block;
+                    padding: 1rem;
+                    border-top: 0px solid white;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: rgb(198, 198, 198);
+                    }
+                }
+            }
+        }
+    }
+    &__star {
+        width: 1.3rem;
+    }
+    &__title {
+        text-transform: capitalize;
+        font-size: 1.7rem;
+    }
+} 
+
+.main-content {
+    max-width:95%;
+    margin-inline: auto;
+}
+
+.recipes {
+    padding-bottom: 1rem;
+    border-bottom: 0.3px solid gainsboro;
+    &__container {
+        max-width: 900px;
+        width: 90%;
+        margin-inline: auto;
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(12,1fr);
+        gap: 1rem;
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        white-space: pre-line;
+        &__card {
+            grid-column: span 3;
+            &__img {
+                width:100%;
+            }
+        }
+    }
+}
+
+.about {
+    text-align: center;
+    &__title {
+        text-transform: capitalize;
+        margin: 3rem auto 1.5rem;
+    }
+    &__img {
+        width: 85%;
+        margin-inline: auto;
+        max-width: 820px ;
+    }
+    &__sectitle {
+        margin: 1.5rem auto 1rem;
+        font-weight: 600;
+    }
+    &__firpar {
+        margin-bottom: 1rem;
+        font-style: italic;
+    }
+    &__secpar {
+        margin-bottom: 4rem;
+        max-width: 850px;
+        margin-inline: auto;
+    }
+}
+
+
+@media screen and (max-width: 900px){
+    .recipes__container__card {
+        grid-column: span 4;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .recipes__container__card {
+        grid-column: span 6;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .recipes__container__card {
+        grid-column: span 12;
+        &__img {
+            aspect-ratio: 1/1;
+        }
+    }
+}
+
+
+
+
+

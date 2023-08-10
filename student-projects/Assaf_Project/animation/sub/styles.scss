@@ -1,0 +1,281 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+//
+
+body,
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    background: rgb(53, 119, 169);
+}
+
+.circle {
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+    align-self: center;
+    width: 70vh;
+    aspect-ratio: 1;
+    background: linear-gradient(180deg, rgba(19, 118, 180, 1) 5%, rgb(13, 77, 117) 70%);
+    border: 2vh rgb(1, 131, 171) solid;
+    border-radius: 50%;
+}
+
+.sub-body {
+    position: relative;
+    background: linear-gradient(144deg, rgb(209, 37, 80) 5%, rgba(163, 18, 54, 1) 70%);
+    height: 30%;
+    border-radius: 40%;
+    aspect-ratio: 7 / 4;
+    margin: auto;
+    top: 35%;
+}
+
+.propeller {
+    position: relative;
+    background: linear-gradient(180deg, rgb(202, 40, 80) 55%, rgb(177, 31, 68) 92%);
+    width: 18%;
+    aspect-ratio: 1/3;
+    border-radius: 15%;
+    right: 16%;
+    top: 3%;
+
+    >div {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.486);
+        width: 60%;
+        aspect-ratio: 5/2;
+        left: 1vh;
+        margin-bottom: 1vh;
+        border-radius: 20%;
+        animation: fast 120ms infinite normal;
+
+        &:nth-child(1) {
+            top: 5%;
+
+        }
+
+        &:nth-child(2) {
+            top: 20%;
+        }
+
+        &:nth-child(3) {
+            top: 38%;
+        }
+
+        &:nth-child(4) {
+            bottom: 28%;
+        }
+
+        &:nth-child(5) {
+            bottom: 10%;
+        }
+    }
+}
+
+.top {
+    position: relative;
+    background: rgb(198, 35, 76);
+    width: 50%;
+    aspect-ratio: 3/1;
+    border-radius: 30% 30% 0 0;
+    bottom: 120%;
+    left: 25%;
+
+    &::before {
+        content: '';
+        position: absolute;
+        aspect-ratio: 7/2;
+        background: rgb(157, 22, 56);
+        width: 75%;
+        top: 1.5vh;
+        left: 12.5%;
+        border-radius: 35%;
+    }
+
+    &::after {
+        content: '...';
+        position: absolute;
+        color: white;
+        font-size: 15vh;
+        left: 17%;
+        bottom: 115%;
+        line-height: 0;
+        animation: flicker 300ms ease infinite;
+    }
+}
+
+.window {
+    position: absolute;
+    aspect-ratio: 1;
+    height: 40%;
+    background: rgb(5, 47, 74);
+    border: 1vh rgb(189, 31, 70) solid;
+    border-radius: 50%;
+    right: 20%;
+    top: 30%;
+
+    &::after {
+        content: '';
+        position: absolute;
+        border-top: .5vh solid white;
+        margin-top: .5vh;
+        margin-left: .5vh;
+        height: 70%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        transform: rotateZ(-45deg);
+    }
+}
+
+.periscope {
+    position: absolute;
+    background: transparent;
+    height: 35%;
+    aspect-ratio: 2/3;
+    border-top: 2vh solid rgb(198, 35, 76);
+    border-left: 2vh solid rgb(198, 35, 76);
+    border-radius: 1vh;
+    top: -11vh;
+    right: 11vh;
+}
+
+.side-propeller {
+    position: absolute;
+    aspect-ratio: 1;
+    height: 35%;
+    background: rgb(157, 22, 56);
+    border: 1vh rgb(189, 31, 70) solid;
+    border-radius: 50%;
+    right: 50%;
+    bottom: 20%;
+    animation: side 800ms infinite linear;
+
+    &::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        background: transparent;
+        border: .7vh solid rgba(255, 255, 255, 0.7);
+        border-radius: 25%;
+        left: 37%;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        background: transparent;
+        border: .7vh solid rgba(255, 255, 255, 0.7);
+        border-radius: 25%;
+        left: 37%;
+        transform: rotatez(90deg);
+    }
+}
+
+.bubbles>div {
+    position: absolute;
+    background: rgba(108, 228, 255, 0.356);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    animation: bubbles 1.5s cubic-bezier(.51,.26,.74,.96) infinite;
+
+    &:nth-child(1) {
+        height: 2vh;
+        left: 110%;
+        top: 50%;
+    }
+
+    &:nth-child(2) {
+        height: 4vh;
+        left: 140%;
+        top: 55%;
+    }
+}
+
+// animation
+
+@keyframes fast {
+
+    0%,
+    50% {
+        transform: translateY(0%);
+    }
+
+    25%,
+    75% {
+        transform: translateY(150%);
+    }
+}
+
+@keyframes side {
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes bubbles {
+    0% {transform: translate(0% 0%);}
+    10% {transform: translate(-5vw, -4vh);}
+    25% {transform: translate(-10vw, 4vh);}
+    40% {transform: translate(-15vw, -4vh);}
+    50% {transform: translate(-20vw, 6vh);}
+    65% {transform: translate(-30vw, -6vh);}
+    75% {transform: translate(-44vw, 10vh);}
+    85% {transform: translate(-50vw, -10vh);}
+    100% {transform: translate(-60vw, 0%);}
+
+}
+
+@keyframes flicker {
+    0% {opacity: 1;}
+    100% {opacity: .2;}
+}

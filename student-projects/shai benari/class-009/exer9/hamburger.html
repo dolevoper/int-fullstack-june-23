@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburger</title>
+    <link rel="stylesheet" href="dist/hamburger.css">
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="categories">
+            <label class="categories__label" for="isCategoriesMenuOpen" role="button" aria-controls="categoriesList" aria-expanded="false">
+                <svg class="categories__svg" id="hamburger" viewBox="0 0 100 100" width="1em" height="1em" fill="currentColor">
+                    <rect class="categories__rect" x="10" y="25" width="80" height="10" rx="10" />
+                    <rect class="categories__rect" x="10" y="45" width="80" height="10" rx="10" />
+                    <rect class="categories__rect" x="10" y="65" width="80" height="10" rx="10" />
+                </svg>
+                <span class="categories__span">Show categories</span>
+            </label>
+            <input class="categories__input" type="checkbox" id="isCategoriesMenuOpen" />
+            <ul class="categories__ul" id="categoriesList">
+                <li><a class="categories__a" href="sub-page.html">categorie-1</a></li>
+                <li><a class="categories__a" href="sub-page.html">categorie=2</a></li>
+                <li><a class="categories__a" href="sub-page.html">categorie-3</a></li>
+                <li><a class="categories__a" href="sub-page.html">categorie-4</a></li>
+                <li><a class="categories__a" href="sub-page.html">categorie-5</a></li>
+                <li><a class="categories__a" href="sub-page.html">categorie-6</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+</body>
+</html>

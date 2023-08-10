@@ -1,0 +1,129 @@
+/* BOAT FILE */
+
+// Import Sailing / waypoints system
+@use "waypoints";
+
+/*
+    Viking Boat 
+
+    The Viking boat, a pivotal maritime innovation of the Viking Age (8th to 11th century), 
+    revolutionized trade, exploration, and warfare across medieval Northern Europe. 
+    
+    Its sleek, flexible design, exemplified by iconic longships, empowered Vikings 
+    to navigate rivers, seas, and oceans, shaping their legacy as 
+    formidable seafarers and cultural influencers.
+
+    ---
+
+    Vlad's CSS Viking Boat
+
+    The Viking boat is a floating element with two main abilities:
+    • Boat Slots System -
+        It contains a grid that represents objects storage - 
+        slots which can modularly store different kind of objects in an orderly manner.
+        The boat is divided to several equal sections which orders and positions objects
+        along the width of the boat.
+        In our exmaple, we hold 3 vikings and 2 barrel objects.
+        Any excess objects will be places underneath the boat, hidden deep inside the sea.
+
+    • Sailing Waypoints System - 
+        For extended explanation on the Sailing system, please reade comments in the 
+        import 'waypoints' file.
+        The rules located in the viking boat file are seperated to be able to control
+        boat's x position according to the current selected radio button.
+        
+        When the user presses a waypoint, the viking boat detects which waypoints is
+        currently checked, and changes it's X position accordingly.
+        using a translate property on 'left' property, we're able to simply animate
+        the sailing of the viking boat towards the desired position.
+*/
+
+.vikings-boat {
+        // Boat size is ratio of 20:13
+        width: 90vh;
+        height: 60vh;
+
+        // position at sea level and center of screen
+        position: absolute;
+        bottom: var(--sea-level);
+        left: var(--boat-x-position);
+        right: 0;
+        transition: left 3s ease-in-out;
+
+
+        /*
+            Boat Storage Grid Slots 
+
+            Creates a grid of X slots with an equal width, height is determined 
+            by stored child's height.
+
+            Any excess object will be pushed to a new column and will be hidden
+            due to columnd auto flow.
+
+            Detects whether any of the waypoints (children of sail-waypoint object)
+            is checked, changes the x position using 'left' property and iterpolates
+            the change using 'transition' property.
+
+            Currently the waypoint's x positions are hardcoded due to the inability 
+            to effect the custom property directly from 'sail-waypoint'
+        !!! TODO - Fix carved to the stone values using CSS only! 
+
+        */
+
+        .boat-slots {
+            width: 100%;
+
+            // position at bottom of the boat + third of the global viking's height
+            position: absolute;
+            bottom: calc( var(--viking-size) / 3 );
+            left: 0;
+
+            // create grid with 5 slots, with the size of a single viking
+            display: grid;
+            grid-template-columns: repeat(5, var(--viking-size));
+            grid-template-rows: var(--viking-size);
+            
+            // hide any extra viking
+            grid-auto-flow: column;
+
+            // Hide any overflowing objects.
+            overflow:hidden;
+        }
+
+        // Move boat towards checked waypoint
+        &:has(+.sail-waypoints #waypoint-1:checked){
+            --boat-x-position: 0%;
+        }
+        
+        &:has(+.sail-waypoints #waypoint-2:checked){
+            --boat-x-position: 15%;
+        }
+        
+        &:has(+.sail-waypoints #waypoint-3:checked){
+            --boat-x-position: 35%;
+        }
+        
+        &:has(+.sail-waypoints #waypoint-4:checked){
+            --boat-x-position: 55%;
+        }
+}
+
+
+/*
+    Boat
+
+    The boat is only here for the visuals, 
+    drawn with 'relative' after every other element of the viking boat is drawn :)
+*/
+.boat {
+
+    width: 100%;
+    height: 100%;
+
+    // to make boat appear above vikings
+    position: relative;
+
+    background: url("../../assets/boat/boat.svg") no-repeat center bottom;
+    background-size: contain;
+
+}

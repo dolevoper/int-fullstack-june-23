@@ -1,0 +1,32 @@
+.button
+{
+    &__head
+    {
+        margin: 10px 5px 20px 5px;
+    }
+    &__click
+    {
+        appearance: none;
+        font-size: inherit;
+        font-family: inherit;
+        padding: 0;
+        display: block;}
+    &__click
+    {
+        padding: 1rem 2rem;
+        border-radius: calc(2rem + 1em);
+        background: rgb(163, 125, 234);
+        text-transform: uppercase;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    &__click:hover
+    {
+        background-color: rgb(250, 215, 239);
+        scale: 1.4;
+    }
+    
+    }
+
+

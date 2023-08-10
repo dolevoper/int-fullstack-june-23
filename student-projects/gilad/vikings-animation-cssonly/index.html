@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Vikings</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='scss/dist/main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <main class="screen">
+
+        <!-- Sky -->
+        <div class="sky">
+            <div class="planet sun"></div>
+            <div class="planet moon"></div>
+        </div>
+
+        <!-- Sea with Waves Tide Manager and Vikings Manager -->
+        <div class="sea tide-animation-manager vikings-manager">
+            <div class="waves back"></div>
+
+            <!-- Main Viking Boat -->
+            <div class="boat-sail-manager">
+                <div class="vikings-boat float ">
+                    <div class="boat-slots">
+
+                        <!-- boat slot 1 -->
+                        <div class="viking sailing"></div>
+                        <!-- boat slot 2 -->
+                        <div class="viking sailing"></div>
+                        <!-- boat slot 3 -->
+                        <div class="viking sailing"></div>
+                        <!-- boat slot 4 -->
+                        <div class="barrels"></div>
+                        <!-- boat slot 5 -->
+                        <div class="barrels"></div>
+                        <!-- Will be hidden as if inside the boat -->
+                        <div class="barrels"></div>
+
+                    </div>
+
+                    <div class="boat"></div>
+                </div>
+
+                <div class="sail-waypoints">
+                    <div class="waypoint waypoint-1">
+                        <div class="waypoint-flag"></div>
+                        <label for="waypoint-1"> </label>
+                        <input id="waypoint-1" type="radio" name="waypoint" >
+                    </div>
+                    <div class="waypoint waypoint-2">
+                        <div class="waypoint-flag"></div>
+                        <label for="waypoint-2"> </label>
+                        <input id="waypoint-2" type="radio" name="waypoint">
+                    </div>
+                    <div class="waypoint waypoint-3">
+                        <div class="waypoint-flag"></div>
+                        <label for="waypoint-3"> </label>
+                        <input id="waypoint-3" type="radio" name="waypoint" checked>
+                    </div>
+                    <div class="waypoint waypoint-4">
+                        <div class="waypoint-flag"></div>
+                        <label for="waypoint-4"> </label>
+                        <input id="waypoint-4" type="radio" name="waypoint">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Swimming Viking Animation -->
+            <div class="swimming-viking float float--reverse">
+                <div class="shockwave"></div>
+                <div class="viking swimming ">
+                    <input class="hitbox" type="checkbox">
+                </div>
+            </div>
+
+            <!-- TODO - Octopus Animation -->
+            <!-- <div class="octopus float float--reverse"></div> -->
+
+            <div class="waves front"></div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+/* MAIN FILE */
+
+@use "reset";
+
+// Main Layers
+@use "main-layers/sky";
+@use "main-layers/sea";
+
+.screen {
+    height: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+// Setting main custom pointer
+* {
+    cursor: url("../../assets/cursors/cursor-point.svg"), auto;
+}
+*:active {
+    cursor: url("../../assets/cursors/cursor-point-pressed.svg"), auto;
+}
