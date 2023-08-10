@@ -1,0 +1,26 @@
+@use "defaults" as defaults;
+
+@use "navbar";
+
+.main-wrapper {
+    
+    // get parent height
+    height: 100%;
+
+    // main flex to support mobile breakpoint
+    display: flex;
+    justify-content: flex-start;
+
+    // @media (max-width: defaults.$screen-mobile) {
+    //     flex-direction: column;
+    // }
+}
+
+.navbar {
+    flex: 0 0 5rem;
+}
+
+.main-content {
+    background-color: blue;
+    flex: 1;
+}
