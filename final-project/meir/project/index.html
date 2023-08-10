@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <header id="tirgool" class="a">
+    <header id="tirgool">
 
         <nav>
             <ul>
@@ -83,64 +83,20 @@
         </nav>
     </header>
 
-    <style>
-        main .container {
-            position: relative;
-            width: 35%;
-            height: 3em;
-            display: inline-block;
-            border: 0px solid green;
-        }
-
-        main .container span {
-            position: absolute;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-            text-align: right;
-            display: inline-block;
-            background: #eceff4;
-            border-radius: 10px;
-            padding: 6% 6% 0 0;
-            border: 0px solid red;
-        }
-
-        main .container span:before {
-            content: "calendar";
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 50%;
-            height: 100%;
-            color: #ffffff;
-            background: red;
-            transition: 0.5s all;
-            background: blue;
-            border-radius: 10px;
-            text-align: center;
-            border: 0px solid black;
-        }
-
-        main .container input:checked ~ span:before {
-            left: 50%;
-        }
-    </style>
-
-    <main style="border: 1px solid green;">
+    <main>
         
         <article class="flex-content-top">
             <div class="txt">Calendar</div>
             <div>
-
                 <label class="container">
                     <input type="checkbox">
                     <span>Agenda</span>
                 </label>
-
             </div>
-            <div>sd</div>
+            <div class="btns">
+                <button class="points">...</button>
+                <button class="reg">Create event</button>
+            </div>
         </article>
 
     </main>
