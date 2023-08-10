@@ -15,16 +15,26 @@ body {
 }
 
 .header {
-    background-color: yellow;
+    background-color: rgb(255, 255, 178);
     grid-area: h;
+
+    box-shadow: 0px 0px 5px rgb(0 0 0 / 0.5);
+    border-radius: 1px;
 }
 
 .aside {
-    background-color: blue;
+    background-color: rgb(214, 214, 255);
     grid-area: a;
+
+    box-shadow: 0px 0px 5px rgb(0 0 0 / 0.5);
+    border-radius: 1px;
+
 }
 
 .main {
-    background-color: red;
+    background-color: rgb(255, 196, 196);
     grid-area: m;
+
+    box-shadow: 0px 0px 5px rgb(0 0 0 / 0.5);
+    border-radius: 1px;
 }
