@@ -1,0 +1,30 @@
+body {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7 ,1fr);
+    grid-template-rows: repeat(7,1fr);
+    grid-template-areas: 
+    "a h h h h h h h"
+    "a m m m m m m m"
+    "a m m m m m m m"
+    "a m m m m m m m"
+    "a m m m m m m m"
+    "a m m m m m m m"
+    "a m m m m m m m"
+    ;
+}
+
+.header {
+    background-color: yellow;
+    grid-area: h;
+}
+
+.aside {
+    background-color: blue;
+    grid-area: a;
+}
+
+.main {
+    background-color: red;
+    grid-area: m;
+}
