@@ -23,11 +23,13 @@ body {
     &__firstul {
         display: flex;
         justify-content: space-between;
+        list-style: none;
     }
 
     &__secendul {
         display: flex;
-        justify-content: space-between;
+        gap: 500px;
+        list-style: none;
     }
 }
 
