@@ -246,13 +246,26 @@ main {
 
     .main_calender {
         display: grid;
-        grid-template-columns: repeat(8,0.5fr);
-        grid-template-rows: repeat(12,0.5fr);
-        flex: 1;
-        gap: 10px;
+    width: 100%;
+    grid-template-columns: repeat(7, minmax(50px, 0.5fr));
+    grid-template-rows: 30px;
+    grid-auto-rows: 79px;
+    overflow: auto;
+   
 
         
-        
+        h1{
+            font-size: 12px;
+    text-transform: uppercase;
+    color: #111111;
+    text-align: center;
+    border-bottom: 1px solid rgba(92, 94, 100, 0.12);
+    line-height: 50px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(166, 168, 179, 0.12);
+    border-right: 1px solid rgba(166, 168, 179, 0.12);
+    
+        }
 
        
         .Eight{
