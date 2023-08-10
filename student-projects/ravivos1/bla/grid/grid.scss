@@ -1,0 +1,27 @@
+.card {
+    box-shadow: 0 0 8px rgb(0 0 0 / 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 300px;
+
+    &--grid {
+        display: grid;
+        grid-template-rows: repeat(2, auto);
+        justify-content: space-between;
+    }
+
+}
+
+main {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+
+    gap: 1rem;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
