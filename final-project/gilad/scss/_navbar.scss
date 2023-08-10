@@ -1,0 +1,63 @@
+@use "defaults" as defaults;
+
+.navbar {
+
+    // flex child 
+    flex: 0 0 5rem;
+
+    // parent flex
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    
+    // center all item's text
+    text-align: center;
+    font-size: defaults.$font-size-large;
+    
+    background-color: defaults.$color-Neutral-300;
+    box-shadow: 1px 1px 6px defaults.$color-Neutral-600;
+
+
+    &__logo {
+        color: defaults.$color-Primary;
+        font-weight: 900;
+        margin-bottom: 0.5rem;
+    }
+
+    &__menu {
+        flex: 1;
+    }
+
+    &__item {
+        height: 4rem;
+    }
+
+    &__button {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        color: defaults.$color-Neutral-600;
+
+        &:hover {
+            color: defaults.$color-Primary;
+            background-color: defaults.$color-Neutral-400;
+        }
+
+        &--tab {
+            &:hover::before {
+                    content: ' ';
+                    
+                    display: inline-block;
+                    width: 4px;
+                    height: 100%;
+                    
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    background-color: defaults.$color-Primary;
+            }
+        }
+    }
+
+}

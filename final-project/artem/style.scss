@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+
+html{
+    background-color:white;
+    font-family: 'Roboto Slab', serif;
+}
+body{
+    display: flex;
+}
+
+.side-menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    .side-menu-icons{
+        list-style: none;
+    }
+    .side-menu-top{
+        color: #3f6ff3;
+    }
+}
+.upper-menu-upperRow{
+    display: flex;
+    flex-direction: row;    
+}
+.upper-menu-secondRow{
+    display: flex;
+    flex-direction: row;
+}
+.calendar-chessBoard{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+.calendar-chessBoard-days-and-dates{
+    list-style: none;
+    grid-row: 1;
+}
+
+
