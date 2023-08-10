@@ -25,8 +25,8 @@ body {
     text-align: center;
     box-sizing: border-box;
     margin: 0 auto 2% auto;
-    //font-family: 'Roboto Slab', serif;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto Slab', serif;
+    //font-family: Arial, Helvetica, sans-serif;
     border: 0px solid green;
 }
 
@@ -150,7 +150,7 @@ main {
 }
 
 .container span:before {
-    content: "calendar";
+    content: "Calendar";
     position: absolute;
     top: 0;
     left: 0;
@@ -162,11 +162,18 @@ main {
     background: blue;
     border-radius: 10px;
     text-align: center;
-    border: 0px solid black;
+    padding: 6% 0 0 0;
+    line-height: 100%;
+    box-sizing: border-box;
 }
 
 .container input:checked ~ span:before {
     left: 50%;
+}
+
+.container input:checked ~ span {
+    text-align: left;
+    padding: 6% 0 0 6%;
 }
 
 main .flex-content-top > div.btns {
