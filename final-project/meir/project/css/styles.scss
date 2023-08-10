@@ -17,6 +17,7 @@ body {
 
 #tirgool {
     max-width: 1920px;
+    height: 100vh;
     display: block;
     direction: ltr;
     font-size: 1vw;
@@ -119,9 +120,15 @@ main .flex-content-top > div {
     border: 1px solid green;
 }
 
+main .flex-content-top > div.txt {
+    text-align: left;
+    padding: 0 0 0 1%;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
 @media screen and (max-width: 1024px) {
     body {
-        ///grid-template-rows: auto;
         grid-template-rows: auto auto;
     }
     
