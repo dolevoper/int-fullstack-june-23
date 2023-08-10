@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=REM:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@400;500;600;700&display=swap');
+
+body {
+	overflow: hidden;
+}
+
+.calendar-container {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	position: absolute;
+	gap: 0.6rem;
+	margin-top: 8rem;
+
+	&__rectangle {
+		border: 0.1px solid black;
+		width: 200px;
+		height: 80px;
+		transition: transform 500ms;
+
+		&:hover {
+			transform: scale(1.02);
+			cursor: default;
+		}
+	}
+
+	&__day {
+		list-style-type: none;
+		text-align: center;
+		font-size: 1.8rem;
+		font-family: 'Times New Roman', Times, serif;
+		transition: transform 500ms;
+
+		&:hover {
+			transform: scale(1.05);
+			cursor: default;
+		}
+
+		&:active {
+			transform: scale(0.9);
+			cursor: default;
+		}
+	}
+
+	&--active-blue {
+		background: #3f6ff3;
+	}
+
+	&--active-green {
+		background: #70d36b;
+	}
+
+	&--active-yellow {
+		background: #ffcb05;
+	}
+
+	&__text {
+		color: white;
+		text-align: center;
+		font-family: 'REM', sans-serif;
+		font-size: 2rem;
+
+		&--small {
+			text-align: center;
+			font-size: 1.5rem;
+			color: white;
+			font-size: 1.7rem;
+		}
+	}
+}
+
+.new-event-button-container {
+	display: flex;
+	position: relative;
+	left: 76rem;
+	bottom: 43rem;
+	width: 15rem;
+
+	&__btn {
+		background: #3f6ff3;
+		color: #fff;
+		border-radius: 15px;
+		padding: 10px 20px;
+		font-size: 1.5rem;
+		border: none;
+		transition: transform 500ms;
+
+		&:hover {
+			transform: scale(1.05);
+		}
+
+		&:active {
+			transform: scale(0.9);
+			cursor: default;
+		}
+	}
+}
+
+.three-dots-button-container {
+	display: flex;
+	position: relative;
+	bottom: 43rem;
+	left: 55rem;
+
+	&__btn {
+		background: #c5cfdd;
+		border: none;
+		border-radius: 5px;
+		text-align: center;
+		width: 40px;
+		min-height: 40px;
+		transition: transform 500ms;
+
+		&:hover {
+			transform: scale(1.05);
+		}
+
+		&:active {
+			transform: scale(0.9);
+			cursor: default;
+		}
+	}
+
+	&__dots {
+		list-style-type: none;
+		text-align: center;
+		font-size: 2rem;
+		margin-top: -1rem;
+	}
+}
+
+.today-box-container {
+	position: absolute;
+	top: 20px;
+	left: 250px;
+
+	&__box {
+		position: absolute;
+		background: #e2e9fd;
+		width: 80px;
+		height: 40px;
+		border-radius: 10px;
+		transition: transform 500ms;
+
+		&:hover {
+			transform: scale(1.05);
+			cursor: default;
+		}
+
+		&:active {
+			transform: scale(0.9);
+			cursor: default;
+		}
+	}
+
+	&__text {
+		color: #3f6ff3;
+		text-align: center;
+		font-size: 1.5rem;
+		margin-top: 8px;
+		font-family: 'Times New Roman', Times, serif;
+	}
+}
