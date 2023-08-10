@@ -76,6 +76,11 @@ body {
 		background: #ffcb05;
 	}
 
+    &--active-yellow-top {
+        background: #ffcb05;
+        border-radius: 15px 15px 0 0;
+    }
+
 	&__text {
 		color: white;
 		text-align: center;
