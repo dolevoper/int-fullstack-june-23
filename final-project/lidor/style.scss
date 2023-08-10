@@ -67,7 +67,6 @@ header {
 
         .nav-links {
             list-style: none;
-            flex-direction: column;
             align-items: center;
             font-size: 1.2rem;
             gap: 6px;
@@ -247,14 +246,158 @@ main {
 
     .main_calender {
         display: grid;
-        grid-template-columns: repeat(12,0.5fr);
-        grid-template-rows: repeat(8,0.5fr);
+        grid-template-columns: repeat(8,0.5fr);
+        grid-template-rows: repeat(12,0.5fr);
         flex: 1;
+        gap: 10px;
 
-        ul{
-            
+        h1{
+            border: 2px solid;
         }
+        
+
+       
+        .Eight{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }
+        .Nine{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 3;
+            grid-row-end: 4;
+        }
+        .Ten{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 4;
+            grid-row-end: 5;
+        }
+
+        .Eleven{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 5;
+            grid-row-end: 6;
+        }
+        
+        .Twelve{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 6;
+            grid-row-end: 7;
+        }
+        
+        .Thirteen{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 7;
+            grid-row-end: 8;
+        }
+        
+        .Fourteen{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 8;
+            grid-row-end: 9;
+        }
+        
+        .Fifteen{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 9;
+            grid-row-end: 10;
+        }
+        
+        .Sixteen{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 10;
+            grid-row-end: 11;
+        }
+        
+        .Seventeen{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 11;
+            grid-row-end: 12;
+        }
+        
+        .Eighteen{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 12;
+            grid-row-end: 13;
+        }
+      
+        .SUN{
+            text-align: center;
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 2;
+
+        }
+        .MON{
+            text-align: center;
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+        .TUE{
+            text-align: center;
+            grid-column-start: 4;
+            grid-column-end: 5;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+        .WED{
+            text-align: center;
+            grid-column-start: 5;
+            grid-column-end: 6;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+        .THU{
+            text-align: center;
+            grid-column-start: 6;
+            grid-column-end: 7;
+            grid-row-start: 1;
+            grid-row-end: 2;   
+        }
+        .FRI{
+            text-align: center;
+            grid-column-start: 7;
+            grid-column-end: 8;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+        .SAT{
+            text-align: center;
+            grid-column-start: 8;
+            grid-column-end: 9;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+      
+      
+      
     }
+
 
 
 }
