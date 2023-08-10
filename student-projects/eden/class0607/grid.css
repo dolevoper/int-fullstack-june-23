@@ -1,0 +1,13 @@
+
+h1 {
+text-align: center;
+color: chocolate;
+font-size: xx-large
+}
+
+
+head {
+display: grid;
+grid-template-columns: 200px 
+}
+
