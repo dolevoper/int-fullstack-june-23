@@ -21,6 +21,7 @@
         &__week{ 
             width: 4rem;
             height: 2rem;
+            border: 0px;
             border-radius:10px;
             background-color: rgb(224, 224, 247);
             color: blue;  
@@ -32,6 +33,7 @@
         &__today{
             width: 4rem;
             height: 2rem;
+            border: 0px;
             border-radius:10px;
             background-color:  rgb(224, 224, 247);
             color: blue;  
@@ -42,6 +44,18 @@
         } 
         &__august{
           margin-inline: auto;
+          font-size: 2rem;
+          font-weight: 900;
+          color: rgb(180, 173, 173);
+          &::before{
+            content: '<  ';
+            color: black;
+          }
+          &::after{
+            content: '  >';
+            color: black;
+            
+          }
         }
     }
     
