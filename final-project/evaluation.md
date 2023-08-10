@@ -1,4 +1,5 @@
 * Project must be submitted via commit and push to the course repo
+* Project should be created under the directory: final-project/(student name)
 * Usage of semantic HTML                                                            15p
 * Usage of SASS                                                                     10p
 * Following BEM conventions                                                         15p
@@ -9,5 +10,6 @@
 * Behavior and responsiveness                                                       20p
     * Chossing correct units for the job
     * Avoiding scroll, tiny/huge content
+
 * Smart/creative use of animations  - BONUS!                                        5p
 * Tablet/Mobile version             - BONUS!                                        5p
