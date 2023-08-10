@@ -1,0 +1,18 @@
+@use "topbar";
+
+.dashboard {
+
+    width: calc( 100% - 2rem);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.filtermenu {
+    flex: 0 0 6%;
+}
+
+.calendar {
+    flex: 1;
+}

@@ -2,7 +2,10 @@
 
 .navbar {
 
-    // parent grid
+    // flex child 
+    flex: 0 0 5rem;
+
+    // parent flex
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -12,8 +15,8 @@
     font-size: defaults.$font-size-large;
     
     background-color: defaults.$color-Neutral-300;
-
     box-shadow: 1px 1px 6px defaults.$color-Neutral-600;
+
 
     &__logo {
         color: defaults.$color-Primary;
