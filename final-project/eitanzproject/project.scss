@@ -113,7 +113,8 @@ body{
     padding-left: 30px;
     .agenda{
         display: grid;
-        
+        // grid-template-columns: repeat(8, 100px);
+        // grid-template-rows: repeat(11,100px);
         border-collapse: collapse;
         .cell{
             border: 1px solid rgba(0, 0, 0, 0.5);

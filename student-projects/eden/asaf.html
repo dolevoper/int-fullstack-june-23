@@ -1,29 +1,6 @@
-body {
-background-color: aquamarine;
-}
-
-article {
-font-size: x-large;
-}
-
-
-h1 {
-color: rgb(184, 11, 11);
-margin-top: auto;
-text-align: center;
-}
-
-
-
-label {
-color: #8f1e1e;
-}
-
-h6 {
-font-size: large
-}
-
-
+<!DOCTYPE html>
+<html>
+<style>
 .tooltip {
   position: relative;
   display: inline-block;
@@ -39,7 +16,7 @@ font-size: large
   border-radius: 6px;
   padding: 5px 0;
   
-  /* Position the tooltip */ 
+  /* Position the tooltip */
   position: absolute;
   z-index: 1;
   top: -5px;
@@ -49,9 +26,17 @@ font-size: large
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+</style>
+<body style="text-align:center;">
 
+<h2>Right Tooltip</h2>
+<p>Move the mouse over the text below:</p>
 
+<div class="tooltip">click
+  <span class="tooltiptext">hello</span>
+</div>
 
-
+</body>
+</html>
 
 
