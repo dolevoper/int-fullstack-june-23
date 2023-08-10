@@ -93,6 +93,7 @@ body, main {
         margin-top: 1ch;
         font-size: 1.3rem;
         padding: 1rem;
+        transition: .3s;
 
         &:hover {
             color: var(--primary-color);
@@ -114,6 +115,7 @@ body, main {
         
         &__list-item {
             padding: 1rem;
+            transition: .3s;
             &:hover {
                 color: var(--primary-color);
                 background: var(--Neutral-300);
@@ -221,6 +223,7 @@ body, main {
 .calendar__days {
     font-size: .6rem;
     border-bottom: 2px solid var(--Neutral-400);
+    border-right: 2px solid var(--Neutral-400);
 
     &--filler {
         border-bottom: 2px solid var(--Neutral-400);
