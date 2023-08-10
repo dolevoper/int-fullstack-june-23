@@ -1,6 +1,7 @@
 @use "defaults" as defaults;
 
 @use "navbar";
+@use "dashboard";
 
 .main-wrapper {
     
@@ -11,6 +12,9 @@
     display: flex;
     justify-content: flex-start;
 
+    background-color: defaults.$color-Neutral-300;
+
+
     // @media (max-width: defaults.$screen-mobile) {
     //     flex-direction: column;
     // }
@@ -20,7 +24,6 @@
     flex: 0 0 5rem;
 }
 
-.main-content {
-    background-color: blue;
+.dashboard {
     flex: 1;
 }

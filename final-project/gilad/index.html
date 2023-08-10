@@ -96,12 +96,24 @@
 
         </aside>
 
-        <main class="main-content">
+        <main class="dashboard">
 
-            <!-- <h1>HELLO WORLD!</h1> -->
+            <header class="topbar">
+                <h1 class="topbar__title">Calendar</h1>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore impedit dolorem commodi a eligendi ea.
-                Facilis perspiciatis error possimus eaque exercitationem pariatur voluptatum quas adipisci.</p>
+                <menu class="topbar__type-menu">
+                    <li class="topbar__type-item">
+                        <div class="topbar__type-btn">
+                            <input class="topbar__type-btn__state" id="caltype-1" type="radio" name="calendar-type-radios">
+                            <label class="topbar__type-btn__hitbox" for="caltype-1">Calendar</label>
+                        </div>
+                    </li>
+                </menu>
+            </header>
+
+            <menu class="filtermenu"></menu>
+
+            <article class="calendar"></article>
         </main>
     </div>
 </body>
