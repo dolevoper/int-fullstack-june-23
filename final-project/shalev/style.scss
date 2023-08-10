@@ -68,3 +68,36 @@ body {
 		}
 	}
 }
+
+.three-dots-button-container {
+	display: flex;
+	position: relative;
+	bottom: 43rem;
+	left: 55rem;
+
+	&__btn {
+		background: #c5cfdd;
+		border: none;
+		border-radius: 5px;
+		text-align: center;
+		width: 40px;
+		min-height: 40px;
+		transition: transform 500ms;
+
+		&:hover {
+			transform: scale(1.05);
+		}
+
+		&:active {
+			transform: scale(0.9);
+			cursor: default;
+		}
+	}
+
+	&__dots {
+		list-style-type: none;
+		text-align: center;
+		font-size: 2rem;
+		margin-top: -1rem;
+	}
+}
