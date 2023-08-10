@@ -224,7 +224,7 @@ body, main {
 
     &--filler {
         grid-area: 2 / 2 / 9 / 13;
-        border-bottom: 2px solid var(--Neutral-400);
+        border: 2px solid var(--Neutral-400);
         border-right: 2px solid var(--Neutral-400);
     }
 }
