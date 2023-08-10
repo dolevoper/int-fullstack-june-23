@@ -1,5 +1,4 @@
 body {
-    width: 100%;
     display: grid;
     grid-template-columns: repeat(7 ,1fr);
     grid-template-rows: repeat(7,1fr);
@@ -24,7 +23,11 @@ body {
     &__firstul {
         display: flex;
         justify-content: space-between;
-        
+    }
+
+    &__secendul {
+        display: flex;
+        justify-content: space-between;
     }
 }
 
