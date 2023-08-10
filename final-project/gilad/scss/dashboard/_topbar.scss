@@ -1,0 +1,41 @@
+@use "../defaults";
+
+.topbar {
+
+    // flex-child 
+    flex: 0 0 6%;
+
+    // flex-parent
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__menu {
+        display: flex;
+        align-items: center;
+    }
+
+    &__btn {
+        display: inline-block;
+        background-color: defaults.$color-Primary;
+        color: defaults.$color-Secondary;
+        height: 3rem;
+        padding: 1rem;
+        border-radius: 0.7rem;
+        line-height: 0;
+        text-align: center;
+    }
+
+    &__state-radio {
+        display: none;
+    }
+
+    &__hitbox {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+
+
