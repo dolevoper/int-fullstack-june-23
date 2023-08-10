@@ -1,0 +1,34 @@
+body {
+background-color: aqua;
+
+}
+
+
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: right;
+    width: 200px;
+    flex: auto;
+  }
+  
+
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+  
+  div.gallery img {
+    width: 50%;
+    height: auto;
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+
+
+  
+
+
+
