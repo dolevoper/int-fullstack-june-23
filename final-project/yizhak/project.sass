@@ -1,1 +1,60 @@
-hhh
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap');
+
+/*     הקומפיילר לא עובד לי...
+אז השתמשתי בסוף בקובץ הרגיל אני יודע שאי אפשר אבל אין לי כרגע אופציה אחרת */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto Slab;
+}
+body html {
+    width: 100%;
+    height: 100%;
+}
+.wapper {
+    display: flex;
+    flex-direction: column;
+
+}
+header {
+    background-color: #e2e9fd;
+    flex-basis: 5rem;
+}
+
+.main-contect {
+    flex-grow: 2;
+    height: 75%;
+    width: 100%;
+    height: 75%;
+    background-color: aqua;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+}
+
+.side-nav {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    flex-basis: 10rem;
+    height: 100%;
+    background-color: black;
+    border: black;
+    border-right: o.5;
+}
+
+button {
+    background-color: #3f6ff3;
+    width: 6rem;
+    height: 2rem;
+    border-radius: 7px;
+}
+
+button:hover {
+    color: white;
+    border: white solid 2px;
+
+}
