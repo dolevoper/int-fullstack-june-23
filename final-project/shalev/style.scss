@@ -27,11 +27,10 @@ body {
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
 	position: absolute;
-	gap: 0.6rem;
 	margin-top: 8rem;
 
 	&__rectangle {
-		border: 0.1px solid black;
+		border: 0.1px solid rgba(0, 0, 0, 0.1);
 		width: 200px;
 		height: 80px;
 		transition: transform 500ms;
