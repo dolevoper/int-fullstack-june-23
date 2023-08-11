@@ -16,12 +16,14 @@ $color-Neutral-600: #a2aab3;
 
 // Fonts
 // Font: Roboto Slab
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@font-face {
+    font-family: "roboto-slab";
+    src: url("../assets/fonts/roboto-slab.ttf");
+}
 
+$font-main: 'roboto-slab', Arial, sans-serif;
 
-$font-main: 'Roboto Slab', Arial, sans-serif;
-
-$font-size-default: 0.8rem;
+$font-size-default: 1rem;
 $font-size-medium: 1.4rem;
 $font-size-large: 2rem;
 
