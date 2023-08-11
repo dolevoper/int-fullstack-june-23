@@ -1,0 +1,80 @@
+@use "defaults" as defaults;
+
+.navbar {
+
+    // flex child 
+    flex: 0 0 5rem;
+
+    // parent flex
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    
+    // center all item's text
+    text-align: center;
+    font-size: defaults.$font-size-large;
+    
+    box-shadow: 1px 1px 6px defaults.$color-Neutral-600;
+
+    &__logo {
+        color: defaults.$color-Primary;
+        font-weight: 900;
+    }
+
+    &__menu--actions {
+        margin: auto 0;
+    }
+
+    &__button {
+        width: 100%;
+        height: 4rem;
+
+        position: relative;
+        color: defaults.$color-Neutral-600;
+
+        &:hover {
+            color: defaults.$color-Primary;
+            background-color: defaults.$color-Neutral-400;
+        }
+
+        &--tab {
+            &:hover::before {
+                    content: ' ';
+                    
+                    display: inline-block;
+                    width: 4px;
+                    height: 100%;
+                    
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    background-color: defaults.$color-Primary;
+            }
+        }
+    }
+
+
+    @media (max-width: defaults.$screen-tablet) {
+
+        flex: 0;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 0 0.25rem;
+        &__menu {
+            display: flex;
+            &--actions {
+                display: none;
+
+            }
+        }
+        
+        &__button {
+            height: fit-content;
+        }
+
+    }
+
+}
