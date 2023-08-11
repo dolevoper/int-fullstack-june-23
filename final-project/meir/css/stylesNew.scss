@@ -124,7 +124,6 @@ body {
     border: 0px solid orange;
 }
 
-
 #parent .flex-content > div .flex-content-top {
     display: flex;
     justify-content: space-between;
@@ -320,35 +319,6 @@ body {
     padding: 0 0.2% 0 0;
     vertical-align: top;
 }
-
-/*
-#parent .flex-content > div .myTable {
-    display: grid; 
-    grid-template-columns: 0.1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
-    grid-template-rows: 1fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr; 
-    gap: 0px 0px; 
-    grid-template-areas: 
-        ". . . . . . . ."
-        ". . . . . . . ."
-        ". . . . . . . ."
-        ". . . . . . . ."
-        ". . . . . . . ."
-        ". . . . . . . ."
-        ". . . . . . . ."
-        ". . . . . . . ."
-        ". . . . . . . ."
-        ". . . . . . . ."
-        ". . . . . . . ."
-        ". . . . . . . ."; 
-    margin: 2% 0 0 0;
-    text-align: center;
-}
-
-#parent .flex-content > div .myTable div {
-    border: 1px solid green;
-}
-*/
-
 
 
 @media screen and (max-width: 1024px) {
