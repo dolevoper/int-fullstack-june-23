@@ -159,7 +159,7 @@ body {
 
 #parent .flex-content > div .flex-content-top > div .container {
     position: relative;
-    width: 40%;
+    width: 50%;
     height: 3em;
     font-size: 0.8em;
     font-weight: bold;
@@ -174,7 +174,7 @@ body {
     height: 100%;
     cursor: pointer;
     text-align: right;
-    line-height: 150%;
+    line-height: 100%;
     display: inline-block;
     background: #eceff4;
     border-radius: 10px;
@@ -196,7 +196,7 @@ body {
     border-radius: 10px;
     text-align: center;
     padding: 4% 0 0 0;
-    line-height: 150%;
+    line-height: 100%;
     box-sizing: border-box;
 }
 
@@ -338,8 +338,8 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 3% 0 0 0;
     color: #ffffff;
+    padding: 3% 0 0 0;
     text-align: center;
     border-radius: 10px;
     border: 0px solid green;
@@ -378,13 +378,84 @@ body {
 
     .a { 
         grid-area: 1 / 1 / 2 / 2; 
-        border: 1px solid red;
+        border: 0cqh solid red;
     }
 
     .b { 
         grid-area: 2 / 1 / 3 / 2; 
-        border: 1px solid red;
+        border: 0px solid red;
     }
     
+    #parent nav {
+        text-align: right;
+        padding: 2% 0 2% 0;
+    }
+
+    #parent nav ul {
+        margin: 0;
+        width: 85%;
+        float: right;
+        direction: rtl;
+        border: 0px solid green;
+    }
+
+    #parent nav ul li {
+        padding: 0;
+        width: 13%;
+        display: inline-block;
+        border: 0px solid orange;
+    }
+
+    #parent nav ul li:hover {
+        box-shadow: none;
+    }
+
+    #parent nav ul li:nth-child(3), #parent nav ul li:nth-child(4), #parent nav ul li:nth-child(5), #parent nav ul li:nth-child(6) {
+        display: none;
+    }
+
+    #parent nav a.logo {
+        margin: 0;
+        float: left;
+        padding: 0 0 0 2%;
+    }
+
+    #parent nav ul li.space {
+        margin-top: inherit;
+    }
+
+    #parent .flex-content > div .flex-content-top > div.box1 span {
+        font-size: 1.1em;
+    }
+
+    #parent .flex-content > div .flex-content-top > div .container {
+        width: 95%;
+        height: 1.5em;
+    }
+
+    #parent .flex-content > div .flex-content-top > div .container span {
+        font-size: 0.7em;
+    }
+
+    #parent .flex-content > div .flex-content-top > div.box3 a.create {
+        font-size: 0.8em;
+        padding: 3% 3% 3% 3%;
+    }
+
+    #parent .flex-content {
+        margin: 5% 0 0 0;
+    }
+
+    #parent .flex-content-times > div {
+        width: 50%;
+    }
+    
+    #parent .flex-content-times > div:nth-child(3) {
+        display: none;
+    }
+
+    #parent .flex-content > div table td.message span {
+        font-size: 0.6em;
+    }
     
 }
