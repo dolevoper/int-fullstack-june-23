@@ -6,7 +6,6 @@
     display: grid;
 
     grid-template-columns: 3rem repeat(7, 1fr);
-    // grid-template-columns: 3rem repeat(7, minmax(5rem, 1fr));
     grid-template-rows: 3rem;
     grid-auto-rows: 1fr;
     gap: 2px;
@@ -95,8 +94,22 @@
         }
     }
 
-    @media (max-width: defaults.$screen-tablet) {
+    @media (max-width: defaults.$screen-mobile) {
 
+
+    }
+
+    @media (max-width: defaults.$screen-mobile) {
+
+
+        overflow-x: visible;
+
+        &__hour {
+            &::before {
+                width: calc(100% * 9.5);
+            }
+        }
+        
         &__event {
             text-align: left;
 
