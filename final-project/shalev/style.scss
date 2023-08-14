@@ -69,17 +69,17 @@ body {
 
 	&--active-green {
 		background: #70d36b;
-        border-radius: 15px;
+		border-radius: 15px;
 	}
 
 	&--active-yellow {
 		background: #ffcb05;
 	}
 
-    &--active-yellow-top {
-        background: #ffcb05;
-        border-radius: 15px 15px 0 0;
-    }
+	&--active-yellow-top {
+		background: #ffcb05;
+		border-radius: 15px 15px 0 0;
+	}
 
 	&__text {
 		color: white;
