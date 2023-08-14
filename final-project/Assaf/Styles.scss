@@ -55,11 +55,12 @@ h6 {
     --Neutral-300: #f8f9fb;
     --Neutral-400: #eceff4;
     --Neutral-500: #c5cfdd;
-    --Neutral-600: #a2aab3;    
+    --Neutral-600: #a2aab3;
 }
 
 html,
-body, main {
+body,
+main {
     font-family: 'Roboto Slab', serif;
     height: 100%;
     list-style: none;
@@ -79,6 +80,7 @@ body, main {
     width: fit-content;
     box-shadow: 8px 2px 6px -5px var(--Neutral-500, 0.1);
     height: 100%;
+
 }
 
 .prefrences-list {
@@ -94,10 +96,11 @@ body, main {
         font-size: 1.3rem;
         padding: 1rem;
         transition: .3s;
+        border-left: 3px solid white;
 
         &:hover {
             color: var(--primary-color);
-            background: var(--Neutral-300);
+            background: var(--Neutral-400);
             border-left: 3px solid var(--primary-color);
         }
     }
@@ -112,13 +115,15 @@ body, main {
         list-style: none;
         font-size: 1.3rem;
         padding: 0;
-        
+
         &__list-item {
             padding: 1rem;
             transition: .3s;
+            border-left: 3px solid white;
+
             &:hover {
                 color: var(--primary-color);
-                background: var(--Neutral-300);
+                background: var(--Neutral-400);
                 border-left: 3px solid var(--primary-color);
             }
         }
@@ -137,7 +142,7 @@ body, main {
     justify-content: space-between;
     align-items: center;
     margin: 2px 1rem;
-    grid-row:  1 / 2;
+    grid-row: 1 / 2;
     grid-column: 2 / 3;
 
     &__title {
@@ -151,12 +156,16 @@ body, main {
     list-style: none;
     gap: 1rem;
     height: 2rem;
-    
+
     &__button {
+        cursor: pointer;
+        line-height: 0rem;
+        padding: 1rem;
+        align-items: center;
         font-size: .8rem;
-        border-radius: 8px;
+        border-radius: 10px;
         border: transparent;
-        background: var(--Neutral-400);
+        background: var(--secondary-color);
         color: var(--primary-color);
 
         &--blue {
@@ -170,28 +179,28 @@ body, main {
 
 .second-bar {
     display: flex;
-    grid-row:  2 / 3;
+    grid-row: 2 / 3;
     grid-column: 2 / 3;
     margin: 1ch;
 
     &__current-month {
         color: var(--Neutral-600);
         font-weight: 600;
-        font-size: .8rem;
+        font-size: calc(.6rem + 1vw);
         margin: auto;
 
         &::before {
             content: '< ';
             color: black;
             font-size: 1.2rem;
-
+            cursor: pointer;
         }
 
         &::after {
             content: ' >';
             color: black;
             font-size: 1.2rem;
-
+            cursor: pointer;
         }
     }
 }
@@ -201,13 +210,14 @@ body, main {
     list-style: none;
     display: inline-flex;
     gap: 1ch;
+    padding: 2px .5rem;
 }
 
 .calendar-container {
-    grid-row:  3 / 4;
+    grid-row: 3 / 4;
     grid-column: 2 / 3;
     // background: var(--Neutral-400);
-    
+
 }
 
 .calendar-grid {
@@ -221,7 +231,7 @@ body, main {
 }
 
 .calendar__days {
-    font-size: .6rem;
+    font-size: calc(.6rem + .5vw);
     border-bottom: 2px solid var(--Neutral-400);
     border-right: 2px solid var(--Neutral-400);
 
@@ -232,7 +242,7 @@ body, main {
 }
 
 .calendar__hour {
-    font-size: .6rem;
+    font-size: calc(.5rem + .5vw);
     grid-column: 1 / 2;
     border-right: 2px solid var(--Neutral-400);
 }

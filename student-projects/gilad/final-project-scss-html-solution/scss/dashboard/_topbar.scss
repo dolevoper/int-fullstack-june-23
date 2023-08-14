@@ -1,0 +1,68 @@
+@use "../defaults";
+
+.topbar {
+    // flex-parent
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 3rem);
+    justify-items: center;
+    align-items: center;
+
+    &--start {
+        justify-self: start;
+    }
+
+    &--end {
+        justify-self: end;
+    }
+
+    &__title {
+        font-size: defaults.$font-size-medium;
+    }
+    &__group {
+        display: flex;
+        gap: 0.5rem;
+
+        &--merged {
+            gap:0;
+        }
+    }
+
+    @media (max-width: defaults.$screen-mobile) {
+
+        grid-template-columns: repeat(2, 1fr);
+        // display: flex;
+        // flex-wrap: wrap;
+        justify-items: center;
+
+        gap: 0;
+
+        &__title {
+            display: none;
+        }
+
+        &--start {
+            justify-self: center;
+        }
+
+        &--end {
+            justify-self: center;
+        }
+    
+    }
+}
+
+.date-picker {
+    align-items: baseline;
+
+    &__button {
+        display: inline-block;
+    }
+    &__date {
+        margin: 0 0.5rem;
+        color: defaults.$color-Neutral-600;
+        font-size: defaults.$font-size-medium;
+        text-align: center;
+    }
+
+}
