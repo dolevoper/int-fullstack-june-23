@@ -20,20 +20,27 @@ header
     gap: 0.5rem;
     flex-wrap: wrap;
     display: inline-block;
-}
-
-.navigation__links
-{
-    color: white;
-}
-.navigation__li
+    &__li
 {
     display: flex;
     flex-wrap: wrap;
     display: inline;
+   
 }
+.navigation__links
+{
+    color: white;
+}
+
+}
+
+
 
 .navigation__input
 {
 width: 10ch;
+}
+.main__header
+{
+    text-align: center;
 }
