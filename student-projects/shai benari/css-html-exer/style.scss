@@ -1,0 +1,98 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    height: 100%;
+    min-width: none;
+    overflow: auto;
+}
+body
+{
+    background: white;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+body
+{
+    display: grid;
+   grid-template-columns: auto auto;
+    gap: 10px;
+    background-color: #dee7ed;
+    padding: 10px;
+}
+header
+{
+    background-color: antiquewhite;
+  grid-column: span 2;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  width: 100%;
+  margin: -10px 0 0 0;
+  align-items: center;
+  grid-auto-flow: column;
+}
+.navigation1
+{
+    list-style: none;
+    display: flex;
+    padding: 10px;
+    gap: 0.5rem;
+}
+.navigation2
+{
+    list-style: none;
+    display: flex;
+    flex-direction:column;
+    padding: 10px;
+    gap: 1rem;
+    height: 100%;
+    .sepert
+    {
+        margin-top: auto;
+    }
+}
+.navigation__links
+{
+    color: black;
+}
+aside
+{
+    background: rgb(205, 154, 154);
+    margin: 0;
+    margin: -0.5rem 0  -0.5rem 0;
+}
+
+.grid-exer 
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-auto-flow: column;
+  
+
+}
+main
+{
+    overflow: auto;
+}
+img
+{
+    width: 70%;
+}
+
+
+
+
