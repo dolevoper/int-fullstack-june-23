@@ -52,3 +52,37 @@ body {
         justify-content: space-between;
     }
 }
+
+.calendar {
+    display: grid;
+    grid-template-columns: [start time] auto [gl-1] 2px [sun] 1fr [gl-2] 2px [mon] 1fr [gl-3] 2px [tue] 1fr [gl-4] 2px [wed] 1fr [gl-5] 2px [thu] 1fr [gl-6] 2px [fri] 1fr [gl-7] 2px [sat] 1fr [end];
+    grid-template-rows: [start day] auto [gl-1] 2px [h8] 1fr [gl-2] 2px [h9] 1fr [gl-3] 2px [h10] 1fr [gl-4] 2px [h11] 1fr [gl-5] 2px [h12] 1fr [gl-6] 2px [h13] 1fr [gl-7] 2px [h14] 1fr;
+
+    &__day {
+        grid-row: day;
+        grid-column: var(--day);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__time {
+        grid-column: time;
+        grid-row: var(--time);
+    }
+
+    &__grid-line {
+        background: var(--color-Neutral-400);
+
+        &--vertical {
+            grid-row: start / end;
+            grid-column: var(--gl);
+        }
+
+        &--horizontal {
+            grid-column: start / end;
+            grid-row: var(--gl);
+        }
+    }
+}
