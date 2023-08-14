@@ -6,7 +6,7 @@
     --color-Neutral-500: #c5cfdd;
     --color-Neutral-600: #a2aab3;
     --color-Green: #70d36b;
-    --color-Yello: #ffcb05;
+    --color-Yellow: #ffcb05;
     --color-Red: #ff5d54;
 }
 
@@ -83,6 +83,33 @@ body {
         &--horizontal {
             grid-column: start / end;
             grid-row: var(--gl);
+        }
+    }
+
+    &__event {
+        grid-column: var(--day);
+        grid-row: var(--start-time) / var(--end-time);
+
+        &--blue {
+            background: var(--color-Primary);
+        }
+
+        &--green {
+            background: var(--color-Green);
+        }
+
+        &--yellow {
+            background: var(--color-Yellow);
+        }
+
+        @for $i from 8 through 14 {
+            &--start-#{$i} {
+                grid-row-start: h#{$i};
+            }
+
+            &--end-#{$i} {
+                grid-row-end: h#{$i};
+            }
         }
     }
 }

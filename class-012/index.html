@@ -158,27 +158,27 @@
                 <span>6</span>
             </time>
             <time class="calendar__day" style="--day: mon">
-                <span>SUN</span>
+                <span>MON</span>
                 <span>6</span>
             </time>
             <time class="calendar__day" style="--day: tue">
-                <span>SUN</span>
+                <span>TUE</span>
                 <span>6</span>
             </time>
             <time class="calendar__day" style="--day: wed">
-                <span>SUN</span>
+                <span>WED</span>
                 <span>6</span>
             </time>
             <time class="calendar__day" style="--day: thu">
-                <span>SUN</span>
+                <span>THU</span>
                 <span>6</span>
             </time>
             <time class="calendar__day" style="--day: fri">
-                <span>SUN</span>
+                <span>FRI</span>
                 <span>6</span>
             </time>
             <time class="calendar__day" style="--day: sat">
-                <span>SUN</span>
+                <span>SAT</span>
                 <span>6</span>
             </time>
             <time class="calendar__time" style="--time: h8">8:00</time>
@@ -188,7 +188,8 @@
             <time class="calendar__time" style="--time: h12">12:00</time>
             <time class="calendar__time" style="--time: h13">13:00</time>
             <time class="calendar__time" style="--time: h14">14:00</time>
-            <div class="calendar__grid-line calendar__grid-line--vertical" style="--gl: gl-1;"></div>
+            <div role="presentation" class="calendar__grid-line calendar__grid-line--vertical" style="--gl: gl-1;">
+            </div>
             <div class="calendar__grid-line calendar__grid-line--vertical" style="--gl: gl-2;"></div>
             <div class="calendar__grid-line calendar__grid-line--vertical" style="--gl: gl-3;"></div>
             <div class="calendar__grid-line calendar__grid-line--vertical" style="--gl: gl-4;"></div>
@@ -206,10 +207,14 @@
             <time class="calendar__time">16:00</time>
             <time class="calendar__time">17:00</time>
             <time class="calendar__time">18:00</time> -->
-            <article>appointment #1</article>
-            <article>appointment #2</article>
-            <article>appointment #3</article>
-            <article>appointment #4</article>
+            <article class="calendar__event calendar__event--blue"
+                style="--day: sun; --start-time: h9; --end-time: h11">appointment #1</article>
+            <article class="calendar__event calendar__event--green"
+                style="--day: mon; --start-time: h10; --end-time: h11;">appointment #2
+            </article>
+            <article class="calendar__event calendar__event--yellow calendar__event--start-12" style="--day: tue">
+                appointment #3</article>
+            <article class="calendar__event calendar__event--yellow" style="--day: tue">appointment #4</article>
         </article>
     </main>
 
