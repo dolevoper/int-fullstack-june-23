@@ -70,7 +70,7 @@
     grid-template-rows: repeat(12, 1fr);
     grid-column-gap: 20px;
     grid-row-gap: 0px;
-  
+    overflow: hidden;
   }
 
 
@@ -165,7 +165,8 @@
   .calndar{
     grid-area: 1 / 2 / 2 / 8; 
     display: flex;
-    width: 100%;
+    width: 94%;
+    cursor: pointer;
 
     &__left{
       
@@ -182,7 +183,8 @@
       justify-content: center;
       gap: 1rem;
       flex-direction: column;
-      margin-left: 20rem;
+      margin-left: 42rem;
+      flex: 1;
     
     
 
@@ -212,8 +214,9 @@
         color: #a2aab3;
       }
     }
-  }
 
+  }
+  
   .calndar__right{
     display: flex;
     
@@ -224,8 +227,15 @@
 
     .calndar__calndar--right{
       color: #3f6ff3;
+      border:1px solid black;
+      border-radius: 50px;
+      padding: 10px;
       background-color: #c5cfdd;
       
+    }
+
+    .calndar__calndar--left{
+      background-color: #c5cfdd;
     }
   }
 
@@ -256,7 +266,7 @@
     border-top: transparent;
     border-left: transparent;
     text-align: left;
-    padding: 8px;
+    padding: 20px;
   }
   
   tr:nth-child(even) {
