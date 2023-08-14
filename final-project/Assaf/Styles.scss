@@ -77,7 +77,7 @@ body, main {
     flex-direction: column;
     color: var(--Neutral-500);
     width: fit-content;
-    box-shadow: 12px 2px 6px -5px var(--Neutral-500, 0.71);
+    box-shadow: 8px 2px 6px -5px var(--Neutral-500, 0.1);
     height: 100%;
 }
 
@@ -93,6 +93,7 @@ body, main {
         margin-top: 1ch;
         font-size: 1.3rem;
         padding: 1rem;
+        transition: .3s;
 
         &:hover {
             color: var(--primary-color);
@@ -114,6 +115,7 @@ body, main {
         
         &__list-item {
             padding: 1rem;
+            transition: .3s;
             &:hover {
                 color: var(--primary-color);
                 background: var(--Neutral-300);
@@ -176,6 +178,7 @@ body, main {
         color: var(--Neutral-600);
         font-weight: 600;
         font-size: .8rem;
+        margin: auto;
 
         &::before {
             content: '< ';
@@ -193,14 +196,43 @@ body, main {
     }
 }
 
-.calendar {
-    grid-row:  3 / 4;
-    grid-column: 2 / 3;
-   
-}
 
 .selection {
     list-style: none;
     display: inline-flex;
     gap: 1ch;
+}
+
+.calendar-container {
+    grid-row:  3 / 4;
+    grid-column: 2 / 3;
+    // background: var(--Neutral-400);
+    
+}
+
+.calendar-grid {
+    display: grid;
+    height: 100%;
+    grid-template-columns: auto repeat(7, 1fr);
+    grid-template-rows: auto repeat(12, 1fr);
+    gap: 1px;
+    // background: white;
+    margin-inline-start: 1rem;
+}
+
+.calendar__days {
+    font-size: .6rem;
+    border-bottom: 2px solid var(--Neutral-400);
+    border-right: 2px solid var(--Neutral-400);
+
+    &--filler {
+        border-bottom: 2px solid var(--Neutral-400);
+        border-right: 2px solid var(--Neutral-400);
+    }
+}
+
+.calendar__hour {
+    font-size: .6rem;
+    grid-column: 1 / 2;
+    border-right: 2px solid var(--Neutral-400);
 }
