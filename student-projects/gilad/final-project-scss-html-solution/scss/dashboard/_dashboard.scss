@@ -1,0 +1,19 @@
+@use "../defaults" as defaults;
+@use "buttons";
+@use "topbar";
+@use "calendar";
+
+.dashboard {
+
+    // center
+    width: calc( 100% - 8rem);
+    margin-inline: auto;
+
+    // flex parent
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.5rem;
+
+}
+
