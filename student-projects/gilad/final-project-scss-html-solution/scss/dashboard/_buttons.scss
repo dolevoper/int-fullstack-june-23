@@ -2,10 +2,8 @@
 
 .button-main {
 
-    display: inline-block;
     height: 2.5rem;
     padding: 0 0.75rem;
-    margin: 0.5rem 0;
 
     background-color: defaults.$color-Primary;
     border-radius: 0.5rem;
@@ -27,7 +25,6 @@
         box-shadow: 0px 0px 6px defaults.$color-Neutral-600;
         transition: box-shadow 0.5s;
     }
-
 
     &:has(input[type="radio"]:not(:checked)) {
         background-color: defaults.$color-Neutral-400;

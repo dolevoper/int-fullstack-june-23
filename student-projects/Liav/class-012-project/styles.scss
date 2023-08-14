@@ -1,0 +1,119 @@
+:root {
+    --color-Primary: #3f6ff3;
+    --color-Secondary: #e2e9fd;
+    --color-Neutral-300: #f8f9fb;
+    --color-Neutral-400: #eceff4;
+    --color-Neutral-500: #c5cfdd;
+    --color-Neutral-600: #a2aab3;
+    --color-Green: #70d36b;
+    --color-Yellow: #ffcb05;
+    --color-Red: #ff5d54;
+}
+
+body {
+    font-family: 'Roboto Slab', serif;
+
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: solid var(--color-Neutral-500);
+    border-top: transparent;
+
+    &__logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--color-Primary);
+    }
+
+    &__nav {
+        margin-block: auto;
+        text-align: center;
+    }
+}
+
+.main {
+    flex: 1;
+
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    row-gap: 1rem;
+    height: calc(100% - 1rem);
+    margin-right: 2rem;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__nav {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: [start time] auto [gl-1] 2px [sun] 1fr [gl-2] 2px [mon] 1fr [gl-3] 2px [tue] 1fr [gl-4] 2px [wed] 1fr [gl-5] 2px [thu] 1fr [gl-6] 2px [fri] 1fr [gl-7] 2px [sat] 1fr [end];
+    grid-template-rows: [start day] auto [gl-1] 2px [h8] 1fr [gl-2] 2px [h9] 1fr [gl-3] 2px [h10] 1fr [gl-4] 2px [h11] 1fr [gl-5] 2px [h12] 1fr [gl-6] 2px [h13] 1fr [gl-7] 2px [h14] 1fr;
+
+    &__day {
+        grid-row: day;
+        grid-column: var(--day);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__time {
+        grid-column: time;
+        grid-row: var(--time);
+    }
+
+    &__grid-line {
+        background: var(--color-Neutral-400);
+
+        &--vertical {
+            grid-row: start / end;
+            grid-column: var(--gl);
+        }
+
+        &--horizontal {
+            grid-column: start / end;
+            grid-row: var(--gl);
+        }
+    }
+
+    &__event {
+        grid-column: var(--day);
+        grid-row: var(--start-time) / var(--end-time);
+
+        &--blue {
+            background: var(--color-Primary);
+        }
+
+        &--green {
+            background: var(--color-Green);
+        }
+
+        &--yellow {
+            background: var(--color-Yellow);
+        }
+
+        @for $i from 8 through 14 {
+            &--start-#{$i} {
+                grid-row-start: h#{$i};
+            }
+
+            &--end-#{$i} {
+                grid-row-end: h#{$i};
+            }
+        }
+    }
+}

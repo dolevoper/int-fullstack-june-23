@@ -64,3 +64,20 @@ body{
     
 
 }
+.main__calendar{
+    width: 100%;
+    &__nav{
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: repeat(8, auto);
+        grid-template-rows: repeat(11, 50px);
+        &__li{
+            border:1px solid;
+            list-style: none;
+            height: 6rem;
+            
+        }
+
+    }
+
+}
