@@ -1,0 +1,75 @@
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.parent {
+    position: relative;
+    width: 50px;
+    aspect-ratio: 1;
+    background: lightblue;
+    border-radius: 50%;
+}
+
+.circle {
+    --size: 25px;
+    --offset: 100px;
+    --degrees: 45deg;
+
+    position: absolute;
+    top: calc(var(--size) / 2);     //12.5px
+    left: calc(var(--size) / 2);    //12.5px
+    width: var(--size);             //25px
+    aspect-ratio: 1;
+    border-radius: 50%;
+    text-align: center;
+    background: orangered;
+
+    transform: translate(
+        calc(cos(var(--degrees)) * var(--offset)), 
+        calc(sin(var(--degrees)) * var(--offset))
+    );
+}
+
+$total: 12;
+@for $i from 0 through ($total - 1) {
+    .circle:nth-last-of-type(#{$i + 1}) {
+        --degrees: #{$i} * 360deg / #{$total};
+    }
+}
+
+
+/*
+.circle:nth-last-of-type(1) {
+    --degrees: 0deg;
+}
+
+.circle:nth-last-of-type(2) {
+    --degrees: 45deg;
+}
+
+.circle:nth-last-of-type(3) {
+    --degrees: 90deg;
+}
+
+.circle:nth-last-of-type(4) {
+    --degrees: 135deg;
+}
+
+.circle:nth-last-of-type(5) {
+    --degrees: 180deg;
+}
+
+.circle:nth-last-of-type(6) {
+    --degrees: 225deg;
+}
+
+.circle:nth-last-of-type(7) {
+    --degrees: 270deg;
+}
+
+.circle:nth-last-of-type(8) {
+    --degrees: 315deg;
+}
+*/
