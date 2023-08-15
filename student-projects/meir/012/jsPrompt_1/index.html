@@ -12,15 +12,24 @@
     <hr>
 
     <script>
-        const a = parseInt(prompt("Enter number a:"));
-        const b = parseInt(prompt("Enter number b:"));
+        
+        calcPitagoras();
 
-        if(isNaN(a) || a < 0 || a == "" || isNaN(b) || b < 0 || b == "") {
-            alert("Please enter valid number");
-        } else {
-            const c = Math.sqrt( Math.pow(a,2) + Math.pow(b,2)).toFixed(3);
-            document.write("<b>Result of c is: " + c + "</b>");
+        function calcPitagoras(){
+
+            const a = parseInt(prompt("Enter number a:"));
+            const b = parseInt(prompt("Enter number b:"));
+
+            if(isNaN(a) || a < 0 || a == "" || isNaN(b) || b < 0 || b == "") {
+                alert("Please enter valid number, try again");
+                calcPitagoras();
+            } else {
+                const c = Math.sqrt( Math.pow(a,2) + Math.pow(b,2)).toFixed(3);
+                document.write("<b>Result of c is: " + c + "</b>");
+            }
+
         }
+
     </script>
 
 </body>
