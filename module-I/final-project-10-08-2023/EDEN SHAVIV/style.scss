@@ -1,0 +1,65 @@
+.side li{
+list-style: none;
+text-align: left;
+
+
+}
+
+body {
+text-align: left;
+}
+
+
+
+
+.div .calss {
+text-align: center;
+}
+
+
+$cell-size: 200px;
+$primary-color: #3498db;
+$light-gray: #f5f5f5;
+
+
+.calendar {
+    width: 300px;
+    border: 1px solid $light-gray;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.header {
+grid-column: auto;
+font-size: x-large;
+    background-color: $primary-color;
+    color: white;
+    padding: 50px;
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, $cell-size);
+    background-color: $light-gray;
+    div {
+        padding: 25px;
+    }
+}
+
+.days {
+    display: grid;
+    grid-row: repeat(7, $cell-size);
+    gap: 2px;
+    padding: 25px;
+    div {
+        width: $cell-size;
+        height: $cell-size;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        &:hover {
+            background-color: $light-gray;
+        }
+    }
+}

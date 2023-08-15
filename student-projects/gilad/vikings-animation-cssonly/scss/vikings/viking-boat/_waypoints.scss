@@ -1,0 +1,102 @@
+
+/*
+    Boat Sailing System Manager
+
+    This sailing system is based on a grid/radio buttons mechanism that 
+    splits the screen to several available 'sailing' waypoints.
+
+    The boat sailing manager contains a grid that splits the screen to serveral 'waypoints'.
+    Each waypoint has an invisible radio button and a label that covers the whole grid-area the waypoint is attached to.
+    Each waypoint also has a waypoint-flag buoy that shows the current checked radio-button and the direction of the boat.
+
+    When the user selects a waypoint, the boat has a rule to change it's x position based to the specific checked waypoint.
+*/
+.boat-sail-manager {
+    // init starting boat x poisition.
+    --boat-x-position: 25%;
+}
+
+/*
+    Sail Waypoints Grid
+
+    Splits the screen to several sections and holds waypoints accordingly
+*/
+.sail-waypoints {
+    width: 100vw;
+    height: 100%;
+
+    // position grid at the center of the screen
+    position: absolute;
+    top: 0;
+    margin: 0 auto;
+
+    // Create a grid of 4 identical columns and 1 fullscreen row.
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+
+
+    /*
+        Waypoint
+
+        Each waypoint contains a radio button and a label that covers the whole waypoint area.
+        It detects whether one of the waypoints is checked, and start a fading animation on the 
+        defaultly-hidden waypoint flag object to represent the user has pressed this waypoint.
+    */
+    .waypoint {
+
+        width: 100%;
+        height: 100%;
+
+        position: relative;
+
+
+        // Gets the currently checked radiobutton and applies the style on it's waypoint flag object.
+        &:has(input:checked)
+        {
+            .waypoint-flag {
+                width: 100%;
+                height: 30%;
+    
+                // position the waypoint-flag at sea level, at the center of the waypoint area
+                position: absolute;
+                right: 0;
+                left: 0;
+                bottom: var(--sea-level);
+                margin: 0 auto;
+    
+                background: url("../../assets/boat/waypoint.svg") no-repeat center center;
+                background-size: contain;
+
+                // Start a fading animation the moment the flag gets it's style.
+                animation: --anim-waypoint-flag 1s;
+                // return to opacity 0 after the animation finishes.
+                opacity: 0;
+            }
+
+        }
+        
+        // Reset, resize and hide elements used as controls for waypoints.
+        label {
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+        input {
+            display: none;
+        }
+
+    }
+}
+
+/*
+    Waypoint flag disappear animation
+*/
+@keyframes --anim-waypoint-flag {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

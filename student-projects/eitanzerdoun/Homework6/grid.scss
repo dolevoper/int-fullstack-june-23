@@ -1,0 +1,108 @@
+body{
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: auto auto 1fr auto; 
+    grid-column-gap: 0px;
+    grid-row-gap: 0px; 
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+html{
+    height: 100%;
+}
+
+.headerbar{
+    background-color: rgb(7, 26, 122);
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    grid-area: 1 / 1 / 2 / 6;
+    img{
+        width: 100px;
+        border-radius: 500px;
+    }
+    h1{
+        color: white;
+    }
+    .search_headbar{
+        border-radius: 10px;
+        // padding: 10px;
+        font-size: 1rem;
+    }
+}
+.navbar{
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2rem;
+    grid-area: 2 / 1 / 5 / 2;
+
+    ul{
+        margin-left: -40px;
+        font-weight: 500;
+        .separate{
+            margin-top: auto;
+        }
+    }
+    li{
+        list-style: none;
+        padding: 15px;
+        font-weight: 500;
+        
+    }
+}
+.promotion{
+    background-color: rgb(236, 208, 0);
+    font-style: italic;
+    color: rgb(168, 0, 0);
+    text-shadow: 1px 1px 0px black;
+    grid-area: 2 / 2 / 3 / 6;
+    text-align: center;
+}
+.section_one{
+    padding: 20px;
+    grid-area: 3 / 2 / 4 / 6;
+    width: 100%;
+}
+
+footer{
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: black;
+    grid-area: 4 / 2 / 5 / 6;
+    
+    img{
+        border-radius: 500px;
+        width: 50px;
+    }
+    .footer_fcbk{
+        border-radius: 0px;
+        width: 40px;
+        opacity: 0.6;
+    }
+    .footer_insta{
+        border-radius: 0px;
+        width: 40px;
+        opacity: 0.6;
+    }
+    .footer_twitter{
+        border-radius: 5px;
+        width: 40px;
+        opacity: 0.6;
+    }
+}
+.footer_fcbk:hover{
+    opacity: 1;
+}
+.footer_insta:hover{
+    opacity: 1;
+}
+.footer_twitter:hover{
+    opacity: 1;
+}

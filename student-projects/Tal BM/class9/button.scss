@@ -1,0 +1,68 @@
+.button {
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    border-radius: calc(2rem + 1.6em);
+    border: 2px solid white;
+    background: hotpink;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+
+    &:hover {
+        background: hsl(325deg 99% 72%);
+        animation-name: tilt;
+        animation-duration: 0.2s;
+        animation-iteration-count: infinite;
+    }
+
+    &:active {
+        background: hsl(335deg 100% 70%);
+    }
+}
+
+
+@keyframes tilt {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.submit {
+    padding: 20px 70px;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
+    color: green;
+    border: green 3px solid;
+    border-radius: 40px;
+    transition: scale 0.2s;
+    &:hover {
+        scale: 1.1;
+        animation-name: sub;
+        animation-delay: 0.2s;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        div {
+            animation: di 0.8s forwards;
+        }
+    }
+}
+
+@keyframes sub {
+    from {height:86.5px; width: 236.4px;}
+    to {padding: 0;width:86.5px; height: 86.5px; border-radius: 50%;background-color: green;}
+}
+
+@keyframes di {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+* {
+    box-sizing: border-box;
+}

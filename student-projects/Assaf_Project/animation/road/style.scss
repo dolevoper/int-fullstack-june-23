@@ -1,0 +1,279 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+// mine
+
+body,
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+.sky,
+.ground,
+.hill,
+.road,
+.lines {
+    position: relative;
+}
+
+.sky {
+    background: skyblue;
+    height: 40%;
+}
+
+.clouds>div {
+    position: relative;
+
+    &:nth-child(1) {
+        position: absolute;
+        clip-path: polygon(1% 41%, 0% 36%, 1% 30%, 6% 26%, 13% 24%, 18% 24%, 22% 19%, 26% 12%, 30% 7%, 34% 4%, 41% 2%, 47% 4%, 52% 10%, 56% 15%, 63% 16%, 71% 13%, 77% 8%, 81% 6%, 85% 5%, 90% 8%, 94% 14%, 95% 21%, 94% 27%, 90% 31%, 96% 34%, 99% 40%, 100% 47%, 99% 53%, 95% 58%, 90% 60%, 89% 65%, 90% 70%, 92% 73%, 94% 79%, 91% 85%, 87% 89%, 84% 91%, 78% 92%, 73% 90%, 69% 86%, 67% 81%, 63% 78%, 57% 79%, 55% 86%, 53% 98%, 46% 97%, 39% 99%, 33% 96%, 28% 92%, 24% 87%, 21% 82%, 22% 78%, 22% 74%, 18% 72%, 14% 70%, 6% 68%, 4% 65%, 1% 59%, 0% 54%, 1% 49%, 1% 43%, 2% 41%, 0 40%);
+        background: rgba(255, 255, 255, 0.53);
+        height: 6vw;
+        aspect-ratio: 1;
+        top: 25vh;
+        left: -6vw;
+        animation: wind 80s linear infinite;
+    }
+
+    &:nth-child(2) {
+        position: absolute;
+        clip-path: polygon(7% 51%, 5% 46%, 5% 39%, 10% 34%, 15% 30%, 20% 28%, 24% 23%, 30% 17%, 38% 12%, 44% 10%, 49% 11%, 53% 14%, 56% 20%, 61% 26%, 67% 27%, 73% 27%, 81% 25%, 88% 26%, 94% 32%, 96% 40%, 95% 46%, 93% 52%, 90% 57%, 91% 61%, 93% 66%, 95% 72%, 93% 78%, 87% 83%, 82% 84%, 76% 85%, 71% 83%, 66% 77%, 60% 74%, 56% 74%, 52% 76%, 47% 82%, 44% 87%, 39% 89%, 32% 89%, 27% 87%, 22% 84%, 18% 81%, 15% 75%, 16% 69%, 17% 63%, 15% 58%, 11% 55%);
+        background: rgba(255, 255, 255, 0.879);
+        height: 14vw;
+        aspect-ratio: 1;
+        top: 2vh;
+        left: -50vw;
+        animation: wind 40s linear infinite;
+    }
+
+    &:nth-child(3) {
+        position: absolute;
+        clip-path: polygon(7% 51%, 5% 46%, 5% 39%, 10% 34%, 15% 30%, 20% 28%, 24% 23%, 30% 17%, 38% 12%, 44% 10%, 49% 11%, 53% 14%, 56% 20%, 61% 26%, 67% 27%, 73% 27%, 81% 25%, 88% 26%, 94% 32%, 96% 40%, 95% 46%, 93% 52%, 90% 57%, 91% 61%, 93% 66%, 95% 72%, 93% 78%, 87% 83%, 82% 84%, 76% 85%, 71% 83%, 66% 77%, 60% 74%, 56% 74%, 52% 76%, 47% 82%, 44% 87%, 39% 89%, 32% 89%, 27% 87%, 22% 84%, 18% 81%, 15% 75%, 16% 69%, 17% 63%, 15% 58%, 11% 55%);
+        background: rgba(255, 255, 255, 0.689);
+        height: 12vw;
+        transform: rotateZ(150deg);
+        aspect-ratio: 8/12;
+        top: 12vh;
+        left: -12vw;
+        animation: wind 44s linear 5s infinite;
+    }
+}
+
+.ground {
+    display: flex;
+    background: seagreen;
+    height: 60%;
+}
+
+.hill>div {
+    &:nth-child(1) {
+        background: rgb(105, 186, 140);
+        height: 20vw;
+        aspect-ratio: 1;
+        border-radius: 60% 60% 0 0;
+        top: -5vw;
+        left: -1vw;
+        position: absolute;
+        border: 1px solid rgba(0, 0, 0, 0.144);
+    }
+
+    &:nth-child(2) {
+        background: rgb(64, 182, 115);
+        height: 35vw;
+        aspect-ratio: 6/4;
+        border-radius: 80%;
+        top: -10vw;
+        right: -12vw;
+        position: absolute;
+        border: 1px solid rgba(0, 0, 0, 0.144);
+    }
+
+    &:nth-child(3) {
+        background: rgb(62, 168, 108);
+        height: 30vw;
+        aspect-ratio: 5/4;
+        border-radius: 50%;
+        top: -6vw;
+        right: 10vw;
+        border: 1px solid rgba(0, 0, 0, 0.144);
+        position: absolute;
+    }
+
+    &:nth-child(4) {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 1) 43%, rgba(105, 186, 140, 1) 50%);
+        height: 7.8vw;
+        aspect-ratio: 1;
+        transform: rotateZ(45deg);
+        top: -7.2vw;
+        left: 5.2vw;
+        position: absolute;
+    }
+}
+
+.road {
+    display: flex;
+    background: gray;
+    width: 35vw;
+    height: 100%;
+    margin: auto;
+    clip-path: polygon(43% 0, 58% 0, 100% 105%, 0% 105%);
+}
+
+.lines {
+    margin: auto;
+    background: linear-gradient(180deg, rgba(128, 128, 128, 1) 1%, rgba(255, 255, 255, 1) 28%);
+    width: 3vw;
+    height: 100%;
+    clip-path: polygon(45% 0, 55% 0, 100% 105%, 0% 105%);
+
+    >div {
+        height: 100%;
+        margin: auto;
+        background: gray;
+        width: .8vw;
+        clip-path: polygon(45% 0, 55% 0, 100% 105%, 0% 105%);
+    }
+}
+
+.cars>div {
+    &:nth-child(1) {
+        position: absolute;
+        width: 11vw;
+        top: -4.2vw;
+        left: 11vw;
+        scale: 5%;
+        animation: drive 10s cubic-bezier(.81, -0.03, 1, .37) infinite forwards;
+    }
+
+    &:nth-child(2) {
+        position: absolute;
+        width: 11vw;
+        top: -4.5vw;
+        right: 10.6vw;
+        scale: .1%;
+        animation: driveto 5s 8s cubic-bezier(.81, -0.03, 1, .37) infinite reverse backwards;
+    }
+
+    &:nth-child(3) {
+        position: absolute;
+        width: 11vw;
+        top: -4.5vw;
+        right: 10.6vw;
+        scale: .1%;
+        animation: driveto 5s 4s cubic-bezier(.81, -0.03, 1, .37) infinite reverse backwards;
+    }
+}
+
+// animations
+
+@keyframes wind {
+    0% {
+        transform: translateX(0%);
+        transform: translateY(0%);
+    }
+
+    10%,
+    25%,
+    40%,
+    55%,
+    70%,
+    85% {
+        transform: translateY(2%);
+    }
+
+    17%,
+    32%,
+    47%,
+    63%,
+    77%,
+    93% {
+        transform: translateY(-2%);
+    }
+
+    100% {
+        transform: translateY(0%);
+        left: 110%;
+    }
+}
+
+@keyframes drive {
+    0% {transform: rotateX(90deg);
+    scale: .01;}
+
+    20% {transform: rotateX(40deg);
+        scale: .05;}
+
+    40% {
+        scale: 1;
+        transform: translate(-9vw, 70vh);
+    }
+
+    100% {
+        scale: 1;
+        transform: translate(-8vw, 80vh);
+    }
+}
+
+@keyframes driveto {
+    0% {transform: rotateX(80deg);
+        scale: .0001;
+    opacity: 0;}
+    
+        20% {transform: rotateX(50deg);
+            scale: .1;
+        opacity: 80%;}
+    
+        50% {
+            scale: 1;
+            transform: translate(9vw, 70vh);
+        }
+    
+        100% {
+            scale: 1;
+            transform: translate(9vw, 80vh);
+        }
+    }

@@ -56,17 +56,18 @@
         }
         +::before{
                 animation: rotate 1s;
+                transform: rotate(90deg);
 
         }
     }
 }
-@keyframes hend{
+@keyframes hend {
     from{
-        rotate: 0 deg
+        rotate: 0deg;
     }
-to{
-    rotate: 90 deg
-}
+    to{
+        rotate: 90deg;
+    }
 }
 
 
