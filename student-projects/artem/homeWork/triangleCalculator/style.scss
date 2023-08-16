@@ -1,0 +1,39 @@
+:root {
+    --main-bg-color:  rgb(187, 187, 247)
+}
+html{
+    background-color: var(--main-bg-color);
+    box-sizing: border-box;
+    margin: 0;
+
+}
+.calculator{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    justify-content: center; 
+}
+.calculator--header{
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+
+.image--source{
+    font-size: 0.7rem;
+}
+button{
+    background-color: var(--main-bg-color);
+    color: black;
+    border: 2px solid white;
+    border-radius: 25%;
+    font-size: 1rem;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+
+}
