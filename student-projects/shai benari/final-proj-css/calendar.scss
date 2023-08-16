@@ -1,0 +1,79 @@
+:root {
+    --color-primary: #1d2e5d;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display:grid;
+    grid-template-columns: auto auto;
+    
+
+}
+  
+header
+{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    background: rgb(232, 232, 240);
+}
+aside
+{
+    grid-row-start: 1;
+    grid-row-end: 3;
+    background-color: azure;
+    width:auto;
+    height: 100ch;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+aside ul li
+{
+    list-style-type: none;
+    
+}
+aside ul li:first-child
+{
+    justify-content:start;
+}
+aside ul li:last-child
+{
+    justify-content:center;
+}
+
+main
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: beige;
+    margin-left: 0;
+   
+}
+.calendar 
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+
+
