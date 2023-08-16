@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript prompt</title>
+</head>
+<body>
+    
+    <script>
+
+        const faqsArray=['First name','Last name','Address','city','Phone'];
+        const ansArray = [];
+
+        for(i=0; i <= faqsArray.length-1; i++){
+            ansArray.push(prompt("Please enter " + faqsArray[i]));
+        }
+
+        document.write("Your First name is " + ansArray[0] + "<br>And your last name is " + ansArray[1] + "<br>You living in " + ansArray[2] + "<br>The city you live is " + ansArray[3] + "<br>Your phone is " + ansArray[4]);
+
+    </script>
+
+</body>
+</html>

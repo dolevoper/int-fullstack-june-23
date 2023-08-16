@@ -1,0 +1,15 @@
+body {
+    margin: 0%;
+}
+
+.grid-container {
+    display: grid;
+    width: 80vw;
+    margin: auto;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.grid-item {
+    background-color: aqua;
+    border: 1px solid black;
+}
