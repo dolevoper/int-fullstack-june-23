@@ -1,0 +1,50 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr 1fr;
+}
+
+.myHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+#CodeBlocks {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(3, 1fr);
+
+    .writing-cell {
+        align-content: start;
+        word-wrap: break-word;
+    }
+}
+
+#CodeBlocks>article {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.upNav {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 1ch;
+    margin-block-start: 1ch;
+    padding-inline-end: 1.1rem;
+    border: 0.5px solid  rgba(255, 255, 255, 0.4);
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
+    padding: 1ch;
+    background-color: transparent;
+    overflow-y: auto;
+}
+
+main {
+    height: 100%;
+}

@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 10em auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+img, svg {
+    display: block;
+}
+
+@media screen and (max-width: 1024px) {
+    body {
+        grid-template-columns: 100%;
+        grid-template-rows: 1fr;
+    }
+}

@@ -1,0 +1,27 @@
+.button {
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    border-radius: calc(2rem + 1.6em);
+    border: 2px solid white;
+    background: hotpink;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    rotate: 180deg;
+    transition: rotate 300ms;
+    will-change: rotate;
+   
+
+    &:hover{
+        background: hsl(325deg 99% 72%);
+        transform: rotate(180deg);
+        scale: 1.2;
+    }
+
+    &:active {
+        background: hsl(133, 100%, 70%);
+    }
+   
+}
+
+

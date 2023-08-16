@@ -1,0 +1,46 @@
+header
+{
+    display: flex;
+    // flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1rem;
+    background: black;
+    color: white;
+    flex-wrap:wrap ;
+}
+.brand
+{
+    width: 10ch;
+}
+.navigation {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    display: inline-block;
+    &__li
+{
+    display: flex;
+    flex-wrap: wrap;
+    display: inline;
+   
+}
+.navigation__links
+{
+    color: white;
+}
+
+}
+
+
+
+.navigation__input
+{
+width: 10ch;
+}
+.main__header
+{
+    text-align: center;
+}

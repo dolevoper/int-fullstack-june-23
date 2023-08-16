@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu Buttons</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: lightblue;
+        }
+
+        .menu-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+            text-decoration: none;
+        }
+
+        .menu-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="menu-button"><a href="home.html">Home</a></button>
+        <button class="menu-button"><a href="basics.html">Basics</a></button>
+        <button class="menu-button"><a href="tables.html">Tables</a></button>
+        <button class="menu-button"><a href="colors.html">Colors</a></button>
+        <button class="menu-button"><a href="basiccss.html">Basic CSS</a></button>
+    </header>
+</body>
+</html>

@@ -1,0 +1,131 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto Slab";
+    box-sizing: border-box;
+}
+
+:root {
+    --Primary: #3f6ff3 ;
+    --Secondary: #e2e9fd ;
+    --Neutral300: #f8f9fb ;
+    --Neutral400: #eceff4 ;
+    --Neutral500: #c5cfdd ;
+    --Neutral600: #a2aab3 ;
+    --Green: #70d36b ;
+    --Yello: #ffcb05 ;
+    --Red: #ff5d54 ;
+    font-size: 0.8rem;
+}
+
+html, body {
+    height: 100%;
+}
+
+.bar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: fit-content;
+    height: 100%;
+    border-right: var(--Neutral500) 2px solid ;
+    box-shadow: 2px 6px 6px 2px var(--Neutral500);
+    padding: 0.5rem;
+    align-items: center;
+    float: left;
+    :nth-last-child(-n + 4) {
+        position: relative;
+        top:20%;
+    }
+    &__title {
+        display: inline;
+        text-transform: uppercase;
+        color: var(--Primary);
+    }
+    &__burger, &__bell, &__case, &__home {
+        width: 2rem;
+        height: 2rem;
+        fill: var(--Neutral500);
+    }
+    &__home, &__cal, &__board {
+        width: 2rem;
+        height: 2rem;
+        stroke: var(--Neutral500);
+    }
+}
+
+.body {
+    display: flex;
+}
+
+.main {
+    height: 100%;
+    width: calc(100% - 50px);
+}
+
+.calcontain {
+    background-color: var(--Neutral500);
+    margin: 1rem;
+    width: 100%;
+    height: calc(100% - 2rem);
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: auto repeat(7, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    height: 100%;
+    gap: 0.1rem;
+    &__days {
+        list-style: none;
+        grid-area: 1 / 2 / 2 / 9 ;
+        display: grid;
+        grid-auto-flow: column;
+        text-align: center;
+        column-gap: 0.1rem;
+        &__item {
+            text-transform: uppercase; 
+            background-color: var(--Neutral300);
+        }
+    }
+    &__hour {
+        list-style: none;
+        grid-area: 2 / 1 / 13 / 2 ;
+        display: grid;
+        gap: 0.1rem;
+        &__item {
+            text-transform: uppercase; 
+            background-color: var(--Neutral300);
+        }
+    }
+}
+
+.bob {
+    border-radius: 5px;
+    text-align: center;
+    color: var(--Neutral300);
+    &--blue {
+    grid-area: 2/ 2/ 4/ 3;
+    background-color: var(--Primary);
+    }
+    &--green {
+        grid-area: 4/ 4/ 5/ 5;
+        background-color: var(--Green);
+    }
+    &--yellow {
+        grid-area: 3 / 5 / 6 / 6;
+        background-color: var(--Yello);
+    }
+    &--orange {
+        grid-area: 8/ 5/ 10/ 6;
+        background-color: var(--Yello);
+    }
+}
+
+.bobfill {
+    grid-area: span 1;
+    background-color: var(--Neutral300);
+}
+
+
+

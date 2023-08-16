@@ -1,0 +1,80 @@
+/*.toggle
+{
+  &__label
+    {
+      --ball-size:12px;
+      --slot-padding:1rem;
+      --slot-length:calc(2*var(--ball-size)+2*var(--slot-padding));
+      --slot-width:calc(2*var(--ball-size)+2*var(--slot-padding));
+      cursor: pointer;
+    }
+    &__check
+    {
+        display: none;
+        &:checked+&__slot {
+            background: green;
+
+            &__ball {
+                // left: calc(var(--slot-width) - var(--ball-size) - var(--slot-padding));
+                translate: 100%;
+            }
+        }
+    }
+    &__slot {
+        width: var(--slot-width);
+        height: var(--slot-height);
+        background: #999;
+        border-radius: var(--slot-height);
+        position: relative;
+    }
+    &__ball {
+        width: var(--ball-size);
+        height: var(--ball-size);
+        background-color: #ddd;
+        border-radius: var(--ball-size);
+        position: absolute;
+        top: var(--slot-padding);
+        left: var(--slot-padding);
+        // transition: left 1s ease-out;
+        transition: translate 300ms ease-out;
+    }
+}*/
+label {
+    --ball-size: 30px;
+    --slot-padding: 1px;
+    --slot-height: calc(var(--ball-size) + 2 * var(--slot-padding));
+    --slot-width: calc(var(--ball-size) * 2 + var(--slot-padding) * 2);
+    cursor: pointer;
+
+    input {
+        display: none;
+
+        &:checked+.toggle__slot {
+            background: green;
+
+            .toggle__ball {
+                // left: calc(var(--slot-width) - var(--ball-size) - var(--slot-padding));
+                translate: 100%;
+            }
+        }
+    }
+
+    .toggle__slot {
+        width: var(--slot-width);
+        height: var(--slot-height);
+        background: #999;
+        border-radius: var(--slot-height);
+        position: relative;
+    }
+
+    .toggle__ball {
+        width: var(--ball-size);
+        height: var(--ball-size);
+        background-color: #e1d7d7;
+        border-radius: var(--ball-size);
+        position: absolute;
+        top: var(--slot-padding);
+        left: var(--slot-padding);
+        transition: translate 300ms ease-out;
+    }
+}

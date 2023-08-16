@@ -1,0 +1,117 @@
+/* SEA FILE */
+
+// Main Sea Animations
+@use "sea-animations";
+
+// Sea Objects
+@use "../vikings/viking-boat/boat";
+@use "../vikings/vikings";
+
+
+/*
+    Tide Animation Manager
+
+    Holds key values and calculations for sea tide & intensity.
+    Also calculates and controls objects marked as floating above sea level.
+*/
+.tide-animation-manager {
+
+    /* Single Wave */
+    --wave-single-width: 121px;
+    --wave-single-width-unitless: 121;
+
+    --wave-single-width-half: calc( var(--wave-single-width) / 2);
+
+    /* Sea waves control - use to control sea objects as well. */
+    // Tide Range
+    --wave-tide-range: var(--wave-single-width);
+    --wave-tide-range-negative: calc( 0px - var(--wave-tide-range));
+
+    // Half of tide range
+    --wave-tide-range-half: calc(var(--wave-tide-range) / 2 );
+    --wave-tide-range-half-negative: calc( 0px - var(--wave-tide-range-half));
+
+
+    /* Overall sea dimensions */
+
+    // Calculates how many single waves can fit into screen's width
+    // Add additional space for twice the tide's range to prevent whitespaces.
+    --waves-width: calc( ((100vw / var(--wave-single-width-unitless)) * var(--wave-single-width-unitless)) + (var(--wave-tide-range) * 2) );
+    --waves-height: 25%;
+
+    // Calculate sea level
+    --sea-level: calc( var(--waves-height) - 7.5% );
+
+
+    /* Wave tide intensity and timer */
+    --wave-tide-intensity-offset: 0.7; // range 0.1 - 0.9
+    --wave-tide-intensity: calc(1 - var(--wave-tide-intensity-offset));
+    --wave-tide-time: 20s;
+
+    // tide animation time * intensity calc
+    --wave-tide-anim-time: calc( var(--wave-tide-time) * var(--wave-tide-intensity) );
+
+
+    /* Selects objects marked as floating inside tide manager object */
+    .float {
+            
+        /* Floating objects control*/
+        
+        /* float rotation*/
+        --float-rotation-offset: 2.5deg;
+        --float-rotation: calc( var(--float-rotation-offset) * var(--wave-tide-intensity-offset));
+        --float-rotation-negative: calc( 0deg - var(--float-rotation) );
+
+        /* float y axis*/
+        --float-y: calc( var(--wave-tide-range-half) / 5) ;
+        
+        // Main default float animation
+        animation: --anim-float var(--wave-tide-anim-time) infinite ease;
+
+        &--reverse {
+            // Reverse float animation
+            animation: --anim-float-reverse var(--wave-tide-anim-time) infinite ease;
+        }
+    }
+}
+
+.sea {
+
+    // Make sea overlay the whole screen
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+
+.waves {
+
+    width: var(--waves-width);
+    height: var(--waves-height);
+
+    // Position waves at the bottom of the screen
+    position: absolute;
+    bottom: 0;
+
+    //  left offset of one 1 full tide-range, to prevent whitespaces.
+    left: var(--wave-tide-range-negative);
+
+    // Main tide animation
+    animation: --anim-waves-tide var(--wave-tide-anim-time) infinite ease;
+
+    &.front {
+        background: url("../../assets/sea/wave-front.svg") repeat-x 0 4px ;
+        background-size: contain;
+    }
+
+    &.back {
+        // Add additional half width of a wave to align back waves between front waves gap.
+        left: calc( var(--wave-tide-range-negative) - var(--wave-single-width-half));
+
+        background: url("../../assets/sea/wave-back.svg") repeat-x 0 4px ;
+        background-size: contain;
+    }
+}
+

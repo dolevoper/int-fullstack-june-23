@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700;900&family=Source+Code+Pro:wght@200&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  background-color: black;
+  min-width: 650px;
+  overflow-x: hidden;
+  padding: right 20px; ;
+}
+
+.box,
+.output {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  background-color: gray;
+  padding: .4rem;
+}
+
+.box-header,
+.output-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-bottom: 10px;
+  background-color: black;
+  color: white;
+}
+
+.box-input,
+.output-input {
+  flex: 1;
+  margin-bottom: 10px;
+  padding: .4rem;
+  margin: 1px;
+  border: 1px solid white;
+  background-color: white;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 1rem;
+  padding: 8px;
+}
+
+.box {
+  height: 20rem;
+
+  &-header {
+    font-size: 1rem;
+  }
+}
+
+.output {
+  height: 30rem;
+  border: 1px solid gray;
+  border-bottom-width: 1.5rem;
+  width: 100%;
+  grid-column: span 3;
+  grid-row: span 2;
+
+
+  &-input {
+    width: 99.8%;
+    height: 90%;
+  }
+}
+
+footer {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.tabs{
+  visibility: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  justify-content: space-evenly;
+  border: 2px solid black;
+  width: 100%;
+  height: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-content: center;
+  flex-direction: row;
+  align-items: center;
+  background-color: gray;
+}
+
+  .tabs__label{
+    pad: 10px 16px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 50px;
+    margin: 5px
+    
+  }
+
+  .tabs__radio{
+
+    display: none;
+
+    &:checked + .tabs__label{
+      font-weight: bold;
+      color: white;
+      border: 1px solid wheat;
+
+    }
+
+    &:checked + .tabs__label+ .tabs__content{
+       display: initial;
+    }
+
+  }
+
+  .tabs__content{
+    order: 1;
+    width: 100%;
+    line-height: 1.5;
+    font-size: 0.9em;
+    display: none;
+    color: white;
+    height: 50%;
+  }
+
+  .tabs-input{
+    width: 100%;
+    height: 60%;
+    position: absolute;
+    top: 20px;
+  }
+
+  .tabs-output{
+    position: absolute;
+    bottom: 20px;
+    height: 30%;
+    width: 98%;
+  }
+
+  box-icon{
+    vertical-align: middle;
+  }
+
+@media screen and (max-width: 700px) {
+  body {
+    grid-template-columns: repeat(3, 1fr);
+    visibility: collapse;
+  }
+
+  .tabs{
+    visibility: visible;
+  }
+}

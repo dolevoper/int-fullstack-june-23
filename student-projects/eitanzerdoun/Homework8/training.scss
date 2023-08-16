@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.headerbar{
+    background-color: rgb(245, 194, 194);
+    position: fixed;
+    isolation: isolate;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    .headerbar__logo{
+        width: 200px;
+        height: 50px;
+        margin: 30px;
+    }
+    .navbar{
+        label {
+            padding: 0.3rem;
+            font-size: 1.2rem;
+            border: 1px solid rgb(243, 0, 0);
+            border-radius: 6px;
+            display: flex;
+            width: fit-content;    
+        }
+        input{
+            display: none;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        a{
+            color: black;
+            text-decoration: none;
+        }
+    }
+}

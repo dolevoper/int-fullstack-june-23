@@ -1,0 +1,33 @@
+// Colors
+// brand colors
+$color-Primary: #3f6ff3;
+$color-Secondary: #e2e9fd;
+
+// misc colors
+$color-Green: #70d36b;
+$color-Yellow: #ffcb05;
+$color-Red: #ff5d54;
+
+// White shades
+$color-Neutral-300: #f8f9fb;
+$color-Neutral-400: #eceff4;
+$color-Neutral-500: #c5cfdd;
+$color-Neutral-600: #a2aab3;
+
+// Fonts
+// Font: Roboto Slab
+@font-face {
+    font-family: "roboto-slab";
+    src: url("../assets/fonts/roboto-slab.ttf");
+}
+
+$font-main: 'roboto-slab', Arial, sans-serif;
+
+$font-size-default: 1rem;
+$font-size-medium: 1.4rem;
+$font-size-large: 2rem;
+
+
+// screen sizes
+$screen-mobile: 480px;
+$screen-tablet: 820px;

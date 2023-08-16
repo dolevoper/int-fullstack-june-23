@@ -1,0 +1,23 @@
+@use "defaults" as defaults;
+
+@use "navbar";
+@use "dashboard/dashboard";
+
+.main-wrapper {
+    
+    // get parent height
+    height: 100%;
+
+    // main flex to support mobile breakpoint
+    display: flex;
+    justify-content: flex-start;
+    background-color: defaults.$color-Neutral-300;
+    gap: 1rem;
+    // @media (max-width: defaults.$screen-mobile) {
+    //     flex-direction: column;
+    // }
+}
+
+.dashboard {
+    flex: 1;
+}
