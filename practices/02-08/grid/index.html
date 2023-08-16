@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+</style>
+</head>
+<body>
+
+<h1>The grid-auto-flow Property</h1>
+
+<p>The <em>grid-auto-flow</em> property controls how auto-placed items are inserted in the grid.</p>
+<p>This grid has three columns and two rows.</p>
+
+<h2>grid-auto-flow: column</h2>
+<p>Insert items column by column:</p>
+<div class="grid-container" style="grid-auto-flow: column;">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item4">5</div>
+  <div class="item4">6</div>
+  <div class="item4">7</div>
+</div>
+
+<h2>grid-auto-flow: row</h2>
+<p>Insert items row by row:</p>
+<div class="grid-container" style="grid-auto-flow: row;">
+  <div class="item1">1</div>
+  <div class="item4" style="grid-area: 3/2/4/3;">full</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item4">5</div>
+  <div class="item4">6</div>
+  <div class="item4">7</div>
+  <div class="item4">8</div>
+</div>
+
+</body>
+</html>
