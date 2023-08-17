@@ -5,14 +5,15 @@
 
 
 
-
-const a:number = Number(prompt("Enter length of leg a"));
-const b:number = Number(prompt("Enter length of leg b"));
-const cSquared:number = a ** 2 + b ** 2;
-const c:number = Math.sqrt(cSquared);
+const a = Number(prompt("Enter length of leg a"));
+const b = Number(prompt("Enter length of leg b"));
+const cSquared = a ** 2 + b ** 2;
+const c = Math.sqrt(cSquared);
 
 //if (isNaN(c) || c==="") {
-if(a === "" || isNaN(a) || a<0 || b ==="" || isNaN(b) || b<0){
+//if(a === "" || isNaN(a) || a<0 || b ==="" || isNaN(b) || b<0){
+
+if (isNaN(c)) {
     alert("Please enter valid numbers.");
 } else {
     alert("The length of the hypotenuse is: " + c);
