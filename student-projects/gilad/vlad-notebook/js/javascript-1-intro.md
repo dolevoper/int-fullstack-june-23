@@ -330,4 +330,3 @@ Because of this, you can safely call the function anywhere in its containing `sc
 <br>
 
 # Data structures and types
-
