@@ -1,0 +1,118 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+header {
+    background: black;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    a {
+        color: white;
+    }
+
+    nav {
+        display: inline;
+        margin-inline-start: 2rem;
+    }
+    
+    .navigation-links {
+        display: inline;
+        padding: 0;
+
+        li {
+            display: inline;
+            margin-inline-start: 1rem;
+        }
+    }
+}
+
+main {
+    width: min(70ch, 100% - 3rem);
+    margin-inline: auto;
+    margin-block-start: 5rem;
+}
+
+.main-action {
+    position: fixed;
+    left: 10%;
+    bottom: 10%;
+    font-size: 2rem;
+    width: 75px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.card {
+    background: hsl(0deg 0% 0% / 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+
+    figure {
+        margin-inline: -1rem;
+        margin-block-start: -1rem;
+        position: relative;
+    }
+
+    figcaption {
+        position: absolute;
+        color: white;
+        font-weight: 600;
+        bottom: 0.75rem;
+        left: 1rem;
+        line-height: 1;
+    }
+
+    img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        display: block;
+        object-fit: cover;
+        border-radius: 8px 8px 0 0;
+    }
+}
+
+// Sup element reset 
+
+sub {
+    vertical-align: baseline;
+}
+sup {
+    vertical-align: baseline;
+}
+sub, sup {
+    font-size: 1em;
+    line-height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+//
+.superscript {
+
+}
+
+.superscript__link {
+    color: red;
+
+    &::before {
+        content: "[";
+    }
+    &::after {
+        content: "]";
+    }
+}

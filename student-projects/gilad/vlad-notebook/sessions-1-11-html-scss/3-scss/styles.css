@@ -1,0 +1,25 @@
+button {
+    appearance: none; /* Resets button appearance defaults */
+    padding: 4px 8px;
+    border: 2px solid orange;
+    text-transform: uppercase;
+}
+
+.card {
+    margin: 10px; 
+    box-shadow: 0px 0px 8px rgb(0 0 0 /0.2); 
+    padding: 8px; 
+    border-radius: 8px;
+}
+
+.card.smaller {
+    max-width: 45ch ;
+}
+
+p.smaller {
+    font-size: 0.8rem;
+}
+
+li {
+    display: inline;
+}
