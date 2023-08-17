@@ -17,10 +17,10 @@
 
         function calcPitagoras(){
 
-            const a = parseInt(prompt("Enter number a:"));
-            const b = parseInt(prompt("Enter number b:"));
+            const a = Number(prompt("Enter number a:"));
+            const b = Number(prompt("Enter number b:"));
 
-            if(isNaN(a) || a < 0 || a == "" || isNaN(b) || b < 0 || b == "") {
+            if(isNaN(a) || a < 0 || a === "" || isNaN(b) || b < 0 || b === "") {
                 alert("Please enter valid number, try again");
                 calcPitagoras();
             } else {
