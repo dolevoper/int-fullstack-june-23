@@ -7,12 +7,14 @@ const a = Number(prompt("Enter length of leg a"));
 const b = Number(prompt("Enter length of leg b"));
 const cSquared = a ** 2 + b ** 2;
 const c = Math.sqrt(cSquared);
+if(a<0||b<0){alert("The side of the triangale canot be negative")}
+else{alert("the c side is: " + c)}
 
-if (isNaN(c)) {
-    alert("Please enter valid numbers.");
-} else {
-    alert("The length of the hypotenuse is: " + c);
-}
+//  if (isNaN(c)) {
+//     alert("Please enter valid numbers.");
+//  } else {
+//     alert("The length of the hypotenuse is: " + c);
+//  }
 
 // comparison operators: >, <, ===, <=, >=, !== (, ==, !=)
 // number -> number -> boolean
