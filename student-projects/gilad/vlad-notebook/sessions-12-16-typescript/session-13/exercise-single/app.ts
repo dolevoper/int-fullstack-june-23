@@ -24,12 +24,16 @@ if ( a <= 0 || isNaN(a) || a === null) {
     const b = Number(prompt("Enter length of leg b"));
 
     if ( b <= 0 || isNaN(b) || b == null) {
+        alert("Please enter a valid positive number ");
+        
+    } else {
         const cSquared = a ** 2 + b ** 2;
         const c = Math.sqrt(cSquared);
-    } else {
-        alert("Please enter a valid positive number ");
+        alert(c)
     }
 }
+
+
 
 // alert(a);
 // if ( a === 0 ) {
