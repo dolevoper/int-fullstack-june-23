@@ -1,0 +1,414 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    background-color: #f8f9fb;
+
+
+
+
+
+}
+
+
+header {
+    display: flex;
+    flex-direction: column;
+    width: 60px;
+    height: 100vh;
+    box-shadow: 0 0 0 1px rgb(196, 193, 193);
+
+    .header_hum_bell {
+        margin-left: 19px;
+        margin-top: 10px;
+        list-style: none;
+        color: rgb(151, 146, 146);
+        cursor: pointer;
+
+        &:hover {
+            color: black;
+        }
+    }
+
+
+
+    .logo {
+        flex: 1;
+        width: 60px;
+        justify-content: flex-start;
+        margin-left: 3px;
+
+
+        li {
+            margin-left: 10px;
+
+        }
+
+
+        img {
+            width: 50px;
+            height: 45px;
+            mix-blend-mode: multiply;
+        }
+
+    }
+
+    aside {
+        flex: 3;
+
+        display: flex;
+        align-items: center;
+
+        .nav-links {
+            list-style: none;
+            align-items: center;
+            font-size: 1.2rem;
+            gap: 6px;
+            color: rgb(151, 146, 146);
+
+
+            li {
+                padding-left: 20px;
+                cursor: pointer;
+
+                &:hover {
+                    color: black;
+                }
+
+
+
+                svg {
+                    margin-top: 25px;
+                }
+            }
+
+
+
+
+        }
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+main {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+
+    .main_header {
+        flex: 0 0 1;
+        display: flex;
+        justify-content: space-between;
+
+        h1 {
+            margin-left: 10px;
+            padding-top: 10px;
+        }
+
+        .switch {
+            margin-top: 10px;
+            position: relative;
+            display: inline-block;
+            width: 150px;
+            height: 35px;
+
+            input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+            .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ccc;
+                -webkit-transition: .4s;
+                transition: .4s;
+
+                &:before {
+                    position: absolute;
+                    content: "";
+                    height: 30px;
+                    width: 75px;
+                    left: 2px;
+                    bottom: 3px;
+                    background-color: rgb(156, 152, 152);
+                    -webkit-transition: .4s;
+                    transition: .4s;
+                }
+
+                .slider.round:before {
+                    border-radius: 50%;
+                }
+            }
+
+            input:checked+.slider:before {
+                -webkit-transform: translateX(70px);
+                -ms-transform: translateX(70px);
+                transform: translateX(70px);
+            }
+
+            input:checked+.slider {}
+
+            input:focus+.slider {
+                box-shadow: 0 0 1px #2196F3;
+            }
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+            border: transparent;
+            color: #f8f9fb;
+            background-color: #3f6ff3;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+
+        }
+
+        .main_header_end_button {
+            margin-top: 10px;
+        }
+
+
+    }
+
+    .main_date {
+        
+        flex: 0 0 1;
+        display: flex;
+        text-decoration: none;
+        margin-top: 10px;
+        
+
+
+
+
+        .main_date_button {
+            flex: 0 0 1;
+            margin-left: 3px;
+            text-decoration: none;
+            list-style: none;
+           
+
+            button {
+
+                width: 100px;
+                height: 30px;
+                border: transparent;
+                color:  #3f6ff3;
+                background-color: #c5cfdd;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 0.8rem;
+            }
+
+
+        }
+
+        .main_date_text {
+            flex: 1;
+            align-items: flex-end;
+            list-style: none;
+            text-align: center;
+            margin-right: 300px;
+            cursor: pointer;
+            
+           
+          
+            
+
+
+        }
+    }
+
+    .main_calender {
+        display: grid;
+    width: 100%;
+    grid-template-columns: repeat(7, minmax(50px, 0.5fr));
+    grid-template-rows: 30px;
+    grid-auto-rows: 79px;
+    overflow: auto;
+   
+
+        
+        h1{
+            font-size: 12px;
+    text-transform: uppercase;
+    color: #111111;
+    text-align: center;
+    border-bottom: 1px solid rgba(92, 94, 100, 0.12);
+    line-height: 50px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(166, 168, 179, 0.12);
+    border-right: 1px solid rgba(166, 168, 179, 0.12);
+    
+        }
+
+       
+        .Eight{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }
+        .Nine{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 3;
+            grid-row-end: 4;
+        }
+        .Ten{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 4;
+            grid-row-end: 5;
+        }
+
+        .Eleven{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 5;
+            grid-row-end: 6;
+        }
+        
+        .Twelve{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 6;
+            grid-row-end: 7;
+        }
+        
+        .Thirteen{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 7;
+            grid-row-end: 8;
+        }
+        
+        .Fourteen{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 8;
+            grid-row-end: 9;
+        }
+        
+        .Fifteen{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 9;
+            grid-row-end: 10;
+        }
+        
+        .Sixteen{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 10;
+            grid-row-end: 11;
+        }
+        
+        .Seventeen{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 11;
+            grid-row-end: 12;
+        }
+        
+        .Eighteen{
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 12;
+            grid-row-end: 13;
+        }
+      
+        .SUN{
+            text-align: center;
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 2;
+
+        }
+        .MON{
+            text-align: center;
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+        .TUE{
+            text-align: center;
+            grid-column-start: 4;
+            grid-column-end: 5;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+        .WED{
+            text-align: center;
+            grid-column-start: 5;
+            grid-column-end: 6;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+        .THU{
+            text-align: center;
+            grid-column-start: 6;
+            grid-column-end: 7;
+            grid-row-start: 1;
+            grid-row-end: 2;   
+        }
+        .FRI{
+            text-align: center;
+            grid-column-start: 7;
+            grid-column-end: 8;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+        .SAT{
+            text-align: center;
+            grid-column-start: 8;
+            grid-column-end: 9;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+      
+      
+      
+    }
+
+
+
+}
