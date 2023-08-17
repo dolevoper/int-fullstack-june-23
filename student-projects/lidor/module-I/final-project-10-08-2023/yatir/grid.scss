@@ -1,0 +1,41 @@
+body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+main{
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: baseline;
+    justify-content: space-between;
+
+    
+}
+
+table{
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    .day{
+        display: flex;
+        
+    }
+
+    .hour{
+        display: grid;
+    
+    }
+}
+
+.side{
+    display: flex;
+    justify-content: space-between;
+    
+
+    &__list{
+        list-style: none;
+        padding: 0;
+    }
+}

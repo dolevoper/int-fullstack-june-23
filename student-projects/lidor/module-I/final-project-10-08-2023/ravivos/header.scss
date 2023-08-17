@@ -1,0 +1,15 @@
+.site-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation-links {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .separate {
+        margin-top: auto;
+    }
+}
+

@@ -1,0 +1,95 @@
+body {
+    display: grid;
+    grid-template-columns: repeat(10 ,1fr);
+    grid-template-rows: repeat(10,1fr);
+    gap: 0.3rem;
+    grid-template-areas: 
+    "a h h h h h h h h h h h"
+    "a m m m m m m m m m m m"
+    "a m m m m m m m m m m m"
+    "a m m m m m m m m m m m"
+    "a m m m m m m m m m m m"
+    "a m m m m m m m m m m m"
+    "a m m m m m m m m m m m"
+    "a m m m m m m m m m m m"
+    "a m m m m m m m m m m m"
+    "a m m m m m m m m m m m"
+    ;
+}
+
+.header {
+    background-color: rgb(246, 246, 255);
+    grid-area: h;
+
+    &__firstul {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+    }
+
+    &__secendul {
+        display: flex;
+        gap: 500px;
+        list-style: none;
+
+        &__august-style {
+            font-size: 1rem;
+            color: rgb(102, 102, 102);
+            font-weight: 600;
+
+            &::before {
+                content: "<";
+            }
+
+            &::after {
+                content: ">\00a0";
+            }
+        }
+    }
+}
+
+.aside {
+    background-color: rgb(246, 246, 255);
+    grid-area: a;
+
+    box-shadow: 1px 1px 6px rgb(0 0 0 / 0.2);
+    border-radius: 1px;
+    border: 3px black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    &__firstul {
+        list-style: none;
+    }
+
+    &__secendul{
+        list-style: none;
+    }
+
+}
+
+.main {
+    background-color: rgb(246, 246, 255);
+    grid-area: m; 
+}
+
+.int-font {
+    font-size: 3rem;
+    color: rgb(112, 112, 235) ;
+    font-weight: 600;
+}
+
+.cal-font {
+    font-size: 2rem;
+}
+
+button {
+    background-color: skyblue;
+    font-weight: 600;
+    width: fit-content;
+    height: 30px;
+    border-radius: 2px;
+    border: 1px;
+}
