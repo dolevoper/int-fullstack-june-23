@@ -33,6 +33,8 @@ if ( a <= 0 || isNaN(a) || a === null) {
     }
 }
 
+
+
 // alert(a);
 // if ( a === 0 ) {
 //     alert("Please enter a number ");
