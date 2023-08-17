@@ -29,6 +29,7 @@ if ( a <= 0 || isNaN(a) || a === null) {
     } else {
         const cSquared = a ** 2 + b ** 2;
         const c = Math.sqrt(cSquared);
+        alert(c)
     }
 }
 
