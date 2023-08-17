@@ -1,4 +1,4 @@
-// 1. Validate the individual numbers (negative numbers)
+// 1. Validate negative numbers
 // 2. Validate empty strings
 // 3. Validate click on cancel
 // 4. Stop running if first number is invalid.
