@@ -1,0 +1,58 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+body {
+    
+    font-family: 'roboto slab'
+}
+
+html,
+body {
+    height: 100%;
+}
+
+header{
+    box-shadow: 1px 1px 5px black;
+    border: rgba(0,0,0,0.4);
+}
+
+.brand{
+    color: #3f6ff3;
+    
+}
+
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid;
+    text-align: center;
+    padding: 8px;
+}
+
+
+
+td {
+    height: 80px;
+}
+
+.no{
+    visibility: none;
+}
+
