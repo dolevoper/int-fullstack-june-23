@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pythagorean Pocket Calculator</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .bg {
+            margin: 0;
+            padding: 0;
+            width: 100vw; 
+            height: 100vh; 
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="bg" style="background: url('pyth.jpg') no-repeat center center;
+    background-size: cover;"></div>
+
+    <script>
+        /* 
+            Although we didn't study functions, rendering lifecycle does not block js,
+            and alert DID block the background rendering.
+            Therefore, a quick fix is to "delay" js using a simple time-out (delay) function.
+        */
+        setTimeout(function() {
+
+
+            alert(  "Welcome to Pythagorean Theorem Calculator 📐");
+
+            alert(  "You're about to reveal the geometric ✨magical relation✨\n" 
+                    + "between the perpendicular, base and hypotenuse\n"
+                    + "sides of a right-angled triangle! ⦜");       
+
+            // Prompting for perpendicular and base values
+            // because we use constants only, we're directly parsing the
+            // use input to float, and then setting float precision to .3 
+            const perp = parseFloat(prompt(`a^2 + b^2 = c^2\n`
+                                + "Enter the length of the perpendicular side:")).toFixed(3);
+            
+            const base = parseFloat(prompt(`${perp}^2 + b^2 = c^2\n`
+                                + "Enter the length of the base:")).toFixed(3);
+            
+
+            // Printing unnecessary jokes
+            alert(  `c^2 = ${perp}^2 + ${base}^2` 
+                    + "\n"
+                    + "Philosophizing theories...");
+
+            // powering recieved values by power of 2 
+            const c = Math.pow(perp, 2) + Math.pow(base, 2);
+            
+            // Printing more unnecessary jokes
+            alert(`c^2 = ${Math.pow(perp, 2)} + ${Math.pow(base, 2)} \nAttempting Calculus...`);
+
+            // Calculating square root of the sum of previous result.
+            const hypotenuse = Math.sqrt(c).toFixed(3);
+            
+            // Printing the last step of the equation. One last joke, I promise.
+            alert(`c = √${c} \nFounding the first science cult...`);
+
+            alert(
+                `              a = ${perp}`               + "\n" +   
+                "                |\\"                     + "\n" +   
+                "                |_\\"                    + "\n" +       
+                "                |__\\  hypotenuse="      + "\n" +   
+                `                |____\\   ${hypotenuse}` + "\n" +   
+                "                |_____\\"                + "\n" +
+                "                |_______\\"              + "\n" +
+                `                b= ${base}`              + "\n" +
+                "           Pythagoras Style!💅");
+
+        }, 200);
+    </script>
+</body>
+</html>

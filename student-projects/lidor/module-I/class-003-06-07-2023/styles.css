@@ -1,0 +1,21 @@
+button {
+    appearance: none;
+    padding: 4px 8px;
+    border: 2px solid orange;
+    text-transform: uppercase;
+}
+
+.card {
+    margin: 10px;
+    box-shadow: 0 0 8px rgb(0 0 0 / 0.2);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.card.smaller {
+    max-width: 45ch;
+}
+
+p.smaller {
+    font-size: 0.8rem;
+}
