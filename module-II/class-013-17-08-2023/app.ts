@@ -1,7 +1,7 @@
 // 1. Validate negative numbers
 // 2. Validate empty strings
 // 3. Validate click on cancel
-// 4. Stop running if first number is invalid.
+// 4. Stop running if first number is invalid (show validation messages for first/second number)
 
 const a = Number(prompt("Enter length of leg a"));
 const b = Number(prompt("Enter length of leg b"));
