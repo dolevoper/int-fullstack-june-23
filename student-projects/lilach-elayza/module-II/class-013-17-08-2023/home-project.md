@@ -8,7 +8,7 @@
 3, 4, 6 -> false
 4, 3, 5 -> true
 
-## Guess my number
+## Guess my numbers
 
 1. Generate a random whole number between 1 and 10. Prompt the user to guess it. Show the appropriate message if the user was able/not able to guess.
 2. Validate the numbers (is a number, whole, in the secret's range)
