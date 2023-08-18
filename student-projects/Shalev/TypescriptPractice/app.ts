@@ -3,18 +3,19 @@
 // 3. Validate click on cancel
 // 4. Stop running if first number is invalid (show validation messages for first/second number)
 
-const a = Number(prompt("Enter length of leg a"));
-const b = Number(prompt("Enter length of leg b"));
-const cSquared = a ** 2 + b ** 2;
-const c = Math.sqrt(cSquared);
-if(a<0||b<0){alert("The side of the triangale canot be negative")}
-else{alert("the c side is: " + c)}
+// Questions and constants
 
-//  if (isNaN(c)) {
-//     alert("Please enter valid numbers.");
-//  } else {
-//     alert("The length of the hypotenuse is: " + c);
-//  }
+const a = Number(prompt('Enter length of leg a'))
+const b = Number(prompt('Enter length of leg b'))
+const cSquared = a ** 2 + b ** 2
+const c = Math.sqrt(cSquared)
+let validA = a > 0
+let validB = a > 0
+
+// If both validA and validb are true...
+if (validA == true && validB == true) {
+	alert('The length of the hypotenuse is: ' + c)
+}
 
 // comparison operators: >, <, ===, <=, >=, !== (, ==, !=)
 // number -> number -> boolean
