@@ -4,20 +4,47 @@
 // 4. Stop running if first number is invalid (show validation messages for first/second number)
 
 
-const input =  prompt("Please enter a number:");
 
-if (input === null) {                   // Cancel
-    alert("You push on Cancel");
-} else if (input === "") {              //  לא הוכנס כלום
-    alert("Empty input field");
-} else {
-    const number = parseFloat(input);
-    if(number < 0){                     // המספר קטן מאפס
-        alert("You enter less from 0");
-    } else {                            // המספר תקין
-        alert("You enter valid number");
-    }
+const myNum = Number(prompt("Plaese enter nunber"));
+
+if(isNaN(myNum) || myNum=="" || myNum<0) {
+    alert("Plaese enter valid number");
 }
+
+
+
+/*
+if(myNum !== null){
+    alert("empty string");
+}
+*/
+/*
+if(isNaN(myNum)) {
+    alert("Plaese enter valid number");
+}else if(myNum !== null){
+    alert("empty string");
+}else if(myNum==""){
+    alert("sdfgsdfgsdfg11111111")
+}
+*/
+
+/*
+
+const a = Number(prompt("Enter length of leg a"));
+const b = Number(prompt("Enter length of leg b"));
+const cSquared = a ** 2 + b ** 2;
+const c = Math.sqrt(cSquared);
+
+//if (isNaN(c) || c==="") {
+//if(a === "" || isNaN(a) || a<0 || b ==="" || isNaN(b) || b<0){
+
+if (isNaN(c)) {
+    alert("Please enter valid numbers.");
+} else {
+    alert("The length of the hypotenuse is: " + c);
+}
+
+*/
 
 
 // comparison operators: >, <, ===, <=, >=, !== (, ==, !=)
