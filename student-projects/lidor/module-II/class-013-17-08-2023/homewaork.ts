@@ -21,7 +21,7 @@ if (good_numbers ){
     alert ("All numbers are positive ");
 }
     else {
-        alert("There are negative numbers");
+        alert("There are negative numbers.");
     
     
         
