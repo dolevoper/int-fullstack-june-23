@@ -57,6 +57,8 @@ function easyCheck (easyMaxCheck){
     return false;
 }
 
+
+
 function hardCheck (hardMaxCheck){
     if(hardMaxCheck > hardMaxLevel || hardMaxCheck < minLevel){
         alert("you need to guess a number between 1-100!");
@@ -86,8 +88,8 @@ else if(difficulty === "easy"){
 
         }else if(easySecondGuess === easyRandomNumber){
             alert(easyWinner);
-        }else if(easySecondGuess > easyRandomNumber){
-            const easyThirdGuess = Number(prompt("Your Number is high! you have 1 guess left"));
+        }else if(easySecondGuess < easyRandomNumber){
+            const easyThirdGuess = Number(prompt("Your Number is low! you have 1 guess left"));
 
             if(checkGuess(easyThirdGuess) || easyCheck(easyThirdGuess)){
 
@@ -104,8 +106,8 @@ else if(difficulty === "easy"){
 
         }else if (easyFifthGuess === easyRandomNumber){
             alert(easyWinner);
-        }else if(easyFifthGuess < easyRandomNumber){
-            const easySixGuess = Number(prompt("your number is low! you have 1 guess left"));
+        }else if(easyFifthGuess > easyRandomNumber){
+            const easySixGuess = Number(prompt("your number is high! you have 1 guess left"));
 
             if(checkGuess(easySixGuess) || easyCheck (easySixGuess)){
 
@@ -129,8 +131,8 @@ else if(difficulty === "easy"){
 
         }else if(hardSecounGuess === hardRandomNumber){
             alert(hardRandomNumber)
-        }else if(hardSecounGuess > hardRandomNumber){
-            const hardThirdGuess = Number(prompt("Your number is high! you have 1 guess left!"))
+        }else if(hardSecounGuess < hardRandomNumber){
+            const hardThirdGuess = Number(prompt("Your number is low! you have 1 guess left!"))
 
             if(checkGuess(hardThirdGuess) || hardCheck(hardThirdGuess)){
 
@@ -147,8 +149,8 @@ else if(difficulty === "easy"){
 
         }else if(hardFourGuess === hardRandomNumber){
             alert(hardWinner);
-        }else if(hardFourGuess < hardRandomNumber){
-            const hardFiveGuess = Number(prompt("Your number is low! you have 1 guess left"));
+        }else if(hardFourGuess > hardRandomNumber){
+            const hardFiveGuess = Number(prompt("Your number is high! you have 1 guess left"));
 
             if(checkGuess(hardFiveGuess) || hardCheck(hardFiveGuess)){
 
