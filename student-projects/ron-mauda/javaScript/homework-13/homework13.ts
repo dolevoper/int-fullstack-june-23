@@ -11,6 +11,6 @@ if ((PythagorasOne === C**2 || PythagorasTwo === B**2 || PythagorasThree === A**
     alert ("no")
 }
 
-
+//
 
 
