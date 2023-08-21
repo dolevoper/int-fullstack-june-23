@@ -18,7 +18,8 @@
 
 // 1. Print the iteration number with the message in the alert
 // 2. Ask the user how many hellos to print
-for (let i = 1; i <= 3; i++) {
+const hellos_num = Number(prompt('how many hellos to print?'))
+for (let i = 1; i <= hellos_num ; i++) {
     alert("hello! " +'number ' + i);
 }
 // initializer          (i = 0)
