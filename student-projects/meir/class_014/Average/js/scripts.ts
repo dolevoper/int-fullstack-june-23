@@ -64,7 +64,7 @@ function calcAvg(gradesNum:number, Status:boolean){
 function valiadte(myGradesNum:number){
 
     if(myGradesNum === 0){
-        //alert("לחצת על ביטול");
+        //alert("You push on cancel);
         return "exit";
     }else if(isNaN(myGradesNum)){
         //alert("הוזן קלט שאינו מספר");
