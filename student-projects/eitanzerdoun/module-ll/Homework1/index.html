@@ -6,17 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>McDo</title>
     <link rel="stylesheet" href="./dist/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <header class="headerbar">
         <div class="headerbar__logo">
             <img src="./pictures/logo.svg" alt="logo McDo">
-            <img class="coulissement" src="./pictures/logo_element.svg" alt="coulissement">
         </div>
-        <button><a href="#">Commendez maintenat</a></button>
-        <a href="#"><img class="icon_localistaion" src="./pictures/placeholder.png" alt="icon_localistaion"></a>
-        <img class="icon_search" src="./pictures/search.png" alt="search">
+        <div class="headerbar__navbar">
+            <button><a href="#">Commendez maintenat</a></button>
+            <a href="#"><img class="icon_localistaion" src="./pictures/placeholder.png" alt="icon_localistaion"></a>
+            <img class="icon_search" src="./pictures/search.png" alt="search">
+            <nav class="navabar">
+                <div class="navbar_links">
+                    <ul>
+                        <li><a href="#">Hamburgers</a></li>
+                        <li><a href="#">Drinks</a></li>
+                        <li><a href="#">Menus</a></li>
+                        <li><a href="#">Kids</a></li>
+                    </ul>
+                </div>
+                <button class="box b1">
+                    <div class="container-lignes">
+                        <div class="ligne l1"></div>
+                        <div class="ligne l2"></div>
+                        <div class="ligne l3"></div>
+                    </div>
+                </button>
+            </nav>
+        </div>
 
+        
     </header>
+    <article class="pub_in_picture">
+        <img class="coulissement" src="./pictures/logo_element.svg" alt="coulissement">
+        <img class="menu_mcdo_picture" src="./pictures/menu_mcdoo.jpeg" alt="menu">
+    </article>
 </body>
 </html>

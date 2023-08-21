@@ -1,36 +1,102 @@
 body{
     padding: 0px;
     margin: 0px;
-    background-color: rgb(0, 174, 255);
+    // background-color: rgb(0, 174, 255);
+    font-family: 'Oswald', sans-serif;
+    list-style: none;
 }
+
 .headerbar{
     display: flex;
     align-items: center;
-        justify-content: space-around;
+    justify-content: space-between;
     .headerbar__logo{
         display: flex;
         flex-direction: column;
+        margin-left: 30px;
         img{
             width: 100px;
         }
-        .coulissement{
-            height: 40px;
+    }
+    .headerbar__navbar{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 30px;
+        gap: 20px;
+        button{
+            padding: 5px 10px;
+            background-color: rgb(255, 208, 0);
+            border: 0px;
+            border-radius: 10px;
+            a{
+                text-decoration: none;
+                color: black;
+                font-family: 'Oswald', sans-serif;
+            }
+        }
+        .icon_localistaion{
+            height: 50px;
+        }
+        .icon_search{
+            height: 50px;
+        }
+        li{
+            list-style: none;
+            a{
+                text-decoration: none;
+                color: black;
+            }
         }
     }
-    button{
-        padding: 5px 10px;
-        background-color: rgb(255, 208, 0);
-        border: 0px;
-        border-radius: 10px;
-        a{
-            text-decoration: none;
-            color: black;
-        }
+}
+.pub_in_picture{
+    .coulissement{
+        height: 100px;
+        width: 390px;
+        transform: scaleX(-1);
+        position: absolute;
     }
-    .icon_localistaion{
-        height: 50px;
+    .menu_mcdo_picture{
+        width: 100%;
+        height: auto;
     }
-    .icon_search{
-        height: 50px;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+}
+.box{
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    position: relative;
+    .container-lignes{
+        background-color: rgb(181, 176, 156);
+        width: 33.33px;
+        height: 21px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .ligne{
+        position: absolute;
+        // border-radius: 10px;
+        width: 100%;
+        height: 20%;
+        background-color: black;
+    }
+    
+    
+    .ligne:nth-child(1){
+        top: 0px;
+    }
+    .ligne:nth-child(2){
+        top: 10px;
+    }
+    .ligne:nth-child(3){
+        top: 20px;
     }
 }
