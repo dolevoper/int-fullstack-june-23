@@ -26,7 +26,8 @@ const impossibleMaxLevel = 1000;
 const easyRandomNumber = Math.floor(Math.random() * 10 + 1);
 const hardRandomNumber = Math.floor(Math.random() * 100 + 1);
 const impossibleRandomNumber = Math.floor(Math.random() * 1000 + 1);
-const winner = "You have won the game"
+const easyWinner = `You have won the game, the number was ${easyRandomNumber}`;
+const hardWinner = `You have won the game, the number was ${hardRandomNumber}`;
 
 
 function checkGuess (input){
@@ -50,7 +51,15 @@ function checkAnswer (answer){
 
 function easyCheck (easyMaxCheck){
     if(easyMaxCheck > easyMaxLevel || easyMaxCheck < minLevel){
-        alert("You need to guess a number between 1-10!")
+        alert("You need to guess a number between 1-10!");
+        return true;
+    }
+    return false;
+}
+
+function hardCheck (hardMaxCheck){
+    if(hardMaxCheck > hardMaxLevel || hardMaxCheck < minLevel){
+        alert("you need to guess a number between 1-100!");
         return true;
     }
     return false;
@@ -69,42 +78,88 @@ else if(difficulty === "easy"){
      if(checkGuess(easyFirstGuess) || easyCheck(easyFirstGuess) ){
 
      }else if (easyFirstGuess === easyRandomNumber){
-        alert(winner);
+        alert(easyWinner);
      }else if(easyFirstGuess > easyRandomNumber){
-        const easySecondGuess = Number(prompt("Your number is too high! you have 2 guess left!"));
+        const easySecondGuess = Number(prompt("Your number is high! you have 2 guess left!"));
 
         if(checkGuess(easySecondGuess) || easyCheck(easySecondGuess)){
 
         }else if(easySecondGuess === easyRandomNumber){
-            alert(winner);
+            alert(easyWinner);
         }else if(easySecondGuess > easyRandomNumber){
-            const easyThirdGuess = Number(prompt("Your Number is too high! you have 1 guess left"));
+            const easyThirdGuess = Number(prompt("Your Number is high! you have 1 guess left"));
 
             if(checkGuess(easyThirdGuess) || easyCheck(easyThirdGuess)){
 
             }else if (easyThirdGuess === easyRandomNumber){
-                alert(winner);
+                alert(easyWinner);
             }else if (easyThirdGuess > easyRandomNumber){
-                alert("Your number is too high! the number was" + easyRandomNumber)
+                alert("Your number is too high! the number was " + easyRandomNumber)
             }
         }
      } else if(easyFirstGuess < easyRandomNumber){
-        const easyFifthGuess = Number(prompt("your number is too low! you have 2 guess left!"));
+        const easyFifthGuess = Number(prompt("your number is low! you have 2 guess left!"));
 
         if(checkGuess(easyFifthGuess) || easyCheck(easyFifthGuess)){
 
         }else if (easyFifthGuess === easyRandomNumber){
-            alert(winner);
+            alert(easyWinner);
         }else if(easyFifthGuess < easyRandomNumber){
-            const easySixGuess = Number(prompt("your number is too low! you have 1 guess left"));
+            const easySixGuess = Number(prompt("your number is low! you have 1 guess left"));
 
             if(checkGuess(easySixGuess) || easyCheck (easySixGuess)){
 
             }else if (easySixGuess === easyRandomNumber){
-                alert(winner);
+                alert(easyWinner);
             }else if (easySixGuess < easyRandomNumber){
-                alert("your number is too low the number was" + easyRandomNumber)
+                alert("your number is low! the number was " + easyRandomNumber);
             }
         }
      }
+}else if(difficulty === "hard"){
+    const hardFirstGuess = Number(prompt("You choose 'Hard' \n a random number between 1 - 100 has been generate \n you need to guss the number you have 3 guess left!"));
+    if(checkGuess(hardFirstGuess) || hardCheck(hardFirstGuess)){
+
+    }else if(hardFirstGuess === hardRandomNumber){
+        alert(hardRandomNumber);
+    }else if(hardFirstGuess > hardRandomNumber){
+        const hardSecounGuess = Number(prompt("Your number is high! you have 2 guess left!"))
+
+        if(checkGuess(hardSecounGuess) || hardCheck(hardSecounGuess)){
+
+        }else if(hardSecounGuess === hardRandomNumber){
+            alert(hardRandomNumber)
+        }else if(hardSecounGuess > hardRandomNumber){
+            const hardThirdGuess = Number(prompt("Your number is high! you have 1 guess left!"))
+
+            if(checkGuess(hardThirdGuess) || hardCheck(hardThirdGuess)){
+
+            }else if(hardThirdGuess === hardRandomNumber){
+                alert(hardWinner);
+            }else if(hardThirdGuess > hardRandomNumber){
+                alert("your number is high! the number was " + hardRandomNumber);
+            }
+        }
+    }else if(hardFirstGuess < hardRandomNumber){
+        const hardFourGuess = Number(prompt("Your number is low! you have 2 guess left"));
+
+        if(checkGuess(hardFourGuess) || hardCheck(hardFourGuess)){
+
+        }else if(hardFourGuess === hardRandomNumber){
+            alert(hardWinner);
+        }else if(hardFourGuess < hardRandomNumber){
+            const hardFiveGuess = Number(prompt("Your number is low! you have 1 guess left"));
+
+            if(checkGuess(hardFiveGuess) || hardCheck(hardFiveGuess)){
+
+            }else if(hardFiveGuess === hardRandomNumber){
+                alert(hardWinner);
+            }else if(hardFirstGuess < hardRandomNumber){
+                alert("Your number is low! the number was " + hardRandomNumber);
+            }
+        }
+    }
+
+}else if(difficulty === "impossible"){
+
 }
