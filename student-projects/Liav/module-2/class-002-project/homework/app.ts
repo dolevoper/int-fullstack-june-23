@@ -123,7 +123,7 @@ else if(difficulty === "easy"){
     if(checkGuess(hardFirstGuess) || hardCheck(hardFirstGuess)){
 
     }else if(hardFirstGuess === hardRandomNumber){
-        alert(hardRandomNumber);
+        alert(hardWinner);
     }else if(hardFirstGuess > hardRandomNumber){
         const hardSecounGuess = Number(prompt("Your number is high! you have 2 guess left!"))
 
