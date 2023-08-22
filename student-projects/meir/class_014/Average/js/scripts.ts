@@ -14,7 +14,6 @@ function initAvg(){
     const gradesNum = prompt("How many grades you would like to enter","");
 
     const Status = valiadte(gradesNum);
-    
 
     if(Status === "exit"){
         alert("You pushed on 'Cancel' buttom for exit");
