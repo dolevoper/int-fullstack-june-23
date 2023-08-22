@@ -1,0 +1,123 @@
+* {
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: #f1f9f9;
+}
+
+.button-cover {
+    width: 160px;
+    height: 100px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 1rem;
+    background-color: #fff;
+    box-shadow: 0 10px 20px -8px #c5d6d6;
+    border-radius: 4px;
+
+    &:before {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        color: #d7e3e3;
+        font-size: 12px;
+        line-height: 1;
+        padding: 5px;
+    }
+}
+
+.button-cover,
+.slider,
+.slider-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.button {
+    position: relative;
+    top: 50%;
+    width: 74px;
+    height: 36px;
+    margin: -20px auto 0 auto;
+    overflow: hidden;
+
+    .slider-background {
+        border-radius: 100px;
+    }
+}
+
+.checkbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.slider {
+    z-index: 2;
+}
+
+.slider-background {
+    width: 100%;
+    background-color: #ebfcec;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+#on-off-switch {
+
+    .slider:before,
+    .slider:after {
+        content: 'ON';
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 20px;
+        height: 10px;
+        color: #fff;
+        font-size: 10px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 1;
+        padding: 9px 4px;
+        background-color: #03f463;
+        border-radius: 50%;
+        transition: 0.3s ease all;
+    }
+
+    .slider:before {
+        content: "ON";
+    }
+
+    .slider:after {
+        content: "OFF";
+        right: -28px;
+        left: auto;
+        background-color: #F44336;
+    }
+
+    .checkbox:checked {
+        &+.slider:before {
+            left: -28px;
+        }
+
+        &+.slider:after {
+            right: 4px;
+        }
+
+        &~.slider-background {
+            background-color: #fcebeb;
+        }
+    }
+}
