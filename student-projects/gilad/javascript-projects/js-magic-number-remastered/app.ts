@@ -2,153 +2,155 @@ import * as Templates from "./screen-templates.js";
 
 const userExitKey = undefined;
 
-const difficultyEasy = "easy";
-const rangeEasy = 10;
-const totalGuessesEasy = 3;
+class Difficulty {
+  name: string;
+  level: number;
+  maxRange: number;
+  maxGuesses: number;
 
-const difficultyHard = "hard";
-const rangeHard = 100;
-const totalGuessesHard = 6;
-
-const difficultyImpossible = "impossible";
-const rangeImpossible = 1000;
-const totalGuessesImpossible = 9;
-
-alert(Templates.messageGameStart);
-
-const canStartGame = confirm(Templates.messageGameRules);
-
-if (!canStartGame) {
-  alert(Templates.messageExit);
-} else {
-  const gameDifficulty = promptDifficulty();
-
-  if (gameDifficulty === "exit") {
-    alert(Templates.messageExit);
-  } else {
-    const gameRange =
-      gameDifficulty === difficultyEasy
-        ? rangeEasy
-        : gameDifficulty === difficultyHard
-        ? rangeHard
-        : rangeImpossible;
-
-    const guessesTotal =
-      gameDifficulty === difficultyEasy
-        ? totalGuessesEasy
-        : gameDifficulty === difficultyHard
-        ? totalGuessesHard
-        : totalGuessesImpossible;
-
-    const magicNumber = Math.random() * gameRange + 1;
-
-    let houdiniTip =
-      "An old trick well done is far better than a new trick with no effect";
-    let isGameWon = false;
-    let guessesLeft = guessesTotal;
-    for (; guessesLeft > 0; guessesLeft--) {
-      const currentGuess = promptGuess(
-        houdiniTip,
-        gameDifficulty,
-        guessesLeft,
-        guessesTotal,
-        gameRange
-      );
-
-      if (currentGuess === userExitKey) {
-        break;
-      } else if (currentGuess === magicNumber) {
-        isGameWon = true;
-        break;
-      } else {
-        houdiniTip = `${currentGuess} ${
-          currentGuess > magicNumber
-            ? Templates.messageGuessAbove
-            : Templates.messageGuessBelow
-        }`;
-      }
-    }
-
-    const endScreenMessage = isGameWon
-      ? Templates.messageGameWon
-      : guessesLeft === 0
-      ? Templates.messageGameLost
-      : Templates.messageExit;
-    alert(endScreenMessage);
+  constructor(
+    name: string,
+    level: number,
+    maxRange: number,
+    maxGuesses: number
+  ) {
+    this.name = name;
+    this.level = level;
+    this.maxRange = maxRange;
+    this.maxGuesses = maxGuesses;
   }
 }
 
-function promptDifficulty() {
-  let screenHint = "";
+main();
+
+function main() {
+  let shouldRepeatGame: boolean;
+  const difficulties = initDifficulties();
+
+  alert(Templates.messageGameStart);
+
+  if (!confirm(Templates.messageGameRules)) {
+    alert(Templates.messageExit);
+    return false;
+  }
+
   do {
-    const userInputRaw = prompt(
-      Templates.generateDifficultyMenu(
-        screenHint,
-        rangeEasy,
-        rangeHard,
-        rangeImpossible
-      )
-    );
+    shouldRepeatGame = false;
+
+    const gameDifficulty = promptDifficulty(difficulties);
+
+    if (gameDifficulty === userExitKey) {
+      break;
+    }
+
+    const gameResult = playGame(gameDifficulty);
+
+    if (gameResult === userExitKey) {
+      break;
+    } else {
+      const endScreenMessage =
+        gameResult === "WIN"
+          ? Templates.messageGameWon
+          : Templates.messageGameLost;
+
+      alert(endScreenMessage);
+    }
+    shouldRepeatGame = confirm(Templates.messageRepeatGame);
+  } while (shouldRepeatGame);
+
+  alert(Templates.messageExit);
+}
+
+function playGame(gameDifficulty) {
+  let houdiniTip =
+    "An old trick well done is far better than a new trick with no effect";
+  const magicNumber = generateMagicNumber(1, gameDifficulty.maxRange);
+  console.log(magicNumber);
+  for (let guesses = gameDifficulty.maxGuesses; guesses > 0; guesses--) {
+    const playerGuess = promptGuess(houdiniTip, guesses, gameDifficulty);
+
+    if (playerGuess === userExitKey) {
+      return userExitKey;
+    } else if (playerGuess === magicNumber) {
+      return "WIN";
+    } else {
+      houdiniTip = `${playerGuess} ${
+        playerGuess > magicNumber
+          ? Templates.hintGuessAbove
+          : Templates.hintGuessBelow
+      }`;
+    }
+  }
+  return "LOSE";
+}
+
+function initDifficulties() {
+  const difficultyEasy = new Difficulty("easy", 1, 10, 3);
+  const difficultyHard = new Difficulty("hard", 2, 100, 6);
+  const difficultyImpossible = new Difficulty("impossible", 3, 1000, 9);
+
+  const difficulties = [];
+  difficulties.push(difficultyEasy);
+  difficulties.push(difficultyHard);
+  difficulties.push(difficultyImpossible);
+
+  return difficulties;
+}
+
+function promptDifficulty(difficulties: Difficulty[]) {
+  let screenHint = "";
+
+  do {
+    const promptMessage = formatDifficultyMenu(screenHint, difficulties);
+    const userInputRaw = prompt(promptMessage);
     const userInput = userInputRaw?.trim().toLowerCase();
 
-    switch (userInput) {
-      case userExitKey:
-        return "exit";
-
-      case "":
-        screenHint = "Difficulty can't be empty.";
-        break;
-
-      case "1":
-      case difficultyEasy:
-        return "easy";
-
-      case "2":
-      case difficultyHard:
-        return "hard";
-
-      case "3":
-      case difficultyImpossible:
-        return "impossible";
-
-      default:
-        screenHint = `No such difficulty: ${userInput}`;
-        break;
+    if (userInput === userExitKey) {
+      return userExitKey;
+    } else if (userInput === "") {
+      screenHint = "";
+    } else {
+      for (const difficulty of difficulties) {
+        if (
+          userInput === difficulty.name ||
+          Number(userInput) === difficulty.level
+        ) {
+          return difficulty;
+        }
+      }
+      screenHint = `No such difficulty: ${userInput}`;
     }
   } while (true);
 }
 
+function generateMagicNumber(minRange: number, maxRange: number) {
+  return Math.floor(Math.random() * maxRange + minRange);
+}
+
 function promptGuess(
   guessTip: string,
-  gameDifficulty: string,
   guessesLeft: number,
-  guessesTotal: number,
-  gameRange: number
+  difficulty: Difficulty
 ) {
   let screenHint = guessTip;
 
   do {
-    const screen = Templates.generateGameScreen(
-      gameDifficulty,
-      guessesLeft,
-      guessesTotal,
-      gameRange,
-      screenHint
-    );
+    const screen = formatGameScreen(screenHint, guessesLeft, difficulty);
     const userInput = prompt(screen)?.trim();
+
     if (userInput === userExitKey) {
       return userExitKey;
     } else if (userInput === "") {
-      screenHint = Templates.messageGuessEmpty;
+      screenHint = Templates.hintGuessEmpty;
     } else {
       const userGuess = Number(userInput);
 
       const guessEvaluation = isNaN(userGuess)
-        ? Templates.messageNotNumber
+        ? Templates.hintNotNumber
         : !Number.isInteger(userGuess)
-        ? `${userGuess} ${Templates.messageNotWhole}`
-        : userGuess < 1 || userGuess > gameRange
-        ? `${userGuess} ${Templates.messageNotInRange}`
+        ? `${userGuess} ${Templates.hintNotWhole}`
+        : userGuess < 1 || userGuess > difficulty.maxRange
+        ? `${userGuess} ${Templates.hintNotInRange}`
         : "valid";
 
       if (guessEvaluation === "valid") {
@@ -158,4 +160,32 @@ function promptGuess(
       }
     }
   } while (true);
+}
+
+function formatDifficultyMenu(hint: string, difficulties: Difficulty[]) {
+  let difficultyMenu = `==========================================\nPlease enter game difficulty:\n`;
+
+  difficulties.forEach((difficulty) => {
+    difficultyMenu += `${difficulty.level}) ${difficulty.name}  -   ${difficulty.maxRange} numbers\n`;
+  });
+
+  difficultyMenu += `==========================================\n${hint}`;
+
+  return difficultyMenu;
+}
+
+function formatGameScreen(
+  hint: string,
+  guessesLeft: number,
+  difficulty: Difficulty
+) {
+  return `======== Difficulty: ${difficulty.name} | Guesses: ${guessesLeft} / ${
+    difficulty.maxGuesses
+  } ========
+
+                    Guess the magic number between
+                                        1 - ${difficulty.maxRange}
+
+${hint ? `Houdini says: "${hint}"` : ""}
+`;
 }
