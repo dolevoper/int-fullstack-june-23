@@ -18,6 +18,9 @@
 
 // 1. Print the iteration number with the message in the alert
 // 2. Ask the user how many hellos to print
+
+// you can see that i have done a change in what you give to us//
+
 const hellos_num = Number(prompt('how many hellos to print?'))
 for (let i = 1; i <= hellos_num ; i++) {
     alert("hello! " +'number ' + i);
@@ -44,5 +47,14 @@ while (!input || input.trim().toLowerCase() !== "stop") {
 }
 
 alert("end");
+
+// this is my home work for this class//
+
+let user_age = prompt ("what is your age?");
+while ( !user_age || Number( user_age ) < 18) {
+    user_age = prompt ("what is your age?");
+} 
+
+alert ("Great, we can continue.")
 
 // alert(firstNumber + secondNumber + thirdNumber);
