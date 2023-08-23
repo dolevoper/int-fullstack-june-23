@@ -46,12 +46,14 @@ for (let i = 0; i < user; i++){
 // 3. Ask the user for his age - exit only if he's 18 or above
 // 4. Validate the input - if not a number/clicked cancel: show message and ask again
 let age = Number(prompt("how old are you"));
-while (age > 18 || !age || isNaN(age)){
+if (age = 18 || age > 18 == true){
+} while (age > 18 || !age || isNaN(age)){
     age = prompt("how old are you")
-} let input = prompt("Tell me when to stop");
+ }let input = prompt("Tell me when to stop");
     while (!input || input.trim().toLowerCase() !== "stop") {
     input = prompt("Tell me when to stop");
 }
+
 
 alert("end"); 
 
