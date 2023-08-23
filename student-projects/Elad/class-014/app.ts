@@ -22,8 +22,8 @@
 // you can see that i have done a change in what you give to us//
 
 const hellos_num = Number(prompt('how many hellos to print?'))
-for (let i = 1; i <= hellos_num ; i++) {
-    alert("hello! " +'number ' + i);
+for (let i = 1; i <= hellos_num; i++) {
+    alert("hello! " + 'number ' + i);
 }
 // initializer          (i = 0)
 // check condition      (i < 3 === 0 < 3 === true)
@@ -50,11 +50,25 @@ alert("end");
 
 // this is my home work for this class//
 
-let user_age = prompt ("what is your age?");
-while ( !user_age || Number( user_age ) < 18) {
-    user_age = prompt ("what is your age?");
-} 
+let user_age = prompt("what is your age?");
 
-alert ("Great, we can continue.")
+if (user_age === null || user_age === "" || isNaN(Number(user_age))) {
+    
+    alert("please enter a good value")
+
+} else {
+
+    while (!user_age || Number(user_age) < 18) {
+        user_age = prompt("what is your age?");
+    }
+
+    alert("Great, we can continue.");
+
+}
+
+
+
+
+
 
 // alert(firstNumber + secondNumber + thirdNumber);
