@@ -136,7 +136,6 @@ function promptGuess(
       screenHint
     );
     const userInput = prompt(screen)?.trim();
-    console.log(userInput);
     if (userInput === userExitKey) {
       return userExitKey;
     } else if (userInput === "") {
