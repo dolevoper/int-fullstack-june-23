@@ -7,10 +7,14 @@
 3. No multi assignment
 4. Code and strings in English only
 5. Always use strict equality checks (`===`, `!==`)
+6. Insert empty lines:
+   - Before control structures (if, for, while, etc...)
+   - After variable definition
+   - Before return statement
 
 ## Variables
 
-1. Always use `const`
+1. Use `let` only when value will change - otherwise use `const`. Never use `var`.
 2. All variables should be named in camelCase:
    - `theSpeedOfLight` ✅
    - `TheSpeedOfLight` ❌ (pascal case)
@@ -30,6 +34,7 @@
    - `isTallEnoughToRide`, `canSwitchState`, `shouldDisplayResult` ✅
    - `tallEnoughToRide`, `switchState`, `displayResult` ❌
 7. Include units when needed: `delayInMs`, `ageInDays`, `weightInKg`
+8. Declare variables as close to usage as possible
 
 ## Typings
 
@@ -101,6 +106,7 @@ if (age > 17) {
 // ✅
 function getPriceForCart(user, product) {
   const sale = currentSales.find((sale) => sale.productId === product.id);
+
   if (sale) {
     return product.price * (1 - sale.discount);
   }
