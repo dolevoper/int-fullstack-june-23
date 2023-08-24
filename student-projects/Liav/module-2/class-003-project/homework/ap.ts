@@ -1,6 +1,7 @@
 let maxGuesses = 3;
 let remainingGuesses = maxGuesses;
 let maxLevel = 0;
+let difficulty = ""
 const minStartNumber = 1;
 const impossibleRandomNumber = Math.floor(Math.random() * 1000) + 1;
 const hardRandomNumber = Math.floor(Math.random() * 100) + 1;
@@ -23,36 +24,39 @@ if (diffCheck(diffChoose)) {
     switch (diffChoose) {
         case "easy":
             maxLevel = 10;
-            playEasyGame(easyRandomNumber, maxGuesses);
+            difficulty = "Easy"
+            playGame(easyRandomNumber, maxGuesses);
             break;
         case "hard":
             maxLevel = 100;
-            playHardGame(hardRandomNumber, maxGuesses);
+            difficulty = "Hard"
+            playGame(hardRandomNumber, maxGuesses);
             break;
         case "impossible":
             maxLevel = 1000;
-            playimpossiboleGame(impossibleRandomNumber, maxGuesses);
+            difficulty = "Impossible"
+            playGame(impossibleRandomNumber, maxGuesses);
             break;
         default:
             alert("Invalid difficulty choice. Please choose Easy, Hard, or Impossible.");
     }
 }
 
-function playEasyGame(targetNumber, maxGuesses) {
-    alert(`You are playing in Easy mode. Try to guess the number between 1 and 10. You have ${maxGuesses} guesses.`);
+function playGame(targetNumber, maxGuesses) {
+    alert(`You are playing in ${difficulty} mode. Try to guess the number between 1 and ${maxLevel}. You have ${maxGuesses} guesses.`);
     
     while (remainingGuesses > 0) {
-        const guess = Number(prompt(`Enter your guess (between 1 and 10):`));
+        const guess = Number(prompt(`Enter your guess between 1 and ${maxLevel}:`));
         
-        if (isNaN(guess) || guess < 1 || guess > 10) {
-            alert("Invalid guess. Please enter a number between 1 and 10.");
+        if (isNaN(guess) || guess < 1 || guess > maxLevel) {
+            alert(`Invalid guess. Please enter a number between 1 and ${maxLevel}`);
             continue;
         }
         
         remainingGuesses--;
         
         if (guess === targetNumber) {
-            alert(`Congratulations! You guessed the correct number (${targetNumber}).`);
+            alert(`Congratulations! You guessed the correct number ${targetNumber}.`);
             break;
         } else if (guess < targetNumber) {
             alert(`Wrong guess. The number is higher. You have ${remainingGuesses} guesses left.`);
@@ -65,60 +69,3 @@ function playEasyGame(targetNumber, maxGuesses) {
         }
     }
 }
-
-function playHardGame(targetNumber, maxGuesses) {
-    alert(`You are playing in Hard mode. Try to guess the number between 1 and 100. You have ${maxGuesses} guesses.`);
-    
-    while (remainingGuesses > 0) {
-        const guess = Number(prompt(`Enter your guess (between 1 and 100):`));
-        
-        if (isNaN(guess) || guess < 1 || guess > 100) {
-            alert("Invalid guess. Please enter a number between 1 and 100.");
-            continue;
-        }
-        
-        remainingGuesses--;
-        
-        if (guess === targetNumber) {
-            alert(`Congratulations! You guessed the correct number (${targetNumber}).`);
-            break;
-        } else if (guess < targetNumber) {
-            alert(`Wrong guess. The number is higher. You have ${remainingGuesses} guesses left.`);
-        } else if (guess > targetNumber) {
-            alert(`Wrong guess. The number is lower. You have ${remainingGuesses} guesses left.`);
-        }
-        
-        if (remainingGuesses === 0) {
-            alert(`You're out of guesses. The correct number was ${targetNumber}.`);
-        }
-    }
-}
-
-function playimpossiboleGame(targetNumber, maxGuesses) {
-    alert(`You are playing in Impossibole mode. Try to guess the number between 1 and 1000. You have ${maxGuesses} guesses.`);
-    
-    while (remainingGuesses > 0) {
-        const guess = Number(prompt(`Enter your guess (between 1 and 1000):`));
-        
-        if (isNaN(guess) || guess < 1 || guess > 1000) {
-            alert("Invalid guess. Please enter a number between 1 and 1000.");
-            continue;
-        }
-        
-        remainingGuesses--;
-        
-        if (guess === targetNumber) {
-            alert(`Congratulations! You guessed the correct number (${targetNumber}).`);
-            break;
-        } else if (guess < targetNumber) {
-            alert(`Wrong guess. The number is higher. You have ${remainingGuesses} guesses left.`);
-        } else if (guess > targetNumber) {
-            alert(`Wrong guess. The number is lower. You have ${remainingGuesses} guesses left.`);
-        }
-        
-        if (remainingGuesses === 0) {
-            alert(`You're out of guesses. The correct number was ${targetNumber}.`);
-        }
-    }
-}
-
