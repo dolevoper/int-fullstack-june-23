@@ -14,7 +14,10 @@ function initAvg(){
     const gradesNum = prompt("How many grades you would like to enter","");
 
     const Status = valiadte(gradesNum);
+<<<<<<< HEAD
     
+=======
+>>>>>>> meir/myBranch
 
     if(Status === "exit"){
         alert("You pushed on 'Cancel' buttom for exit");
@@ -61,7 +64,11 @@ function valiadte(myGradesNum){
         alert("Not a number");
         return false;
     }else if(myGradesNum < 0){
+<<<<<<< HEAD
         alert("The number less from 1");
+=======
+        alert("The number less from 0");
+>>>>>>> meir/myBranch
         return false;
     }else if(myGradesNum === ""){
         alert("The input is empty");
