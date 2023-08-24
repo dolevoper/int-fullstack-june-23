@@ -17,3 +17,10 @@
    - from the vscode UI:
      ![Alt text](image.png)
      Branch > merge branch
+
+## More details
+
+1. If the work is not done, open the PR as draft
+2. Home project PRs should contain only the relevant project files
+3. PR name should start with your name
+4. Home project PRs should be named like this: StudentName/HP/class-0XX
