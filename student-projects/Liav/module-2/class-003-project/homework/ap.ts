@@ -10,8 +10,7 @@ const easyRandomNumber = Math.floor(Math.random() * 10) + 1;
 function diffCheck(input) {
     
     if (!isNaN(input) || input === " " || input === null) {
-        alert("Invalid input. Please enter difficulty.");
-        return true;
+        return alert("Invalid input. Please enter difficulty.");
     }
     return false;
 }
