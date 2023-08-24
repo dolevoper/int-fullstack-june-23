@@ -22,34 +22,41 @@ if (guess === secretCode) {
 } else if (guess === null) {
     alert("Bye bye!");
 } else if (guess === "0000") {
-    const firstDigit = secretCode.charAt(0) === "0" ? "🟢" : "🔴";
-    const secondDigit = secretCode.charAt(1) === "0" ? "🟢" : "🔴";
-    const thirdDigit = secretCode.charAt(2) === "0" ? "🟢" : "🔴";
-    const fourthDigit = secretCode.charAt(3) === "0" ? "🟢" : "🔴";
-
-    alert("This was not the secret code, here are your hits:\n\n" +
-        firstDigit +
-        secondDigit +
-        thirdDigit +
-        fourthDigit);
+    announceHits(guess);
 } else {
     const guessAsNumber = Number(guess);
 
     if (isNaN(guessAsNumber) || !Number.isInteger(guessAsNumber) || guessAsNumber < lowerBoundary + 1 || guessAsNumber > upperBoundary) {
         alert("Please enter a valid guess!");
     } else {
-        const firstDigit = secretCode.charAt(0) === guess.charAt(0) ? "🟢" : "🔴";
-        const secondDigit = secretCode.charAt(1) === guess.charAt(1) ? "🟢" : "🔴";
-        const thirdDigit = secretCode.charAt(2) === guess.charAt(2) ? "🟢" : "🔴";
-        const fourthDigit = secretCode.charAt(3) === guess.charAt(3) ? "🟢" : "🔴";
-
-        alert("This was not the secret code, here are your hits:\n\n" +
-            firstDigit +
-            secondDigit +
-            thirdDigit +
-            fourthDigit);
+        announceHits(guess);
     }
 }
+
+function announceHits(guess: string) {
+    const firstDigit = secretCode.charAt(0) === guess.charAt(0) ? "🟢" : "🔴";
+    const secondDigit = secretCode.charAt(1) === guess.charAt(1) ? "🟢" : "🔴";
+    const thirdDigit = secretCode.charAt(2) === guess.charAt(2) ? "🟢" : "🔴";
+    const fourthDigit = secretCode.charAt(3) === guess.charAt(3) ? "🟢" : "🔴";
+
+    alert("This was not the secret code, here are your hits:\n\n" +
+        firstDigit +
+        secondDigit +
+        thirdDigit +
+        fourthDigit);
+}
+
+
+
+
+
+
+
+
+
+
+
+// ================= function examples ==================== //
 
 // const fiveDoubled = double(5);
 // alert(fiveDoubled);
