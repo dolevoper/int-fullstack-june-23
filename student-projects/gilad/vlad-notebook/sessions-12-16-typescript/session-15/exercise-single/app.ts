@@ -4,31 +4,29 @@ const upperBoundary = 9999;
 const rawSecretCode = Math.floor(Math.random() * (upperBoundary - lowerBoundary)) + lowerBoundary;
 
 const secretCode = rawSecretCode === 999 ? "0000" : rawSecretCode.toString();
+console.log(secretCode);
+main();
 
-const totalGuess = 3;
+function main() {
 
-for ( let guesses = totalGuess; guesses > 0; guesses--) {
-    const guess = guessAnigma(secretCode);
+    const totalGuess = 3;
 
-    switch (guess) {
-        case "EXIT":
-            alert("Exiting game.");
+    for ( let guesses = totalGuess; guesses > 0; guesses--) {
+
+        console.log("guesses left: " + guesses);
+        const guess = guessAnigma(secretCode);
+    
+        if (guess === "EXIT" || guess === "WIN") {
             break;
-        
-        case "WIN":
-            alert("You WON!");
-            break;
-
-        case "MISS":
-            console.log("guesses left: " + guesses);
-            break;
+        }
     }
 }
 
 function guessAnigma( secretCode: string) {
 
     const guess = prompt("Please enter your guess:")?.trim();
-    if (guess === null) {
+    
+    if (guess === undefined) {
         return "EXIT";
 
     }  else if (guess === secretCode) {
@@ -36,32 +34,40 @@ function guessAnigma( secretCode: string) {
         return "WIN";
 
     } else {
-        
-        const guessAsNumber = Number(guess);
 
-        printHits(guess);
+        printHits(guess, secretCode);
         
-        return "MISS"
+        return "MISS";
     }
 }
+
 
 function printHits(guess: string, secretCode: string) {
-    const firstDigit = guess.charAt(0) === ? "🟢" : "🔴";
-    const secondDigit = guess.charAt(1) ? "🟢" : "🔴";
-    const thirdDigit = guess.charAt(2) ? "🟢" : "🔴";
-    const fourthDigit = guess.charAt(3) ? "🟢" : "🔴";
+
+    let hits = "";
 
     // TODO - continue loop to detect manually 
-    for ( let i = 0; i < secretCode.length - 1; i++ ) {
+    for ( let currentChar = 0; currentChar < secretCode.length ; currentChar++ ) {
+        // const currentHint = guess.charAt(currentChar) === secretCode.charAt(currentChar) ? "🟢" : "🔴";
 
+        if (guess.charAt(currentChar) === secretCode.charAt(currentChar)) {
+            hits += "🟢";
+            
+        } else if (secretCode.includes(guess.charAt(currentChar))) {
+            hits += "🟡";
+
+        } else {
+            hits += "🔴";
+        }
     }
 
-    alert("This was not the secret code, here are your hits:\n\n" +
-    firstDigit +
-    secondDigit +
-    thirdDigit +
-    fourthDigit);
+    alert("This was not the secret code, here are your hits:\n\n" + hits);
 }
+
+
+
+
+
 
 function double(x: number) { // x = 5
     const xDoubled = x * 2;
