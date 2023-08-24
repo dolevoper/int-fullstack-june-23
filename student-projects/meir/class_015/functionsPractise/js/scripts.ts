@@ -49,4 +49,4 @@ When player looses/wins/quits - go back to main menu
 Don't ask for the difficulty in the beginning. Default is normal, player can change the difficulty from the main menu
 */
 
-alert(11);
+alert(112222);
