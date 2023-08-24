@@ -1,10 +1,6 @@
-*               @dolevoper
+* @dolevoper
 
-practices       @GiliEllen
+practices @GiliEllen
 
-<<<<<<< HEAD
-student-projects/gilad @BraveVlad
-=======
-student-projects/meir @Internet211111
-student-projects/gilad @BraveVlad
->>>>>>> 606c379 (Update CODEOWNERS with meir's correct username)
+/student-projects/meir/ @Internet211111
+/student-projects/gilad/ @BraveVlad
