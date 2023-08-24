@@ -43,7 +43,7 @@ if (diffCheck(diffChoose)) {
 }
 
 function playGame(targetNumber, maxGuesses) {
-    alert(`You are playing in ${difficulty} mode. Try to guess the number between 1 and ${maxLevel}. You have ${maxGuesses} guesses.`);
+    alert(`You are playing in ${difficulty} mode. Try to guess the number between ${minStartNumber} and ${maxLevel}. You have ${maxGuesses} guesses.`);
     
     while (remainingGuesses > 0) {
         const guess = Number(prompt(`Enter your guess between ${minStartNumber} and ${maxLevel}:`));
