@@ -106,6 +106,7 @@ if (age > 17) {
 // ✅
 function getPriceForCart(user, product) {
   const sale = currentSales.find((sale) => sale.productId === product.id);
+
   if (sale) {
     return product.price * (1 - sale.discount);
   }
