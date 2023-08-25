@@ -48,35 +48,27 @@ function initMyChoosen() {
 
     switch (mySelected) {
         case 1:
-            //alert("11111111");
             printTo();
             break;
         case 2:
-            //alert("2222222");
             isOdd();
             break;
         case 3:
-            //alert("3333333");
             isEven();
             break;
         case 4:
-            //alert("444444444");
             isPalindrome();
             break;
         case 5:
-            //alert("55555555");
             improvedIsPalindrome();
             break;
         case 6:
-            //alert("6666666666");
             safeDiv();
             break;
         case 7:
-            //alert("77777777");
             improvedSafeDiv();
             break;
         case 8:
-            //alert("888888888");
             fizzBuzz();
             break;
         default:
