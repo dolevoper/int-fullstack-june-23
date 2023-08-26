@@ -21,11 +21,11 @@ initPythagoras();
 
 function initPythagoras() {
 
-    const rib_A = Number(prompt('Enter rig a'));
-    const rib_B = Number(prompt('Enter rig b'));
-    const rib_C = Number(prompt('Enter rig c'));
+    const sideA = Number(prompt('Enter side a'));
+    const sideB = Number(prompt('Enter side b'));
+    const sideC = Number(prompt('Enter side c'));
 
-    const Status = validateNums(rib_A, rib_B, rib_C);
+    const Status = validateNums(sideA, sideB, sideC);
 
     if (Status === "exit") {
         alert("You choose exit!!!");
@@ -34,7 +34,7 @@ function initPythagoras() {
 
     if (Status) {
         //alert("valid number");        
-        calcNums(rib_A, rib_B, rib_C)
+        calcNums(sideA, sideB, sideC)
 
     } else {
         alert("not valid number, try again");
@@ -43,32 +43,32 @@ function initPythagoras() {
 
 }
 
-function calcNums(rib_A:number, rib_B:number, rib_C:number){
-    const ab = rib_A**2 + rib_B**2;
-    const c = rib_C**2;
-    if(ab > c){
+function calcNums(sideA: number, sideB: number, sideC: number) {
+    const ab = sideA ** 2 + sideB ** 2;
+    const c = sideC ** 2;
+    if (ab > c) {
         alert("Not equal - ab gritter then c");
-    }else if(ab < c) {
+    } else if (ab < c) {
         alert("Not equal - c gritter then ab");
-    }else if(ab === c){
+    } else if (ab === c) {
         alert("Equal - ab equal c");
     }
 }
 
-function validateNums(rib_A:number, rib_B:number, rib_C:number) {
-    
-    if (rib_A === 0 || rib_B === 0 || rib_C === 0) {
+function validateNums(sideA: number, sideB: number, sideC: number) {
+
+    if (sideA === 0 || sideB === 0 || sideC === 0) {
         //alert("You pressed on cancel for exit");
         return "exit";
-    }else if (isNaN(rib_A) || isNaN(rib_B) || isNaN(rib_C)) {
+    } else if (Number.isNaN(sideA) || Number.isNaN(sideB) || Number.isNaN(sideC)) {
         alert("Not a number");
         return false;
-    }else if (rib_A < 0 || rib_B < 0 || rib_C < 0) {
+    } else if (sideA < 0 || sideB < 0 || sideC < 0) {
         alert("The number less from 1");
         return false;
-    }else {
-        alert("OK, You Enter valid number");
+    } else {
+        //alert("OK, You Enter valid number");
         return true;
     }
-    
+
 }
