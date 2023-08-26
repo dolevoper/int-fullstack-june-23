@@ -1,9 +1,11 @@
+
 // 1. Print the iteration number with the message in the alert
 // 2. Ask the user how many hellos to print
 let hellosNum: number = 0;
 
 do {
     hellosNum = Number(prompt("How many hellos to print?"));
+
 } while ((isNaN(hellosNum)) || (hellosNum <= 0));
 
 for (let i= 0; i < hellosNum; i++) {
