@@ -50,6 +50,16 @@ function isPalindrome(word: string) {
 // ובסוף תנאי שבודק אם הקלט דומה לקלט שעבר את התהליך הזה
 isPalindrome("dog")
 
-//function number 5
+//function number 6
+/*function safeDiv(a,b: Number) {
+    if(b === 0){
+        return null;
+    }
+    else {
+        return d;
+    }
+}
+safeDiv(7, 5) */
+
 
 
