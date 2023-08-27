@@ -2,23 +2,26 @@ function print(message: string) {
   console.log(message);
 }
 
-// [] TODO - Add support to negative numbers
 function printTo(targetNumber: number) {
   print(`Target number: ${targetNumber}`);
 
-  console.log(targetNumber / targetNumber);
+  if (targetNumber === 0) return;
+
+  const sign = targetNumber / Math.abs(targetNumber);
+
   for (
-    let currentNumer = 1;
-    currentNumer <= Math.abs(targetNumber);
-    currentNumer++
+    let currentNumer = sign;
+    currentNumer != targetNumber + sign;
+    currentNumer += sign
   ) {
     console.log(`${currentNumer}`);
   }
 }
 /* Tests:
-  printTo(10);
-  printTo(-5);
-  */
+printTo(10);
+printTo(0);
+printTo(-5);
+ */
 
 function isEven(targetNumber: number) {
   return targetNumber % 2 == 0 ? true : false;
