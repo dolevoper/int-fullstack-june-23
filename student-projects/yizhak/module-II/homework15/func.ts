@@ -23,7 +23,7 @@ isOdd(5)
 
 //function number 3
 function isEven(n: Number){
-    if (x % 2 === 1) {
+    if (n % 2 === 1) {
         return true;
       }
       else if (isNaN(n)) {
@@ -35,3 +35,21 @@ function isEven(n: Number){
 }
 isEven(3)
 //function number 4
+function isPalindrome(word: string) {
+    if (word.split('').reverse().join('') === word){
+        return true;
+    }
+    else {
+        return false;
+    }
+    
+  }
+//split() פונקציה שמפרידה את כל האותיות בקלט
+//revers() פןנקציה שעושה רוורסינג למחרוזת המתקבלת
+//join() (פונקציה שמחברת הכל בחזרה (עם רווח באמצע
+// ובסוף תנאי שבודק אם הקלט דומה לקלט שעבר את התהליך הזה
+isPalindrome("dog")
+
+//function number 5
+
+
