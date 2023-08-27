@@ -70,11 +70,6 @@ function isImprovedPalindrome(target: string | number) {
 */
 
 /*
-
-- [x] safeDiv  
-  **Input** - 2 numbers  
-  **Output** - return `null` if the second number is 0, the ratio between the numbers otherwise
-
 - [???] improved safeDiv  /// ??? 
   **Input** - 2 numbers  
   **Output** - the ratio between the numbers  
@@ -86,7 +81,27 @@ function safeDiv(numberA: number, numberB: number) {
   return numberB === 0 ? null : numberA / numberB;
 }
 
-function improvedSafeDiv(numberA: number, numberB: number) {}
-
+// function improvedSafeDiv(numberA: number, numberB: number) {}
+/* Tests:
 print(`safe division of 3 / 2 = ${safeDiv(3, 2)}`);
 print(`safe division of 5 / 0 = ${safeDiv(5, 0)}`);
+*/
+
+function fizzBuzz(target: number) {
+  let fizzbuzz = "";
+
+  if (target.toString().includes("5") || target % 5 === 0) fizzbuzz += "fizz";
+  if (target.toString().includes("7") || target % 7 === 0) fizzbuzz += "buzz";
+  if (fizzbuzz === "") printTo(target);
+  else return fizzbuzz;
+}
+/* Tests:
+print(`fizzbuzz number 5: ${fizzBuzz(5)}`);
+print(`fizzbuzz number 7: ${fizzBuzz(7)}`);
+print(`fizzbuzz number 21: ${fizzBuzz(21)}`);
+print(`fizzbuzz number 52: ${fizzBuzz(52)}`);
+print(`fizzbuzz number 75: ${fizzBuzz(75)}`);
+print(`fizzbuzz number 174: ${fizzBuzz(174)}`);
+print(`fizzbuzz number 175: ${fizzBuzz(175)}`);
+print(`fizzbuzz number 8: ${fizzBuzz(8)}`);
+*/

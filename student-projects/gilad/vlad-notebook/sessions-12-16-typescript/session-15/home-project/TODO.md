@@ -20,6 +20,8 @@ Branches order should be:
 * main
 ```
 
+# TODO - Format according to styleguide
+
 ## TODO Functions:
 
 Write the following function:
@@ -44,21 +46,21 @@ Write the following function:
        **Input** - a string or a number  
        **Output** - return true if the input is a palindrome, false otherwise
 
-- [] safeDiv  
-  **Input** - 2 numbers  
-  **Output** - return `null` if the second number is 0, the ratio between the numbers otherwise
+- [x] safeDiv  
+       **Input** - 2 numbers  
+       **Output** - return `null` if the second number is 0, the ratio between the numbers otherwise
 
-- [] improved safeDiv  
+- [??] improved safeDiv  
   **Input** - 2 numbers  
   **Output** - the ratio between the numbers  
   If the second number is 0, the program should not compile
 
-- [] fizzBuzz  
-  **Input** - a number  
-  **Output** - print all the whole numbers from 1 to the input.  
-  If the number has a 5 or is divisible by 5, print "fizz" instead.  
-  If the number has a 7 or is divisible by 7, print "buzz" instead.  
-  If it's both, print "fizzbuzz"
+- [x] fizzBuzz  
+      **Input** - a number  
+      **Output** - print all the whole numbers from 1 to the input.  
+      If the number has a 5 or is divisible by 5, print "fizz" instead.  
+      If the number has a 7 or is divisible by 7, print "buzz" instead.  
+      If it's both, print "fizzbuzz"
 
 ## TODO Improved guess my number
 
