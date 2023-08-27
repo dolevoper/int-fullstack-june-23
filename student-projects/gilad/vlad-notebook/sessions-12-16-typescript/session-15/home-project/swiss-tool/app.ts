@@ -68,3 +68,25 @@ function isImprovedPalindrome(target: string | number) {
   // print(`is "-505" improved palindrome? ${isImprovedPalindrome(-505)}`);
   // print(`is "0" improved palindrome? ${isImprovedPalindrome(0)}`);
 */
+
+/*
+
+- [x] safeDiv  
+  **Input** - 2 numbers  
+  **Output** - return `null` if the second number is 0, the ratio between the numbers otherwise
+
+- [???] improved safeDiv  /// ??? 
+  **Input** - 2 numbers  
+  **Output** - the ratio between the numbers  
+  If the second number is 0, the program should not compile
+
+*/
+
+function safeDiv(numberA: number, numberB: number) {
+  return numberB === 0 ? null : numberA / numberB;
+}
+
+function improvedSafeDiv(numberA: number, numberB: number) {}
+
+print(`safe division of 3 / 2 = ${safeDiv(3, 2)}`);
+print(`safe division of 5 / 0 = ${safeDiv(5, 0)}`);

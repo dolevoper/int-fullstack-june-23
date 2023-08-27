@@ -25,24 +25,24 @@ Branches order should be:
 Write the following function:
 
 - [x] printTo  
-      **Input** - a number  
-      **Output** - print all the whole numbers from 1 to the input number
+       **Input** - a number  
+       **Output** - print all the whole numbers from 1 to the input number
 
 - [x] isOdd  
-      **Input** - a number  
-      **Output** - return true if the number is odd, false otherwise
+       **Input** - a number  
+       **Output** - return true if the number is odd, false otherwise
 
 - [x] isEven  
-      **Input** - a number  
-      **Output** - return true if the number is even, false otherwise
+       **Input** - a number  
+       **Output** - return true if the number is even, false otherwise
 
 - [x] isPalindrome  
-      **Input** - a string  
-      **Output** - return true if the string is a palindrome, false otherwise
+       **Input** - a string  
+       **Output** - return true if the string is a palindrome, false otherwise
 
 - [x] improved isPalindrome  
-      **Input** - a string or a number  
-      **Output** - return true if the input is a palindrome, false otherwise
+       **Input** - a string or a number  
+       **Output** - return true if the input is a palindrome, false otherwise
 
 - [] safeDiv  
   **Input** - 2 numbers  
