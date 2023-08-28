@@ -73,7 +73,7 @@ function playGame(gameDifficulty: Difficulty) {
 
   for (let guesses = gameDifficulty.maxGuesses; guesses > 0; guesses--) {
     const playerGuess = screenGuess(houdiniTip, guesses, gameDifficulty);
-    console.log(playerGuess);
+
     if (playerGuess === userExitKey) {
       return userExitKey;
     } else if (playerGuess === magicNumber) {
@@ -87,7 +87,6 @@ function playGame(gameDifficulty: Difficulty) {
       }`;
     }
   }
-
   const endScreenMessage =
     gameResult === "WIN" ? Templates.messageGameWon : Templates.messageGameLost;
 
@@ -132,7 +131,6 @@ function screenGuess(
   do {
     const screen = formatGameScreen(screenHint, guessesLeft, difficulty);
     const userInput = promptMenu(screen, true);
-    console.log(userInput);
     if (isExitKey(userInput)) {
       return userExitKey;
     } else {
