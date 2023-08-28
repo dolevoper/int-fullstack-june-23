@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+
+    section {
+        border: 1px solid bisque;
+    }
+
+    .html,
+    .css,
+    .js {
+        height: 500px;
+    }
+
+
+    .content {
+        grid-column: span 3;
+    }
+}
