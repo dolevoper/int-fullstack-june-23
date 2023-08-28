@@ -48,7 +48,7 @@ function isPalindrome(word: string) {
 //revers() פונקציה שעושה רוורסינג למחרוזת המתקבלת
 //join() (פונקציה שמחברת הכל בחזרה (עם רווח באמצע
 // ובסוף תנאי שבודק אם הקלט דומה לקלט שעבר את התהליך הזה
-isPalindrome("dog")
+isPalindrome("")
 
 //function number 6
 /*function safeDiv(a,b: Number) {
