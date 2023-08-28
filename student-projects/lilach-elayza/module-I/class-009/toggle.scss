@@ -1,0 +1,38 @@
+.toggle {
+    --ball-size: 30px;
+    --slot-padding: 1px;
+    --slot-height: calc(var(--ball-size) + 2 * var(--slot-padding));
+    --slot-width: calc((var(--ball-size) + var(--slot-padding)) * 2);
+    cursor: pointer;
+
+    input {
+        display: none;
+
+        &:checked+.slot {
+            background: green;
+
+            .ball {
+                left: unset;
+                right: var(--slot-padding);
+            }
+        }
+    }
+
+    .slot {
+        width: var(--slot-width);
+        height: var(--slot-height);
+        background: #999;
+        border-radius: var(--slot-height);
+        position: relative;
+    }
+
+    .ball {
+        width: var(--ball-size);
+        height: var(--ball-size);
+        background-color: #ddd;
+        border-radius: var(--ball-size);
+        position: absolute;
+        top: var(--slot-padding);
+        left: var(--slot-padding);
+    }
+}
