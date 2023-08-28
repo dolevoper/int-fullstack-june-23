@@ -64,3 +64,9 @@ h6 {
 #__next {
 	isolation: isolate;
 }
+
+.button-container {
+	&__btn {
+		font-size: 2rem;
+	}
+}
