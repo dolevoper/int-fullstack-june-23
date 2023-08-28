@@ -19,11 +19,10 @@ if (Numberofstudents <=0 || Numberofstudents ===null || isNaN(Numberofstudents))
         gradeofstudents--;
         } 
          else { sum = sum+grades;
-            avg = sum / Numberofstudents
-
-
+            
+         }
         }
-    }
+        avg = sum / Numberofstudents
     alert (avg)
 }
 
