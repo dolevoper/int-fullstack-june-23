@@ -4,7 +4,6 @@ switch (difficulty) {
     case "1":
     case "easy":
         const numberToGuess1 = Math.floor(Math.random() * 10 + 1);
-        alert(numberToGuess1); // REMOVE THIS LINE AFTER TESTS
         const userGuess1 = prompt("Try to guess the secret number!");
         const userGuessInt1 = Number(userGuess1);
         if (userGuess1 === null) {
@@ -23,7 +22,6 @@ switch (difficulty) {
     case "2":
     case "hard":
         const numberToGuess2 = Math.floor(Math.random() * 100 + 1);
-        alert(numberToGuess2); // REMOVE THIS LINE AFTER TESTS
         const userGuess2 = prompt("Try to guess the secret number!");
         const userGuessInt2 = Number(userGuess2);
         if (userGuess2 === null) {
@@ -42,7 +40,6 @@ switch (difficulty) {
     case "3":
     case "impossible":
         const numberToGuess3 = Math.floor(Math.random() * 1000 + 1);
-        alert(numberToGuess3); // REMOVE THIS LINE AFTER TESTS
         const userGuess3 = prompt("Try to guess the secret number!");
         const userGuessInt3 = Number(userGuess3);
         if (userGuess3 === null) {
