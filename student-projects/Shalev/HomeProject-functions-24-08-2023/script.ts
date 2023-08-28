@@ -1,6 +1,6 @@
 let isNumberEven = false
 
-function foo(x: number) {
+function checkEvenOdd(x: number) {
 	if (x % 2 === 0) {
 		setEven()
 	} else {
@@ -34,7 +34,7 @@ function playGame() {
 		return
 	}
 
-	foo(userNumber)
+	checkEvenOdd(userNumber)
 
 	const playAgain = confirm('Would you like to play again?')
 	if (playAgain) {
