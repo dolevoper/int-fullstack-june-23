@@ -1,0 +1,8 @@
+// Compiler settings
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "module": "ESNext",
+      "moduleResolution": "node"
+    }
+  }
