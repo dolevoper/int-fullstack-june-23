@@ -51,10 +51,7 @@ compiled vs interpereted languages
 
 Control + Command + Space - emojis keyboard shortcut
 
-if (a < 0 || b < 0) {
-    alert("Length can't be negative")
-} else if {
-    if (a === "" || b === "") {
-        alert("Length cant be empty")
-    }
-}
+Class 014:
+example of opening a new branch from terminal: git checkout -b lilach/class-014-home-project
+move to main branch: git checkout -b main
+
