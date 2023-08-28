@@ -1,0 +1,210 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+}
+
+.outer-frame {
+    overflow: hidden;
+    border: 5px solid black;
+    border-radius: 20px;
+    background-color: lightblue;
+    width: 600px;
+    height: 300px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sun {
+    position: absolute;
+    background-color: rgb(255, 255, 122);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 20px;
+    left: 500px;
+    animation: sunlight 300ms infinite;
+}
+
+.mountains {
+    position: absolute;
+    top: 200px;
+    left: -70px;
+    border-radius: 40px;
+    box-shadow:
+        0 0 0 50px #488758,
+        60px 50px 0 70px #488758,
+        90px 90px 0 50px #488758,
+        250px 250px 0 50px #488758,
+        290px 320px 0 50px #488758,
+        320px 400px 0 50px #488758;
+    animation: mountains-motion 80s linear infinite reverse;
+}
+
+.mountaintop1 {
+    position: absolute;
+    top: 113px;
+    left: -173px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid snow;
+    animation: peaks-motion 80s linear infinite reverse;
+}
+
+.mountaintop2 {
+    position: absolute;
+    top: 117px;
+    left: -607px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid snow;
+    animation: peaks-motion 80s linear infinite reverse;
+}
+
+.hills {
+    position: absolute;
+    top: 200px;
+    left: -910px;
+    width: 300px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 30px sandybrown,
+        -20px 0 0 20px sandybrown,
+        -90px 0 0 30px sandybrown,
+        250px 0 0 30px sandybrown,
+        290px 0 0 30px sandybrown,
+        620px 0 0 30px sandybrown;
+    animation: hills-motion 35s linear infinite reverse;
+}
+
+.grass {
+    position: absolute;
+    background: linear-gradient(lightgreen, rgb(101, 176, 101));
+    width: 590px;
+    height: 100px;
+    top: 190px;
+}
+
+.pine-trees {
+    position: absolute;
+    top: 120px;
+    left: 600px;
+    animation: trees-motion 7s 10s infinite linear;
+
+    >img {
+        width: 100px;
+    }
+}
+
+.road {
+    position: absolute;
+    background: rgb(251, 209, 126);
+    width: 590px;
+    height: 20px;
+    top: 230px;
+}
+
+.cat {
+    position: absolute;
+    top: 160px;
+    left: 240px;
+    transform: scale(0.6);
+    filter: invert(1);
+    animation: cat-walk 600ms infinite;
+}
+
+@keyframes sunlight {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes mountains-motion {
+    from {
+        transform: translateX(0) rotate(130deg);
+    }
+
+    to {
+        transform: translateX(1240px) rotate(130deg);
+    }
+}
+
+@keyframes peaks-motion {
+    from {
+        transform: translateX(0) rotate(-4deg);
+    }
+
+    to {
+        transform: translateX(1240px) rotate(-4deg);
+    }
+}
+
+@keyframes hills-motion {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(1600px);
+    }
+}
+
+@keyframes trees-motion {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-750px);
+    }
+}
+
+@keyframes cat-walk {
+    0% {
+        transform: scale(0.6) translateY(0) rotate(0);
+    }
+
+    25% {
+        transform: scale(0.6) translateY(5px) rotate(5deg);
+    }
+
+    50% {
+        transform: scale(0.6) translateY(0) rotate(0);
+    }
+
+    75% {
+        transform: scale(0.6) translateY(5px) rotate(-5deg);
+    }
+
+    100% {
+        transform: scale(0.6) translateY(0) rotate(0);
+    }
+}
