@@ -1,0 +1,32 @@
+.title-container {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	top: 20px;
+
+	&__title {
+		color: white;
+		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+			'Lucida Sans', Arial, sans-serif;
+		font-size: 3rem;
+	}
+}
+
+.button-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__btn {
+		border: none;
+		background: #eee;
+		border-radius: 15px;
+		width: 100px;
+		height: 50px;
+		transition: all 500ms;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
