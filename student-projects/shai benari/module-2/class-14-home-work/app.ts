@@ -4,8 +4,8 @@
 //  alert(index1)
 // }
 // alert("end")
- let age= Number(prompt("enter your age"));
- while (age << 18){
- prompt("enter your age");
- }
-  alert("end");
+//  let age= Number(prompt("enter your age"));
+//  while (age < 18){
+//   age=Number(prompt("enter your age"));
+//  }
+//   alert("end");
