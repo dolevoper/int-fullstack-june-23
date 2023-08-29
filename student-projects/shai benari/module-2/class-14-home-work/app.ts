@@ -12,9 +12,15 @@
 let gradeSum = Number(0);
 let grade = Number(0);
 
-const gradesAverage =Number(prompt("Anter numbers of graded for average "));
+const gradesAverage =Number(prompt("Anter numbers of grades for average "));
 for (let i=1; i<=gradesAverage; i++){
     let grade = Number(prompt("Anter your grade number: " + i));
-    gradeSum += grade;
+     if ( grade <1 ){
+     alert("use only positiv numbers")
+     break
+}
+    else {
+   gradeSum += grade;
+}
 }
 alert("your average grade is: " + gradeSum/gradesAverage);
