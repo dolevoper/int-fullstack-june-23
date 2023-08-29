@@ -12,10 +12,9 @@
 let gradeSum = Number(0);
 let grade = Number(0);
 
-const gradesAverage =Number(prompt("Anter numbers of graded average "));
+const gradesAverage =Number(prompt("Anter numbers of graded for average "));
 for (let i=1; i<=gradesAverage; i++){
-    let grade = Number(prompt("Anter your grade"));
-    let gradeSum = Number(gradeSum + grade);
-    alert(gradeSum);
+    let grade = Number(prompt("Anter your grade number: " + i));
+    gradeSum += grade;
 }
-alert("your average grade is" + gradeSum/gradesAverage);
+alert("your average grade is: " + gradeSum/gradesAverage);
