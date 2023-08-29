@@ -1,7 +1,11 @@
 let hasLamp = true;
 let hasFishingPole = false;
-let hasFish = false;
 let hasRose = false;
+let hasFish = false;
+let hasBranch = false;
+let hasKey = false;
+let hasCandle = false;
+let hasCrown = false;
 
 cottage();
 
@@ -12,6 +16,8 @@ function cottage() {
         case undefined:
             return;
         case "out":
+        case "leave":
+        case "exit":
             gardenPath();
             break;
         case "examine fishing pole":
@@ -19,6 +25,7 @@ function cottage() {
             cottage();
             break;
         case "take fishing pole":
+        case "take pole":
             if (!hasFishingPole) {
                 hasFishingPole = true;
                 alert("Fishing pole added to inventory.");
@@ -32,7 +39,7 @@ function cottage() {
 }
 
 function gardenPath() {
-    const userInput = simplePrompt(`You’re on a lush garden path that leads north and south.
+    const userInput = simplePrompt(`You're on a lush garden path that leads north and south.
 There is a rosebush here.
 There is a cottage here.
 There is a winding path to the north.
