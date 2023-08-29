@@ -1,3 +1,5 @@
+let score = 0;
+let inventoryItems = ["Lamp"];
 let hasLamp = true;
 let hasFishingPole = false;
 let hasRose = false;
@@ -6,7 +8,6 @@ let hasBranch = false;
 let hasKey = false;
 let hasCandle = false;
 let hasCrown = false;
-let score = 0;
 
 cottage();
 
@@ -33,6 +34,7 @@ function cottage() {
     case "take pole":
       if (!hasFishingPole) {
         hasFishingPole = true;
+        inventoryItems.push("Fishing pole");
         score += 5;
         alert("Fishing pole added to inventory.");
         cottage();
@@ -109,9 +111,9 @@ function towerStairs() {}
 
 function dungeonStairs() {}
 
-function dungeon() {}
-
 function tower() {}
+
+function dungeon() {}
 
 function greatFeastingHall() {}
 
