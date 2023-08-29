@@ -9,3 +9,13 @@
 //   age=Number(prompt("enter your age"));
 //  }
 //   alert("end");
+let gradeSum = Number(0);
+let grade = Number(0);
+
+const gradesAverage =Number(prompt("Anter numbers of graded average "));
+for (let i=1; i<=gradesAverage; i++){
+    let grade = Number(prompt("Anter your grade"));
+    let gradeSum = Number(gradeSum + grade);
+    alert(gradeSum);
+}
+alert("your average grade is" + gradeSum);
