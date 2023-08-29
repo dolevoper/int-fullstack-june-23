@@ -18,4 +18,4 @@ for (let i=1; i<=gradesAverage; i++){
     let gradeSum = Number(gradeSum + grade);
     alert(gradeSum);
 }
-alert("your average grade is" + gradeSum);
+alert("your average grade is" + gradeSum/gradesAverage);
