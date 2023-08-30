@@ -6,7 +6,15 @@ let hasKey = false;
 let hasCandle = false;
 let hasCrown = false;
 let hasBranch = false;
-
+// לקחת מפה את הפונקציות לשימוש
+function drawbridge() {}
+function courtYard() {}
+function towerStairs() {}
+function dungeonStairs() {}
+function tower() {}
+function dungeon() {}
+function greatFeastingHall() {}
+function throneRoom() {}
 
 
 cottage();
@@ -56,7 +64,13 @@ There is a fish pond to the south.`);
         case "south":
             fishPond();
             break;
-            //להוסיף אופציה לקחת ורד
+        case "take rose":
+            if (!hasRose) {
+                hasRose = true;
+                alert("rose dded to inventory.");
+                gardenPath();
+                break;
+            }
         default:
             announceUnknownInput(userInput);
             gardenPath();
@@ -65,8 +79,22 @@ There is a fish pond to the south.`);
 
 function windingPath() { 
     const userInput = simplePrompt(`You are walking along a winding path
-    that leads south and 
-    east. There is a tall tree here`.)
+that leads south and east. 
+There is a tall tree here.`);
+
+    switch (userInput) {
+        case undefined:
+            break;
+        case "south":
+            gardenPath();
+            break;
+        case "east":
+            drawBridge();
+            break;
+        default:
+            announceUnknownInput(userInput);
+            windingPath();
+    }
 }
 
 function fishPond() {
