@@ -6,9 +6,8 @@ let hasKey = false;
 let hasCandle = false;
 let hasCrown = false;
 let hasBranch = false;
+
 // לקחת מפה את הפונקציות לשימוש
-function drawbridge() {}
-function courtYard() {}
 function towerStairs() {}
 function dungeonStairs() {}
 function tower() {}
@@ -80,7 +79,9 @@ There is a fish pond to the south.`);
 function windingPath() { 
     const userInput = simplePrompt(`You are walking along a winding path
 that leads south and east. 
-There is a tall tree here.`);
+There is a tall tree here.
+There is a gardenpath to the south. 
+There is a drawbridge to the east.`);
 
     switch (userInput) {
         case undefined:
@@ -124,7 +125,66 @@ function fishPond() {
     }
 }
 
-function drawBridge() { }
+function drawBridge() {
+    const userInput = simplePrompt(`You come to the drawbridge of Action Castle.
+There is a mean troll guarding the bridge.
+There is a winding path to the west.
+There is a court yard to the east.`)
+
+    switch (userInput){
+        case undefined:
+            return;
+        case "west":
+            windingPath();
+            break;
+        case "east":
+            if (hasFish){
+                alert("You gave the troll the fish in exchange for passage")
+                courtYard();
+                break
+            } else {
+                alert("The troll is blocking your passage, you needs something to distract him.")
+                drawBridge();
+                break;
+            }
+        default:
+            announceUnknownInput(userInput);
+            drawBridge();
+
+    }
+ }
+
+ function courtYard() {
+    const userInput = simplePrompt(`You are in the courtyard of Action Castle.
+A castle guard stands watch to the east.
+Stairs lead up into the tower and 
+down into darkness.
+There is a greatFeastingHall to the east.
+There is a drawBridge to the weat
+There is a towerStairs to the up
+There is a dungeonStairs to the down.`)
+
+    switch(userInput) {
+        case undefined:
+            return;
+            //להוסיף פה פונקצונליות של כתר
+        case "east":
+            greatFeastingHall();
+            break;
+        case "west":
+            drawBridge();
+            break;
+        case "up":
+            towerStairs();
+            break;
+        case "down":
+            dungeonStairs();
+            break;
+        default:
+            announceUnknownInput(userInput);
+            courtYard();
+    }
+ }
 
 function simplePrompt(message: string) {
     let userInput = prompt(message)?.trim()?.toLowerCase();
