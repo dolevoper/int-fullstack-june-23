@@ -31,11 +31,20 @@ const level = prompt("for easy level anter: easy\n for hard level anter hard\n f
 let guessNumber = Number(prompt("enter the number of gsses you "))
 for (let i=1; i<=guessNumber; i++){
     if (level==="easy"){let randomnum = Math.floor(Math.random() * 10) + 1};
-    alert(randomnum);
+    {alert(randomnum);
     const guessNumber = Number(prompt("guss a number betwin 1 and 10"));
     if(randomnum===guessNumber){alert("your guss is right")}
     else if(guessNumber<1 || guessNumber>10){alert("your guss is out of range")}
     else{alert("your guss is wrong")}
     if(guessNumber<randomnum){alert("your guss is less then the number")}
-    if(guessNumber>randomnum){alert("your guss is bigger then the number")}
+    if(guessNumber>randomnum){alert("your guss is bigger then the number")}}
+
+    {else if (level==="hard"){let randomnum = Math.floor(Math.random() * 100) + 1};
+    alert(randomnum);
+    const guessNumber = Number(prompt("guss a number betwin 1 and 100"));
+    if(randomnum===guessNumber){alert("your guss is right")}
+    else if(guessNumber<1 || guessNumber>100){alert("your guss is out of range")}
+    else{alert("your guss is wrong")}
+    if(guessNumber<randomnum){alert("your guss is less then the number")}
+    if(guessNumber>randomnum){alert("your guss is bigger then the number")}}
 }
