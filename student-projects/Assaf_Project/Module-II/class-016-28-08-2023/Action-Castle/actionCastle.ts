@@ -200,6 +200,13 @@ function tallTree() {
         tallTree();
         break;
       }
+    case "jump":
+    case "jump down":
+      alert("Forgeting you are mortal, you jump down from the tree.");
+      alert("...");
+      alert("You fall and break every bone in your body!");
+      deathAnnouncment();
+      return;
     default:
       announceUnknownInput(userInput);
       tallTree();
@@ -267,7 +274,13 @@ function removeItemFromInventory(input: string) {
   if (index > -1) {
     inventoryItems.splice(index, 1);
   }
-  }
+}
+
+function deathAnnouncment() {
+  alert("You are dead!");
+  alert("GAME OVER!!!");
+  alert("You're score is:\n" + score + "/100");
+}
 
 // stub (API - application programmable interface)
 // features/incremental implementation
