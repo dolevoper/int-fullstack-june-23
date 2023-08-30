@@ -262,5 +262,12 @@ function announceUnknownInput(input: string) {
   alert(`Sorry, you can't "${input}"`);
 }
 
+function removeItemFromInventory(input: string) {
+  const index = inventoryItems.indexOf(input);
+  if (index > -1) {
+    inventoryItems.splice(index, 1);
+  }
+  }
+
 // stub (API - application programmable interface)
 // features/incremental implementation
