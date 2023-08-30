@@ -8,13 +8,12 @@ let hasCrown = false;
 let hasBranch = false;
 
 // לקחת מפה את הפונקציות לשימוש
-function towerStairs() {}
+
 function dungeonStairs() {}
 function tower() {}
 function dungeon() {}
 function greatFeastingHall() {}
 function throneRoom() {}
-
 
 cottage();
 
@@ -66,7 +65,7 @@ There is a fish pond to the south.`);
         case "take rose":
             if (!hasRose) {
                 hasRose = true;
-                alert("rose dded to inventory.");
+                alert("rose added to inventory.");
                 gardenPath();
                 break;
             }
@@ -92,11 +91,40 @@ There is a drawbridge to the east.`);
         case "east":
             drawBridge();
             break;
+        case "up":
+            topOfTallTree();
+            break;
         default:
             announceUnknownInput(userInput);
             windingPath();
     }
 }
+
+function topOfTallTree() {
+    const userInput = simplePrompt(`You climb up the tree—it takes a long time.
+    You are at the top of a tall tree. There is a stout dead 
+    branch here. From your perch you can see the tower 
+    of Action Castle.`)
+
+    switch (userInput) {
+        case undefined:
+            return;
+        case "take the dead branch":
+            if (!hasBranch) {
+                hasBranch = true;
+                alert("dead branch added to inventory.");
+                topOfTallTree();
+                break; 
+            }
+        case "down":
+            windingPath();
+            break;
+        default:
+            announceUnknownInput(userInput);
+            topOfTallTree();
+    }
+}
+
 
 function fishPond() {
     const userInput = simplePrompt("You are at the edge of a fish pond. A path leads north.");
@@ -183,6 +211,27 @@ There is a dungeonStairs to the down.`)
         default:
             announceUnknownInput(userInput);
             courtYard();
+    }
+ }
+
+ function towerStairs() {
+    const userInput = simplePrompt(`You climb the tower stairs until you come to a door.
+The door is locked.`)
+
+    switch(userInput){
+        case undefined:
+            return;
+        case "up":
+            if(hasKey){
+                tower();
+            } else {
+                alert(`you need the guard’s key to unlock the door.`)
+                towerStairs();
+                break;
+            }
+        case "down":
+            courtYard();
+            break;
     }
  }
 
