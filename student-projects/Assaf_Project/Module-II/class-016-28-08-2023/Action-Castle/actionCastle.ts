@@ -11,6 +11,7 @@ let hasCrown = false;
 let isTrollBlocking = true;
 let isGuardConscious = true;
 let isGuardKeyTaken = false;
+let isWearingCrown = false;
 
 cottage();
 
@@ -285,11 +286,44 @@ There is a path that leads west and a bridge that leads east ${
 }
 
 function courtyard() {
+  if (isWearingCrown) {
+    const userInput = simplePrompt(
+      `You are in the courtyard of Action Castle.
+The guard drops to his knee and bows deeply.
+"Your public awaits you in the throne room."`
+    );
+    switch (userInput) {
+      case undefined:
+        return;
+      case "west":
+        drawBridge();
+        break;
+      case "up":
+      case "go up":
+      case "go up the stairs":
+        towerStairs();
+        break;
+      case "down":
+      case "go down":
+      case "go down the stairs":
+        dungeonStairs();
+        break;
+      case "east":
+      case "go east":
+        greatFeastingHall();
+        break;
+      case "examine guard":
+        alert("The guard is bowing to you with respect.");
+      default:
+        announceUnknownInput(userInput);
+        courtyard();
+    }
+  }
   const userInput = simplePrompt(
     `You are in the courtyard of Action Castle.\n${
       isGuardConscious
         ? "A castle guard stands watch to the east and there is a door behind him."
-        : "There is a door to the east"
+        : "The guard lays unconscious next to a door to the east."
     }
 Stairs lead up into the tower and down into the darkness.`
   );
@@ -301,10 +335,12 @@ Stairs lead up into the tower and down into the darkness.`
       break;
     case "up":
     case "go up":
+    case "go up the stairs":
       towerStairs();
       break;
     case "down":
     case "go down":
+    case "go down the stairs":
       dungeonStairs();
       break;
     case "examine guard":
