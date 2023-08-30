@@ -1,32 +1,33 @@
 let isAtHouse = true
+
 function housePlace() {
 	const wakeUpChoice = prompt(
-		'You have just woken up in your house, what should you do?\n BRUSH TEETH\n EAT\n GO TO GARDEN\n GO TO WORK'
+		'You have just woken up in your house, what should you do?\n brush teeth\n eat\n go to garden\n go to work'
 	)
 	const wakeUpChoiceOptions = [
-		'BRUSH TEETH',
-		'EAT',
-		'GO TO GARDEN',
-		'GO TO WORK',
+		'brush teeth',
+		'eat',
+		'go to garden',
+		'go to work',
 	]
 
 	if (wakeUpChoice === null) {
-		console.log('No choice detected. Exiting game.')
+		prompt('No choice detected. Exiting game.')
 		return
 	}
 
 	if (wakeUpChoiceOptions.includes(wakeUpChoice)) {
-		if (wakeUpChoice === 'BRUSH TEETH') {
+		if (wakeUpChoice === 'brush teeth') {
 			brushTeeth()
-		} else if (wakeUpChoice === 'EAT') {
+		} else if (wakeUpChoice === 'eat') {
 			eat()
-		} else if (wakeUpChoice === 'GO TO GARDEN') {
+		} else if (wakeUpChoice === 'go to garden') {
 			gardenPlace()
-		} else if (wakeUpChoice === 'GO TO WORK') {
+		} else if (wakeUpChoice === 'go to work') {
 			workPlace()
 		}
 	} else {
-		console.log('Invalid choice. Please choose from the provided options.')
+		prompt('Invalid choice. Please choose from the provided options.')
 	}
 }
 
@@ -35,21 +36,51 @@ function brushTeeth() {
 }
 
 function eat() {
+	let chosenFood
 	if (isAtHouse) {
-		const chosenFood = prompt(
-			'Please select a food:\n BANANA\n APPLE\n OMELETTE\n WATER'
+		chosenFood = prompt(
+			'Please select a food:\n banana\n apple\n omelette\n water'
 		)
 	} else {
-		const chosenFood = prompt(
-			'Please select a food:\n COFFEE\n TEA\n WATER\n BANANA\n APPLE\n SANDWITCH'
+		chosenFood = prompt(
+			'Please select a food:\n coffee\n tea\n water\n banana\n apple\n sandwich'
 		)
+	}
+
+	while (
+		chosenFood === 'banana' ||
+		chosenFood === 'apple' ||
+		chosenFood === 'omelette' ||
+		chosenFood === 'water' ||
+		chosenFood === 'coffee' ||
+		chosenFood === 'tea' ||
+		chosenFood === 'sandwich'
+	) {
+		if (chosenFood === 'banana') {
+			prompt('You have now eaten a banana')
+		} else if (chosenFood === 'apple') {
+			prompt('You have now eaten an apple')
+		} else if (chosenFood === 'omelette') {
+			prompt('You have now eaten an omelette')
+		} else if (chosenFood === 'water') {
+			prompt('You drank water')
+		} else if (chosenFood === 'coffee') {
+			prompt('You drank coffee')
+		} else if (chosenFood === 'tea') {
+			prompt('You drank tea')
+		} else if (chosenFood === 'sandwich') {
+			prompt('You have now eaten a sandwich')
+		}
+		break
 	}
 }
 
 function gardenPlace() {
-	// Implementation for the gardenPlace function
+	prompt('You are in the garden.')
 }
 
 function workPlace() {
-	// Implementation for the workPlace function
+	prompt('You are at work.')
 }
+
+housePlace()
