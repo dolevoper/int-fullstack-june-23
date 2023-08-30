@@ -6,13 +6,14 @@ let hasKey = false;
 let hasCandle = false;
 let hasCrown = false;
 let hasBranch = false;
+let lightLamb = false;
 
 // לקחת מפה את הפונקציות לשימוש
 
-function dungeonStairs() {}
+
 function tower() {}
 function dungeon() {}
-function greatFeastingHall() {}
+
 function throneRoom() {}
 
 cottage();
@@ -198,6 +199,7 @@ There is a dungeonStairs to the down.`)
             //להוסיף פה פונקצונליות של כתר
         case "east":
             greatFeastingHall();
+            //השחקן לא יכול להיכנס לפה כל עוד השומר לא חסר הכרה
             break;
         case "west":
             drawBridge();
@@ -232,6 +234,59 @@ The door is locked.`)
         case "down":
             courtYard();
             break;
+        default:
+            announceUnknownInput(userInput);
+            towerStairs();
+    }
+ }
+
+
+ function dungeonStairs() {
+    const userInput = simplePrompt(`You are on the dungeon stairs. It’s very dark here.`)
+
+    switch(userInput){
+        case undefined:
+            return;
+        case "down":
+            alert("It’s too dark to see! Hint: light lamb")
+        case "light lamb":
+            //להוסיף פה פונקציה שהנר לא מספיק טוב והוא לא עובד.
+            lightLamb = true;
+            alert(`now you You can see well enough to continue down the stairs.`)
+            dungeon();
+            break;
+        case "up":
+            courtYard();
+            break;
+        default:
+            announceUnknownInput(userInput);
+            dungeonStairs();
+    }
+ }
+
+ function greatFeastingHall() {
+    const userInput = simplePrompt(`You stand inside the great feasting hall. There is a strange 
+candle here. Exits are to the east and west.
+You see that the strange candle is 
+covered in mysterious runes.`)
+    // אם השחקן לובש את הכתר החדר מלא באנשים שמרימים לכבודו כוסית.
+
+    switch(userInput) {
+        case undefined:
+            return;
+        case "take candle":
+            hasCandle = true;
+            greatFeastingHall();
+            break;
+        case "wast":
+            courtYard();
+            break;
+        case "east":
+            throneRoom();
+            break;
+        default:
+            announceUnknownInput(userInput);
+            greatFeastingHall();
     }
  }
 
