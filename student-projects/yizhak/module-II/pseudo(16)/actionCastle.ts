@@ -7,13 +7,12 @@ let hasCandle = false;
 let hasCrown = false;
 let hasBranch = false;
 let lightLamb = false;
+let lightCnadle = false;
 
 // לקחת מפה את הפונקציות לשימוש
 
 
 function tower() {}
-function dungeon() {}
-
 function throneRoom() {}
 
 cottage();
@@ -248,7 +247,7 @@ The door is locked.`)
         case undefined:
             return;
         case "down":
-            alert("It’s too dark to see! Hint: light lamb")
+            alert("It’s too dark to see! Hint: Look for an object that makes light")
         case "light lamb":
             //להוסיף פה פונקציה שהנר לא מספיק טוב והוא לא עובד.
             lightLamb = true;
@@ -289,6 +288,35 @@ covered in mysterious runes.`)
             greatFeastingHall();
     }
  }
+
+ function dungeon() {
+    const userInput = simplePrompt(`You are in the dungeon. There is a spooky ghost here. 
+    Stairs lead up. The ghost has bony, claw-like fingers 
+    and wears a gold crown.`)
+
+    switch (userInput){
+        case undefined:
+            return;
+        case "light the candel":
+            if(hasCandle){
+                alert(`The strange candle gives off a strange, 
+                acrid smoke, causing the ghost to flee the dungeon. It 
+                leaves behind a gold crown`)
+                hasCrown = true;
+                dungeon();
+            } else {
+                alert(`RUN! the spooky ghost will kill you. Hint: Find something to scare the ghost`)
+            }
+            break;
+        case "up":
+            dungeonStairs();
+            break;
+        default:
+            announceUnknownInput(userInput);
+            dungeon();
+    }
+ }
+
 
 function simplePrompt(message: string) {
     let userInput = prompt(message)?.trim()?.toLowerCase();
