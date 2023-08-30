@@ -9,6 +9,8 @@ let hasKey = false;
 let hasCandle = false;
 let hasCrown = false;
 let isTrollBlocking = true;
+let isGuardConscious = true;
+let isGuardKeyTaken = false;
 
 cottage();
 
@@ -138,7 +140,8 @@ function fishPond() {
 
 function windingPath() {
   const userInput = simplePrompt(
-    "You are walking along a winding path that leads south and east.\nThere is a tall tree here."
+    `You are walking along a winding path that leads south and east.
+There is a tall tree here.`
   );
   switch (userInput) {
     case undefined:
@@ -168,7 +171,7 @@ function tallTree() {
   const userInput = simplePrompt(
     `You are at the top of a tall tree.\n${
       !hasBranch ? "There is a stout dead *branch* here. " : ""
-    }From yout perch you can see the tower of Action Castle.`
+    }From your perch you can see the tower of Action Castle.`
   );
   switch (userInput) {
     case undefined:
@@ -213,9 +216,112 @@ function tallTree() {
   }
 }
 
-function drawBridge() {}
+function drawBridge() {
+  const userInput = simplePrompt(
+    `You come to the drawbridge of Action Castle.
+There is a path that leads west and a bridge that leads east ${
+      isTrollBlocking ? "\nThere is a mean troll guarding the bridge. " : ""
+    }`
+  );
+  switch (userInput) {
+    case undefined:
+      return;
+    case "west":
+      windingPath();
+      break;
+    case "examine troll":
+    case "examine mean troll":
+      alert(
+        "The troll has a warty green hide and a foul stench.\nHe looks hungry."
+      );
+      drawBridge();
+      break;
+    case "cross":
+    case "cross bridge":
+    case "east":
+    case "go east":
+      if (isTrollBlocking) {
+        alert("The troll blocks your path.");
+        drawBridge();
+        break;
+      } else courtyard();
+      break;
+    case "give fish":
+    case "give fish to troll":
+      if (hasFish && isTrollBlocking) {
+        hasFish = false;
+        removeItemFromInventory("a fish");
+        isTrollBlocking = false;
+        score += 10;
+        alert(
+          `You take the fish out of your bag and show it to the troll.
+  He looks at you, releases a grunt and takes the fish out of your hands.
+  He sniffs the fish and runs away with it...`
+        );
+        alert("The bridge is now clear.");
+        drawBridge();
+        break;
+      }
+    case "hit troll":
+    case "hit troll with branch":
+    case "club troll":
+      if (hasBranch && isTrollBlocking) {
+        alert("You hit the troll with the branch you found.");
+        alert("The branch breaks.\nThe troll berely felt your weak attempt");
+        alert("The troll laughs as he rips your limbs apart from your body!");
+        deathAnnouncment();
+        return;
+      } else if (!hasBranch && isTrollBlocking) {
+        alert("You try to punch the troll.");
+        alert("The hand breaks.\nThe troll berely felt your weak attempt");
+        alert("The troll laughs as he rips your limbs apart from your body!");
+        deathAnnouncment();
+        return;
+      }
+    default:
+      announceUnknownInput(userInput);
+      drawBridge();
+  }
+}
 
-function courtyard() {}
+function courtyard() {
+  const userInput = simplePrompt(
+    `You are in the courtyard of Action Castle.\n${
+      isGuardConscious
+        ? "A castle guard stands watch to the east and there is a door behind him."
+        : "There is a door to the east"
+    }
+Stairs lead up into the tower and down into the darkness.`
+  );
+  switch (userInput) {
+    case undefined:
+      return;
+    case "west":
+      drawBridge();
+      break;
+    case "up":
+    case "go up":
+      towerStairs();
+      break;
+    case "down":
+    case "go down":
+      dungeonStairs();
+      break;
+    case "examine guard":
+      alert(
+        `The guard wears chainmail armor but no helmet.\n${
+          isGuardKeyTaken ? "A key hangs from his belt" : ""
+        }`
+      );
+    case "east":
+      // add if guard
+      greatFeastingHall();
+      break;
+    default:
+      announceUnknownInput(userInput);
+      courtyard();
+  }
+}
 
 function towerStairs() {}
 
@@ -259,6 +365,7 @@ function simplePrompt(message: string) {
     userInput = prompt(message)?.trim()?.toLowerCase();
   }
   while (userInput === "score") {
+    // delete after checking if all adds up
     alert(score);
     userInput = prompt(message)?.trim()?.toLowerCase();
   }
@@ -269,8 +376,8 @@ function announceUnknownInput(input: string) {
   alert(`Sorry, you can't "${input}"`);
 }
 
-function removeItemFromInventory(input: string) {
-  const index = inventoryItems.indexOf(input);
+function removeItemFromInventory(item: string) {
+  const index = inventoryItems.indexOf(item);
   if (index > -1) {
     inventoryItems.splice(index, 1);
   }
