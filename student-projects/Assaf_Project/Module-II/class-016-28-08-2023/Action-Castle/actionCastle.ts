@@ -50,9 +50,7 @@ function gardenPath() {
   const userInput =
     simplePrompt(`You're on a lush garden path that leads north and south.
 There is a rosebush here.
-There is a cottage here.
-There is a winding path to the north.
-There is a fish pond to the south.`);
+There is a cottage here.`);
 
   switch (userInput) {
     case undefined:
@@ -66,6 +64,36 @@ There is a fish pond to the south.`);
     case "south":
       fishPond();
       break;
+    case "examine rosebush":
+    case "examine bush":
+      alert(
+        `${
+          !hasRose
+            ? "You find a single red *rose*. "
+            : "This is a very nice bush."
+        }`
+      );
+      gardenPath();
+      break;
+    case "smell rose":
+      if (!hasRose) {
+        alert(
+          "You lean a little bit closer and see that\n roses really smell like poo-ooo-ooh."
+        );
+      }
+      gardenPath();
+      break;
+    case "take rose":
+    case "get rose":
+    case "pick rose":
+      if (!hasRose) {
+        hasRose = true;
+        inventoryItems.push("Rose");
+        score += 5;
+        alert("Rose added to inventory.");
+        gardenPath();
+        break;
+      }
     default:
       announceUnknownInput(userInput);
       gardenPath();
@@ -124,6 +152,10 @@ function simplePrompt(message: string) {
 
   while (hasFish && userInput === "eat fish") {
     alert("You can't eat the fish! It's raw!");
+    userInput = prompt(message)?.trim()?.toLowerCase();
+  }
+  while (hasRose && userInput === "smell rose") {
+    alert("The rose scent is spreading in your inventory...");
     userInput = prompt(message)?.trim()?.toLowerCase();
   }
 
