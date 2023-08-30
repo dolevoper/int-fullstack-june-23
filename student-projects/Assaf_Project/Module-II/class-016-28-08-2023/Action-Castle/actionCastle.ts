@@ -34,7 +34,7 @@ function cottage() {
     case "take pole":
       if (!hasFishingPole) {
         hasFishingPole = true;
-        inventoryItems.push("Fishing pole");
+        inventoryItems.push("\nFishing pole");
         score += 5;
         alert("Fishing pole added to inventory.");
         cottage();
@@ -78,7 +78,7 @@ There is a cottage here.`);
     case "smell rose":
       if (!hasRose) {
         alert(
-          "You lean a little bit closer and see that\n roses really smell like poo-ooo-ooh."
+          "You lean a little bit closer and see that\nroses really smell like poo-ooo-ooh."
         );
       }
       gardenPath();
@@ -88,7 +88,7 @@ There is a cottage here.`);
     case "pick rose":
       if (!hasRose) {
         hasRose = true;
-        inventoryItems.push("Rose");
+        inventoryItems.push("\nRose");
         score += 5;
         alert("Rose added to inventory.");
         gardenPath();
@@ -112,12 +112,15 @@ function fishPond() {
       gardenPath();
       break;
     case "use fishing pole":
+    case "use pole":
       if (hasFishingPole) {
         if (hasFish) {
           alert("You catch nothing...");
           fishPond();
         } else {
           hasFish = true;
+          inventoryItems.push("\nFish");
+          score += 5;
           alert("You catch a wriggling *fish*!");
           fishPond();
         }
@@ -129,7 +132,54 @@ function fishPond() {
   }
 }
 
-function windingPath() {}
+function windingPath() {
+  const userInput = simplePrompt(
+    "You are walking along a winding path that leads south and east.\nThere is a tall tree here."
+  );
+  switch (userInput) {
+    case undefined:
+      return;
+    case "south":
+      gardenPath();
+      break;
+    case "east":
+      drawBridge();
+      break;
+    case "up":
+    case "climb":
+    case "climb up":
+    case "climb tree":
+      alert("You climb up the tree.");
+      alert("...");
+      alert("It takes a long time.");
+      tallTree();
+      break;
+    default:
+      announceUnknownInput(userInput);
+      windingPath();
+  }
+}
+
+function tallTree() {
+  const userInput = simplePrompt(
+    "You are at the top of a tall tree.\nThere is a stout dead *branch* here.\nFrom yout perch you can see the tower of Action Castle."
+  );
+  switch (userInput) {
+    case undefined:
+      return;
+    case "climb":
+    case "climb down":
+    case "down":
+      alert("You climb down the tree.");
+      alert("...");
+      alert("It takes a long time.");
+      windingPath();
+      break;
+    default:
+      announceUnknownInput(userInput);
+      tallTree();
+  }
+}
 
 function drawBridge() {}
 
@@ -158,7 +208,14 @@ function simplePrompt(message: string) {
     alert("The rose scent is spreading in your inventory...");
     userInput = prompt(message)?.trim()?.toLowerCase();
   }
-
+  while (userInput === "inventory") {
+    alert(inventoryItems);
+    userInput = prompt(message)?.trim()?.toLowerCase();
+  }
+  while (userInput === "score") {
+    alert(score);
+    userInput = prompt(message)?.trim()?.toLowerCase();
+  }
   return userInput;
 }
 
