@@ -1,5 +1,5 @@
 let score = 0;
-let inventoryItems = ["Lamp"];
+let inventoryItems = ["a lamp"];
 let hasLamp = true;
 let hasFishingPole = false;
 let hasRose = false;
@@ -8,6 +8,7 @@ let hasBranch = false;
 let hasKey = false;
 let hasCandle = false;
 let hasCrown = false;
+let isTrollBlocking = true;
 
 cottage();
 
@@ -27,14 +28,17 @@ function cottage() {
       gardenPath();
       break;
     case "examine fishing pole":
-      alert("You see a simple fishing pole.");
+    case "examine pole":
+      if (!hasFishingPole) {
+        alert("You see a simple fishing pole.");
+      }
       cottage();
       break;
     case "take fishing pole":
     case "take pole":
       if (!hasFishingPole) {
         hasFishingPole = true;
-        inventoryItems.push("\nFishing pole");
+        inventoryItems.push("\na fishing pole");
         score += 5;
         alert("Fishing pole added to inventory.");
         cottage();
@@ -88,7 +92,7 @@ There is a cottage here.`);
     case "pick rose":
       if (!hasRose) {
         hasRose = true;
-        inventoryItems.push("\nRose");
+        inventoryItems.push("\na rose");
         score += 5;
         alert("Rose added to inventory.");
         gardenPath();
@@ -119,7 +123,7 @@ function fishPond() {
           fishPond();
         } else {
           hasFish = true;
-          inventoryItems.push("\nFish");
+          inventoryItems.push("\na fish");
           score += 5;
           alert("You catch a wriggling *fish*!");
           fishPond();
@@ -162,7 +166,9 @@ function windingPath() {
 
 function tallTree() {
   const userInput = simplePrompt(
-    "You are at the top of a tall tree.\nThere is a stout dead *branch* here.\nFrom yout perch you can see the tower of Action Castle."
+    `You are at the top of a tall tree.\n${
+      !hasBranch ? "There is a stout dead *branch* here. " : ""
+    }From yout perch you can see the tower of Action Castle.`
   );
   switch (userInput) {
     case undefined:
@@ -175,6 +181,25 @@ function tallTree() {
       alert("It takes a long time.");
       windingPath();
       break;
+    case "examine dead branch":
+    case "examine branch":
+      if (!hasBranch) {
+        alert("You think it would make a good club.");
+      }
+      tallTree();
+      break;
+    case "take branch":
+    case "take dead branch":
+    case "break branch":
+    case "break dead branch":
+      if (!hasBranch) {
+        hasBranch = true;
+        inventoryItems.push("\na branch");
+        score += 5;
+        alert("Branch added to inventory.");
+        tallTree();
+        break;
+      }
     default:
       announceUnknownInput(userInput);
       tallTree();
@@ -200,6 +225,13 @@ function throneRoom() {}
 function simplePrompt(message: string) {
   let userInput = prompt(message)?.trim()?.toLowerCase();
 
+  while (
+    (hasFishingPole && userInput === "examine pole") ||
+    userInput === "examine fishing pole"
+  ) {
+    alert("Usually people use fishing poles to catch fish...");
+    userInput = prompt(message)?.trim()?.toLowerCase();
+  }
   while (hasFish && userInput === "eat fish") {
     alert("You can't eat the fish! It's raw!");
     userInput = prompt(message)?.trim()?.toLowerCase();
@@ -208,8 +240,15 @@ function simplePrompt(message: string) {
     alert("The rose scent is spreading in your inventory...");
     userInput = prompt(message)?.trim()?.toLowerCase();
   }
+  while (
+    (hasBranch && userInput === "examine branch") ||
+    userInput === "examine dead branch"
+  ) {
+    alert("I wouldn't want to get hit with this!");
+    userInput = prompt(message)?.trim()?.toLowerCase();
+  }
   while (userInput === "inventory") {
-    alert(inventoryItems);
+    alert("You take a look in your inventory and see:\n" + inventoryItems);
     userInput = prompt(message)?.trim()?.toLowerCase();
   }
   while (userInput === "score") {
