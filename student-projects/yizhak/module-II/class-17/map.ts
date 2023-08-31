@@ -9,8 +9,8 @@ const newar = arr.map((x) => x * 2)
 alert(newar)
 
 
-function theNewMap(a, b){
-   alert(a * b) 
-}
+//function theNewMap(arr: Number, b: Number){
+//   alert(arr * b) 
+///}
 
-theNewMap(5, arr)
+//theNewMap(arr)
