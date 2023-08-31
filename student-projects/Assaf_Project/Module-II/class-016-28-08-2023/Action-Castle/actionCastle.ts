@@ -482,7 +482,17 @@ function dungeonStairs() {
   }
 }
 
-function tower() {}
+function tower() {
+  const userInput = simplePrompt(`You are in the tower
+There is a princes here`);
+  switch (userInput) {
+    case undefined:
+      return;
+    default:
+      announceUnknownInput(userInput);
+      tower();
+  }
+}
 
 function dungeon() {
   isFacingGhost = true;
