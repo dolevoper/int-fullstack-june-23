@@ -4,12 +4,13 @@ let hasLamp = true;
 let hasFishingPole = false;
 let hasRose = false;
 let hasFish = false;
-let hasBranch = true;
+let hasBranch = false;
 let hasKey = false;
 let hasCandle = false;
 let hasCrown = false;
 let isTrollBlocking = true;
 let isGuardConscious = true;
+let isCandleLit = false;
 let isWearingCrown = false;
 let attemptsAtStealingKey = 0;
 
@@ -421,6 +422,43 @@ There are doors to the east and to the west`
         ? (alert("The door is locked."), greatFeastingHall())
         : throneRoom();
       break;
+    case "examine candle":
+      if (!hasCandle) {
+        alert(
+          "You see that the strange candle is covered in mysterious runes."
+        );
+        greatFeastingHall();
+        break;
+      }
+    case "take candle":
+    case "pick candle":
+      if (!hasCandle) {
+        hasCandle = true;
+        inventoryItems.push("\na strange candle");
+        score += 5;
+        alert("Candle added to inventory.");
+        greatFeastingHall();
+        break;
+      }
+      gardenPath();
+      break;
+    case "read runes":
+    case "examine runes":
+      if (!hasCandle) {
+        alert(
+          "The odd runes are part of an exorcism ritual used to dispel evil spirits."
+        );
+        greatFeastingHall();
+        break;
+      }
+    case "light candle":
+    case "light strange candle":
+      if (!hasCandle) {
+        alert("The candle casts a flickering flame and emits acrid smoke.");
+        isCandleLit = true;
+        greatFeastingHall();
+        break;
+      }
     default:
       announceUnknownInput(userInput);
       greatFeastingHall();
@@ -465,6 +503,25 @@ function simplePrompt(message: string) {
     userInput === "make a key copy"
   ) {
     alert("Is that even possible?");
+    userInput = prompt(message)?.trim()?.toLowerCase();
+  }
+  while (hasCandle && userInput === "examine candle") {
+    alert("You see that the strange candle is covered in mysterious runes.");
+    userInput = prompt(message)?.trim()?.toLowerCase();
+  }
+  while (
+    (hasCandle && userInput === "examine runes") ||
+    userInput === "read runes"
+  ) {
+    alert("You see that the strange candle is covered in mysterious runes.");
+    userInput = prompt(message)?.trim()?.toLowerCase();
+  }
+  while (
+    (!isCandleLit && hasCandle && userInput === "light candle") ||
+    userInput === "light strange candle"
+  ) {
+    alert("The candle casts a flickering flame and emits acrid smoke.");
+    isCandleLit = true;
     userInput = prompt(message)?.trim()?.toLowerCase();
   }
   while (userInput === "inventory") {
