@@ -10,10 +10,10 @@ let hasCandle = false;
 let hasCrown = false;
 let isTrollBlocking = true;
 let isGuardConscious = true;
-let attemptsAtStealingKey = 0;
 let isWearingCrown = false;
+let attemptsAtStealingKey = 0;
 
-courtyard();
+greatFeastingHall();
 
 function cottage() {
   const userInput = simplePrompt(
@@ -399,10 +399,37 @@ function tower() {}
 function dungeon() {}
 
 function greatFeastingHall() {
-  alert("hey");
+  const userInput = simplePrompt(
+    `You stand inside the great feasting hall.\n${
+      isWearingCrown
+        ? "The hall is full of people.\nThey raise a toast to their new ruler."
+        : "There is a strange candle here."
+    } 
+There are doors to the east and to the west`
+  );
+  switch (userInput) {
+    case undefined:
+      return;
+    case "west":
+    case "go west":
+      courtyard();
+      break;
+    case "east":
+    case "go east":
+    case "enter throne room":
+      !isWearingCrown
+        ? (alert("The door is locked."), greatFeastingHall())
+        : throneRoom();
+      break;
+    default:
+      announceUnknownInput(userInput);
+      greatFeastingHall();
+  }
 }
 
-function throneRoom() {}
+function throneRoom() {
+  alert("yay throne Room!");
+}
 
 function simplePrompt(message: string) {
   let userInput = prompt(message)?.trim()?.toLowerCase();
