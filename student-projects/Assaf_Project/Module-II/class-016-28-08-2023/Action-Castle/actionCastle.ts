@@ -21,7 +21,7 @@ let isWearingCrown = false;
 let attemptsAtStealingKey = 0;
 let turnsUntillGhostAttacks = 3;
 
-dungeon();
+throneRoom();
 
 function cottage() {
   const userInput = simplePrompt(
@@ -629,7 +629,29 @@ There are doors to the east and to the west`
 }
 
 function throneRoom() {
-  alert("yay throne Room!");
+  const userInput = simplePrompt(`This is the throne room of Action Castle.
+There is an ornate gold throne here.`);
+  switch (userInput) {
+    case undefined:
+      return;
+    case "examine throne":
+      alert("You see an ornate gold throne.");
+      throneRoom();
+      break;
+    case "sit on throne":
+    case "claim throne":
+    case "sit on gold throne":
+    case "claim gold throne":
+      if (isWearingCrown) {
+        alert("You are now the new ruler of Action Castle!");
+        alert("THE END!");
+        alert(score);
+        return;
+      }
+    default:
+      announceUnknownInput(userInput);
+      throneRoom();
+  }
 }
 
 function simplePrompt(message: string) {
