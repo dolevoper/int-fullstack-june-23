@@ -12,6 +12,7 @@ let isTrollBlocking = true;
 let isGuardConscious = true;
 let isCandleLit = false;
 let isLampLit = false;
+let isDark = false;
 let isDrafty = false;
 let isTowerDoorOpen = false;
 let isWearingCrown = false;
@@ -296,6 +297,7 @@ There is a path that leads west and a bridge that leads east ${
 
 function courtyard() {
   isDrafty = false;
+  isDark = false;
   const userInput = simplePrompt(
     `You are in the courtyard of Action Castle.\n${
       isWearingCrown
@@ -446,7 +448,9 @@ function dungeonStairs() {
     : "";
   const userInput = simplePrompt(
     `You are on the dungeon stairs.\n${
-      isLampLit ? "You see a door downstairs." : "It's very dark here."
+      isLampLit
+        ? ((isDark = false), "You see a door downstairs.")
+        : ((isDark = true), "It's very dark here.")
     }`
   );
   switch (userInput) {
@@ -456,8 +460,13 @@ function dungeonStairs() {
     case "go down":
     case "downstairs":
     case "go downstairs":
-      isLampLit ? dungeon() : alert("It's too dark to see!");
-      dungeonStairs();
+      isLampLit ? dungeon() : (alert("It's too dark to see!"), dungeonStairs());
+      break;
+    case "up":
+    case "go up":
+    case "go upstairs":
+    case "upstairs":
+      courtyard();
       break;
     case "light lamp":
       isLampLit = true;
@@ -606,6 +615,10 @@ function simplePrompt(message: string) {
     userInput === "light strange candle"
   ) {
     alert("The candle's flickering flame is blown out by a draft.");
+    userInput = prompt(message)?.trim()?.toLowerCase();
+  }
+  while (!isDark && userInput === "light lamp") {
+    alert("You see no reason to light the lamp.");
     userInput = prompt(message)?.trim()?.toLowerCase();
   }
   while (userInput === "inventory") {
