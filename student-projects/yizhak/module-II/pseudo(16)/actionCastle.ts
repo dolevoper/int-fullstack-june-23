@@ -13,7 +13,7 @@ let lightCnadle = false;
 
 
 function tower() {}
-function throneRoom() {}
+
 
 cottage();
 
@@ -315,6 +315,38 @@ covered in mysterious runes.`)
             announceUnknownInput(userInput);
             dungeon();
     }
+ }
+
+ function throneRoom() {
+    const userInput = simplePrompt(`This is the throne room of Action Castle. There is an 
+    ornate gold throne here.`)
+
+    if (hasCrown){
+        alert(`the room is 
+        full of people. 
+        The people gathered here cheer and applaud as you`)
+    } else {
+        throneRoom()
+    }
+
+    switch (userInput){
+        case undefined:
+            return;
+        case "sit on throne":
+            if(hasCrown){
+                alert("You are now the new ruler of Action Castle!")
+            } else {
+                throneRoom()
+            }
+            break;
+        case "west":
+            greatFeastingHall();
+            break;
+        default:
+            announceUnknownInput(userInput);
+            throneRoom();
+    }
+
  }
 
 
