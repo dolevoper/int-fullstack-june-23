@@ -6,16 +6,18 @@ let hasRose = false;
 let hasFish = false;
 let hasBranch = false;
 let hasKey = false;
-let hasCandle = false;
+let hasCandle = true;
 let hasCrown = false;
 let isTrollBlocking = true;
 let isGuardConscious = true;
 let isCandleLit = false;
+let isLampLit = false;
+let isDrafty = false;
 let isTowerDoorOpen = false;
 let isWearingCrown = false;
 let attemptsAtStealingKey = 0;
 
-towerStairs();
+courtyard();
 
 function cottage() {
   const userInput = simplePrompt(
@@ -220,6 +222,11 @@ function tallTree() {
 }
 
 function drawBridge() {
+  isDrafty = true;
+  isCandleLit
+    ? (alert("The candle's flickering flame is blown out by a draft."),
+      (isCandleLit = false))
+    : "";
   const userInput = simplePrompt(
     `You come to the drawbridge of Action Castle.
 There is a path that leads west and a bridge that leads east ${
@@ -288,6 +295,7 @@ There is a path that leads west and a bridge that leads east ${
 }
 
 function courtyard() {
+  isDrafty = false;
   const userInput = simplePrompt(
     `You are in the courtyard of Action Castle.\n${
       isWearingCrown
@@ -430,11 +438,43 @@ function towerStairs() {
   }
 }
 
-function dungeonStairs() {}
+function dungeonStairs() {
+  isDrafty = true;
+  isCandleLit
+    ? (alert("The candle's flickering flame is blown out by a draft."),
+      (isCandleLit = false))
+    : "";
+  const userInput = simplePrompt(
+    `You are on the dungeon stairs.\n${
+      isLampLit ? "You see a door downstairs." : "It's very dark here."
+    }`
+  );
+  switch (userInput) {
+    case undefined:
+      return;
+    case "down":
+    case "go down":
+    case "downstairs":
+    case "go downstairs":
+      isLampLit ? dungeon() : alert("It's too dark to see!");
+      dungeonStairs();
+      break;
+    case "light lamp":
+      isLampLit = true;
+      alert("You light the lamp and can now see your surroundings.");
+      dungeonStairs();
+      break;
+    default:
+      announceUnknownInput(userInput);
+      drawBridge();
+  }
+}
 
 function tower() {}
 
-function dungeon() {}
+function dungeon() {
+  isDrafty = false;
+}
 
 function greatFeastingHall() {
   const userInput = simplePrompt(
@@ -554,11 +594,18 @@ function simplePrompt(message: string) {
     userInput = prompt(message)?.trim()?.toLowerCase();
   }
   while (
-    (!isCandleLit && hasCandle && userInput === "light candle") ||
+    (!isCandleLit && hasCandle && !isDrafty && userInput === "light candle") ||
     userInput === "light strange candle"
   ) {
     alert("The candle casts a flickering flame and emits acrid smoke.");
     isCandleLit = true;
+    userInput = prompt(message)?.trim()?.toLowerCase();
+  }
+  while (
+    (hasCandle && isDrafty && userInput === "light candle") ||
+    userInput === "light strange candle"
+  ) {
+    alert("The candle's flickering flame is blown out by a draft.");
     userInput = prompt(message)?.trim()?.toLowerCase();
   }
   while (userInput === "inventory") {
