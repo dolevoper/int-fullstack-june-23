@@ -53,12 +53,18 @@ function drawBoard() {
 
 		myObj.innerHTML += "<br>";
 	}
+	
 }
 
 document.onkeydown = function (event: any) {
 
 	if (event.keyCode === 37) {              		// PACMAN MOVE LEFT
 		if (map[pacman.y][pacman.x - 1] !== 1) {	// check if its not wall (1 = wall)
+
+			if(map[pacman.y][pacman.x - 1] === 2){
+				setScore();
+			}
+
 			map[pacman.y][pacman.x] = 3;			// ground
 			pacman.x = pacman.x - 1;				//
 			map[pacman.y][pacman.x] = 5;			// 5 = pacman
@@ -68,6 +74,11 @@ document.onkeydown = function (event: any) {
 	}
 	else if (event.keyCode === 38) {         		// PACMAN MOVE UP
 		if (map[pacman.y - 1][pacman.x] !== 1) {	// check if its not wall (1 = wall)
+
+			if(map[pacman.y - 1][pacman.x] === 2){
+				setScore();
+			}
+
 			map[pacman.y][pacman.x] = 3;			// 3 = ground
 			pacman.y = pacman.y - 1;				//
 			map[pacman.y][pacman.x] = 5;			// 5 = pacman
@@ -77,6 +88,11 @@ document.onkeydown = function (event: any) {
 	}
 	else if (event.keyCode === 39) {         		// PACMAN MOVE RIGHT
 		if (map[pacman.y][pacman.x + 1] !== 1) {	// check if its not wall (1 = wall)
+
+			if(map[pacman.y][pacman.x + 1] === 2){
+				setScore();
+			}
+
 			map[pacman.y][pacman.x] = 3;			// 3 = ground
 			pacman.x = pacman.x + 1;				//
 			map[pacman.y][pacman.x] = 5;			// 5 = pacman
@@ -86,6 +102,11 @@ document.onkeydown = function (event: any) {
 	}
 	else if (event.keyCode === 40) {         		// PACMAN MOVE DOWN
 		if (map[pacman.y + 1][pacman.x] !== 1) {	// check if its not wall (1 = wall)
+
+			if(map[pacman.y + 1][pacman.x] === 2){
+				setScore();
+			}
+
 			map[pacman.y][pacman.x] = 3;			// 3 = ground
 			pacman.y = pacman.y + 1;				//
 			map[pacman.y][pacman.x] = 5;			// 5 = pacman
@@ -98,9 +119,19 @@ document.onkeydown = function (event: any) {
 
 function setPacmanProfile(xAxis:number, yAxis:number){
 
-	const myPacmanObj = document.getElementById("pacman") as HTMLInputElement;
+	const myPacmanObj = document.getElementById("pacman") as HTMLDivElement;
 	
 	let pacProfile = xAxis +'px ' + yAxis + 'px';
 	myPacmanObj.style.backgroundPosition = pacProfile;
+
+}
+
+let scoreIs:number = 0;
+function setScore(){
+	
+	const myScoreObj = document.getElementById("myScore") as HTMLSpanElement;
+
+	scoreIs = scoreIs + 10;
+	myScoreObj.innerHTML = scoreIs.toString();
 
 }
