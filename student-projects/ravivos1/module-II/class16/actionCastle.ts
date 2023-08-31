@@ -63,7 +63,7 @@ There is a path to the north.`);
 }
 
 function lab() {
-    const userInput = simplePrompt(`You are inside the lab. Profesor Oak greets you${!hasSquirtle ? " and ask if you want to take pokemon. " : "."}You can go out to Pallet town.`);
+    const userInput = simplePrompt(`You are inside the lab. Profesor Oak greets you${!hasSquirtle ? " and ask if you want to take pokemon." : "."} You can go out to Pallet town.`);
 
     switch (userInput) {
         case undefined:
