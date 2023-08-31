@@ -42,4 +42,17 @@ for (let i = 0; i < arr.length && indexOfFive === -1; i++) {
     indexOfFive = arr[i] === 5 ? i : -1;
 }
 
-alert(indexOfFive);
+// alert(indexOfFive);
+
+const arr2 = [];
+arr2.push(1);
+arr2.push(2);
+
+const arr3 = [].concat([1]).concat([2]);
+// [] + [1] + [2] === [1, 2];
+
+function double(x: number) {
+    alert(x * 2);
+}
+
+[1, 2, 3].forEach(double);
