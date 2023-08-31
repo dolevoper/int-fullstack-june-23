@@ -488,6 +488,14 @@ There is a princes here`);
   switch (userInput) {
     case undefined:
       return;
+    case "examine princess":
+      alert("The princess is beautiful, sad and lonely.");
+      tower();
+      break;
+    case "examine princess":
+      alert("The princess is beautiful, sad and lonely.");
+      tower();
+      break;
     default:
       announceUnknownInput(userInput);
       tower();
