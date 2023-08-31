@@ -489,7 +489,7 @@ function dungeon() {
   isDrafty = false;
   const userInput = simplePrompt(
     `You are in the dungeon.\n${
-      !isGhostDefeated ? "There is a spooky ghost here." : ""
+      !isGhostDefeated ? "There is a spooky ghost here.\n" : ""
     }There are stairs that lead up.`
   );
   switch (userInput) {
@@ -514,6 +514,14 @@ function dungeon() {
       turnsUntillGhostAttacks--;
       dungeon();
       break;
+    case "examine crown":
+    case "examine gold crown":
+      alert(
+        "You see the gold crown that once belonged to the king of Action Castle."
+      );
+      turnsUntillGhostAttacks--;
+      dungeon();
+      break;
     case "hit ghost":
       alert(`You swing your arms but hit nothing but air.`);
       alert(
@@ -528,9 +536,11 @@ function dungeon() {
           (hasCrown = true),
           inventoryItems.push("\ngold crown"),
           (score += 5))
-        : alert(
+        : !isGhostDefeated && !hasCrown
+        ? alert(
             "The ghost is much faster then you, you fail to take the crown."
-          );
+          )
+        : alert("You allready took the crown.");
       turnsUntillGhostAttacks--;
       dungeon();
       break;
@@ -692,7 +702,7 @@ function simplePrompt(message: string) {
     alert("You see no reason to light the lamp.");
     userInput = prompt(message)?.trim()?.toLowerCase();
   }
-  while (!isGhostDefeated && turnsUntillGhostAttacks <= 1) {
+  while (!isGhostDefeated && turnsUntillGhostAttacks < 1) {
     alert("The ghost reaches out a skeletal hand and drains your life force.");
     deathAnnouncment();
     return;
