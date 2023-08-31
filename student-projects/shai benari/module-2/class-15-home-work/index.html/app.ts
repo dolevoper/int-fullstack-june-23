@@ -13,14 +13,21 @@
 // else {alert("-")}
 // }
 
-alert(pawer(2,4));
+const pawerResult = pawer(3,4);
+alert("the pawer result is" +" "+ pawerResult)
 
-const firstName = prompt("enter your first name");
-const lasttName = prompt("enter your last name");
-myName(firstName,lasttName);
+let firstName = prompt("enter your first name");
+let lasttName = prompt("enter your last name");
+myName(firstName , lasttName);
+
 
 function myName(firstName:string,lastName:string){
-    alert("my first name is: " +" " + firstName + " "+ "my last name is: "+lastName);
+  const fn = firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
+  const ln = lastName.charAt(0).toUpperCase() + lastName.slice(1).toLowerCase();
+    alert("my first name is: " +" " + fn + " "+ "my last name is: "+ ln);
+
 }
 function pawer(x:Number,y:Number){
-    return x**y}
+    const resultPawer = x**y;
+    return resultPawer}
+    
