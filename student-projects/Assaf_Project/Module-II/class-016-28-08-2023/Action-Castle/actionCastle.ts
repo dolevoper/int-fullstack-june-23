@@ -5,12 +5,12 @@ let hasFishingPole = false;
 let hasRose = false;
 let hasFish = false;
 let hasBranch = false;
-let hasKey = false;
+let hasKey = true;
 let hasCandle = false;
 let hasCrown = false;
 let isTrollBlocking = true;
 let isGuardConscious = true;
-let isGuardWearingKey = false;
+// let isGuardWearingKey = false;
 let isWearingCrown = false;
 
 courtyard();
@@ -337,7 +337,7 @@ Stairs lead up into the tower and down into the darkness.`
           isGuardConscious
             ? `The guard wears chainmail armor but no helmet.`
             : "The guard lays unconscious."
-        }\n${isGuardWearingKey ? "A key hangs from his belt." : ""}`
+        }\n${!hasKey ? "A key hangs from his belt." : ""}`
       );
       courtyard();
       break;
@@ -384,6 +384,17 @@ function simplePrompt(message: string) {
     userInput === "examine dead branch"
   ) {
     alert("I wouldn't want to get hit with this!");
+    userInput = prompt(message)?.trim()?.toLowerCase();
+  }
+  while (hasKey && userInput === "examine key") {
+    alert("Fascinating! It looks like a key.");
+    userInput = prompt(message)?.trim()?.toLowerCase();
+  }
+  while (
+    (hasKey && userInput === "make a copy of the key") ||
+    userInput === "make a key copy"
+  ) {
+    alert("Is that even possible?");
     userInput = prompt(message)?.trim()?.toLowerCase();
   }
   while (userInput === "inventory") {
