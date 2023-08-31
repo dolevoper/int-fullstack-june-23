@@ -1,5 +1,3 @@
-alert("hello world!");
-
 function concatenate(...arrays: any) {
   if (arrays.length <= 1) return arrays;
 
