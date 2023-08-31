@@ -17,7 +17,7 @@ let isDark = false;
 let isDrafty = false;
 let isFacingGhost = false;
 let isTowerDoorOpen = false;
-let isWearingCrown = false;
+let isWearingCrown = true;
 let attemptsAtStealingKey = 0;
 let turnsUntillGhostAttacks = 3;
 
@@ -581,9 +581,7 @@ There are doors to the east and to the west`
     case "east":
     case "go east":
     case "enter throne room":
-      !isWearingCrown
-        ? (alert("The door is locked."), greatFeastingHall())
-        : throneRoom();
+      throneRoom();
       break;
     case "examine candle":
       if (!hasCandle) {
@@ -630,7 +628,11 @@ There are doors to the east and to the west`
 
 function throneRoom() {
   const userInput = simplePrompt(`This is the throne room of Action Castle.
-There is an ornate gold throne here.`);
+There is an ornate gold throne here.\n${
+    isWearingCrown
+      ? "The room is full of people.\nThey cheer and aplaud as you enter."
+      : ""
+  }`);
   switch (userInput) {
     case undefined:
       return;
