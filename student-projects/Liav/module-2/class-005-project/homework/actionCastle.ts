@@ -3,6 +3,9 @@ let hasFishingPole = false;
 let hasFish = false;
 let hasRose = false;
 let hadDeadBranch = false;
+let hasCrown = false;
+let hasKey = false;
+let hasCandle = false;
 
 drawBridge();
 
@@ -183,7 +186,96 @@ function drawBridge() {
 }
 
 function CourtYard() {
+    const userInput = simplePrompt("You are in the courtyard of Action Castle. A castle guard stands watch to ethe east. Stairs lead up into the tower and down into darkness.");
 
+    if(hasCrown){
+        alert("The gurd drops to his knee and bows deeply. \"My liege. Your public awaits you in the throne room.\"")
+    }
+
+    switch (userInput){
+
+        case "exmaine guard":
+            alert("The guard wears chainmail armor but no helmet. A key  hangs from his belt.")
+            break;
+
+        case "hit":
+            if(hadDeadBranch){
+            alert("the guard become unconscious. and you took his key.")
+            hasKey = true;
+            }else{
+                alert("You have nothing to hit him, combe back when you do.")
+            }
+            break;
+    }
+
+    const nextInput = String(simplePrompt("where do you wanna go next? \n EAST Great Feasting Hall \n WEST Drawbridge \n UP Tower Stairs \n DOWN dungen Stairs"));
+
+    switch (nextInput){
+
+        case "east":
+            if(hasKey){
+                GreatFeastingHall()
+            }else{
+                alert("You can`t go there yet!")
+            }
+
+        case "west":
+            drawBridge()
+            break;
+        
+        case "up":
+            TowerStairs()
+            break;
+
+        case "down":
+            DungeonStairs()
+            break;
+
+        default:
+            announceUnknownInput(nextInput);
+            CourtYard();
+    }
+}
+
+function GreatFeastingHall(){
+
+}
+
+function TowerStairs(){
+    const userInput = simplePrompt("You climb the tower stairs until you come to a door.")
+
+        switch (userInput){
+
+            case  "open door":
+                if(hasKey){
+                    alert("You open the door!")
+
+                }else{
+                    alert("You need a key to open the door.")
+                }
+        }
+    
+}
+
+function DungeonStairs(){
+    const userInput = simplePrompt("You are on the dungeon stairs.I`ts very dark here.")
+
+    if(userInput === "light candle" ){
+        if(hasCandle){
+            alert("The candle`s flickering flame is blown out by a draft.");
+        }else{
+            alert("you need a candle to use that.")
+        }
+    }
+
+    if(userInput === "light lamp"){
+        if(hasLamp){
+            alert("You can now see well enough to continue down the stairs.")
+            alert("where should you go next? \n UP CortYard \n DOWN dungeon")
+        }else{
+            alert("You need lamp to use that.")
+        }
+    }
 }
 
 function simplePrompt(message: string) {
