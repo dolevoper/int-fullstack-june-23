@@ -20,5 +20,12 @@ function concatenate(...arrays: any) {
   }
 }
 
-// alert(concatenate());
-console.log(concatenate([1, 2, 3], [1, 2, 3], ["hello", "world"]));
+// console.log(concatenate());
+// console.log(concatenate([1, 2, 3], [1, 2, 3], ["hello", "world"]));
+
+const cities = ["Dimona", "Be'er Sheva", "Haifa"];
+const states = ["Arizona", "California", "New York"];
+
+const shagrirutList = concatenate(cities, states);
+
+alert(shagrirutList);
