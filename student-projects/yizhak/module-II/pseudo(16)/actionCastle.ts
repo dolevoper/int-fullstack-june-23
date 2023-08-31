@@ -9,10 +9,7 @@ let hasBranch = false;
 let lightLamb = false;
 let lightCnadle = false;
 
-// לקחת מפה את הפונקציות לשימוש
 
-
-function tower() {}
 
 
 cottage();
@@ -349,6 +346,59 @@ covered in mysterious runes.`)
 
  }
 
+ function tower() {
+    const userInput = simplePrompt(`You are in the tower. There is a princess here.
+Stairs lead down.
+The princess is beautiful, sad and lonely.
+you can talk to the princess. She will 
+only respond once given the rose.`)
+
+    switch(userInput){
+        case undefined:
+            return;
+        case "down":
+            towerStairs();
+            break;
+        case "give crown to princess":
+            if (hasCrown){
+            alert(`“My father’s crown! You have 
+            put his soul to rest and may now take his place as ruler of 
+            this land!” She places the crown on your head.`)
+            } else {
+            tower();}
+            break;
+        case "take to the princess":
+            if(hasRose){
+                const message = prompt("You can ask the princess about the crown, the ghost, the tower, the throne")
+                switch(message){
+                    case undefined:
+                        return;
+                    case "ask about crown":
+                        alert(`My father’s crown was lost after he died.`)
+                        tower();
+                        break;
+                    case "ask about the ghost":
+                        alert(`“The guards whisper 
+                        that the ghost of the king haunts the dungeons as a 
+                        restless spirit!`)
+                        tower();
+                        break;
+                    case "ask about the tower":
+                        alert(`I cannot leave the tower until I’mwed!`)
+                        tower();
+                        break;
+                    case  "ask about the the throne":
+                        alert(`Only the rightful ruler of Action 
+                        Castle may claim the throne!`)
+                        tower();
+                        break;
+                }
+            }
+        default:
+            announceUnknownInput(userInput);
+            tower();
+    }
+ }
 
 function simplePrompt(message: string) {
     let userInput = prompt(message)?.trim()?.toLowerCase();
