@@ -14,7 +14,7 @@ let isCandleLit = false;
 let isWearingCrown = false;
 let attemptsAtStealingKey = 0;
 
-greatFeastingHall();
+cottage();
 
 function cottage() {
   const userInput = simplePrompt(
@@ -391,7 +391,69 @@ The guard takes out his sword and with one swift motion stabs you in the heart.`
   }
 }
 
-function towerStairs() {}
+function towerStairs() {
+  const userInput = simplePrompt("You climb the tower stairs until you come to a door.");
+  switch (userInput) {
+    case undefined:
+      return;
+    case "open door":
+    case "enter":
+      windingPath();
+      break;
+    case "examine troll":
+    case "examine mean troll":
+      alert(
+        "The troll has a warty green hide and a foul stench.\nHe looks hungry."
+      );
+      drawBridge();
+      break;
+    case "cross":
+    case "cross bridge":
+    case "east":
+    case "go east":
+      if (isTrollBlocking) {
+        alert("The troll blocks your path.");
+        drawBridge();
+        break;
+      } else courtyard();
+      break;
+    case "give fish":
+    case "give fish to troll":
+      if (hasFish && isTrollBlocking) {
+        hasFish = false;
+        removeItemFromInventory("a fish");
+        isTrollBlocking = false;
+        score += 10;
+        alert(
+          `You take the fish out of your bag and show it to the troll.
+  He looks at you, releases a grunt and takes the fish out of your hands.
+  He sniffs the fish and runs away with it...`
+        );
+        alert("The bridge is now clear.");
+        drawBridge();
+        break;
+      }
+    case "hit troll":
+    case "hit troll with branch":
+    case "club troll":
+      if (hasBranch && isTrollBlocking) {
+        alert("You hit the troll with the branch you found.");
+        alert("The branch breaks.\nThe troll berely felt your weak attempt");
+        alert("The troll laughs as he rips your limbs apart from your body!");
+        deathAnnouncment();
+        return;
+      } else if (!hasBranch && isTrollBlocking) {
+        alert("You try to punch the troll.");
+        alert("The hand breaks.\nThe troll berely felt your weak attempt");
+        alert("The troll laughs as he rips your limbs apart from your body!");
+        deathAnnouncment();
+        return;
+      }
+    default:
+      announceUnknownInput(userInput);
+      drawBridge();
+  }
+}
 
 function dungeonStairs() {}
 
