@@ -10,10 +10,10 @@ let hasCandle = false;
 let hasCrown = false;
 let isTrollBlocking = true;
 let isGuardConscious = true;
-let isGuardKeyTaken = false;
+let isGuardWearingKey = true;
 let isWearingCrown = false;
 
-cottage();
+courtyard();
 
 function cottage() {
   const userInput = simplePrompt(
@@ -286,42 +286,12 @@ There is a path that leads west and a bridge that leads east ${
 }
 
 function courtyard() {
-  if (isWearingCrown) {
-    const userInput = simplePrompt(
-      `You are in the courtyard of Action Castle.
-The guard drops to his knee and bows deeply.
-"Your public awaits you in the throne room."`
-    );
-    switch (userInput) {
-      case undefined:
-        return;
-      case "west":
-        drawBridge();
-        break;
-      case "up":
-      case "go up":
-      case "go up the stairs":
-        towerStairs();
-        break;
-      case "down":
-      case "go down":
-      case "go down the stairs":
-        dungeonStairs();
-        break;
-      case "east":
-      case "go east":
-        greatFeastingHall();
-        break;
-      case "examine guard":
-        alert("The guard is bowing to you with respect.");
-      default:
-        announceUnknownInput(userInput);
-        courtyard();
-    }
-  }
   const userInput = simplePrompt(
     `You are in the courtyard of Action Castle.\n${
-      isGuardConscious
+      isWearingCrown
+        ? `The guard drops to his knee and bows deeply.
+"Your public awaits you in the throne room."`
+        : isGuardConscious
         ? "A castle guard stands watch to the east and there is a door behind him."
         : "The guard lays unconscious next to a door to the east."
     }
@@ -343,15 +313,30 @@ Stairs lead up into the tower and down into the darkness.`
     case "go down the stairs":
       dungeonStairs();
       break;
+    case "east":
+    case "go east":
+      if (isWearingCrown) {
+        greatFeastingHall();
+        break;
+      } else if (isGuardConscious) {
+        alert(`The guard is blocking your way.\n"Only royalty may enter!"`);
+        courtyard();
+        break;
+      }
+      greatFeastingHall();
+      break;
     case "examine guard":
+      if (isWearingCrown) {
+        alert("The guard is bowing to you with respect.");
+        courtyard();
+        break;
+      }
       alert(
         `The guard wears chainmail armor but no helmet.\n${
-          isGuardKeyTaken ? "A key hangs from his belt" : ""
+          isGuardWearingKey ? "A key hangs from his belt" : ""
         }`
       );
-    case "east":
-      // add if guard
-      greatFeastingHall();
+      courtyard();
       break;
     default:
       announceUnknownInput(userInput);
@@ -367,7 +352,9 @@ function tower() {}
 
 function dungeon() {}
 
-function greatFeastingHall() {}
+function greatFeastingHall() {
+  alert("hey");
+}
 
 function throneRoom() {}
 
