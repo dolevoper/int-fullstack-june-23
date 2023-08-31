@@ -22,11 +22,21 @@
 // call the function 
 // reture true for odd foalse for even
 
-const checkNumber = Number(prompt("enter number to check"));
-oddNumber(checkNumber)
+// const checkNumber = Number(prompt("enter number to check"));
+// oddNumber(checkNumber)
 
-function oddNumber(checkNumber:number){
-    if (checkNumber % 2 === 0)
-      alert("the number is even");
-    else {alert("the number is odd")};
-    }
+// function oddNumber(checkNumber:number){
+//     if (checkNumber % 2 === 0)
+//       alert("the number is even");
+//     else {alert("the number is odd")};
+//     }
+
+// ==================================
+// anter a word
+// find the word length "wordLength"
+// make a function isPolindrome
+// make a loop from 1 to word length 
+// make a new word by swiching the leters "opositWord"
+// comper word with opositWord
+// returen true polindrome or fulse 
+
