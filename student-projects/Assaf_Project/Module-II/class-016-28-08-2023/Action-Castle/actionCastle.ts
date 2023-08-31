@@ -5,12 +5,12 @@ let hasFishingPole = false;
 let hasRose = false;
 let hasFish = false;
 let hasBranch = false;
-let hasKey = true;
+let hasKey = false;
 let hasCandle = false;
 let hasCrown = false;
 let isTrollBlocking = true;
 let isGuardConscious = true;
-// let isGuardWearingKey = false;
+let attemptsAtStealingKey = 0;
 let isWearingCrown = false;
 
 courtyard();
@@ -341,6 +341,28 @@ Stairs lead up into the tower and down into the darkness.`
       );
       courtyard();
       break;
+    case "take key":
+    case "steal key":
+      if (isGuardConscious && attemptsAtStealingKey < 2) {
+        alert(`The guard hand reaches for his sword.
+"I would not do that if i were you!"`);
+        attemptsAtStealingKey++;
+        courtyard();
+        break;
+      } else if ((attemptsAtStealingKey = 2)) {
+        alert(`"I've warned you!"
+The guard takes out his sword and with one swift motion stabs you in the heart.`);
+        alert("You fall to the ground and everything goes dark.");
+        deathAnnouncment();
+        return;
+      } else if (!hasKey && !isGuardConscious) {
+        hasKey = true;
+        inventoryItems.push("\na key");
+        score += 5;
+        alert("Key added to inventory.");
+        courtyard();
+        break;
+      }
     default:
       announceUnknownInput(userInput);
       courtyard();
