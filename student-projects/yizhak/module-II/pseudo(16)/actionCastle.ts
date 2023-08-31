@@ -10,8 +10,6 @@ let lightLamb = false;
 let lightCnadle = false;
 
 
-
-
 cottage();
 
 function cottage() {
@@ -245,8 +243,18 @@ The door is locked.`)
             return;
         case "down":
             alert("It’s too dark to see! Hint: Look for an object that makes light")
+            dungeon();
+            break;
+        case "light Candle":
+            if(hasCandle) {
+            alert(`The candle’s flickering flame is blown out by a draft.`)
+            dungeonStairs();
+            break;
+            } else {
+                dungeonStairs();
+                break;
+            }
         case "light lamb":
-            //להוסיף פה פונקציה שהנר לא מספיק טוב והוא לא עובד.
             lightLamb = true;
             alert(`now you You can see well enough to continue down the stairs.`)
             dungeon();
@@ -265,7 +273,11 @@ The door is locked.`)
 candle here. Exits are to the east and west.
 You see that the strange candle is 
 covered in mysterious runes.`)
-    // אם השחקן לובש את הכתר החדר מלא באנשים שמרימים לכבודו כוסית.
+
+    if(hasCrown){
+        alert(`The people gathered here raise a toast to their new ruler!`)
+        greatFeastingHall();
+    }
 
     switch(userInput) {
         case undefined:
