@@ -10,7 +10,7 @@ let hasCandle = false;
 let hasCrown = false;
 let isTrollBlocking = true;
 let isGuardConscious = true;
-let isGuardWearingKey = true;
+let isGuardWearingKey = false;
 let isWearingCrown = false;
 
 courtyard();
@@ -290,7 +290,8 @@ function courtyard() {
     `You are in the courtyard of Action Castle.\n${
       isWearingCrown
         ? `The guard drops to his knee and bows deeply.
-"Your public awaits you in the throne room."`
+"Your public awaits you in the throne room."
+He opens the door behind him for you.`
         : isGuardConscious
         ? "A castle guard stands watch to the east and there is a door behind him."
         : "The guard lays unconscious next to a door to the east."
@@ -332,9 +333,11 @@ Stairs lead up into the tower and down into the darkness.`
         break;
       }
       alert(
-        `The guard wears chainmail armor but no helmet.\n${
-          isGuardWearingKey ? "A key hangs from his belt" : ""
-        }`
+        `${
+          isGuardConscious
+            ? `The guard wears chainmail armor but no helmet.`
+            : "The guard lays unconscious."
+        }\n${isGuardWearingKey ? "A key hangs from his belt." : ""}`
       );
       courtyard();
       break;
