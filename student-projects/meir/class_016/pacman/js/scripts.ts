@@ -1,7 +1,4 @@
-let myObj = document.getElementById('world') as HTMLInputElement;
-
-let myPacmanObj = document.getElementById("pacman") as HTMLInputElement;
-//let myPacmanObj = document.getElementsByClassName("pacman") as HTMLCollection;
+const myObj = document.getElementById('world') as HTMLInputElement;
 
 // 1 => <div class='wall'></div>
 // 2 => <div class='coin'></div>
@@ -26,30 +23,29 @@ const map = [
 	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ]
 
-
 drawBoard();
 
 function drawBoard() {
 
 	myObj.innerHTML = '';
 
-	for (let x = 0; x < map.length; x++) {
+	for (let y = 0; y < map.length; y++) {
 
-		for (let y = 0; y < map[x].length; y++) {
+		for (let x = 0; x < map[y].length; x++) {
 
-			if (map[x][y] === 1) {
+			if (map[y][x] === 1) {
 				myObj.innerHTML += "<div class='wall'></div>";
 			}
-			else if (map[x][y] === 2) {
+			else if (map[y][x] === 2) {
 				myObj.innerHTML += "<div class='coin'></div>";
 			}
-			else if (map[x][y] === 3) {
+			else if (map[y][x] === 3) {
 				myObj.innerHTML += "<div class='ground'></div>";
 			}
-			else if (map[x][y] === 4) {
+			else if (map[y][x] === 4) {
 				myObj.innerHTML += "<div class='ghost'></div>";
 			}
-			else if (map[x][y] === 5) {
+			else if (map[y][x] === 5) {
 				myObj.innerHTML += "<div class='pacman' id='pacman'></div>";
 			}
 
@@ -61,44 +57,50 @@ function drawBoard() {
 
 document.onkeydown = function (event: any) {
 
-	if (event.keyCode === 37) {              // PACMAN MOVE LEFT
-		if (map[pacman.y][pacman.x - 1] !== 1) {
-			map[pacman.y][pacman.x] = 3;
-			pacman.x = pacman.x - 1;
-			map[pacman.y][pacman.x] = 5;
+	if (event.keyCode === 37) {              		// PACMAN MOVE LEFT
+		if (map[pacman.y][pacman.x - 1] !== 1) {	// check if its not wall (1 = wall)
+			map[pacman.y][pacman.x] = 3;			// ground
+			pacman.x = pacman.x - 1;				//
+			map[pacman.y][pacman.x] = 5;			// 5 = pacman
 			drawBoard();
+			setPacmanProfile(6, 6);
 		}
-		myPacmanObj.style.backgroundPosition = "6px 6px";
+	}
+	else if (event.keyCode === 38) {         		// PACMAN MOVE UP
+		if (map[pacman.y - 1][pacman.x] !== 1) {	// check if its not wall (1 = wall)
+			map[pacman.y][pacman.x] = 3;			// 3 = ground
+			pacman.y = pacman.y - 1;				//
+			map[pacman.y][pacman.x] = 5;			// 5 = pacman
+			drawBoard();
+			setPacmanProfile(7, -38);
+		}
+	}
+	else if (event.keyCode === 39) {         		// PACMAN MOVE RIGHT
+		if (map[pacman.y][pacman.x + 1] !== 1) {	// check if its not wall (1 = wall)
+			map[pacman.y][pacman.x] = 3;			// 3 = ground
+			pacman.x = pacman.x + 1;				//
+			map[pacman.y][pacman.x] = 5;			// 5 = pacman
+			drawBoard();
+			setPacmanProfile(-36, 6);
+		}
+	}
+	else if (event.keyCode === 40) {         		// PACMAN MOVE DOWN
+		if (map[pacman.y + 1][pacman.x] !== 1) {	// check if its not wall (1 = wall)
+			map[pacman.y][pacman.x] = 3;			// 3 = ground
+			pacman.y = pacman.y + 1;				//
+			map[pacman.y][pacman.x] = 5;			// 5 = pacman
+			drawBoard();
+			setPacmanProfile(-38, -39);
+		}
+	}
 
-	}
-	else if (event.keyCode === 38) {         // PACMAN MOVE UP
-		if (map[pacman.y - 1][pacman.x] !== 1) {
-			map[pacman.y][pacman.x] = 3;
-			pacman.y = pacman.y - 1;
-			map[pacman.y][pacman.x] = 5;
-			drawBoard();
-		}
+}
 
-		myPacmanObj.style.backgroundPosition = "7px -38px";
+function setPacmanProfile(xAxis:number, yAxis:number){
 
-	}
-	else if (event.keyCode === 39) {         // PACMAN MOVE RIGHT
-		if (map[pacman.y][pacman.x + 1] !== 1) {
-			map[pacman.y][pacman.x] = 3;
-			pacman.x = pacman.x + 1;
-			map[pacman.y][pacman.x] = 5;
-			drawBoard();
-		}
-		myPacmanObj.style.backgroundPosition = "-36px 6px";
-	}
-	else if (event.keyCode === 40) {         // PACMAN MOVE DOWN
-		if (map[pacman.y + 1][pacman.x] !== 1) {
-			map[pacman.y][pacman.x] = 3;
-			pacman.y = pacman.y + 1;
-			map[pacman.y][pacman.x] = 5;
-			drawBoard();
-		}
-		myPacmanObj.style.backgroundPosition = "-38px -39px";
-	}
+	const myPacmanObj = document.getElementById("pacman") as HTMLInputElement;
+	
+	let pacProfile = xAxis +'px ' + yAxis + 'px';
+	myPacmanObj.style.backgroundPosition = pacProfile;
 
 }
