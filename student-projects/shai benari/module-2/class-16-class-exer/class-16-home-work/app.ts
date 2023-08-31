@@ -23,7 +23,7 @@
 // reture true for odd foalse for even
 
 // const checkNumber = Number(prompt("enter number to check"));
-// oddNumber(checkNumber)
+// oddNumber(checkNumber);
 
 // function oddNumber(checkNumber:number){
 //     if (checkNumber % 2 === 0)
@@ -40,3 +40,17 @@
 // comper word with opositWord
 // returen true polindrome or fulse 
 
+let newWord="";
+const wordCheck = prompt("enter a word to check for polindrome");
+alert(wordCheck)
+ const wordLength = Number(wordCheck?.length);
+alert(wordLength);
+isPolindrome(wordCheck,wordLength);
+
+function isPolindrome(wordCheck:string,wordLength:number){
+     for (let i=0; i < wordLength-1; i++){
+        newWord.charAt(i)=== wordCheck.charAt((wordLength)-i);
+        alert( wordCheck.charAt(wordLength-i));
+    }
+     alert(newWord)
+ } 
