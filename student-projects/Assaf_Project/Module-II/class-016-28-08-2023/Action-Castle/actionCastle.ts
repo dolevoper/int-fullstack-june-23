@@ -4,7 +4,7 @@ let hasLamp = true;
 let hasFishingPole = false;
 let hasRose = false;
 let hasFish = false;
-let hasBranch = false;
+let hasBranch = true;
 let hasKey = false;
 let hasCandle = false;
 let hasCrown = false;
@@ -341,15 +341,36 @@ Stairs lead up into the tower and down into the darkness.`
       );
       courtyard();
       break;
+    case "hit guard":
+    case "hit guard with branch":
+    case "club guard":
+    case "club guard with branch":
+      if (hasBranch) {
+        alert(`You hit the guard with the branch you picked up earlier.
+One bump to the head and he's down!`);
+        hasBranch = false;
+        isGuardConscious = false;
+        score += 10;
+        courtyard();
+        break;
+      } else {
+        alert(`You hit the guard with your fist.
+He is confused for a second but then takes out his sword.
+"You fool! No one attacks the royal guard!"`);
+        alert("He stabs you in the heart.");
+        alert("You fall to the ground and everything goes dark.");
+        deathAnnouncment();
+        return;
+      }
     case "take key":
     case "steal key":
-      if (isGuardConscious && attemptsAtStealingKey < 2) {
+      if (isGuardConscious && attemptsAtStealingKey < 1) {
         alert(`The guard hand reaches for his sword.
 "I would not do that if i were you!"`);
         attemptsAtStealingKey++;
         courtyard();
         break;
-      } else if ((attemptsAtStealingKey = 2)) {
+      } else if (isGuardConscious && attemptsAtStealingKey === 1) {
         alert(`"I've warned you!"
 The guard takes out his sword and with one swift motion stabs you in the heart.`);
         alert("You fall to the ground and everything goes dark.");
