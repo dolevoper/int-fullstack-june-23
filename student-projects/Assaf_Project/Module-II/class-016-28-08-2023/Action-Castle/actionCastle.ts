@@ -10,15 +10,18 @@ let hasCandle = true;
 let hasCrown = false;
 let isTrollBlocking = true;
 let isGuardConscious = true;
+let isGhostDefeated = false;
 let isCandleLit = false;
 let isLampLit = false;
 let isDark = false;
 let isDrafty = false;
+let isFacingGhost = false;
 let isTowerDoorOpen = false;
 let isWearingCrown = false;
 let attemptsAtStealingKey = 0;
+let turnsUntillGhostAttacks = 3;
 
-courtyard();
+dungeon();
 
 function cottage() {
   const userInput = simplePrompt(
@@ -482,7 +485,71 @@ function dungeonStairs() {
 function tower() {}
 
 function dungeon() {
+  isFacingGhost = true;
   isDrafty = false;
+  const userInput = simplePrompt(
+    `You are in the dungeon.\n${
+      !isGhostDefeated ? "There is a spooky ghost here." : ""
+    }There are stairs that lead up.`
+  );
+  switch (userInput) {
+    case undefined:
+      return;
+    case "up":
+    case "upstairs":
+    case "go up":
+    case "go upstairs":
+      dungeonStairs();
+      break;
+    case "examine ghost":
+      alert(
+        `${
+          !isGhostDefeated
+            ? "The ghost has a bony, claw-like fingers and wears a *gold crown*."
+            : !hasCrown
+            ? "The ghost has vanquished and all that remains is the crown."
+            : "There is nothing left here."
+        }`
+      );
+      turnsUntillGhostAttacks--;
+      dungeon();
+      break;
+    case "hit ghost":
+      alert(`You swing your arms but hit nothing but air.`);
+      alert(
+        "The ghost reaches out a skeletal hand and drains your life force."
+      );
+      deathAnnouncment();
+      return;
+    case "take crown":
+    case "take gold crown":
+      isGhostDefeated && !hasCrown
+        ? (alert("Gold crown added to inventory."),
+          (hasCrown = true),
+          inventoryItems.push("\ngold crown"),
+          (score += 5))
+        : alert(
+            "The ghost is much faster then you, you fail to take the crown."
+          );
+      turnsUntillGhostAttacks--;
+      dungeon();
+      break;
+    case "light candle":
+    case "light strange candle":
+      alert(
+        `The strange candle gives off a strange, acrid smoke, causing the ghost to flee the dungeon.
+It leaves behing a *gold crown*`
+      );
+      isCandleLit = true;
+      isGhostDefeated = true;
+      score += 10;
+      dungeon();
+      break;
+    default:
+      announceUnknownInput(userInput);
+      turnsUntillGhostAttacks--;
+      dungeon();
+  }
 }
 
 function greatFeastingHall() {
@@ -603,7 +670,11 @@ function simplePrompt(message: string) {
     userInput = prompt(message)?.trim()?.toLowerCase();
   }
   while (
-    (!isCandleLit && hasCandle && !isDrafty && userInput === "light candle") ||
+    (!isCandleLit &&
+      hasCandle &&
+      !isDrafty &&
+      !isFacingGhost &&
+      userInput === "light candle") ||
     userInput === "light strange candle"
   ) {
     alert("The candle casts a flickering flame and emits acrid smoke.");
@@ -620,6 +691,11 @@ function simplePrompt(message: string) {
   while (!isDark && userInput === "light lamp") {
     alert("You see no reason to light the lamp.");
     userInput = prompt(message)?.trim()?.toLowerCase();
+  }
+  while (!isGhostDefeated && turnsUntillGhostAttacks <= 1) {
+    alert("The ghost reaches out a skeletal hand and drains your life force.");
+    deathAnnouncment();
+    return;
   }
   while (userInput === "inventory") {
     alert("You take a look in your inventory and see:\n" + inventoryItems);
