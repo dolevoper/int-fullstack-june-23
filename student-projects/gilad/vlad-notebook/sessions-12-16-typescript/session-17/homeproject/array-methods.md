@@ -21,3 +21,7 @@ the `at()` method returns an element from the array at a specified index, which 
 - **undefined** - If the array element at the specified index does not exist.
 
 [at() MDN Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at)
+
+## `concat()`
+
+- [] TODO - Add documentation
