@@ -457,43 +457,6 @@ find(array, (value, index) => {
 
 </details>
 
-## `findIndex()`
-
-<details>
-<summary> Show </summary>
-
-```ts
-/* findIndex() Tests */
-
-/* Simple test - get index of first number larger than 13 */
-const array1 = [5, 12, 8, 130, 44];
-
-const isLargeNumber = (element) => element > 13;
-console.log(findIndex(array1, isLargeNumber)); // Expected output: 3
-
-/* Getting index of first prime number */
-
-function isPrime(element) {
-	if (element % 2 === 0 || element < 2) {
-		return false;
-	}
-	for (let factor = 3; factor <= Math.sqrt(element); factor += 2) {
-		if (element % factor === 0) {
-			return false;
-		}
-	}
-	return true;
-}
-
-console.log(findIndex([4, 6, 8, 9, 12], isPrime)); // -1, not found
-console.log(findIndex([4, 6, 7, 9, 12], isPrime)); // 2 (array[2] is 7)
-
-/* Test sparse arrays */
-console.log(findIndex([1, , 3], (x) => x === undefined)); // 1
-```
-
-</details>
-
 ## `findLast()`
 
 <details>
@@ -551,6 +514,80 @@ findLast(array, (value, index) => {
 // Visited index 2 with value undefined
 // Visited index 1 with value 1
 // Visited index 0 with value 0
+```
+
+</details>
+
+## `findIndex()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* findIndex() Tests */
+
+/* Simple test - get index of first number larger than 13 */
+const array1 = [5, 12, 8, 130, 44];
+
+const isLargeNumber = (element) => element > 13;
+console.log(findIndex(array1, isLargeNumber)); // Expected output: 3
+
+/* Getting index of first prime number */
+
+function isPrime(element) {
+	if (element % 2 === 0 || element < 2) {
+		return false;
+	}
+	for (let factor = 3; factor <= Math.sqrt(element); factor += 2) {
+		if (element % factor === 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+console.log(findIndex([4, 6, 8, 9, 12], isPrime)); // -1, not found
+console.log(findIndex([4, 6, 7, 9, 12], isPrime)); // 2 (array[2] is 7)
+
+/* Test sparse arrays */
+console.log(findIndex([1, , 3], (x) => x === undefined)); // 1
+```
+
+</details>
+
+## `findLastIndex()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* findLastIndex() Tests */
+
+/* Simple test - find last element larger than 45 */
+const array1 = [5, 12, 50, 130, 44];
+
+const isLargeNumber = (element) => element > 45;
+console.log(findLastIndex(array1, isLargeNumber)); // Expected output: 3 Index of element with value: 130
+
+/* Find last prime number */
+function isPrime(element) {
+	if (element % 2 === 0 || element < 2) {
+		return false;
+	}
+	for (let factor = 3; factor <= Math.sqrt(element); factor += 2) {
+		if (element % factor === 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+console.log(findLastIndex([4, 6, 8, 12], isPrime)); // -1, not found
+console.log(findLastIndex([4, 5, 7, 8, 9, 11, 12], isPrime)); // 5
+
+/* Test sparse arrays */
+
+console.log(findLastIndex([1, , 3], (x) => x === undefined)); // 1
 ```
 
 </details>

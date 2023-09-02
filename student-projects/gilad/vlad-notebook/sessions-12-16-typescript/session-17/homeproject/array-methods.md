@@ -45,3 +45,7 @@ Choose any array method (use MDN to find) that we did not cover during class. Im
 ## `findLast()`
 
 [findLast() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLast)
+
+## `findLastIndex()`
+
+[findLastIndex() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLastIndex)
