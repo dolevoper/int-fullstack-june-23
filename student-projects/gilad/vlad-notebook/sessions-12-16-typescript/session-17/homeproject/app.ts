@@ -133,3 +133,15 @@ function filter(array: any[], callback: Function) {
 
 	return newArray;
 }
+
+function find(array: any[], callback: Function) {
+	if (!array) return null;
+
+	const arrayLength = array.length;
+
+	for (let index = 0; index < arrayLength; index++) {
+		if (callback(array[index], index, array)) return array[index];
+	}
+
+	return undefined;
+}
