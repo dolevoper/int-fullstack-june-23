@@ -493,3 +493,64 @@ console.log(findIndex([1, , 3], (x) => x === undefined)); // 1
 ```
 
 </details>
+
+## `findLast()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* findLast() Tests */
+
+/* find last item that is low in quantity */
+const inventory = [
+	{ name: "apples", quantity: 2 },
+	{ name: "bananas", quantity: 0 },
+	{ name: "fish", quantity: 1 },
+	{ name: "cherries", quantity: 5 },
+];
+
+// return true inventory stock is low
+function isNotEnough(item) {
+	return item.quantity < 2;
+}
+
+/* Test sparse arrays */
+
+console.log(findLast(inventory, isNotEnough)); // { name: "fish", quantity: 1 }
+// Declare array with no elements at indexes 2, 3, and 4
+const array = [0, 1, , , , 5, 6];
+
+// Shows all indexes, not just those with assigned values
+findLast(array, (value, index) => {
+	console.log(`Visited index ${index} with value ${value}`);
+});
+// Visited index 6 with value 6
+// Visited index 5 with value 5
+// Visited index 4 with value undefined
+// Visited index 3 with value undefined
+// Visited index 2 with value undefined
+// Visited index 1 with value 1
+// Visited index 0 with value 0
+
+// Shows all indexes, including deleted
+findLast(array, (value, index) => {
+	// Delete element 5 on first iteration
+	if (index === 6) {
+		console.log(`Deleting array[5] with value ${array[5]}`);
+		delete array[5];
+	}
+	// Element 5 is still visited even though deleted
+	console.log(`Visited index ${index} with value ${value}`);
+});
+// Deleting array[5] with value 5
+// Visited index 6 with value 6
+// Visited index 5 with value undefined
+// Visited index 4 with value undefined
+// Visited index 3 with value undefined
+// Visited index 2 with value undefined
+// Visited index 1 with value 1
+// Visited index 0 with value 0
+```
+
+</details>
