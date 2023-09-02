@@ -109,16 +109,15 @@ console.log(iterator1.next().value);
 /* every() Tests: */
 
 /* Null array test */
-console.log(every(null, (currentValue) => currentValue % 2 === 0));
+console.log(every(null, (currentValue) => currentValue % 2 === 0)); // null
 
 /*Empty array test - vacuously truth */
-console.log(every([], (currentValue) => currentValue % 2 === 0));
+console.log(every([], (currentValue) => currentValue % 2 === 0)); // true
 
 /* Simple Test */
 const isBelowThreshold = (currentValue) => currentValue < 40;
 const array1 = [1, 30, 39, 29, 10, 13];
-console.log(every(array1, isBelowThreshold));
-// Expected output: true
+console.log(every(array1, isBelowThreshold)); // Expected output: true
 
 /* Testing size of all array elements */
 function isBigEnough(element, index, array) {
@@ -150,8 +149,8 @@ Testing Modifying items
 */
 console.log("Testing changes in length of array");
 
-const arr = [1, 2, 3, 4];
-every(arr, (elem, index, arr) => {
+const arr1 = [1, 2, 3, 4];
+every(arr1, (elem, index, arr) => {
 	arr[index + 1]--;
 	console.log(`[${arr}][${index}] -> ${elem}`);
 	return elem < 2;
@@ -169,8 +168,8 @@ Test appending items
 */
 console.log("Testing addition of items");
 
-const arr = [1, 2, 3];
-every(arr, (elem, index, arr) => {
+const arr2 = [1, 2, 3];
+every(arr2, (elem, index, arr) => {
 	arr.push("new");
 	console.log(`[${arr}][${index}] -> ${elem}`);
 	return elem < 4;
@@ -186,8 +185,8 @@ items are `pop()`ed off
 
 */
 
-const arr = [1, 2, 3, 4];
-every(arr, (elem, index, arr) => {
+const arr3 = [1, 2, 3, 4];
+every(arr3, (elem, index, arr) => {
 	arr.pop();
 	console.log(`[${arr}][${index}] -> ${elem}`);
 	return elem < 4;
@@ -588,6 +587,59 @@ console.log(findLastIndex([4, 5, 7, 8, 9, 11, 12], isPrime)); // 5
 /* Test sparse arrays */
 
 console.log(findLastIndex([1, , 3], (x) => x === undefined)); // 1
+```
+
+</details>
+
+## `flat()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* flat() Tests*/
+
+/* Test 1 depth array with depth emitted*/
+const array = [1, 2, ["hello", "world"], 5];
+console.log(array);
+console.log(flat(array));
+
+/* Test array of depth 3 */
+const array2 = [1, 2, [[[1, 2, 3, 4], false], "world"], 5];
+console.log(array2);
+
+// with depth emitted - defaults to 1 depth
+console.log(flat(array2)); // [1, 2, Array(2), 'world', 5]
+// flatten to depth 2
+console.log(flat(array2, 2)); // [1, 2, Array(4), false, 'world', 5]
+// with negative depth
+console.log(flat(array2, -5)); // do nothing [1, 2, Array(2), 5]
+// flatten to Infinity depth - stops when nothing left to flatten
+console.log(flat(array2, Infinity)); // [1, 2, 1, 2, 3, 4, false, 'world', 5]
+
+/* MDN Tests - Flattening nested arrays */
+const arr1 = [1, 2, [3, 4]];
+console.log(flat(arr1)); // [1, 2, 3, 4]
+
+const arr2 = [1, 2, [3, 4, [5, 6]]];
+console.log(flat(arr2)); // [1, 2, 3, 4, [5, 6]]
+
+const arr3 = [1, 2, [3, 4, [5, 6]]];
+console.log(flat(arr3, 2)); // [1, 2, 3, 4, 5, 6]
+
+const arr4 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
+console.log(flat(arr4, Infinity)); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+/* Test sparse arrays */
+const arr5 = [1, 2, , 4, 5];
+console.log(flat(arr5)); // [1, 2, 4, 5]
+
+const arr6 = [1, , 3, ["a", , "c"]];
+console.log(flat(arr6)); // [ 1, 3, "a", "c" ]
+
+const arr7 = [1, , 3, ["a", , ["d", , "e"]]];
+console.log(flat(arr7)); // [ 1, 3, "a", ["d", empty, "e"] ]
+console.log(flat(arr7, 2)); // [ 1, 3, "a", "d", "e"]
 ```
 
 </details>
