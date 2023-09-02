@@ -146,6 +146,18 @@ function find(array: any[], callback: Function) {
 	return undefined;
 }
 
+function findLast(array: any[], callback: Function) {
+	if (!array) return null;
+
+	const arrayLength = array.length;
+
+	for (let index = arrayLength - 1; index >= 0; index--) {
+		if (callback(array[index], index, array)) return array[index];
+	}
+
+	return undefined;
+}
+
 function findIndex(array: any[], callback: Function) {
 	if (!array) return null;
 
@@ -158,14 +170,14 @@ function findIndex(array: any[], callback: Function) {
 	return -1;
 }
 
-function findLast(array: any[], callback: Function) {
+function findLastIndex(array: any[], callback: Function) {
 	if (!array) return null;
 
 	const arrayLength = array.length;
 
 	for (let index = arrayLength - 1; index >= 0; index--) {
-		if (callback(array[index], index, array)) return array[index];
+		if (callback(array[index], index, array)) return index;
 	}
 
-	return undefined;
+	return -1;
 }
