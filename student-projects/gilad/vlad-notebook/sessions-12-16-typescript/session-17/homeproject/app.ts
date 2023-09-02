@@ -89,7 +89,7 @@ function every(array: any[], callback: Function) {
 
 	const arrayLength = array.length;
 	for (let index = 0; index < arrayLength; index++) {
-		if (array[index]) {
+		if (index in array) {
 			if (!callback(array[index], index, array)) return false;
 		}
 	}
@@ -115,4 +115,21 @@ function fill(
 	}
 
 	return array;
+}
+
+function filter(array: any[], callback: Function) {
+	if (!array) return null;
+
+	const newArray = [];
+	const arrayLength = array.length;
+
+	for (let index = 0; index < arrayLength; index++) {
+		if (index in array) {
+			if (callback(array[index], index, array)) {
+				newArray[newArray.length] = array[index];
+			}
+		}
+	}
+
+	return newArray;
 }
