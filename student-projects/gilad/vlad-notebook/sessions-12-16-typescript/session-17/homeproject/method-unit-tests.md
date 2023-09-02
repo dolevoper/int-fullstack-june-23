@@ -11,6 +11,7 @@ for your utmost convenience ❤️
 
 ```ts
 /* at() Tests: */
+
 console.log("at() funciton");
 console.log(at([], 0));
 console.log(at([], 0));
@@ -55,14 +56,11 @@ console.log(array);
 copyWithin(array, -2, -3, -1);
 console.log(array);
 
-/*  
-    Sparse Array example - 
-    empty slots are converted to undefined during shallow copy
-*/
+/*  Sparse Array example */
 const array = [1, , 3];
-console.log(array);
+console.log(array); // [1, empty, 3]
 copyWithin(array, 2, 1, 2);
-console.log(array);
+console.log(array); // [1, empty, undefined]
 
 /* MDN tests: */
 const array1 = ["a", "b", "c", "d", "e"];
@@ -110,36 +108,36 @@ console.log(iterator1.next().value);
 ```ts
 /* every() Tests: */
 
-/_ Null array test _/
+/* Null array test */
 console.log(every(null, (currentValue) => currentValue % 2 === 0));
 
-/_ Empty array test - vacuously truth _/
+/*Empty array test - vacuously truth */
 console.log(every([], (currentValue) => currentValue % 2 === 0));
 
-/_ Simple Test_/
+/* Simple Test */
 const isBelowThreshold = (currentValue) => currentValue < 40;
 const array1 = [1, 30, 39, 29, 10, 13];
 console.log(every(array1, isBelowThreshold));
 // Expected output: true
 
-/_ Testing size of all array elements _/
+/* Testing size of all array elements */
 function isBigEnough(element, index, array) {
-return element >= 10;
+	return element >= 10;
 }
 console.log(every([12, 5, 8, 130, 44], isBigEnough)); // false
 console.log(every([12, 54, 18, 130, 44], isBigEnough)); // true
 
-/_ Test if array is subset of another array _/
+/* Test if array is subset of another array */
 const isSubset = (array1, array2) =>
-every(array2, (element) => array1.includes(element));
+	every(array2, (element) => array1.includes(element));
 console.log(isSubset([1, 2, 3, 4, 5, 6, 7], [5, 7, 6])); // true
 console.log(isSubset([1, 2, 3, 4, 5, 6, 7], [5, 8, 7])); // false
 
-/_ Test sparse arrays _/
+/* Test sparse arrays */
 console.log(every([1, , 3], (x) => x !== undefined)); // true
 console.log(every([2, , 2], (x) => x === 2)); // true
 
-/\*
+/*
 Testing Modifying items
 
     Loop runs for 3 iterations, but would
@@ -149,17 +147,17 @@ Testing Modifying items
     2nd iteration: [1,1,2,4][1] -> 1
     3rd iteration: [1,1,2,3][2] -> 2
 
-\*/
+*/
 console.log("Testing changes in length of array");
 
 const arr = [1, 2, 3, 4];
 every(arr, (elem, index, arr) => {
-arr[index + 1]--;
-console.log(`[${arr}][${index}] -> ${elem}`);
-return elem < 2;
+	arr[index + 1]--;
+	console.log(`[${arr}][${index}] -> ${elem}`);
+	return elem < 2;
 });
 
-/\*
+/*
 Test appending items
 
     Loop runs for 3 iterations, even after appending new items
@@ -168,17 +166,17 @@ Test appending items
     2nd iteration: [1, 2, 3, new, new][1] -> 2
     3rd iteration: [1, 2, 3, new, new, new][2] -> 3
 
-\*/
+*/
 console.log("Testing addition of items");
 
 const arr = [1, 2, 3];
 every(arr, (elem, index, arr) => {
-arr.push("new");
-console.log(`[${arr}][${index}] -> ${elem}`);
-return elem < 4;
+	arr.push("new");
+	console.log(`[${arr}][${index}] -> ${elem}`);
+	return elem < 4;
 });
 
-/\*
+/*
 Test of deleting items
 Loop runs for 2 iterations only, as the remaining
 items are `pop()`ed off
@@ -186,15 +184,14 @@ items are `pop()`ed off
     1st iteration: [1,2,3][0] -> 1
     2nd iteration: [1,2][1] -> 2
 
-\*/
+*/
 
 const arr = [1, 2, 3, 4];
 every(arr, (elem, index, arr) => {
-arr.pop();
-console.log(`[${arr}][${index}] -> ${elem}`);
-return elem < 4;
+	arr.pop();
+	console.log(`[${arr}][${index}] -> ${elem}`);
+	return elem < 4;
 });
-
 ```
 
 </details>
@@ -256,3 +253,116 @@ console.log(tempMicrowaves);
 ```
 
 </details>
+
+## `filter()`
+
+<details>
+  <summary>Show</summary>
+
+```ts
+/* filter() Tests */
+
+/* Simple test - is big enough */
+function isBigEnough(value) {
+	return value >= 10;
+}
+
+console.log(filter([12, 5, 8, 130, 44], isBigEnough)); // filtered is [12, 130, 44]
+
+/* find all prime numbers in an array */
+const array = [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+function isPrime(num) {
+	for (let i = 2; num > i; i++) {
+		if (num % i === 0) {
+			return false;
+		}
+	}
+	return num > 1;
+}
+
+console.log(filter(array, isPrime)); // [2, 3, 5, 7, 11, 13]
+
+/* Filtering invalid entries from JSON */
+const arr = [
+	{ id: 15 },
+	{ id: -1 },
+	{ id: 0 },
+	{ id: 3 },
+	{ id: 12.2 },
+	{},
+	{ id: null },
+	{ id: NaN },
+	{ id: "undefined" },
+];
+
+let invalidEntries = 0;
+
+function filterByID(item) {
+	if (Number.isFinite(item.id) && item.id !== 0) {
+		return true;
+	}
+	invalidEntries++;
+	return false;
+}
+
+const arrByID = filter(arr, filterByID);
+
+console.log("Filtered Array\n", arrByID);
+
+// Filtered Array
+[{ id: 15 }, { id: -1 }, { id: 3 }, { id: 12.2 }];
+
+console.log("Number of Invalid Entries =", invalidEntries);
+// Number of Invalid Entries = 5
+
+/* Searching in array */
+
+const fruits = ["apple", "banana", "grapes", "mango", "orange"];
+
+//Filter array items based on search criteria (query)
+function filterItems(arr, query) {
+	return filter(arr, (el) => el.toLowerCase().includes(query.toLowerCase()));
+}
+
+console.log(filterItems(fruits, "ap")); // ['apple', 'grapes']
+console.log(filterItems(fruits, "an")); // ['banana', 'mango', 'orange']
+
+/* Skipping sparse elements*/
+console.log(filter([1, , undefined], (x) => x === undefined)); // [undefined]
+console.log(filter([1, , undefined], (x) => x !== 2)); // [1, undefined]
+
+/* Modifying initial array - appending, deleting */
+// Modifying each word
+let words = ["spray", "limit", "exuberant", "destruction", "elite", "present"];
+
+const modifiedWords = filter(words, (word, index, arr) => {
+	arr[index + 1] += " extra";
+	return word.length < 6;
+});
+
+console.log(modifiedWords); // ["spray"]
+// Notice there are three words below length 6, but since they've been modified one is returned
+
+/* Appending new words */
+words = ["spray", "limit", "exuberant", "destruction", "elite", "present"];
+const appendedWords = filter(words, (word, index, arr) => {
+	arr.push("new");
+	return word.length < 6;
+});
+
+console.log(appendedWords); // ["spray" ,"limit" ,"elite"]
+// Only three fits the condition even though the `words` itself now has a lot more words with character length less than 6
+
+/* Deleting words */
+words = ["spray", "limit", "exuberant", "destruction", "elite", "present"];
+const deleteWords = filter(words, (word, index, arr) => {
+	arr.pop();
+	return word.length < 6;
+});
+
+console.log(deleteWords); // ["spray" ,"limit"]
+// Notice 'elite' is not even obtained as it's been popped off 'words' before filter can even get there
+```
+
+</description>
