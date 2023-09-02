@@ -7,7 +7,7 @@ for your utmost convenience ❤️
 ## `at()`
 
 <details>
-  <summary>Show</summary>
+<summary>Show</summary>
 
 ```ts
 /* at() Tests: */
@@ -25,7 +25,7 @@ console.log(at([1, 2, 3, 4], -1));
 ## `concat()`
 
 <details>
-  <summary>Show</summary>
+<summary>Show</summary>
 
 ```ts
 /* concat() Tests: */
@@ -41,7 +41,7 @@ console.log(concat([1, 2, 3], 5, ["hello", "world"], [4, 5, 6]));
 ## `copyWithin()`
 
 <details>
-  <summary>Show</summary>
+<summary>Show</summary>
 
 ```ts
 /* copyWithin() Tests: */
@@ -74,7 +74,7 @@ console.log(copyWithin(array1, 0, 3, 4));
 ## `entries()`
 
 <details>
-  <summary>Show</summary>
+<summary>Show</summary>
 
 ```ts
 /* entries() Tests: */
@@ -103,7 +103,7 @@ console.log(iterator1.next().value);
 ## `every()`
 
 <details>
-  <summary>Show</summary>
+<summary>Show</summary>
 
 ```ts
 /* every() Tests: */
@@ -199,7 +199,7 @@ every(arr, (elem, index, arr) => {
 ## `fill()`
 
 <details>
-  <summary>Show</summary>
+<summary>Show</summary>
 
 ```ts
 /* fill() tests */
@@ -257,7 +257,7 @@ console.log(tempMicrowaves);
 ## `filter()`
 
 <details>
-  <summary>Show</summary>
+<summary>Show</summary>
 
 ```ts
 /* filter() Tests */
@@ -370,7 +370,7 @@ console.log(deleteWords); // ["spray" ,"limit"]
 ## `find()`
 
 <details>
-  <summary>Show</summary>
+<summary>Show</summary>
 
 ```ts
 /* find() Tests: */
@@ -453,6 +453,43 @@ find(array, (value, index) => {
  Visited index 5 with value undefined
  Visited index 6 with value 6 
  */
+```
+
+</details>
+
+## `findIndex()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* findIndex() Tests */
+
+/* Simple test - get index of first number larger than 13 */
+const array1 = [5, 12, 8, 130, 44];
+
+const isLargeNumber = (element) => element > 13;
+console.log(findIndex(array1, isLargeNumber)); // Expected output: 3
+
+/* Getting index of first prime number */
+
+function isPrime(element) {
+	if (element % 2 === 0 || element < 2) {
+		return false;
+	}
+	for (let factor = 3; factor <= Math.sqrt(element); factor += 2) {
+		if (element % factor === 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+console.log(findIndex([4, 6, 8, 9, 12], isPrime)); // -1, not found
+console.log(findIndex([4, 6, 7, 9, 12], isPrime)); // 2 (array[2] is 7)
+
+/* Test sparse arrays */
+console.log(findIndex([1, , 3], (x) => x === undefined)); // 1
 ```
 
 </details>
