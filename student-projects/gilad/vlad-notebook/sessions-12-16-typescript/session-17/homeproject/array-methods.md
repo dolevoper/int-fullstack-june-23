@@ -33,3 +33,7 @@ Choose any array method (use MDN to find) that we did not cover during class. Im
 ## `filter()`
 
 [filter() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+
+## `find()`
+
+[find() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
