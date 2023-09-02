@@ -1,3 +1,4 @@
+let score = 0;
 let hasBikes = false;
 let hasSquirtle = false;
 let hasBulbasaur = false;
@@ -10,7 +11,13 @@ let hasSafroonBadge = false;
 let hasFushiaBadge = false;
 let hasCinnebarBadge = false;
 let hasVaridianBadge = false;
-alert ("Welcome to Pokemon Master!\n You will now begin your quest to become the Pokemon Master, good luck!")
+alert (`Welcome to Pokemon Master!
+You will now begin your quest to become the Pokemon Master.
+Notice that you'll have 3 tries to catch a pokemon or win a GYM, if you will not succeed - you wi finish the game!
+Every time you'll process the game - you'll earn points.
+when you need - you can write help for some information, or inventory to know which items you have.
+
+Good luck!`);
 house();
 
 function house() {
