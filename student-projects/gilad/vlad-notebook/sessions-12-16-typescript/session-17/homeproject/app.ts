@@ -157,3 +157,15 @@ function findIndex(array: any[], callback: Function) {
 
 	return -1;
 }
+
+function findLast(array: any[], callback: Function) {
+	if (!array) return null;
+
+	const arrayLength = array.length;
+
+	for (let index = arrayLength - 1; index >= 0; index--) {
+		if (callback(array[index], index, array)) return array[index];
+	}
+
+	return undefined;
+}
