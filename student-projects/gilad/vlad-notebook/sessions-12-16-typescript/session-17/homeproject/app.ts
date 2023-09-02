@@ -145,3 +145,15 @@ function find(array: any[], callback: Function) {
 
 	return undefined;
 }
+
+function findIndex(array: any[], callback: Function) {
+	if (!array) return null;
+
+	const arrayLength = array.length;
+
+	for (let index = 0; index < arrayLength; index++) {
+		if (callback(array[index], index, array)) return index;
+	}
+
+	return -1;
+}
