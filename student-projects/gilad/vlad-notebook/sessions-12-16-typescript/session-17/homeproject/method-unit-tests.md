@@ -2,6 +2,8 @@
 
 for your utmost convenience ♥
 
+# TODO - Add expected results
+
 ## `at()`
 
 ```ts
@@ -166,4 +168,57 @@ every(arr, (elem, index, arr) => {
 	console.log(`[${arr}][${index}] -> ${elem}`);
 	return elem < 4;
 });
+```
+
+## `fill() `
+
+```ts
+/* fill() tests */
+
+/* Mutability tests */
+const array = [1, 2, 3, 4];
+
+// Fill with 0 from position 2 until position 4
+console.log(fill(array, 0, 2, 4)); // [1, 2, 0, 0]
+
+// Fill with 5 from position 1
+console.log(fill(array, 5, 1)); // [1, 5, 5, 5]
+
+// Fill everything with 6
+console.log(fill(array, 6)); // [6, 6, 6, 6]
+
+// Check original array
+console.log(array);
+
+/* Different usecases tests */
+console.log(fill([1, 2, 3], 4)); // [4, 4, 4]
+console.log(fill([1, 2, 3], 4, 1)); // [1, 4, 4]
+console.log(fill([1, 2, 3], 4, 1, 2)); // [1, 4, 3]
+console.log(fill([1, 2, 3], 4, 1, 1)); // [1, 2, 3]
+console.log(fill([1, 2, 3], 4, 3, 3)); // [1, 2, 3]
+console.log(fill([1, 2, 3], 4, -3, -2)); // [4, 2, 3]
+console.log(fill([1, 2, 3], 4, NaN, NaN)); // [1, 2, 3]
+console.log(fill([1, 2, 3], 4, 3, 5)); // [1, 2, 3]
+console.log(fill(Array(3), 4)); // [4, 4, 4]
+
+/* Fill with objects test */
+// A single object, referenced by each slot of the array:
+const arr1 = fill(Array(3), {}); // [{}, {}, {}]
+arr1[0].hi = "hi"; // [{ hi: "hi" }, { hi: "hi" }, { hi: "hi" }]
+console.log(arr1);
+
+/* Create a matrix full of 1 */
+const arr2 = new Array(3);
+for (let i = 0; i < arr2.length; i++) {
+	arr2[i] = fill(new Array(4), 1); // Creating an array of size 4 and filled of 1
+}
+arr2[0][0] = 10;
+console.log(arr2[0][0]); // 10
+console.log(arr2[1][0]); // 1
+console.log(arr2[2][0]); // 1
+console.log(arr2);
+
+/* Populate an empty array */
+const tempMicrowaves = fill(Array(5), "microwave", 0);
+console.log(tempMicrowaves);
 ```
