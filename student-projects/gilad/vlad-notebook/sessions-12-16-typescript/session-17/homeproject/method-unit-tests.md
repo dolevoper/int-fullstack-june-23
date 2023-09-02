@@ -1,10 +1,13 @@
 # Methods Unit Tests
 
-for your utmost convenience ♥
+for your utmost convenience ❤️
 
 # TODO - Add expected results
 
 ## `at()`
+
+<details>
+  <summary>Show</summary>
 
 ```ts
 /* at() Tests: */
@@ -16,7 +19,12 @@ console.log(at([1, 2, 3, 4], 1));
 console.log(at([1, 2, 3, 4], -1));
 ```
 
+</details>
+
 ## `concat()`
+
+<details>
+  <summary>Show</summary>
 
 ```ts
 /* concat() Tests: */
@@ -27,7 +35,12 @@ console.log(concat([1, 2, 3], "hi"));
 console.log(concat([1, 2, 3], 5, ["hello", "world"], [4, 5, 6]));
 ```
 
+</details>
+
 ## `copyWithin()`
+
+<details>
+  <summary>Show</summary>
 
 ```ts
 /* copyWithin() Tests: */
@@ -58,7 +71,12 @@ console.log(copyWithin(array1, 0, 3, 4));
 // Expected output: Array ["d", "b", "c", "d", "e"]
 ```
 
+</details>
+
 ## `entries()`
+
+<details>
+  <summary>Show</summary>
 
 ```ts
 /* entries() Tests: */
@@ -82,42 +100,47 @@ console.log(iterator1.next().value);
 // Expected output: Array [1, "b"]
 ```
 
+</details>
+
 ## `every()`
+
+<details>
+  <summary>Show</summary>
 
 ```ts
 /* every() Tests: */
 
-/* Null array test */
+/_ Null array test _/
 console.log(every(null, (currentValue) => currentValue % 2 === 0));
 
-/* Empty array test - vacuously truth */
+/_ Empty array test - vacuously truth _/
 console.log(every([], (currentValue) => currentValue % 2 === 0));
 
-/* Simple Test*/
+/_ Simple Test_/
 const isBelowThreshold = (currentValue) => currentValue < 40;
 const array1 = [1, 30, 39, 29, 10, 13];
 console.log(every(array1, isBelowThreshold));
 // Expected output: true
 
-/* Testing size of all array elements */
+/_ Testing size of all array elements _/
 function isBigEnough(element, index, array) {
-	return element >= 10;
+return element >= 10;
 }
 console.log(every([12, 5, 8, 130, 44], isBigEnough)); // false
 console.log(every([12, 54, 18, 130, 44], isBigEnough)); // true
 
-/* Test if array is subset of another array */
+/_ Test if array is subset of another array _/
 const isSubset = (array1, array2) =>
-	every(array2, (element) => array1.includes(element));
+every(array2, (element) => array1.includes(element));
 console.log(isSubset([1, 2, 3, 4, 5, 6, 7], [5, 7, 6])); // true
 console.log(isSubset([1, 2, 3, 4, 5, 6, 7], [5, 8, 7])); // false
 
-/* Test sparse arrays */
+/_ Test sparse arrays _/
 console.log(every([1, , 3], (x) => x !== undefined)); // true
 console.log(every([2, , 2], (x) => x === 2)); // true
 
-/* 
-    Testing Modifying items 
+/\*
+Testing Modifying items
 
     Loop runs for 3 iterations, but would
     have run 2 iterations without any modification
@@ -125,52 +148,61 @@ console.log(every([2, , 2], (x) => x === 2)); // true
     1st iteration: [1,1,3,4][0] -> 1
     2nd iteration: [1,1,2,4][1] -> 1
     3rd iteration: [1,1,2,3][2] -> 2
-*/
+
+\*/
 console.log("Testing changes in length of array");
 
 const arr = [1, 2, 3, 4];
 every(arr, (elem, index, arr) => {
-	arr[index + 1]--;
-	console.log(`[${arr}][${index}] -> ${elem}`);
-	return elem < 2;
+arr[index + 1]--;
+console.log(`[${arr}][${index}] -> ${elem}`);
+return elem < 2;
 });
 
-/* 
-    Test appending items 
+/\*
+Test appending items
 
     Loop runs for 3 iterations, even after appending new items
 
     1st iteration: [1, 2, 3, new][0] -> 1
     2nd iteration: [1, 2, 3, new, new][1] -> 2
     3rd iteration: [1, 2, 3, new, new, new][2] -> 3
-*/
+
+\*/
 console.log("Testing addition of items");
 
 const arr = [1, 2, 3];
 every(arr, (elem, index, arr) => {
-	arr.push("new");
-	console.log(`[${arr}][${index}] -> ${elem}`);
-	return elem < 4;
+arr.push("new");
+console.log(`[${arr}][${index}] -> ${elem}`);
+return elem < 4;
 });
 
-/* 
-    Test of deleting items
-    Loop runs for 2 iterations only, as the remaining
-    items are `pop()`ed off
+/\*
+Test of deleting items
+Loop runs for 2 iterations only, as the remaining
+items are `pop()`ed off
 
     1st iteration: [1,2,3][0] -> 1
     2nd iteration: [1,2][1] -> 2
-*/
+
+\*/
 
 const arr = [1, 2, 3, 4];
 every(arr, (elem, index, arr) => {
-	arr.pop();
-	console.log(`[${arr}][${index}] -> ${elem}`);
-	return elem < 4;
+arr.pop();
+console.log(`[${arr}][${index}] -> ${elem}`);
+return elem < 4;
 });
+
 ```
 
-## `fill() `
+</details>
+
+## `fill()`
+
+<details>
+  <summary>Show</summary>
 
 ```ts
 /* fill() tests */
@@ -222,3 +254,5 @@ console.log(arr2);
 const tempMicrowaves = fill(Array(5), "microwave", 0);
 console.log(tempMicrowaves);
 ```
+
+</details>
