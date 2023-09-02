@@ -89,9 +89,8 @@ function every(array: any[], callback: Function) {
 
 	const arrayLength = array.length;
 	for (let index = 0; index < arrayLength; index++) {
-		if (index in array) {
-			if (!callback(array[index], index, array)) return false;
-		}
+		if (!(index in array)) continue;
+		else if (!callback(array[index], index, array)) return false;
 	}
 
 	return true;
@@ -124,10 +123,9 @@ function filter(array: any[], callback: Function) {
 	const arrayLength = array.length;
 
 	for (let index = 0; index < arrayLength; index++) {
-		if (index in array) {
-			if (callback(array[index], index, array)) {
-				newArray[newArray.length] = array[index];
-			}
+		if (!(index in array)) continue;
+		else if (callback(array[index], index, array)) {
+			newArray[newArray.length] = array[index];
 		}
 	}
 
@@ -180,4 +178,51 @@ function findLastIndex(array: any[], callback: Function) {
 	}
 
 	return -1;
+}
+
+function flatSingleLevel(arrayToFlatten: any[]) {
+	const flatArray = [];
+	let addedCells = 0;
+	let isDone = true;
+
+	for (let index = 0; index < arrayToFlatten.length; index++) {
+		if (!(index in arrayToFlatten)) {
+			continue;
+		}
+		if (!Array.isArray(arrayToFlatten[index])) {
+			flatArray[index + addedCells] = arrayToFlatten[index];
+		} else {
+			isDone = false;
+
+			for (
+				let flatCellIndex = 0;
+				flatCellIndex < arrayToFlatten[index].length;
+				flatCellIndex++
+			) {
+				flatArray[index + flatCellIndex] = arrayToFlatten[index][flatCellIndex];
+			}
+
+			addedCells += arrayToFlatten[index].length - 1;
+		}
+	}
+	return { flattenedArray: flatArray, isDone: isDone };
+}
+
+function flat(array: any[], depth: number = 1) {
+	if (!array) return null;
+	if (depth < 1) return array;
+
+	let flatResult = flatSingleLevel(array);
+	let flatArray = flatResult.flattenedArray;
+
+	for (
+		let currentDepth = 1;
+		!flatResult.isDone && currentDepth < depth;
+		currentDepth++
+	) {
+		flatResult = flatSingleLevel(flatArray);
+		flatArray = flatResult.flattenedArray;
+	}
+
+	return flatArray;
 }
