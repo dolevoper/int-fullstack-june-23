@@ -1,4 +1,8 @@
-const toDoList: string[] = [];
+if (localStorage.getItem("toDoListStorage")) {
+    const toDoList: string[] = JSON.parse(localStorage.getItem("toDoListStorage"));
+} else {
+    const toDoList: string[] = [];
+}
 runProgram();
 
 function runProgram() {
@@ -19,7 +23,9 @@ function runProgram() {
         case 'Add todo'.toLowerCase():
             let newToDo = prompt("Please type what you need to do:");
             checkReturnToMenu(newToDo);
+            alert("No problem 👍 Adding " + newToDo + " to your to-do list.")
             toDoList.push(newToDo);
+            localStorage.setItem("toDoListStorage", JSON.stringify(toDoList));
             runProgram();
 
         case '3':
@@ -31,6 +37,7 @@ function runProgram() {
         case 'Clear my todos'.toLowerCase():
             alert("OK, clearing all tasks ");
             toDoList.splice(0, toDoList.length);
+            localStorage.setItem("toDoListStorage", JSON.stringify(toDoList));
             runProgram();
         default:
             alert("Please choose one of the available options");
@@ -39,20 +46,21 @@ function runProgram() {
     }
 }
 
-function checkIfCancel(input: string) {
+function checkIfCancel(input: string | null) {
     if (input === null) {
         alert("Goodbye 👋");
         throw "";
     }
 }
 
-function checkReturnToMenu(input: string) {
+function checkReturnToMenu(input: string | null) {
     if ((input === null) || (input === "")) {
+        alert("Returning to menu...")
         runProgram();
     }
 }
 
-function checkIfEmpty(input: Array<string>) {
+function checkIfEmpty(input: string[]) {
     if (input.length === 0) {
         alert("You have no todos 🤩");
         runProgram();
@@ -71,6 +79,7 @@ function removeTask() {
     let indexOfToDo = Number(removeToDo) - 1;
     alert("OK! Removing " + toDoList[indexOfToDo]);
     toDoList.splice(indexOfToDo, 1);
+    localStorage.setItem("toDoListStorage", JSON.stringify(toDoList));
     runProgram();
 }
 
