@@ -192,21 +192,21 @@ function flatSingleLevel(
 	let addedCellsOffset = 0;
 	let emptyCellsOffset = 0;
 	let isDone = true;
-	// console.log("=====Starting flat loop, source array:=====");
-	// console.log(arrayToFlatten);
+	console.log("=====Starting flat loop, source array:=====");
+	console.log(arrayToFlatten);
 
 	for (let index = 0; index < arrayToFlatten.length; index++) {
-		// console.log(`Cell ${index} loop start, array state:`);
-		// console.log(flatArray);
+		console.log(`Cell ${index} loop start, array state:`);
+		console.log(flatArray);
 
 		if (!Array.isArray(arrayToFlatten[index])) {
-			// console.log("cell not an array, cell before map:");
-			// console.log(arrayToFlatten[index]);
+			console.log("cell not an array, cell before map:");
+			console.log(arrayToFlatten[index]);
 			const mappedCell = !callback
 				? arrayToFlatten[index]
 				: callback(arrayToFlatten[index], index, arrayToFlatten);
-			// console.log("cell after map:");
-			// console.log(mappedCell);
+			console.log("cell after map:");
+			console.log(mappedCell);
 
 			if (isSparseCell(mappedCell, index, arrayToFlatten)) {
 				addedCellsOffset--;
@@ -215,18 +215,17 @@ function flatSingleLevel(
 
 			flatArray[index + addedCellsOffset - emptyCellsOffset] = mappedCell;
 		} else {
+			arrayToFlatten[index] = callback(
+				arrayToFlatten[index],
+				index,
+				arrayToFlatten
+			);
 			for (
 				let flatCellIndex = 0;
 				flatCellIndex < arrayToFlatten[index].length;
 				flatCellIndex++
 			) {
-				const mappedCell = !callback
-					? arrayToFlatten[index][flatCellIndex]
-					: callback(
-							arrayToFlatten[index][flatCellIndex],
-							flatCellIndex,
-							arrayToFlatten[index]
-					  );
+				const mappedCell = arrayToFlatten[index][flatCellIndex];
 
 				if (isSparseCell(mappedCell, flatCellIndex, arrayToFlatten[index])) {
 					addedCellsOffset--;
@@ -240,8 +239,8 @@ function flatSingleLevel(
 			addedCellsOffset += arrayToFlatten[index].length - 1;
 			isDone = false;
 		}
-		// console.log("Cell loop end, array state:");
-		// console.log(flatArray);
+		console.log("Cell loop end, array state:");
+		console.log(flatArray);
 	}
 	return { flattenedArray: flatArray, isDone: isDone };
 }
@@ -323,15 +322,68 @@ function flat(array: any[], depth: number = 1) {
 // console.log(flat(arr7)); // [ 1, 3, "a", ["d", empty, "e"] ]
 // console.log(flat(arr7, 2)); // [ 1, 3, "a", "d", "e"]
 
-function flatMap(array: any[], callback: Function) {
-	if (!array) return null;
+// function flatMap(array: any[], callback: Function) {
+// 	if (!array) return null;
 
-	// console.log("=====first flatten: =====");
-	let flatArray = flatSingleLevel(array, callback).flattenedArray;
-	// console.log(flatArray);
-	// console.log("=====second flatten: =====");
-	flatArray = flatSingleLevel(flatArray).flattenedArray;
-	// console.log(flatArray);
+// 	// console.log("=====first flatten: =====");
+// 	let flatArray = flatSingleLevel(array, callback).flattenedArray;
+// 	// console.log(flatArray);
+// 	// console.log("=====second flatten: =====");
+// 	flatArray = flatSingleLevel(flatArray).flattenedArray;
+// 	// console.log(flatArray);
+// 	return flatArray;
+// }
+
+function flatMap(arrayToFlatten: any[], callback: Function = undefined) {
+	const flatArray = [];
+	let addedCellsOffset = 0;
+	let isDone = true;
+	// console.log("=====Starting flat loop, source array:=====");
+	// console.log(arrayToFlatten);
+
+	for (let index = 0; index < arrayToFlatten.length; index++) {
+		// console.log(`Cell at index ${index} loop start, array state:`);
+		// console.log(flatArray);
+
+		// console.log("cell before map:");
+		// console.log(arrayToFlatten[index]);
+		const mappedCell = !callback
+			? arrayToFlatten[index]
+			: callback(arrayToFlatten[index], index, arrayToFlatten);
+		// console.log("cell after map:");
+		// console.log(mappedCell);
+
+		if (isSparseCell(arrayToFlatten[index], index, arrayToFlatten)) {
+			addedCellsOffset--;
+			continue;
+		}
+
+		if (!Array.isArray(mappedCell)) {
+			// console.log("cell not an array");
+			flatArray[index + addedCellsOffset] = mappedCell;
+		} else {
+			// console.log("cell is an array");
+
+			for (
+				let flatCellIndex = 0;
+				flatCellIndex < mappedCell.length;
+				flatCellIndex++
+			) {
+				const flattenedCell = mappedCell[flatCellIndex];
+
+				if (isSparseCell(flattenedCell, flatCellIndex, mappedCell)) {
+					addedCellsOffset--;
+					continue;
+				}
+
+				flatArray[index + addedCellsOffset + flatCellIndex] = flattenedCell;
+			}
+			addedCellsOffset += mappedCell.length - 1;
+			isDone = false;
+		}
+		// console.log("Cell loop end, array state:");
+		// console.log(flatArray);
+	}
 	return flatArray;
 }
 
@@ -346,28 +398,33 @@ function flatMap(array: any[], callback: Function) {
 
 // // flatten and map 2 to [2,2] array
 // console.log("map 2 to [2,2] and flatten");
-// const arr1Result = flatMap(arr1, (num) => (num === 2 ? [2, 2] : 1));
+// console.log("Original flatMap()");
+// const arr1Result = arr1.flatMap((num) => (num === 2 ? [2, 2] : 1));
 // console.log(arr1Result); // Expected output: Array [1, 2, 2, 1]
 
-/* 3-depth array with mapping */
-console.log("\n3-depth array test:");
+// console.log("My flatMap()");
+// const arr1Result2 = flatMap(arr1, (num) => (num === 2 ? [2, 2] : 1));
+// console.log(arr1Result2); // Expected output: Array [1, 2, 2, 1]
 
-const depth3Array = [1, [1, [2, 2]], 1];
-console.log("source array: ");
-console.log(depth3Array);
+// /* 3-depth array with mapping */
+// console.log("\n3-depth array test:");
 
-console.log("map 2 to [2,2] and flatten one level");
-console.log("Original flatMap():");
-const depth3Arrayresult = depth3Array.flatMap((num) =>
-	num === 2 ? [2, 2] : 1
-);
-console.log(depth3Arrayresult); // Expected output:
+// const depth3Array = [1, [1, [2, 2]], 1];
+// console.log("source array: ");
+// console.log(depth3Array);
 
-console.log("My flatMap():");
-const depth3Arrayresult2 = flatMap(depth3Array, (num) =>
-	num === 2 ? [2, 2] : 1
-);
-console.log(depth3Arrayresult2); // Expected output:
+// console.log("map 2 to [2,2] and flatten one level");
+// console.log("Original flatMap():");
+// const depth3Arrayresult = depth3Array.flatMap((num) =>
+// 	num === 2 ? [2, 2] : 1
+// );
+// console.log(depth3Arrayresult); // Expected output:
+
+// console.log("My flatMap():");
+// const depth3Arrayresult2 = flatMap(depth3Array, (num) =>
+// 	num === 2 ? [2, 2] : 1
+// );
+// console.log(depth3Arrayresult2); // Expected output:
 
 // /* Comparison with original flatMap funciton */
 // console.log("\nComparison with original map() function");
@@ -426,6 +483,9 @@ for (let i = 0; i < n; i++) {
 
 // /* Adding and removing items during map() */
 // console.log("\nAdding and removing items during map()");
+// console.log(
+// 	"remove all negatives and split the odd numbers into an even number + 1"
+// );
 
 // // Let's say we want to remove all the negative numbers
 // // and split the odd numbers into an even number and a 1
@@ -436,26 +496,41 @@ for (let i = 0; i < n; i++) {
 // console.log("source array: ");
 // console.log(a);
 
-// const result2 = flatMap(a, (n) => {
+// console.log("Original flatMap()");
+// const aresult1 = a.flatMap((n) => {
+// 	if (n < 0) {
+// 		return [];
+// 	}
+// 	return n % 2 === 0 ? [n] : [n - 1, 1];
+// });
+// console.log(aresult1);
+
+// console.log("My flatMap()");
+// const aresult2 = flatMap(a, (n) => {
 // 	if (n < 0) {
 // 		return [];
 // 	}
 // 	return n % 2 === 0 ? [n] : [n - 1, 1];
 // });
 
-// console.log(
-// 	"remove all negatives and split the odd numbers into an even number + 1"
-// );
-// console.log(result2); // [4, 1, 4, 20, 16, 1, 18]
+// console.log(aresult2); // [4, 1, 4, 20, 16, 1, 18]
 
-// /* Test sparse arrays */
-// console.log("\nTest sparse arrays ");
-// const sparse1 = [1, 2, , 4, 5];
-// console.log("source array:");
-// console.log(sparse1);
-// console.log(flatMap(sparse1, (x) => [x, x * 2])); // [1, 2, 2, 4, 4, 8, 5, 10]
+/* Test sparse arrays */
+console.log("\nTest sparse arrays ");
+const sparse1 = [1, 2, , 4, 5];
+console.log("source array:");
+console.log(sparse1);
+console.log("Original flatMap()");
+console.log(sparse1.flatMap((x) => [x, x * 2]));
+console.log("My flatMap()");
+console.log(flatMap(sparse1, (x) => [x, x * 2])); // [1, 2, 2, 4, 4, 8, 5, 10]
 
-// const sparse2 = [1, 2, 3, 4];
-// console.log("source array:");
-// console.log(sparse2);
-// console.log(flatMap(sparse2, (x) => [, x * 2])); // [2, 4, 6, 8]
+const sparse2 = [1, 2, 3, 4];
+console.log("source array:");
+console.log(sparse2);
+
+console.log("Original flatMap()");
+console.log(sparse2.flatMap((x) => [, x * 2])); // [2, 4, 6, 8]
+
+console.log("My flatMap()");
+console.log(flatMap(sparse2, (x) => [, x * 2])); // [2, 4, 6, 8]
