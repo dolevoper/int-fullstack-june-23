@@ -1,12 +1,11 @@
 const game_level = prompt("welcome to gambling of guess the number, pick a levele of the game:\n 1. easy > 1 - 10\n 2. midlle > 1 - 100\n 3. hard > 1 - 1000  ")
-// here we start level one //
 if (game_level === null || game_level === "") {
     alert("There seems to be a problem, try refreshing the page.")
 } else {
     const low_game_level = game_level.toLowerCase();
     if (low_game_level === "1" || low_game_level === "easy") {
-        const num_1_level = Number(prompt('pick a number between 1 to 10'));
-        if (num_1_level === null || num_1_level > 10 || num_1_level <= 0) {
+        const num_1_level = Number(prompt('pick a number between 1 to 25'));
+        while (num_1_level === null || num_1_level > 25 || num_1_level <= 0) {
             alert('You did not choose a number according to the level of the game,or the cell remained empty.\n\ Please refresh the page to start over.');
         } else {
             const comnum1 = Number(Math.floor(Math.random() * 10 + 1));
