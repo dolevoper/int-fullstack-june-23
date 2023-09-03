@@ -268,3 +268,22 @@ function forEach(array: any[], callback: Function) {
 
 	return undefined;
 }
+
+function sameValueZero(valueA: any, valueB: any) {
+	if (typeof valueA === "number" && typeof valueB === "number") {
+		return valueA === valueB || (valueA !== valueA && valueB !== valueB);
+	}
+	return valueA === valueB;
+}
+
+function includes(array: any[], searchElement: any, fromIndex: number = 0) {
+	if (!array) return null;
+
+	fromIndex = normalizeNegativeIndex(fromIndex, array.length);
+	if (fromIndex >= array.length) return false;
+
+	for (let index = fromIndex; index < array.length; index++) {
+		if (sameValueZero(array[index], searchElement)) return true;
+	}
+	return false;
+}
