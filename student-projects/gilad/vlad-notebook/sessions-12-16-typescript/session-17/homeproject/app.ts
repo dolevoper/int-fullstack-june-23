@@ -180,29 +180,34 @@ function findLastIndex(array: any[], callback: Function) {
 	return -1;
 }
 
+function isSparseCell(index: number, array: any[]) {
+	return !(index in array) || array[index] === undefined;
+}
+
 function flatSingleLevel(arrayToFlatten: any[]) {
 	const flatArray = [];
-	let addedCells = 0;
+	let addedCellsOffset = 0;
+	let emptyCellsOffset = 0;
 	let isDone = true;
 
 	for (let index = 0; index < arrayToFlatten.length; index++) {
-		if (!(index in arrayToFlatten)) {
-			continue;
-		}
 		if (!Array.isArray(arrayToFlatten[index])) {
-			flatArray[index + addedCells] = arrayToFlatten[index];
+			flatArray[index + addedCellsOffset - emptyCellsOffset] =
+				arrayToFlatten[index];
+			if (isSparseCell(index, arrayToFlatten)) emptyCellsOffset++;
 		} else {
-			isDone = false;
-
 			for (
 				let flatCellIndex = 0;
 				flatCellIndex < arrayToFlatten[index].length;
 				flatCellIndex++
 			) {
-				flatArray[index + flatCellIndex] = arrayToFlatten[index][flatCellIndex];
+				flatArray[index + flatCellIndex - emptyCellsOffset] =
+					arrayToFlatten[index][flatCellIndex];
+				if (isSparseCell(flatCellIndex, arrayToFlatten[index]))
+					emptyCellsOffset++;
 			}
-
-			addedCells += arrayToFlatten[index].length - 1;
+			addedCellsOffset += arrayToFlatten[index].length - 1;
+			isDone = false;
 		}
 	}
 	return { flattenedArray: flatArray, isDone: isDone };

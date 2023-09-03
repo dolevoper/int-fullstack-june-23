@@ -599,25 +599,38 @@ console.log(findLastIndex([1, , 3], (x) => x === undefined)); // 1
 ```ts
 /* flat() Tests*/
 
-/* Test 1 depth array with depth emitted*/
+/* Test 1 depth array with depth emitted -  defaults to 1 depth*/
+console.log("Testing 1 deep array with depth emitted");
 const array = [1, 2, ["hello", "world"], 5];
 console.log(array);
-console.log(flat(array));
+console.log(flat(array)); // [1, 2, 'hello', 'world', 5]
 
 /* Test array of depth 3 */
 const array2 = [1, 2, [[[1, 2, 3, 4], false], "world"], 5];
 console.log(array2);
 
-// with depth emitted - defaults to 1 depth
+console.log("Testing 3 deep array with depth emitted");
 console.log(flat(array2)); // [1, 2, Array(2), 'world', 5]
+
 // flatten to depth 2
+console.log("Testing 3 deep array with flatten-depth 2");
 console.log(flat(array2, 2)); // [1, 2, Array(4), false, 'world', 5]
-// with negative depth
+
+// flatten to depth 3
+console.log("Testing 3 deep array with flatten-depth 3");
+console.log(flat(array2, 3)); // [1, 2, 1, 2, 3, 4, false, 'world', 5]
+
+// with negative depth - do nothing
+console.log("Testing 3 deep array with negative depth");
 console.log(flat(array2, -5)); // do nothing [1, 2, Array(2), 5]
+
 // flatten to Infinity depth - stops when nothing left to flatten
+console.log("Testing 3 deep array with Infinity depth");
 console.log(flat(array2, Infinity)); // [1, 2, 1, 2, 3, 4, false, 'world', 5]
 
 /* MDN Tests - Flattening nested arrays */
+console.log("MDN Tests");
+
 const arr1 = [1, 2, [3, 4]];
 console.log(flat(arr1)); // [1, 2, 3, 4]
 
@@ -631,6 +644,8 @@ const arr4 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
 console.log(flat(arr4, Infinity)); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 /* Test sparse arrays */
+console.log("Sparse array tests");
+
 const arr5 = [1, 2, , 4, 5];
 console.log(flat(arr5)); // [1, 2, 4, 5]
 
