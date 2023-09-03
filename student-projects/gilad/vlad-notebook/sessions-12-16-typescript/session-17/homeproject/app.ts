@@ -295,8 +295,33 @@ function indexOf(array: any[], searchElement: any, fromIndex: number = 0) {
 	if (fromIndex >= array.length || Number.isNaN(searchElement)) return -1;
 
 	for (let index = fromIndex; index < array.length; index++) {
-		if (!isSparseCell(index, array))
-			if (array[index] === searchElement) return index;
+		if (isSparseCell(index, array)) continue;
+		if (array[index] === searchElement) return index;
 	}
+
+	return -1;
+}
+
+function lastIndexOf(
+	array: any[],
+	searchElement: any,
+	fromIndex: number = array.length - 1
+) {
+	if (!array) return null;
+
+	fromIndex =
+		fromIndex < 0
+			? array.length + fromIndex
+			: fromIndex >= array.length
+			? array.length - 1
+			: fromIndex;
+
+	if (fromIndex < -array.length || Number.isNaN(searchElement)) return -1;
+
+	for (let index = fromIndex; index >= 0; index--) {
+		if (isSparseCell(index, array)) continue;
+		if (array[index] === searchElement) return index;
+	}
+
 	return -1;
 }
