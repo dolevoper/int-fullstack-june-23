@@ -836,3 +836,125 @@ console.log(flatMap(sparse2, (x) => [, x * 2])); // [2, 4, 6, 8]
 ```
 
 </details>
+
+## `forEach()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* forEach() Test */
+
+/* Testing sparse arrays */
+console.log("\nTesting sparse arrays");
+
+const arraySparse = [1, 3 /* empty */, , 7];
+console.log("source sparse array:");
+console.log(arraySparse);
+
+let numCallbackRuns = 0;
+
+forEach(arraySparse, (element) => {
+	console.log({ element });
+	numCallbackRuns++;
+});
+
+console.log({ numCallbackRuns });
+/* Expected:
+ { element: 1 }
+ { element: 3 }
+ { element: 7 }
+ { numCallbackRuns: 3 }
+*/
+
+/* Converting a for loop to forEach */
+console.log("\nMimic for loop (it IS a for loop...) ");
+const items = ["item1", "item2", "item3"];
+const copyItems = [];
+
+forEach(items, (item) => {
+	copyItems.push(item);
+});
+console.log(copyItems);
+
+/* Printing contents of array  */
+console.log("\nPrinting contents of array");
+const arrayWithSparse = [2, 5 /* EMPTY*/, , 9];
+console.log("source array:");
+console.log(arrayWithSparse);
+
+const logArrayElements = (element, index /*, array */) => {
+	console.log(`a[${index}] = ${element}`);
+};
+
+// index 2 is skipped, since there is no item at
+// that position in the array.
+forEach(arrayWithSparse, logArrayElements);
+/* Expected:
+ Logs:
+ a[0] = 2
+ a[1] = 5
+ a[3] = 9
+*/
+
+/* Copying an object */
+console.log("\nCopying an object");
+
+const copy = (obj) => {
+	const copy = Object.create(Object.getPrototypeOf(obj));
+	const propNames = Object.getOwnPropertyNames(obj);
+	forEach(propNames, (name) => {
+		const desc = Object.getOwnPropertyDescriptor(obj, name);
+		Object.defineProperty(copy, name, desc);
+	});
+	return copy;
+};
+
+const obj1 = { a: 1, b: 2, c: { name: "gilad", last: "pinker" } };
+console.log("Original object 1");
+console.log(obj1);
+const obj2 = copy(obj1); // obj2 looks like obj1 now
+console.log("Copied object 2");
+console.log(obj2);
+
+/* Modifying array during itteration */
+console.log("\nModifying array during itteration");
+
+const words = ["one", "two", "three", "four"];
+console.log("source array:");
+console.log(words);
+
+console.log("Shift array when value is 'two'");
+forEach(words, (word) => {
+	console.log(word);
+	if (word === "two") {
+		words.shift(); //'one' will delete from array
+	}
+}); // one // two // four
+
+console.log(words); // ['two', 'three', 'four']
+
+/* flatten array 🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️*/
+console.log("\nFlatten an array");
+
+const flatten = (arr) => {
+	const result = [];
+	forEach(arr, (item) => {
+		if (Array.isArray(item)) {
+			result.push(...flatten(item));
+		} else {
+			result.push(item);
+		}
+	});
+	return result;
+};
+
+const nested = [1, 2, 3, [4, 5, [6, 7], 8, 9]];
+console.log("source array");
+console.log(nested);
+
+console.log("flattened result");
+console.log(flatten(nested)); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+</details>
