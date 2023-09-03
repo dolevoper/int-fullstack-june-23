@@ -1096,3 +1096,46 @@ console.log(veggies);
 ```
 
 </details>
+
+## `lastIndexOf()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* lastIndexOf() Tests */
+
+console.log("\nSimple Tests");
+const numbers = [2, 5, 9, 2];
+console.log(lastIndexOf(numbers, 2)); // 3
+console.log(lastIndexOf(numbers, 7)); // -1
+console.log(lastIndexOf(numbers, 2, 3)); // 3
+console.log(lastIndexOf(numbers, 2, 2)); // 0
+console.log(lastIndexOf(numbers, 2, -2)); // 0
+console.log(lastIndexOf(numbers, 2, -1)); // 3
+
+/* NaN Tests */
+console.log("\nNaN Tests");
+const arrayNaN = [NaN];
+console.log(lastIndexOf(arrayNaN, NaN)); // -1
+
+/* find all occurrences of an element*/
+console.log("\nfind all occurrences of an element backwards");
+
+const indices = [];
+const lastIndexOfArray = ["a", "b", "a", "c", "a", "d"];
+const element = "a";
+let idx = lastIndexOf(lastIndexOfArray, element);
+while (idx !== -1) {
+	indices.push(idx);
+	idx = idx > 0 ? lastIndexOf(lastIndexOfArray, element, idx - 1) : -1;
+}
+console.log(indices); // [4, 2, 0]
+
+/* Sparse arrays test */
+console.log("\nSparse arrays test");
+
+console.log(lastIndexOf([1, , 3], undefined)); // -1
+```
+
+</details>

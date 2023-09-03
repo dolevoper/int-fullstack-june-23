@@ -110,3 +110,7 @@ The `Array.isArray` checks whether the checked object is an [`Exotic Array Objec
 ## `indexOf()`
 
 [indexOf() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)
+
+## `lastIndexOf()`
+
+[lastIndexOf() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf)
