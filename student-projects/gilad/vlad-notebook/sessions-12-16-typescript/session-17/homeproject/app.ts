@@ -287,3 +287,16 @@ function includes(array: any[], searchElement: any, fromIndex: number = 0) {
 	}
 	return false;
 }
+
+function indexOf(array: any[], searchElement: any, fromIndex: number = 0) {
+	if (!array) return null;
+
+	fromIndex = normalizeNegativeIndex(fromIndex, array.length);
+	if (fromIndex >= array.length || Number.isNaN(searchElement)) return -1;
+
+	for (let index = fromIndex; index < array.length; index++) {
+		if (!isSparseCell(index, array))
+			if (array[index] === searchElement) return index;
+	}
+	return -1;
+}
