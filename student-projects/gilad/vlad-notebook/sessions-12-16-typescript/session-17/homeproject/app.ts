@@ -189,6 +189,7 @@ function isEmptyValue(cell: any, index: number, originArray: any[]) {
 		isSparseCell(index, originArray) || cell === undefined || Number.isNaN(cell)
 	);
 }
+
 function flatSingleLevel(
 	arrayToFlatten: any[],
 	callback: Function = undefined
@@ -254,4 +255,16 @@ function flatMap(array: any[], callback: Function) {
 	if (!array) return null;
 
 	return flatSingleLevel(array, callback).flattenedArray;
+}
+
+function forEach(array: any[], callback: Function) {
+	if (!array) return undefined;
+
+	const maxIterations = array.length;
+
+	for (let index = 0; index < maxIterations; index++) {
+		if (!isSparseCell(index, array)) callback(array[index], index, array);
+	}
+
+	return undefined;
 }
