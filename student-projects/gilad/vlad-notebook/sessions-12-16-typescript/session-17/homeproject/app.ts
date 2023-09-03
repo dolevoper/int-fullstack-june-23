@@ -180,10 +180,15 @@ function findLastIndex(array: any[], callback: Function) {
 	return -1;
 }
 
-function isSparseCell(cell: any, index: number, originArray: any[]) {
-	return !(index in originArray) || cell === undefined || Number.isNaN(cell);
+function isSparseCell(index: number, originArray: any[]) {
+	return !(index in originArray);
 }
 
+function isEmptyValue(cell: any, index: number, originArray: any[]) {
+	return (
+		isSparseCell(index, originArray) || cell === undefined || Number.isNaN(cell)
+	);
+}
 function flatSingleLevel(
 	arrayToFlatten: any[],
 	callback: Function = undefined
@@ -197,7 +202,7 @@ function flatSingleLevel(
 			? arrayToFlatten[index]
 			: callback(arrayToFlatten[index], index, arrayToFlatten);
 
-		if (isSparseCell(arrayToFlatten[index], index, arrayToFlatten)) {
+		if (isEmptyValue(arrayToFlatten[index], index, arrayToFlatten)) {
 			addedCellsOffset--;
 			continue;
 		}
@@ -213,7 +218,7 @@ function flatSingleLevel(
 			) {
 				const flattenedCell = mappedCell[flatCellIndex];
 
-				if (isSparseCell(flattenedCell, flatCellIndex, mappedCell)) {
+				if (isEmptyValue(flattenedCell, flatCellIndex, mappedCell)) {
 					addedCellsOffset--;
 					continue;
 				}
