@@ -958,3 +958,76 @@ console.log(flatten(nested)); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
 </details>
+
+## `includes()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* includes() Test: */
+console.log("\nTest includes()");
+
+console.log([1, 2, 3] + " includes 2?");
+console.log("Original: " + [1, 2, 3].includes(2));
+console.log("My: " + includes([1, 2, 3], 2));
+
+console.log([1, 2, 3] + " includes 4?");
+console.log("Original: " + [1, 2, 3].includes(4));
+console.log("My: " + includes([1, 2, 3], 4));
+
+console.log([1, 2, 3] + " includes 3 at index 3?");
+console.log("Original: " + [1, 2, 3].includes(3, 3));
+console.log("My: " + includes([1, 2, 3], 3, 3));
+
+console.log([1, 2, 3] + " includes 3 at index -1?");
+console.log("Original: " + [1, 2, 3].includes(3, -1));
+console.log("My: " + includes([1, 2, 3], 3, -1));
+
+console.log([1, 2, NaN] + " includes NaN?");
+console.log("Original: " + [1, 2, 3].includes(NaN));
+console.log("My: " + includes([1, 2, 3], NaN));
+
+console.log(["1", "2", "3"]);
+console.log(" includes 3?");
+console.log("Original: " + ["1", "2", "3"].includes(3));
+console.log("My: " + includes(["1", "2", "3"], 3));
+
+/* fromIndex is greater than or equal to the array length*/
+console.log("\nTest fromIndex");
+const includesArray1 = ["a", "b", "c"];
+
+console.log("source array:");
+console.log(includesArray1);
+console.log("fromIndex 3"); // false
+console.log("Original: " + includesArray1.includes("c", 3));
+console.log("My: " + includes(includesArray1, "c", 3));
+
+console.log("fromIndex 100");
+console.log("Original: " + includesArray1.includes("c", 100)); // false
+console.log("My: " + includes(includesArray1, "c", 100));
+
+/* fromIndex negative test*/
+console.log("\nTest Negative fromIndex");
+
+console.log("search a fromIndex -100");
+console.log("Original: " + includesArray1.includes("a", -100)); // true
+console.log("My: " + includes(includesArray1, "a", -100));
+console.log("search b fromIndex -100");
+console.log("Original: " + includesArray1.includes("b", -100)); // true
+console.log("My: " + includes(includesArray1, "b", -100));
+console.log("search c fromIndex -100");
+console.log("Original: " + includesArray1.includes("c", -100)); // true
+console.log("My: " + includes(includesArray1, "c", -100));
+console.log("search a fromIndex -2");
+console.log("Original: " + includesArray1.includes("a", -2)); // false
+console.log("My: " + includes(includesArray1, "a", -2));
+
+/* Sparse arrays test */
+console.log("source array:");
+console.log([1, , 3]);
+console.log("Original: " + [1, , 3].includes(undefined)); // true
+console.log("My: " + includes([1, , 3], undefined));
+```
+
+</details>

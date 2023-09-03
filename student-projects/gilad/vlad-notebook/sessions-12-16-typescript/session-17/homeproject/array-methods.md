@@ -62,7 +62,22 @@ Choose any array method (use MDN to find) that we did not cover during class. Im
 
 [forEach() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
+## `includes()`
+
+[includes() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
+
+`includes` compares a searched value with all elements of an array until it finds an equal value.
+It uses [Same-value-zero equality](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value-zero_equality).
+`Same Value Zero Equality` is the same as `strict equality` that is considering `NaN` as equal, and `-0` and `0` as equals too.
+
+1. Check if compared values are type of `number`
+2. Check if both `numbers` are equal OR:
+   - Check if any of the values are NOT `NaN`: both double and triple equals consider `NaN` is not equal to itself. `NaN === NaN` or `NaN == NaN` are both false.
+3. if not numbers, check equality with triple equal
+
 ## `isArray()`
+
+[isArray() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
 
 This implementation is fun!
 Appearantly, we can't use the type check `instanceof` because of javascript's security measures.
