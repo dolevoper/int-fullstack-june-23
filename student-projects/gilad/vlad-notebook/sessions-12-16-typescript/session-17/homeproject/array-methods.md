@@ -52,6 +52,8 @@ Choose any array method (use MDN to find) that we did not cover during class. Im
 
 ## `flat()`
 
-> **`NOTE :`** Implementation does not support deletion of empty cells in sparse arrays! Work in progress
-
 [flat() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)
+
+## `flatMap()`
+
+[flatMap() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap)
