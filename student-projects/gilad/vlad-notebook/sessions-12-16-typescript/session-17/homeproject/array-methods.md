@@ -106,3 +106,7 @@ checked_object.constructor === Array;
 ```
 
 The `Array.isArray` checks whether the checked object is an [`Exotic Array Object`](https://262.ecma-international.org/12.0/#array-exotic-object) and there are parts that aren't accessible by JS, but only to JS-Engines.
+
+## `indexOf()`
+
+[indexOf() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)

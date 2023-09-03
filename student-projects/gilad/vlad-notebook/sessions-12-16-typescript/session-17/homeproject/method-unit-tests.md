@@ -1031,3 +1031,68 @@ console.log("My: " + includes([1, , 3], undefined));
 ```
 
 </details>
+
+## `indexOf()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* indexOf() Tests */
+
+console.log("\nSimple tests");
+let indexOfArray = [2, 9, 9];
+console.log(indexOf(indexOfArray, 2)); // 0
+console.log(indexOf(indexOfArray, 7)); // -1
+console.log(indexOf(indexOfArray, 9, 2)); // 2
+console.log(indexOf(indexOfArray, 2, -1)); // -1
+console.log(indexOf(indexOfArray, 2, -3)); // 0
+
+/* Can't use indexOf to search NaN */
+console.log("\nCan't use NaN");
+
+indexOfArray = [NaN];
+console.log(indexOf(indexOfArray, NaN)); // -1
+console.log(indexOf([1, 2, 3], NaN)); // -1
+
+/* Find all occurrences of an element */
+console.log("\nSearch all occurrences of an element");
+
+const indices = [];
+const indexOfArray2 = ["a", "b", "a", "c", "a", "d"];
+const element = "a";
+let idx = indexOf(indexOfArray2, element);
+while (idx !== -1) {
+	indices.push(idx);
+	idx = indexOf(indexOfArray2, element, idx + 1);
+}
+console.log(indices); // [0, 2, 4]
+
+/* Test sparse arrays */
+console.log("\nTest sparse arrays");
+
+console.log(indexOf([1, , 3], undefined)); // -1
+
+/* Find an element in array, if not, add it */
+
+function updateVegetablesCollection(veggies, veggie) {
+	if (indexOf(veggies, veggie) === -1) {
+		veggies.push(veggie);
+		console.log(`New veggies collection is: ${veggies}`);
+	} else {
+		console.log(`${veggie} already exists in the veggies collection.`);
+	}
+}
+
+const veggies = ["potato", "tomato", "chillies", "green-pepper"];
+console.log(veggies);
+
+updateVegetablesCollection(veggies, "spinach");
+console.log(veggies);
+// New veggies collection is: potato,tomato,chillies,green-pepper,spinach
+updateVegetablesCollection(veggies, "spinach");
+console.log(veggies);
+// spinach already exists in the veggies collection.
+```
+
+</details>
