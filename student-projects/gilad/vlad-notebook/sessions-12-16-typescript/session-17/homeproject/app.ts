@@ -180,6 +180,10 @@ function findLastIndex(array: any[], callback: Function) {
 	return -1;
 }
 
+function isSparseCell(cell: any, index: number, originArray: any[]) {
+	return !(index in originArray) || cell === undefined || Number.isNaN(cell);
+}
+
 function flatSingleLevel(
 	arrayToFlatten: any[],
 	callback: Function = undefined
@@ -204,8 +208,8 @@ function flatSingleLevel(
 			// console.log("cell after map:");
 			// console.log(mappedCell);
 
-			if (mappedCell === undefined) {
-				emptyCellsOffset++;
+			if (isSparseCell(mappedCell, index, arrayToFlatten)) {
+				addedCellsOffset--;
 				continue;
 			}
 
@@ -224,8 +228,8 @@ function flatSingleLevel(
 							arrayToFlatten[index]
 					  );
 
-				if (mappedCell === undefined) {
-					emptyCellsOffset++;
+				if (isSparseCell(mappedCell, flatCellIndex, arrayToFlatten[index])) {
+					addedCellsOffset--;
 					continue;
 				}
 
@@ -261,7 +265,7 @@ function flat(array: any[], depth: number = 1) {
 	return flatArray;
 }
 
-// /* flat() Tests*/
+/* flat() Tests*/
 
 // /* Test 1 depth array with depth emitted -  defaults to 1 depth*/
 // console.log("Testing 1 deep array with depth emitted");
@@ -291,8 +295,8 @@ function flat(array: any[], depth: number = 1) {
 // console.log("Testing 3 deep array with Infinity depth");
 // console.log(flat(array2, Infinity)); // [1, 2, 1, 2, 3, 4, false, 'world', 5]
 
-// /* MDN Tests - Flattening nested arrays */
-// console.log("MDN Tests");
+// /* MDN flat() Tests - Flattening nested arrays */
+// console.log("MDN flat() Tests");
 
 // const arr1 = [1, 2, [3, 4]];
 // console.log(flat(arr1)); // [1, 2, 3, 4]
@@ -333,7 +337,7 @@ function flatMap(array: any[], callback: Function) {
 
 /* flatMap test */
 
-/* Simple 1-depth array with mapping*/
+// /* Simple 1-depth array with mapping*/
 
 // console.log("\n1-depth array test:");
 // const arr1 = [1, 2, 1];
@@ -341,9 +345,29 @@ function flatMap(array: any[], callback: Function) {
 // console.log(arr1);
 
 // // flatten and map 2 to [2,2] array
-// console.log("1-depth array flatMap() - convert 2 to [2,2]");
-// const result = flatMap(arr1, (num) => (num === 2 ? [2, 2] : 1));
-// console.log(result); // Expected output: Array [1, 2, 2, 1]
+// console.log("map 2 to [2,2] and flatten");
+// const arr1Result = flatMap(arr1, (num) => (num === 2 ? [2, 2] : 1));
+// console.log(arr1Result); // Expected output: Array [1, 2, 2, 1]
+
+/* 3-depth array with mapping */
+console.log("\n3-depth array test:");
+
+const depth3Array = [1, [1, [2, 2]], 1];
+console.log("source array: ");
+console.log(depth3Array);
+
+console.log("map 2 to [2,2] and flatten one level");
+console.log("Original flatMap():");
+const depth3Arrayresult = depth3Array.flatMap((num) =>
+	num === 2 ? [2, 2] : 1
+);
+console.log(depth3Arrayresult); // Expected output:
+
+console.log("My flatMap():");
+const depth3Arrayresult2 = flatMap(depth3Array, (num) =>
+	num === 2 ? [2, 2] : 1
+);
+console.log(depth3Arrayresult2); // Expected output:
 
 // /* Comparison with original flatMap funciton */
 // console.log("\nComparison with original map() function");
@@ -384,19 +408,21 @@ function flatMap(array: any[], callback: Function) {
 // console.log("source array");
 // console.log(arr4);
 
+// console.log("Original flatMap:");
+// console.log(arr4.flatMap((x) => [x, x * 2])); // [1, 2, 2, 4, 3, 6, 4, 8]
 // console.log("Using my flatMap:");
 // console.log(flatMap(arr4, (x) => [x, x * 2])); // [1, 2, 2, 4, 3, 6, 4, 8]
 
-// // is equivalent to
-// /*
-// const n = arr4.length;
-// const acc = new Array(n * 2);
-// for (let i = 0; i < n; i++) {
-// 	const x = arr4[i];
-// 	acc[i * 2] = x;
-// 	acc[i * 2 + 1] = x * 2;
-// }
-// */
+// is equivalent to
+/*
+const n = arr4.length;
+const acc = new Array(n * 2);
+for (let i = 0; i < n; i++) {
+	const x = arr4[i];
+	acc[i * 2] = x;
+	acc[i * 2 + 1] = x * 2;
+}
+*/
 
 // /* Adding and removing items during map() */
 // console.log("\nAdding and removing items during map()");
@@ -410,7 +436,7 @@ function flatMap(array: any[], callback: Function) {
 // console.log("source array: ");
 // console.log(a);
 
-// const result = flatMap(a, (n) => {
+// const result2 = flatMap(a, (n) => {
 // 	if (n < 0) {
 // 		return [];
 // 	}
@@ -420,8 +446,16 @@ function flatMap(array: any[], callback: Function) {
 // console.log(
 // 	"remove all negatives and split the odd numbers into an even number + 1"
 // );
-// console.log(result); // [4, 1, 4, 20, 16, 1, 18]
+// console.log(result2); // [4, 1, 4, 20, 16, 1, 18]
 
-/* Test sparse arrays */
-console.log(flatMap([1, 2, , 4, 5], (x) => [x, x * 2])); // [1, 2, 2, 4, 4, 8, 5, 10]
-console.log(flatMap([1, 2, 3, 4], (x) => [, x * 2])); // [2, 4, 6, 8]
+// /* Test sparse arrays */
+// console.log("\nTest sparse arrays ");
+// const sparse1 = [1, 2, , 4, 5];
+// console.log("source array:");
+// console.log(sparse1);
+// console.log(flatMap(sparse1, (x) => [x, x * 2])); // [1, 2, 2, 4, 4, 8, 5, 10]
+
+// const sparse2 = [1, 2, 3, 4];
+// console.log("source array:");
+// console.log(sparse2);
+// console.log(flatMap(sparse2, (x) => [, x * 2])); // [2, 4, 6, 8]
