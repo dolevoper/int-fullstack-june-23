@@ -602,34 +602,53 @@ console.log(findLastIndex([1, , 3], (x) => x === undefined)); // 1
 /* Test 1 depth array with depth emitted -  defaults to 1 depth*/
 console.log("Testing 1 deep array with depth emitted");
 const array = [1, 2, ["hello", "world"], 5];
-console.log(array);
+console.log("Original flat()");
+console.log(array.flat());
+console.log("Myflat()");
 console.log(flat(array)); // [1, 2, 'hello', 'world', 5]
 
 /* Test array of depth 3 */
+console.log("\nTesting 3 deep array");
 const array2 = [1, 2, [[[1, 2, 3, 4], false], "world"], 5];
-console.log(array2);
+console.log("source array:");
+console.log(array2); // [1, 2, Array(2), 5]
 
-console.log("Testing 3 deep array with depth emitted");
+console.log("\nwith depth omitted");
+console.log("Original flat()");
+console.log(array2.flat());
+console.log("Myflat()");
 console.log(flat(array2)); // [1, 2, Array(2), 'world', 5]
 
 // flatten to depth 2
-console.log("Testing 3 deep array with flatten-depth 2");
+console.log("\nwith flatten-depth 2");
+console.log("Original flat()");
+console.log(array2.flat(2));
+console.log("Myflat()");
 console.log(flat(array2, 2)); // [1, 2, Array(4), false, 'world', 5]
 
 // flatten to depth 3
-console.log("Testing 3 deep array with flatten-depth 3");
+console.log("\nwith flatten-depth 3");
+console.log("Original flat()");
+console.log(array2.flat(3));
+console.log("Myflat()");
 console.log(flat(array2, 3)); // [1, 2, 1, 2, 3, 4, false, 'world', 5]
 
 // with negative depth - do nothing
-console.log("Testing 3 deep array with negative depth");
+console.log("\nwith negative depth");
+console.log("Original flat()");
+console.log(array2.flat(-5));
+console.log("Myflat()");
 console.log(flat(array2, -5)); // do nothing [1, 2, Array(2), 5]
 
 // flatten to Infinity depth - stops when nothing left to flatten
-console.log("Testing 3 deep array with Infinity depth");
+console.log("\nwith Infinity depth");
+console.log("Original flat()");
+console.log(array2.flat(Infinity));
+console.log("Myflat()");
 console.log(flat(array2, Infinity)); // [1, 2, 1, 2, 3, 4, false, 'world', 5]
 
-/* MDN Tests - Flattening nested arrays */
-console.log("MDN Tests");
+/* MDN flat() Tests - Flattening nested arrays */
+console.log("\nMDN flat() Tests");
 
 const arr1 = [1, 2, [3, 4]];
 console.log(flat(arr1)); // [1, 2, 3, 4]
@@ -644,7 +663,7 @@ const arr4 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
 console.log(flat(arr4, Infinity)); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 /* Test sparse arrays */
-console.log("Sparse array tests");
+console.log("\nSparse array tests");
 
 const arr5 = [1, 2, , 4, 5];
 console.log(flat(arr5)); // [1, 2, 4, 5]
@@ -655,6 +674,165 @@ console.log(flat(arr6)); // [ 1, 3, "a", "c" ]
 const arr7 = [1, , 3, ["a", , ["d", , "e"]]];
 console.log(flat(arr7)); // [ 1, 3, "a", ["d", empty, "e"] ]
 console.log(flat(arr7, 2)); // [ 1, 3, "a", "d", "e"]
+```
+
+</details>
+
+## `flatMap()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* flatMap() Tests */
+
+console.log("\nflatMap() Tests");
+
+/* Simple 1-depth array with mapping*/
+
+console.log("\n1-depth array test:");
+const arr1 = [1, 2, 1];
+console.log("source array: ");
+console.log(arr1);
+
+// flatten and map 2 to [2,2] array
+console.log("map 2 to [2,2] and flatten");
+console.log("Original flatMap()");
+const arr1Result = arr1.flatMap((num) => (num === 2 ? [2, 2] : 1));
+console.log(arr1Result); // Expected output: Array [1, 2, 2, 1]
+
+console.log("My flatMap()");
+const arr1Result2 = flatMap(arr1, (num) => (num === 2 ? [2, 2] : 1));
+console.log(arr1Result2); // Expected output: Array [1, 2, 2, 1]
+
+/* 3-depth array with mapping */
+console.log("\n3-depth array test:");
+
+const depth3Array = [1, [1, [2, 2]], 1];
+console.log("source array: ");
+console.log(depth3Array);
+
+console.log("map 2 to [2,2] and flatten one level");
+console.log("Original flatMap():");
+const depth3Arrayresult = depth3Array.flatMap((num) =>
+	num === 2 ? [2, 2] : 1
+);
+console.log(depth3Arrayresult); // Expected output:
+
+console.log("My flatMap():");
+const depth3Arrayresult2 = flatMap(depth3Array, (num) =>
+	num === 2 ? [2, 2] : 1
+);
+console.log(depth3Arrayresult2); // Expected output:
+
+/* Comparison with original flatMap funciton */
+console.log("\nComparison with original map() function");
+const arr2 = [1, 2, 3, 4];
+console.log("source array: ");
+console.log(arr2);
+
+// original flatMap
+console.log("Original flatMap() result");
+console.log(arr2.flatMap((x) => [x * 2])); // [[2], [4], [6], [8]]
+
+// my map and flatten
+console.log("My flatMap() result");
+console.log(flatMap(arr2, (x) => [x * 2])); // [2, 4, 6, 8]
+
+// 2-depth array test - only one level is flattened
+console.log("\n2-depth array test - Only one level flattened");
+console.log(flatMap(arr2, (x) => [[x * 2]])); // [[2], [4], [6], [8]]
+
+/* Generate a list of words from a sentence*/
+console.log("\nGenerate a list of words from a sentence");
+const arr3 = ["it's Sunny in", "", "California"];
+console.log("source array:");
+console.log(arr3);
+
+console.log("using original map() only");
+console.log(arr3.map((x) => x.split(" "))); // [["it's","Sunny","in"],[""],["California"]]
+
+console.log("using original flatMap()");
+console.log(arr3.flatMap((x) => x.split(" "))); // ["it's","Sunny","in", "", "California"]
+console.log("using my flatMap()");
+console.log(flatMap(arr3, (x) => x.split(" "))); // ["it's","Sunny","in", "", "California"]
+
+/* Pre-allocate and explicitly iterate */
+console.log("\nPre-allocate and explicitly iterate");
+
+const arr4 = [1, 2, 3, 4];
+console.log("source array");
+console.log(arr4);
+
+console.log("Original flatMap:");
+console.log(arr4.flatMap((x) => [x, x * 2])); // [1, 2, 2, 4, 3, 6, 4, 8]
+console.log("Using my flatMap:");
+console.log(flatMap(arr4, (x) => [x, x * 2])); // [1, 2, 2, 4, 3, 6, 4, 8]
+
+// is equivalent to
+/*
+const n = arr4.length;
+const acc = new Array(n * 2);
+for (let i = 0; i < n; i++) {
+	const x = arr4[i];
+	acc[i * 2] = x;
+	acc[i * 2 + 1] = x * 2;
+}
+*/
+
+/* Adding and removing items during map() */
+console.log("\nAdding and removing items during map()");
+console.log(
+	"remove all negatives and split the odd numbers into an even number + 1"
+);
+
+// Let's say we want to remove all the negative numbers
+// and split the odd numbers into an even number and a 1
+const a = [5, 4, -3, 20, 17, -33, -4, 18];
+//         |\  \  x   |  | \   x   x   |
+//        [4,1, 4,   20, 16, 1,       18]
+
+console.log("source array: ");
+console.log(a);
+
+console.log("Original flatMap()");
+const aresult1 = a.flatMap((n) => {
+	if (n < 0) {
+		return [];
+	}
+	return n % 2 === 0 ? [n] : [n - 1, 1];
+});
+console.log(aresult1);
+
+console.log("My flatMap()");
+const aresult2 = flatMap(a, (n) => {
+	if (n < 0) {
+		return [];
+	}
+	return n % 2 === 0 ? [n] : [n - 1, 1];
+});
+
+console.log(aresult2); // [4, 1, 4, 20, 16, 1, 18]
+
+/* Test sparse arrays */
+console.log("\nTest sparse arrays ");
+const sparse1 = [1, 2, , 4, 5];
+console.log("source array:");
+console.log(sparse1);
+console.log("Original flatMap()");
+console.log(sparse1.flatMap((x) => [x, x * 2]));
+console.log("My flatMap()");
+console.log(flatMap(sparse1, (x) => [x, x * 2])); // [1, 2, 2, 4, 4, 8, 5, 10]
+
+const sparse2 = [1, 2, 3, 4];
+console.log("source array:");
+console.log(sparse2);
+
+console.log("Original flatMap()");
+console.log(sparse2.flatMap((x) => [, x * 2])); // [2, 4, 6, 8]
+
+console.log("My flatMap()");
+console.log(flatMap(sparse2, (x) => [, x * 2])); // [2, 4, 6, 8]
 ```
 
 </details>
