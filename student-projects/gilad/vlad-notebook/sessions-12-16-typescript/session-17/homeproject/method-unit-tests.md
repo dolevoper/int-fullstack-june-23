@@ -1222,3 +1222,20 @@ console.log(toString([1, , 3])); // '1,,3'
 ```
 
 </details>
+
+## `of()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* of() Tests */
+console.log(of(1)); // [1]
+console.log(of(1, 2, 3)); // [1, 2, 3]
+console.log(of(undefined)); // [undefined]
+console.log(of(Object)); // [Number: 0] { length: 0 }
+console.log(of("foo", 2, "bar", true)); // ["foo", 2, "bar", true]
+console.log(of()); // []
+```
+
+</details>

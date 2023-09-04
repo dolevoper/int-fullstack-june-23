@@ -122,6 +122,10 @@ To implement this behavior, I've created a `removeOccurrences()` function that r
 
 [join() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
 
-## `join()`
+## `toString()`
 
 [toString() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toString)
+
+## `of()`
+
+[of() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of)
