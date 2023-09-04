@@ -370,3 +370,13 @@ function toString(array: Array<any>) {
 	if (!array || typeof array.join !== "function") return array.toString();
 	else return join(array);
 }
+
+function of(...elements: any) {
+	const newArray = [];
+
+	for (let index = 0; index < elements.length; index++) {
+		newArray[index] = elements[index];
+	}
+
+	return newArray;
+}
