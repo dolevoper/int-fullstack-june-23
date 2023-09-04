@@ -1330,7 +1330,7 @@ console.log(filteredNumbers);
 
 </details>
 
-## `map()`
+## `pop()`
 
 <details>
 <summary> Show </summary>
@@ -1367,7 +1367,7 @@ console.log(plants); // ["broccoli", "cauliflower", "cabbage"]
 /* Test supporting property descriptor's writiable / configurable settings */
 console.log("\nproperty descriptor's writiable / configurable settings");
 
-const names = ["Vlad", "Gilad", "Test", "I'm poppable!"];
+const names = ["Gilad", "Vlad", "Test", "I'm poppable!"];
 Object.defineProperty(names, 2, {
 	value: "Pinker",
 	writable: false,
@@ -1388,6 +1388,55 @@ console.log(pop(names));
 
 console.log("source array after pop()");
 console.log(names);
+```
+
+</details>
+
+## `push()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* push() Tests */
+
+console.log("\nPushing elements of array");
+
+const animals = ["pigs", "goats", "sheep"];
+console.log("source array");
+console.log(animals);
+let count = push(animals, "cows");
+console.log("source array after pushing 1 element");
+console.log(animals); // ["pigs", "goats", "sheep", "cows"]
+console.log("array new length: " + count); //4
+
+console.log("source array after pushing 3 elements");
+console.log(animals); // ["pigs", "goats", "sheep", "cows", "chickens", "cats", "dogs"]
+count = push(animals, "chickens", "cats", "dogs");
+console.log("array new length: " + count);
+
+const sports = ["soccer", "baseball"];
+console.log("source array");
+console.log(sports);
+let total = push(sports, "football", "swimming");
+console.log("source array after pushing 2 elements");
+console.log(sports); // ['soccer', 'baseball', 'football', 'swimming']
+console.log("array new length: " + total);
+
+/* Merging two arrays */
+console.log("\nMerging two arrays");
+const vegetables = ["parsnip", "potato"];
+console.log("source array");
+console.log(vegetables);
+
+const moreVegs = ["celery", "beetroot"];
+console.log("added array");
+console.log(moreVegs);
+
+total = push(vegetables, ...moreVegs);
+console.log("source array after pushing added array");
+console.log(vegetables); // ['parsnip', 'potato', 'celery', 'beetroot']
+console.log("array new length: " + total);
 ```
 
 </details>

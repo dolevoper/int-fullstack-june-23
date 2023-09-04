@@ -141,3 +141,7 @@ If the array contains an element that has a property descriptor specifing that i
 This means we can't pop those elements!
 
 [pop() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+
+## `push()`
+
+[push() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
