@@ -18,6 +18,7 @@ What would you like to do?
     handleUserInput(userInput);
     userInput = prompt(promptText);
   }
+  alert (`${people[1].name}`);
 }
 
 function handleUserInput(userInput: string) {
@@ -37,3 +38,5 @@ function addPerson () {
   const userInput3 = Number(prompt("Please enter age"));
   people.push({name: userInput, phone: userInput2, age: userInput3});
 }
+
+app();
