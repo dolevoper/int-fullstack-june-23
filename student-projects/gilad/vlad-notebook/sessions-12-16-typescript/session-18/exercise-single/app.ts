@@ -61,7 +61,7 @@ function showRandomQuoteByLike() {
 	const quoteRandomIndex = Math.floor(Math.random() * likedQuotes.length);
 	const randomLikedQuote = likedQuotes[quoteRandomIndex];
 	alert(
-		`Random liked quote:\n${randomLikedQuote.quote}\n\nBy: ${randomLikedQuote.author}`
+		`Random liked quote:\n${randomLikedQuote.quote}\n\nBy: ${randomLikedQuote.author}\n`
 	);
 }
 
@@ -130,7 +130,11 @@ function showQuoteByAuthor() {
 function showQuote(index: number) {
 	const quote = quotes[index];
 
-	alert(`Quote #${index + 1}:\n“${quote.quote}”\n\n${quote.author}`);
+	alert(
+		`Quote #${index + 1}:\n“${quote.quote}”\n\n${quote.author}\n\n${
+			quote.like ? "❤️" : "♡"
+		}`
+	);
 }
 
 // “No man goes before his time—unless the boss leaves early.”
