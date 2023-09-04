@@ -489,3 +489,18 @@ function reduceRight(array: any[], callback: Function, initalValue?: any) {
 
 	return accumulator;
 }
+
+function reverse(array: any[]) {
+	if (!array) return null;
+
+	const iterations = array.length - 1;
+	const reversedArray = Array(iterations);
+
+	for (let index = iterations; index >= 0; index--) {
+		if (isSparseCell(index, array)) continue;
+		reversedArray[iterations - index] = array[index];
+	}
+
+	array = reversedArray;
+	return array;
+}
