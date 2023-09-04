@@ -526,3 +526,19 @@ function shift(array: any[]) {
 
 	return shiftedCell;
 }
+
+function unshift(array: any[], ...elements: any) {
+	if (!array) return null;
+
+	const addedCellsCount = elements.length - 1;
+	const iterations = array.length - 1;
+	for (let index = iterations; index >= 0; index--) {
+		array[addedCellsCount + index + 1] = array[index];
+	}
+
+	for (let index = 0; index <= addedCellsCount; index++) {
+		array[index] = elements[index];
+	}
+
+	return array.length;
+}
