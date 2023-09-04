@@ -129,3 +129,7 @@ To implement this behavior, I've created a `removeOccurrences()` function that r
 ## `of()`
 
 [of() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of)
+
+## `map()`
+
+[map() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)

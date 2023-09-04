@@ -1239,3 +1239,93 @@ console.log(of()); // []
 ```
 
 </details>
+
+## `map()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* map() Test */
+
+/* Test source array modification */
+console.log("\nTest source array modification");
+const numbers = [1, 4, 9];
+console.log("source array");
+console.log(numbers);
+console.log("source array after mapping");
+console.log(numbers);
+console.log("modified array");
+const roots = map(numbers, (num) => Math.sqrt(num));
+console.log(roots); // root [1, 2, 3], numbers is still [1, 4, 9]
+
+/* Reformatting objects in an array */
+console.log("\nReformatting objects in an array");
+
+const kvArray = [
+	{ key: 1, value: 10 },
+	{ key: 2, value: 20 },
+	{ key: 3, value: 30 },
+];
+console.log("source array");
+console.log(kvArray);
+const reformattedArray = map(kvArray, ({ key, value }) => ({ [key]: value }));
+console.log("source array after mapping");
+console.log(kvArray);
+console.log("modified array");
+console.log(reformattedArray); // [{ 1: 10 }, { 2: 20 }, { 3: 30 }]
+/*
+[
+{ key: 1, value: 10 },
+{ key: 2, value: 20 },
+{ key: 3, value: 30 }
+]
+ */
+
+/* Sparse arrays Test*/
+console.log("\nSparse array test");
+
+console.log(
+	map([1, , 3], (x, index) => {
+		console.log(`Visit ${index}`);
+		return x * 2;
+	})
+);
+/*
+ Visit 0
+ Visit 2
+ [2, empty, 6]
+*/
+
+/* parseInt test */
+console.log("\nparseInt test");
+const strings = ["10", "10", "10"];
+console.log("source array");
+console.log(strings);
+console.log(map(strings, parseInt)); // [10, NaN, 2]= (base10 of 10, 10 in base1, 10 in base2)
+
+/* undefined test */
+console.log("\nundefined test");
+
+const numbers2 = [1, 2, 3, 4];
+console.log("source array");
+console.log(numbers2);
+
+const filteredNumbers = map(numbers2, (num, index) => {
+	if (index < 3) {
+		return num;
+	}
+});
+console.log("source array after mapping");
+console.log(numbers2);
+console.log("modified array");
+console.log(filteredNumbers);
+
+/*
+ index goes from 0, so the filterNumbers are 1,2,3 and undefined.
+ filteredNumbers is [1, 2, 3, undefined]
+ numbers is still [1, 2, 3, 4]
+*/
+```
+
+</details>
