@@ -103,8 +103,12 @@ function likeQuoteById() {
 
 function likeQuote(id: number) {
 	const quoteById = quotes[id];
-	quoteById.like = true;
-	alert(`Liked quote:\n${quoteById.quote}\n\n${quoteById.author}`);
+	quoteById.like = !quoteById.like;
+	alert(
+		`${quoteById.like ? "Liked" : "Unliked"} quote:\n${quoteById.quote}\n\n${
+			quoteById.author
+		}`
+	);
 }
 
 function showQuoteByAuthor() {
