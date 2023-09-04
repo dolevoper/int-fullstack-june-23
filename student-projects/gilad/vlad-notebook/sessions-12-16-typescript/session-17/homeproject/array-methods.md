@@ -154,3 +154,7 @@ For this behavior I've implemented the function `isArraySingleValue()` which ret
 Must note that my `reduce()` version does not handle object, for some reason, typescript or js unable to detect passed data types.
 
 [reduce() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+
+## `reduceRight()`
+
+[reduceRight() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight)

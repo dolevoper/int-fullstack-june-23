@@ -1583,3 +1583,57 @@ console.log(sum); // 6
 ```
 
 </details>
+
+## `reduce()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* reduceRight() Test*/
+console.log("\nTesting reduceRight() edge cases");
+
+console.log("\nTesting reduce() edge cases");
+console.log("callback is - add currentValue to accumulator  ");
+const getMax = (a, b) => a + b;
+
+// callback is invoked for each element in the array starting at index 0
+console.log(
+	"\ncallback is invoked for each element in the array starting at index 0"
+);
+console.log("inital value: 50, array:");
+console.log([1, 100]);
+console.log("result:");
+console.log(reduceRight([1, 100], getMax, 50)); // 51
+console.log("inital value: 10, array:");
+console.log([50]);
+console.log("result:");
+console.log(reduceRight([50], getMax, 10)); // 60
+
+// callback is invoked once for element at index 1
+console.log("\ncallback is invoked once for element at index 1");
+console.log("inital value: none, array:");
+console.log([1, 100]);
+console.log("result:");
+console.log(reduceRight([1, 100], getMax)); // 101
+
+// callback is not invoked - returns single value
+console.log("\ncallback is not invoked - returns single value");
+console.log("inital value: none, array:");
+console.log([50]);
+console.log("result:");
+console.log(reduceRight([50], getMax)); // 50
+console.log("inital value: 1, array:");
+console.log([]);
+console.log(reduceRight([], getMax, 1)); // 1
+
+// empty array with specified inital value - throws TypeError
+console.log("\nempty array with specified inital value - throws TypeError");
+console.log("inital value: 1, array:");
+console.log([]);
+console.log("result :");
+console.log("uncomment line to see thrown TypeError");
+// reduceRight([], getMax); // TypeError
+```
+
+</details>
