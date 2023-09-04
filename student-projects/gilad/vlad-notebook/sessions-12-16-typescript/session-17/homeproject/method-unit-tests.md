@@ -1637,3 +1637,28 @@ console.log("uncomment line to see thrown TypeError");
 ```
 
 </details>
+
+## `reduce()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* reverse() Test */
+
+console.log("\nMutability Test:");
+const array1 = ["one", "two", "three"];
+console.log("array1:", array1); // ["one", "two", "three"]
+
+const reversed = array1.reverse();
+console.log("reversed:", reversed); // ["three", "two", "one"]
+
+// Careful: reverse is mutable -- it changes the original array.
+console.log("array1:", array1); // ["three", "two", "one"]
+
+console.log("\nReverse sparse array - keep empty elements:");
+console.log(reverse([1, , 3])); // [3, empty, 1]
+console.log(reverse([1, , 3, 4])); // [4, 3, empty, 1]
+```
+
+</details>
