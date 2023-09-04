@@ -1944,3 +1944,30 @@ for (const element of values([, "a"])) {
 ```
 
 </details>
+
+## `keys()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* keys() Tests */
+const array1 = ["a", "b", "c"];
+const iterator = keys(array1);
+
+for (const key of iterator) {
+	console.log(key);
+}
+/*
+ Expected output: 0
+ Expected output: 1
+ Expected output: 2
+*/
+
+/* Testing sparse arrays - not ignoring empty elements*/
+const arr = ["a", , "c"];
+const denseKeys = [...arr.keys()];
+console.log(denseKeys); // [0, 1, 2]
+```
+
+</details>

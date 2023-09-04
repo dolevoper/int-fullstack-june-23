@@ -192,3 +192,7 @@ Therefore, I've switched to a simplier solution in which I create a new array wi
 just return array[@@iterator]() ...
 
 [values() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/@@iterator)
+
+## `keys()`
+
+[keys() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/keys)
