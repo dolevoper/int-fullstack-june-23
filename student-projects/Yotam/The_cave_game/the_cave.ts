@@ -1,7 +1,7 @@
 type location_list = 'outside' | 'inside the entrance' | 'the strange room' | 'the inner cave' | 'quit';
 /* add the room names to the text? */
 
-type user_action = 'x' | 1 | 2 | 3 | null;
+type user_action = 0 | 1 | 2 | 3 | null;
 
 interface item_data {
     name: string;
@@ -12,7 +12,7 @@ interface item_data {
  
 let items: item_data[] = [];
 let myLocation: location_list = 'outside';
-let userInput: user_action;
+let userInput: user_action = 1;
 
 items.push({ name: "Torch", isFound: false });
 items.push({ name: "Key", isFound: false });
@@ -29,7 +29,7 @@ function main_loop() {
             if (true === items[3].isFound) {
                 alert('You are going back outside and see a bird flying and sitting up on the tree. Finally you get it! You use the rope to climb up on a tree and find the treasure! Congratulations, you have won the game');
             } else {
-                userInput = prompt('You are standing outside of the cave, next to a large tree. The warm sun is out, as if to emphasize the darkness of the cave. What would you like to do? 1- Go inside; 2- Search around;') as user_action;
+                userInput = prompt('You are standing outside the cave, next to a large tree. The warm sun is out, as if to emphasize the darkness of the cave. What would you like to do? 1- Go inside; 2- Search around;') as user_action;
                 switch (userInput) {
                     case 1:
                         myLocation = 'inside the entrance';
@@ -44,7 +44,7 @@ function main_loop() {
                         }
                         break;
 
-                    case 'x':
+                    case 0:
                         myLocation = 'quit';
                         break;
                 }
@@ -63,7 +63,7 @@ function main_loop() {
                         myLocation = 'the inner cave';
                         break;
 
-                    case 'x':
+                    case 0:
                         myLocation = 'quit';
                         break;
                 }
@@ -83,7 +83,7 @@ function main_loop() {
                             myLocation = 'the inner cave';
                             break;
 
-                        case 'x':
+                        case 0:
                             myLocation = 'quit';
                             break;
                     }
@@ -94,7 +94,7 @@ function main_loop() {
                             myLocation = 'outside';
                             break;
 
-                        case 'x':
+                        case 0:
                             myLocation = 'quit';
                             break;
                     }
@@ -134,4 +134,6 @@ function main_loop() {
     }
 }
 
-main_loop();
+while (0 < userInput) {
+    main_loop();
+}
