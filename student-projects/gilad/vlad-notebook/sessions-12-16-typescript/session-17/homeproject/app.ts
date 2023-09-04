@@ -380,3 +380,17 @@ function of(...elements: any) {
 
 	return newArray;
 }
+
+function map(array: any[], callback: Function) {
+	if (!array) return null;
+
+	const mappedArray = [];
+	const iterations = array.length;
+
+	for (let index = 0; index < iterations; index++) {
+		if (isSparseCell(index, array)) continue;
+		mappedArray[index] = callback(array[index], index, array);
+	}
+
+	return mappedArray;
+}
