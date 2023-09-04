@@ -1204,3 +1204,21 @@ console.log(join([1, undefined, 3])); // '1,,3'
 ```
 
 </details>
+
+## `toString()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* toString() Test */
+
+/* no available join method */
+const arr = [];
+arr.join = 1; // re-assign `join` with a non-function
+console.log(toString(arr)); // [object Array]
+/* Sparse array */
+console.log(toString([1, , 3])); // '1,,3'
+```
+
+</details>
