@@ -34,6 +34,8 @@ function app() {
 	// turn engine off
 
 	console.log(getCarsByModel("Audi"));
+
+	refuelCar("Audi", 100);
 }
 
 function getCarsByModel(model: string) {
@@ -45,7 +47,13 @@ function getCarsByModel(model: string) {
 }
 
 function getCarByLicensePlate(licensePlate: string) {}
-function refuelCar(fuel: number) {}
+
+function refuelCar(model: string, fuel: number) {
+	const carsByModel = getCarsByModel(model);
+	for (let index = 0; index < carsByModel.length; index++) {
+		carsByModel[index].fuel = fuel;
+	}
+}
 
 function turnEngineOn() {}
 
