@@ -166,3 +166,7 @@ converting them to `undefined`.
 Therefore, I've switched to a simplier solution in which I create a new array with the same size as it's origin, place all elements backwards while skipping `empty` cells, and then assigning the new array's value back to the source array reference.
 
 [reverse() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
+
+## `toReversed()`
+
+[toReversed() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toReversed)

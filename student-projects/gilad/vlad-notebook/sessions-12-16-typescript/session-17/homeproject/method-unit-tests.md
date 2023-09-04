@@ -1638,7 +1638,7 @@ console.log("uncomment line to see thrown TypeError");
 
 </details>
 
-## `reduce()`
+## `reverse()`
 
 <details>
 <summary> Show </summary>
@@ -1659,6 +1659,30 @@ console.log("array1:", array1); // ["three", "two", "one"]
 console.log("\nReverse sparse array - keep empty elements:");
 console.log(reverse([1, , 3])); // [3, empty, 1]
 console.log(reverse([1, , 3, 4])); // [4, 3, empty, 1]
+```
+
+</details>
+
+## `toReversed()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* toReversed() Test */
+
+console.log("\nMutability test:");
+const items = [1, 2, 3];
+console.log(items); // [1, 2, 3]
+
+const reversedItems = toReversed(items);
+console.log(reversedItems); // [3, 2, 1]
+console.log(items); // [1, 2, 3]
+
+console.log("\nSparse arrays test:");
+
+console.log(toReversed([1, , 3])); // [3, undefined, 1]
+console.log(toReversed([1, , 3, 4])); // [4, 3, undefined, 1]
 ```
 
 </details>
