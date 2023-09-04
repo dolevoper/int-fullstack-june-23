@@ -555,3 +555,24 @@ function some(array: any[], callback: Function) {
 
 	return false;
 }
+
+function slice(array: any[], start: number = 0, end: number = array.length) {
+	if (!array) return null;
+
+	start = normalizeNegativeIndex(start, array.length);
+	end = normalizeNegativeEndIndex(end, start, array.length);
+
+	if (!end) return [];
+
+	const extractedElements = Array(end - start);
+	let extractedCount = 0;
+
+	for (let index = start; index < end; index++) {
+		if (!isSparseCell(index, array))
+			extractedElements[extractedCount] = array[index];
+
+		extractedCount++;
+	}
+
+	return extractedElements;
+}
