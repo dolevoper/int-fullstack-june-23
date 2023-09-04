@@ -394,3 +394,17 @@ function map(array: any[], callback: Function) {
 
 	return mappedArray;
 }
+
+function pop(array: any[]) {
+	if (!array) return null;
+	if (array.length === 0) return undefined;
+
+	const arrayLength = array.length;
+	const poppedCell = array[arrayLength - 1];
+	array.length--;
+	if (array.length != arrayLength - 1)
+		return Error(
+			"Unable to pop last element.\nElement is not writable/configurable."
+		);
+	return poppedCell;
+}
