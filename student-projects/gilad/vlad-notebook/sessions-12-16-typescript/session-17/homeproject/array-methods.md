@@ -145,3 +145,12 @@ This means we can't pop those elements!
 ## `push()`
 
 [push() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+
+## `reduce()`
+
+If reduce() is called with a single-value array (no matter where that value is positioned at) and without an initialValue specified - it returns that solo value.
+For this behavior I've implemented the function `isArraySingleValue()` which returns false if the array is `empty` or has several values. If there's only one cell with a value, it returns it's value.
+
+Must note that my `reduce()` version does not handle object, for some reason, typescript or js unable to detect passed data types.
+
+[reduce() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
