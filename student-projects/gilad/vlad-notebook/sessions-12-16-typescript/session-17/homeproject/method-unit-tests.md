@@ -1139,3 +1139,68 @@ console.log(lastIndexOf([1, , 3], undefined)); // -1
 ```
 
 </details>
+
+## `join()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* join() Tests */
+
+console.log("\nSimple array joins");
+const elements = ["Fire", "Air", "Water"];
+console.log("source array: ");
+console.log(elements);
+
+console.log(join(elements)); // Expected output: "Fire,Air,Water"
+
+console.log(join(elements, "")); // Expected output: "FireAirWater"
+
+console.log(join(elements, "-")); // Expected output: "Fire-Air-Water"
+
+/* Nested arrays */
+console.log("\nNested arrays");
+
+const matrix = [
+	[1, 2, 3],
+	[4, 5, 6],
+	[7, 8, 9],
+];
+console.log("source array: ");
+console.log(matrix);
+
+console.log(join(matrix)); // 1,2,3,4,5,6,7,8,9
+console.log(join(matrix, ";")); // 1,2,3;4,5,6;7,8,9
+
+/* Self occurrences and sparse  arrays */
+console.log("\nArrays with self occurrences");
+
+let arr = [];
+arr.push(1, [3, arr, 4], 2);
+
+console.log("source array: ");
+console.log(arr);
+
+console.log("Original join: ");
+console.log(arr.join(";"));
+console.log("My join: ");
+console.log(join(arr, ";")); // 1;3,,4;2
+
+const arr2 = [];
+arr2.push(1, [3, [arr2, arr2, 22], 4], 2);
+console.log("source array: ");
+console.log(arr2);
+console.log("Original join: ");
+console.log(arr2.join(";"));
+console.log("My join: ");
+console.log(join(arr2, ";"));
+
+console.log("\nSparse arrays");
+
+console.log(join([1, , 3])); // '1,,3'
+
+console.log(join([1, undefined, 3])); // '1,,3'
+```
+
+</details>

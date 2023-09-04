@@ -114,3 +114,10 @@ The `Array.isArray` checks whether the checked object is an [`Exotic Array Objec
 ## `lastIndexOf()`
 
 [lastIndexOf() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf)
+
+## `join()`
+
+Interesting part of `join()` is it avoid infinit loop by ignoring occurrences of itself.
+To implement this behavior, I've created a `removeOccurrences()` function that replaces all occurrences of a specified value (including object refferences) in an array (and the nesting arrays within) .
+
+[join() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
