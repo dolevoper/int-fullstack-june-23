@@ -1724,3 +1724,64 @@ console.log(names);
 ```
 
 </details>
+
+## `unshift()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* unshift() Test*/
+console.log("\nTesting simple unshifts");
+let arr = [4, 5, 6];
+
+arr.unshift(1, 2, 3);
+console.log(arr); // [1, 2, 3, 4, 5, 6]
+
+arr = [4, 5, 6];
+console.log(unshift(arr, 1)); // 4
+console.log(unshift(arr, 2)); // 5
+console.log(unshift(arr, 3)); // 6
+console.log(arr); // [3, 2, 1, 4, 5, 6]
+
+console.log("\nMore unshifting:");
+arr = [1, 2];
+console.log("source array:");
+console.log(arr);
+
+// result of the call is 3, which is the new array length
+console.log("\nunshift value: 0 result:");
+console.log(unshift(arr, 0)); // 3
+console.log("source array after last unshift:");
+console.log(arr); // [0, 1, 2]
+
+console.log("\nunshift values: -2,-1 result:");
+console.log(unshift(arr, -2, -1)); // 5
+console.log("source array after last unshift:");
+console.log(arr); // [-2, -1, 0, 1, 2]
+
+console.log("\nunshift value: [-4,-3] result:");
+console.log(unshift(arr, [-4, -3])); // 6
+console.log("source array after last unshift:");
+console.log(arr);
+[[-4, -3], -2, -1, 0, 1, 2];
+
+console.log("\nunshift value: [-7, -6], [-5] result:");
+console.log(unshift(arr, [-7, -6], [-5])); // 8
+console.log("source array after last unshift:");
+console.log(arr); // [ [-7, -6], [-5], [-4, -3], -2, -1, 0, 1, 2 ]
+
+/* Sparse arrays test - converts empty to undefine*/
+console.log("\nSparse array testing - convert empty to undefine");
+
+arr = [1, , 2, , , 3, 4];
+console.log("source array:");
+console.log(arr);
+
+console.log("\nunshift value: 5 result:");
+console.log(unshift(arr, 5)); // 8
+console.log("source array after last unshift:");
+console.log(arr); // [5, 1, undefined, 2, undefined, undefined, 3, 4]
+```
+
+</details>

@@ -174,3 +174,7 @@ Therefore, I've switched to a simplier solution in which I create a new array wi
 ## `shift()`
 
 [shift() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift)
+
+## `unshift()`
+
+[unshift() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift)
