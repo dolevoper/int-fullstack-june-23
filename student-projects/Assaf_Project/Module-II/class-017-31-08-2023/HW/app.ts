@@ -1,14 +1,14 @@
-const toDo = JSON.parse(localStorage.getItem("toDo")) || [];
+const toDo = JSON.parse(localStorage.getItem("savedList")) || [];
 const numberedList = [];
 
 toDoApp();
 
 function toDoApp() {
   saveToDoToLocalStorage();
-  const userInput = simplePrompt(`This is yout "To-Do list" menu:
-If you want to show the full list write 1 or "show list".
-If you want to add an assignment write 2 or "add".
-If you want to remove an assignment write 3 or "remove".
+  const userInput = simplePrompt(`This is your "To-Do list" menu:
+If you want to show the full list enter "1" or "show list".
+If you want to add an assignment enter "2" or "add".
+If you want to remove an assignment enter "3" or "remove".
 To exit press cancel or "exit".`);
   switch (userInput) {
     case undefined:
@@ -77,5 +77,5 @@ function numbering() {
 }
 
 function saveToDoToLocalStorage() {
-  localStorage.setItem("toDo", JSON.stringify(toDo));
+  localStorage.setItem("savedList", JSON.stringify(toDo));
 }
