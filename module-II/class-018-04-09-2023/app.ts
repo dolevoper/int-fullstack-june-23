@@ -1,3 +1,7 @@
+// 1. Convert more strings to objects in the quotes array (don't forget to uncomment the new quotes)
+// 2. Add "liked" field to all quotes. Initial value should be false. Add menu option to like quote by id
+// 3. Add menu option to see random liked quote
+
 function app() {
     showRandomQuote();
 
