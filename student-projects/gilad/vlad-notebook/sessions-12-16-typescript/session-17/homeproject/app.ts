@@ -582,3 +582,15 @@ function values(array: any[]) {
 
 	return array[Symbol.iterator]();
 }
+
+function keys(array: any[]) {
+	if (!array) return null;
+
+	const keys = [];
+
+	for (let index = 0; index < array.length; index++) {
+		keys[index] = index;
+	}
+
+	return keys[Symbol.iterator]();
+}
