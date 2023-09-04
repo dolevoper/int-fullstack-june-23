@@ -542,3 +542,16 @@ function unshift(array: any[], ...elements: any) {
 
 	return array.length;
 }
+
+function some(array: any[], callback: Function) {
+	if (!array) return null;
+
+	const iterations = array.length;
+
+	for (let index = 0; index < iterations; index++) {
+		if (isSparseCell(index, array)) continue;
+		if (callback(array[index], index, array)) return true;
+	}
+
+	return false;
+}
