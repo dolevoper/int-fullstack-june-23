@@ -404,7 +404,19 @@ function pop(array: any[]) {
 	array.length--;
 	if (array.length === arrayLength)
 		return Error(
-			"Unable to pop last element.\nElement is not writable/configurable."
+			`Unable to pop last element ${poppedCell}.\nElement is not writable/configurable.`
 		);
 	return poppedCell;
 }
+
+function push(array: any[], ...elements: any) {
+	if (!array) return null;
+
+	for (let index = 0; index < elements.length; index++) {
+		array[array.length] = elements[index];
+	}
+
+	return array.length;
+}
+
+console.log(push([1]));
