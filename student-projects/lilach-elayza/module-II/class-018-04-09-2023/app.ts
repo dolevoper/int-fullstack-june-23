@@ -54,9 +54,8 @@ function likeQuote() {
     alert("The quote you chose is already liked");
     return;
   }
-  alert(quotes[quoteId - 1].liked);
+
   quotes[quoteId - 1].liked = true;
-  alert(quotes[quoteId - 1].liked);
 }
 
 function showRandomQuote() {
