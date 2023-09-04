@@ -48,7 +48,7 @@ function getCarsByModel(model: string) {
 
 function getCarByLicensePlate(licensePlate: string) {}
 
-function refuelCar(model: string, fuel: number) {
+function refuelCarsByModel(model: string, fuel: number) {
 	const carsByModel = getCarsByModel(model);
 	for (let index = 0; index < carsByModel.length; index++) {
 		carsByModel[index].fuel = fuel;
