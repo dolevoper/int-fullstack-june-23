@@ -1920,3 +1920,27 @@ console.log(slice([1, 2, , 4, 5], 1, 4)); // [2, empty, 4]
 ```
 
 </details>
+
+## `values()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* values() Tests */
+
+const arr = ["a", "b", "c", "d", "e"];
+const iterator = values(arr);
+console.log(iterator); // Array Iterator { }
+console.log(iterator.next().value); // "a"
+arr[1] = "n";
+console.log(iterator.next().value); // "n"
+
+for (const element of values([, "a"])) {
+	console.log(element);
+}
+// undefined
+// 'a'
+```
+
+</details>

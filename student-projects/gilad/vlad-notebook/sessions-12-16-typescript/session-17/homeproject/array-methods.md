@@ -186,3 +186,9 @@ Therefore, I've switched to a simplier solution in which I create a new array wi
 ## `slice()`
 
 [slice() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
+
+## `values()`
+
+just return array[@@iterator]() ...
+
+[values() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/@@iterator)
