@@ -511,3 +511,18 @@ function toReversed(array: any[]) {
 	const newArrayCopy = reverse([...array]);
 	return newArrayCopy;
 }
+
+function shift(array: any[]) {
+	if (!array) return null;
+	if (array.length === 0) return undefined;
+
+	const shiftedCell: any = array[0];
+
+	for (let index = 1; index < array.length; index++) {
+		array[index - 1] = array[index];
+	}
+
+	array.length--;
+
+	return shiftedCell;
+}
