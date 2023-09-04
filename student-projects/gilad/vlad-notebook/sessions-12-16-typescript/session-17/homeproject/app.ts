@@ -325,3 +325,43 @@ function lastIndexOf(
 
 	return -1;
 }
+
+function removeOccurrences(array: any[], searchedOccurrence: any) {
+	const cleanArray = [...array];
+
+	for (let index = 0; index < cleanArray.length; index++) {
+		if (cleanArray[index] === searchedOccurrence) cleanArray[index] = undefined;
+
+		if (Array.isArray(cleanArray[index])) {
+			cleanArray[index] = removeOccurrences(
+				cleanArray[index],
+				searchedOccurrence
+			);
+		}
+	}
+
+	return cleanArray;
+}
+
+function join(array: any[], seperator: string = ",") {
+	if (!array || array.length[1]) return array;
+
+	let output = "";
+	let cell: any;
+
+	const cleanArray = removeOccurrences(array, array);
+	const iterations = cleanArray.length;
+
+	for (let index = 0; index < iterations; index++) {
+		cell = cleanArray[index];
+
+		cell = isEmptyValue(cell, index, cleanArray) ? "" : cell;
+
+		cell = Array.isArray(cell) ? join(cell) : cell;
+
+		output += cell;
+		output += index < iterations - 1 ? seperator : "";
+	}
+
+	return output;
+}
