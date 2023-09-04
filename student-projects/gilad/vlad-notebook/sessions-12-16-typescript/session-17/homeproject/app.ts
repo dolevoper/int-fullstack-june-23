@@ -576,3 +576,9 @@ function slice(array: any[], start: number = 0, end: number = array.length) {
 
 	return extractedElements;
 }
+
+function values(array: any[]) {
+	if (!array) return null;
+
+	return array[Symbol.iterator]();
+}
