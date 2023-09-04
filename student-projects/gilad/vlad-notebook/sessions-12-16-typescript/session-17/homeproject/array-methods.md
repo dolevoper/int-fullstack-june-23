@@ -182,3 +182,7 @@ Therefore, I've switched to a simplier solution in which I create a new array wi
 ## `some()`
 
 [some() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
+
+## `slice()`
+
+[slice() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
