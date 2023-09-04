@@ -365,3 +365,8 @@ function join(array: any[], seperator: string = ",") {
 
 	return output;
 }
+
+function toString(array: Array<any>) {
+	if (!array || typeof array.join !== "function") return array.toString();
+	else return join(array);
+}
