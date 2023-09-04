@@ -24,6 +24,7 @@ Enter "2" or "remove" to delete a line.`
       break;
     case "2":
     case "remove":
+    case "delete":
       if (toDo.length === 0) {
         alert("Your list is empty.");
         toDoApp();
