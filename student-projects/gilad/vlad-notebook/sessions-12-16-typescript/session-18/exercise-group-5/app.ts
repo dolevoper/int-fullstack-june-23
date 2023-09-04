@@ -32,4 +32,23 @@ function app() {
 	// refuel car
 	// turn engine on
 	// turn engine off
+
+	console.log(getCarsByModel("Audi"));
 }
+
+function getCarsByModel(model: string) {
+	const carsList = carList.filter(function (car) {
+		return car.model === model;
+	});
+
+	return carsList;
+}
+
+function getCarByLicensePlate(licensePlate: string) {}
+function refuelCar(fuel: number) {}
+
+function turnEngineOn() {}
+
+function turnEngineOff() {}
+
+app();
