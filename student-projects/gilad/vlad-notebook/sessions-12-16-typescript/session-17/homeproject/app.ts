@@ -504,3 +504,10 @@ function reverse(array: any[]) {
 	array = reversedArray;
 	return array;
 }
+
+function toReversed(array: any[]) {
+	if (!array) return null;
+
+	const newArrayCopy = reverse([...array]);
+	return newArrayCopy;
+}
