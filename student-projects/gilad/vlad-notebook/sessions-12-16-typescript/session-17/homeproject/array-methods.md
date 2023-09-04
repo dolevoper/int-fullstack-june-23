@@ -105,7 +105,7 @@ Boolean(obj) && obj.length != null && typeof obj.push === "function";
 checked_object.constructor === Array;
 ```
 
-The `Array.isArray` checks whether the checked object is an [`Exotic Array Object`](https://262.ecma-international.org/12.0/#array-exotic-object) and there are parts that aren't accessible by JS, but only to JS-Engines.
+The `Array.isArray` checks whether the checked object is an [`Exotic Array Object`](https://262.ecma-international.org/12.0/#array-exotic-object). waiting for implementation
 
 ## `indexOf()`
 
@@ -133,3 +133,11 @@ To implement this behavior, I've created a `removeOccurrences()` function that r
 ## `map()`
 
 [map() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+
+## `pop()`
+
+Learned that I can manipulate array's length property.
+If the array contains an element that has a property descriptor specifing that it's not writable or configurable, the length of the array will always be element's index + 1.
+This means we can't pop those elements!
+
+[pop() MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)

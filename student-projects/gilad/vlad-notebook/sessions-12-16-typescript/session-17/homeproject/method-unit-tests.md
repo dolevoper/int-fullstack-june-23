@@ -1329,3 +1329,65 @@ console.log(filteredNumbers);
 ```
 
 </details>
+
+## `map()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* pop() Test */
+console.log("\nPopping last element in array");
+
+const myFish = ["angel", "clown", "mandarin", "sturgeon"];
+console.log("source array");
+console.log(myFish);
+
+const popped = myFish.pop();
+console.log("source array after pop()");
+console.log(myFish); // ['angel', 'clown', 'mandarin' ]
+console.log("popped element:");
+console.log(popped); // 'sturgeon'
+
+const plants = ["broccoli", "cauliflower", "cabbage", "kale", "tomato"];
+console.log("\nsource array");
+console.log(plants);
+
+console.log("popped element:");
+console.log(pop(plants)); // "tomato"
+
+console.log("source array after pop()");
+console.log(plants); // ["broccoli", "cauliflower", "cabbage", "kale"]
+console.log("popped element:");
+console.log(pop(plants));
+
+console.log("source array after pop()");
+console.log(plants); // ["broccoli", "cauliflower", "cabbage"]
+
+/* Test supporting property descriptor's writiable / configurable settings */
+console.log("\nproperty descriptor's writiable / configurable settings");
+
+const names = ["Vlad", "Gilad", "Test", "I'm poppable!"];
+Object.defineProperty(names, 2, {
+	value: "Pinker",
+	writable: false,
+	configurable: false,
+});
+console.log("source array");
+console.log(names);
+console.log("index 2 is not writable and not configurable: ");
+const namesDescriptor = Object.getOwnPropertyDescriptor(names, 2);
+console.log("is writable? " + namesDescriptor.writable);
+console.log("is configurable? " + namesDescriptor.configurable);
+
+console.log("writable / configurable popped element:");
+console.log(pop(names));
+
+console.log("Pop not writable / configurable element:");
+console.log(pop(names));
+
+console.log("source array after pop()");
+console.log(names);
+```
+
+</details>

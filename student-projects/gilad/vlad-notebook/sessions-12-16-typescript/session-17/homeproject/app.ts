@@ -402,7 +402,7 @@ function pop(array: any[]) {
 	const arrayLength = array.length;
 	const poppedCell = array[arrayLength - 1];
 	array.length--;
-	if (array.length != arrayLength - 1)
+	if (array.length === arrayLength)
 		return Error(
 			"Unable to pop last element.\nElement is not writable/configurable."
 		);
