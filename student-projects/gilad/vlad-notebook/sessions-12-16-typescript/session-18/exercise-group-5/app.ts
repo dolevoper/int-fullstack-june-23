@@ -35,7 +35,7 @@ function app() {
 
 	console.log(getCarsByModel("Audi"));
 
-	refuelCar("Audi", 100);
+	refuelCarsByModel("Audi", 100);
 }
 
 function getCarsByModel(model: string) {
