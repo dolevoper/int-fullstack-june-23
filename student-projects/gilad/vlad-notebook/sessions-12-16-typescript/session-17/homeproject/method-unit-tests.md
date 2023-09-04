@@ -1686,3 +1686,41 @@ console.log(toReversed([1, , 3, 4])); // [4, 3, undefined, 1]
 ```
 
 </details>
+
+## `shift()`
+
+<details>
+<summary> Show </summary>
+
+```ts
+/* shift() Test */
+
+/* Mutability Test */
+console.log("\nMutability test:");
+const shiftedArray1 = [1, 2, 3];
+
+const firstElement = shift(shiftedArray1);
+console.log(shiftedArray1); //  [2, 3]
+console.log(firstElement); //  1
+
+/* Sparse arrays Test */
+console.log("\nSparse array test:");
+const shiftedArray2 = [1, 2, , , 5];
+const firstElement2 = shift(shiftedArray2);
+console.log(shiftedArray2); //  [2, undefined, undefined, 5]
+console.log(firstElement2); //  1
+
+/* loop Test */
+console.log("\nloop test - loop untill all elements removed");
+
+const names = ["Andrew", "Tyrone", "Paul", "Maria", "Gayatri"];
+console.log(names);
+
+let i: any;
+while (typeof (i = shift(names)) !== "undefined") {
+	console.log(i);
+} // Andrew, Tyrone, Paul, Maria, Gayatri
+console.log(names);
+```
+
+</details>
