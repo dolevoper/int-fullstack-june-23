@@ -4,32 +4,25 @@ const numberedList = [];
 toDoApp();
 
 function toDoApp() {
+  numbering();
   saveToDoToLocalStorage();
-  const userInput = simplePrompt(`This is your "To-Do list" menu:
-If you want to show the full list enter "1" or "show list".
-If you want to add an assignment enter "2" or "add".
-If you want to remove an assignment enter "3" or "remove".
-To exit press cancel or "exit".`);
+  const userInput = simplePrompt(
+    `TO-DO:\n` +
+      numberedList.join(`\n`) +
+      `
+
+Enter "1" or "add" to add a line.
+Enter "2" or "remove" to delete a line.`
+  );
   switch (userInput) {
     case undefined:
     case "exit":
       return;
     case "1":
-    case "show list":
-    case "show":
-      if (toDo.length === 0) {
-        alert("Your list is empty.");
-      } else {
-        numbering();
-        alert(numberedList.join(`\n`));
-      }
-      toDoApp();
-      break;
-    case "2":
     case "add":
       addItemToList();
       break;
-    case "3":
+    case "2":
     case "remove":
       if (toDo.length === 0) {
         alert("Your list is empty.");
