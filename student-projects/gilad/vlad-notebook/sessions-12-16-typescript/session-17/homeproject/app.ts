@@ -419,4 +419,178 @@ function push(array: any[], ...elements: any) {
 	return array.length;
 }
 
-console.log(push([1]));
+function isArraySingleValue(array: any[]) {
+	let valueCounter = 0;
+	let singleValue: any;
+
+	for (let index = 0; index < array.length && valueCounter <= 1; index++) {
+		if (!isSparseCell(index, array)) {
+			valueCounter++;
+			singleValue = array[index];
+		}
+	}
+
+	return valueCounter === 1 ? singleValue : false;
+}
+
+function reduce(array: any[], callback: Function, initalValue?: any) {
+	if (!array) return null;
+
+	if (!initalValue) {
+		if (array.length === 0)
+			throw TypeError("Reduce of empty array with no initial value");
+		else {
+			const singleValue = isArraySingleValue(array);
+			if (singleValue) return singleValue;
+			else initalValue = array[0];
+		}
+	}
+
+	let accumulator = initalValue;
+	let iterations = array.length;
+
+	for (
+		let index = initalValue === array[0] ? 1 : 0;
+		index < iterations;
+		index++
+	) {
+		if (isSparseCell(index, array)) continue;
+		accumulator = callback(accumulator, array[index], index, array);
+	}
+
+	return accumulator;
+}
+
+/* reduce() Tests */
+
+// /* Test reduce() edge cases */
+
+console.log("\nTesting reduce() edge cases");
+console.log("callback is - get max value");
+const getMax = (a, b) => Math.max(a, b);
+
+// callback is invoked for each element in the array starting at index 0
+console.log(
+	"\ncallback is invoked for each element in the array starting at index 0"
+);
+console.log("inital value: 50, array:");
+console.log([1, 100]);
+console.log("result:");
+console.log(reduce([1, 100], getMax, 50)); // 100
+console.log("inital value: 10, array:");
+console.log([50]);
+console.log("result:");
+console.log(reduce([50], getMax, 10)); // 50
+
+// callback is invoked once for element at index 1
+console.log("\ncallback is invoked once for element at index 1");
+console.log("inital value: none, array:");
+console.log([1, 100]);
+console.log("result:");
+console.log(reduce([1, 100], getMax)); // 100
+
+// callback is not invoked - returns single value
+console.log("\ncallback is not invoked - returns single value");
+console.log("inital value: none, array:");
+console.log([50]);
+console.log("result:");
+console.log(reduce([50], getMax)); // 50
+console.log("inital value: 1, array:");
+console.log([]);
+console.log(reduce([], getMax, 1)); // 1
+
+// empty array with specified inital value - throws TypeError
+console.log("\nempty array with specified inital value - throws TypeError");
+console.log("inital value: 1, array:");
+console.log([]);
+console.log("result :");
+console.log("uncomment line to see thrown TypeError");
+// reduce([], getMax); // TypeError
+
+/* reduce() with or without inital value*/
+console.log("\nreduce() with or without inital value");
+console.log("callback is - addition of accumulator and currentValue");
+
+const reduceArray = [15, 16, 17, 18, 19];
+console.log("source array: ");
+console.log(reduceArray);
+
+function reducer(accumulator, currentValue, index) {
+	const returns = accumulator + currentValue;
+	console.log(
+		`accumulator: ${accumulator}, currentValue: ${currentValue}, index: ${index}, returns: ${returns}`
+	);
+	return returns;
+}
+console.log("\nreduce() without inital value");
+reduceArray.reduce(reducer);
+
+/* reduce() with inital value*/
+console.log("\nreduce() with inital value 10 ");
+console.log(
+	reduce(
+		reduceArray,
+		(accumulator, currentValue) => accumulator + currentValue,
+		10
+	)
+);
+
+/* Function sequential piping */
+console.log("\nFunction sequential piping");
+console.log(
+	"callback is - creating a function contaning ordered sequence of functions"
+);
+
+const pipe =
+	(...functions) =>
+	(initialValue) =>
+		reduce(functions, (acc, fn) => fn(acc), initialValue);
+
+// Building blocks to use for composition
+const double = (x) => 2 * x;
+const triple = (x) => 3 * x;
+const quadruple = (x) => 4 * x;
+
+// Composed functions for multiplication of specific values
+const multiply6 = pipe(double, triple);
+const multiply9 = pipe(triple, triple);
+const multiply16 = pipe(quadruple, quadruple);
+const multiply24 = pipe(double, triple, quadruple);
+
+// Usage
+console.log(multiply6(6)); // 36
+console.log(multiply9(9)); // 81
+console.log(multiply16(16)); // 256
+console.log(multiply24(10)); // 240
+
+/* Test sparse arrays */
+console.log("\nSparse arrays test");
+
+console.log([1, 2, , 4].reduce((a, b) => a + b)); // 7
+console.log([1, 2, undefined, 4].reduce((a, b) => a + b)); // NaN
+
+/* Sum of values in an object array */
+/* 
+Not working, when calling reduce as a standalone function,
+it does not detect the needed type, and therefore accumulator + currentValue.x
+behave like... object addition? 
+
+
+console.log("\nSum of values in an object array");
+
+const objects = [{ x: 1 }, { x: 2 }, { x: 3 }];
+console.log("source array: ");
+console.log(objects);
+
+const sum = reduce(
+	objects,
+	(accumulator, currentValue) => accumulator + currentValue.x,
+	0
+);
+// const sum = objects.reduce(
+// 	(accumulator, currentValue) => accumulator + currentValue.x,
+// 	0
+// );
+console.log("result :");
+console.log(sum); // 6
+*/
