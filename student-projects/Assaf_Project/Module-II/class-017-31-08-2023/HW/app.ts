@@ -1,4 +1,4 @@
-const toDo = JSON.parse(localStorage.getItem("savedList")) || [];
+const toDo = JSON.parse(localStorage.getItem("toDoList")) || [];
 const numberedList = [];
 
 toDoApp();
@@ -8,8 +8,7 @@ function toDoApp() {
   saveToDoToLocalStorage();
   const userInput = simplePrompt(
     `TO-DO:\n` +
-      numberedList.join(`\n`) +
-      `
+      numberedList.join(`\n`) + `
 
 Enter "1" or "add" to add a line.
 Enter "2" or "remove" to delete a line.`
@@ -71,5 +70,5 @@ function numbering() {
 }
 
 function saveToDoToLocalStorage() {
-  localStorage.setItem("savedList", JSON.stringify(toDo));
+  localStorage.setItem("toDoList", JSON.stringify(toDo));
 }
