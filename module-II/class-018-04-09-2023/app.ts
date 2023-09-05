@@ -101,33 +101,71 @@ const quotes = [
         quote: "You can’t have a million dollar dream with a minimum wage worth ethic.",
         author: "Zig Ziglar"
     },
+    {
+        quote : "Lisa, if you don’t like your job you don’t strike. You just go in every day and do it really halfway. That’s the American way.",
+        author: "Leslie Nielsen"  
+    },
+    {
+        quote : "Sometimes the best part of my job is that the chair swivels.",
+        author :  "Homer Simpson" 
+    },
+    {
+        quote : "By working faithfully eight hours a day you may eventually get to be boss and work twelve hours a day.",
+        author :  "Unknown" 
+    },
+    {
+        quote : "The best way to appreciate your job is to imagine yourself without one.",
+        author :  "Robert Frost" 
+    },
+    {
+        quote : "Most people work just hard enough not to get fired and get paid just enough money not to quit.",
+        author :  "Oscar Wilde" 
+    },
+    {
+        quote : "The taxpayer – that’s someone who works for the federal government but doesn’t have to take the civil service examination.",
+        author : "George Carlin`"  
+    },
+    {
+        quote : "I told my boss 2 companies were after me and I needed a raise to stay at my present job. He asked which 3 were interested. I said the gas, electric, and cable.",
+        author : "Ronald Reagan"  
+    },
+    {
+        quote : "Hard work spotlights the character of people: some turn up their sleeves, some turn up their noses, and some don’t turn up at all.",
+        author :  "Unknown" 
+    }
+
+
+
     //     `“Doing nothing is very hard to do… you never know when you’re finished.”
 
-    // Leslie Nielsen`,
-    //     `“Lisa, if you don’t like your job you don’t strike. You just go in every day and do it really halfway. That’s the American way.”
+    // `,
+    //     `
 
-    // Homer Simpson`,
-    //     `“Sometimes the best part of my job is that the chair swivels.”
+    // ,
+    //     `“”
 
-    // Unknown`,
-    //     `“By working faithfully eight hours a day you may eventually get to be boss and work twelve hours a day.”
+    // `,
+    //     `“”
 
-    // Robert Frost`,
-    //     `“The best way to appreciate your job is to imagine yourself without one.”
+    // `,
+    //     `“”
 
-    // Oscar Wilde`,
-    //     `“Most people work just hard enough not to get fired and get paid just enough money not to quit.”
+    // `,
+    //     `“”
 
-    // George Carlin`,
-    //     `“The taxpayer – that’s someone who works for the federal government but doesn’t have to take the civil service examination.”
+    // ,
+    //     `“”
 
-    // Ronald Reagan`,
-    //     `“I told my boss 2 companies were after me and I needed a raise to stay at my present job. He asked which 3 were interested. I said the gas, electric, and cable. ”
+    // `,
+    //     `“ ”
 
-    // Unknown`,
-    //     `“Hard work spotlights the character of people: some turn up their sleeves, some turn up their noses, and some don’t turn up at all.”
+    // `,
+    //     `“.”
 
     // Sam Ewing`
 ];
 
 app();
+
+
+
