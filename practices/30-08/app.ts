@@ -1,5 +1,6 @@
 console.log("connected");
 
+TODO:
 function getNumber(): Function | void {
   let num: string | number | null = prompt("Enter a number between 0-100:");
   if (num === null) {
@@ -20,10 +21,11 @@ function getNumber(): Function | void {
   }
 }
 
-function numDividedBy5(a:number) {
-    if (a % 5 === 0) {
-        alert("divided!")
-    } else {
-        alert("fail!")
-    }
+
+function numDividedBy5(a: number) {
+  if (a % 5 === 0) {
+    alert("divided!");
+  } else {
+    alert("fail!");
+  }
 }
