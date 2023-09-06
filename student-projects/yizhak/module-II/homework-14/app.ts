@@ -5,5 +5,5 @@ for(let i = 0; i < grades; i++){
 }
 
 
-alert(input)
+alert(input);
 
