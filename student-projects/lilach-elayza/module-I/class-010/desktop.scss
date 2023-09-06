@@ -1,0 +1,88 @@
+@media only screen and (min-width: 768px) {
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: hsl(255deg 48% 90%);
+        isolation: isolate;
+        z-index: 1;
+
+        &:has(input:checked) {
+            box-shadow: 0 5px 5px hsl(0deg 0% 0% / 0.2);
+        }
+
+        &__navigation {
+            padding: 0.5rem;
+
+
+            label {
+                padding: 0.3rem;
+                font-size: 1.2rem;
+                border: 1px solid black;
+                border-radius: 6px;
+                display: flex;
+                width: fit-content;
+
+                span {
+                    display: inline-block;
+                    position: absolute;
+                    overflow: hidden;
+                    clip: rect(0 0 0 0);
+                    height: 1px;
+                    width: 1px;
+                    margin: -1px;
+                    padding: 0;
+                    border: 0;
+                }
+            }
+
+            input {
+                display: none;
+            }
+
+            ul {
+                max-height: 0;
+                overflow: hidden;
+                list-style: none;
+                padding: 0;
+                transition: max-height 300ms;
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                    font-weight: 600;
+                    display: block;
+                    padding: 0.2rem 1rem;
+                }
+            }
+
+            input:checked+ul {
+                max-height: 100vh;
+            }
+
+            #hamburger rect {
+                transition: rotate 300ms;
+            }
+
+            label:has(+input:checked) #hamburger {
+                rect:first-of-type {
+                    rotate: 45deg;
+                    translate: 40%;
+                    transform-origin: top left;
+                }
+
+                rect:nth-of-type(2) {
+                    opacity: 0;
+                }
+
+                rect:nth-of-type(3) {
+                    rotate: -45deg;
+                    translate: 40% 10%;
+                    transform-origin: bottom left;
+                }
+            }
+        }
+    }
+}
