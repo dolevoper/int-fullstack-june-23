@@ -329,7 +329,7 @@ class AnimalList {
 
 	add(animal: Animal) {
 		if (animal) this.animals.push(animal);
-		console.log(`${animal.toString()} added to the list ${this.name}`);
+		console.log(`${animal.toString()} added to the list`);
 	}
 
 	getAll() {
@@ -498,6 +498,7 @@ function zoo() {
 	const cage = new Cage("Camels", Biome.dessert);
 	cage.addAnimal(animalA);
 	cage.addAnimal(animalB);
+
 	console.log(cage.getAnimals());
 	cage.feedAllAnimals(foodList[1]);
 }
