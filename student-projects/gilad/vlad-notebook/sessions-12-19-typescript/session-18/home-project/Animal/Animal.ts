@@ -12,9 +12,9 @@ class Animal {
 		this.gender = gender;
 		this.type = type;
 
-		this.hunger = new NeedBar("hunger", 100, 25, this.hungry);
-		this.hydration = new NeedBar("hydration", 100, 50, this.thirsty);
-		this.happiness = new NeedBar("happiness", 100, 0, this.sad);
+		this.hunger = new NeedBar("hunger", 0, 100, 100, 25, this.hungry);
+		this.hydration = new NeedBar("hydration", 0, 100, 100, 50, this.thirsty);
+		this.happiness = new NeedBar("happiness", 0, 4, 4, 2, this.sad);
 	}
 
 	hungry() {
