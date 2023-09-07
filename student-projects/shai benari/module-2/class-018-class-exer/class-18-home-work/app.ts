@@ -1,6 +1,9 @@
 const studentsNames:any = [];
 const studentsAge = [];
 const teacherNames:any = []
+const classGrade6:any = []
+const classGrade8:any = []
+const classGrades: any = []
 const students = [
     {
         class: "studant",
@@ -94,10 +97,43 @@ const teachers = [
         seniority: 18
     },
 ]
-ageToArray("name",0);
+
+const promptText = `Welcome to quotes app!
+
+What would you like to do?
+    1. list of studants and there ages
+    2. lis of teacher and there expirance in teaching   
+    3. class dividing by grade`;
+
+    let userInput = prompt(promptText);
+
+    while (userInput !== null) {
+        handleUserInput(userInput);
+        userInput = prompt(promptText);
+    }
+
+function handleUserInput(userInput: string) {
+    switch (userInput.trim()) {
+        case "1":
+            ageToArray("name",0);
+            break;
+        case "2":
+            seniorityToArray("name",0);
+            break;
+        case "3":
+            classToArray("name",0);
+        default:
+            alert("Please choose an option from the menu using their numbers.");
+    }
+}
+
+// ageToArray("name",0);
 alert("The studants ages are :" +" " + studentsNames);
-seniorityToArray("name",0);
+// seniorityToArray("name",0);
 alert("The teachers seniority is :" +" " + teacherNames);
+// classToArray("name",0);
+alert("The studants in clas grade 6 are :" + " " + classGrade6);
+alert("The studants in clas grade 8 are :" + " " + classGrade8);
 
 
 function ageToArray(name: string , age: number ){
@@ -120,5 +156,20 @@ function seniorityToArray(name: string , age: number ){
     }
     return(teacherNames); 
 }
+function classToArray(name: string , grade: number ){
+    for (const type in students ){
+      let names = students[type].name;
+      let grade = students[type].grade;
+      if (grade === 6){
+        const classSmall = classGrade6.push((names));
+      }
+      else if (grade === 8) {
+        const classBig = classGrade8.push((names));
+      }
 
+      const classGrades = [classGrade6 , classGrade8];
+       
+    }
+    return(classGrades);
+}
 
