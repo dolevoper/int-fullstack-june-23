@@ -1,5 +1,5 @@
 import { Diets, AnimalDiet, foodList } from "./AnimalDiet.js";
-
+import { Gender, AnimalType, camel, bear } from "./AnimalType.js";
 class NeedBar {
 	private name: string;
 	private minValue: number;
@@ -88,50 +88,6 @@ class NeedBar {
 		return this.getValue() <= this.getAlertValue() ? true : false;
 	}
 }
-
-enum Gender {
-	Female = "Female",
-	Male = "Male",
-}
-
-class AnimalType {
-	constructor(
-		private name: string,
-		private animalDiet: AnimalDiet,
-		private sound: string,
-		private emoji: string
-	) {
-		this.name = name;
-		this.animalDiet = animalDiet;
-		this.sound = sound;
-		this.emoji = emoji;
-	}
-
-	getName() {
-		return this.name;
-	}
-
-	getDiet() {
-		return this.animalDiet;
-	}
-
-	getSound() {
-		return this.sound;
-	}
-
-	getEmoji() {
-		return this.emoji;
-	}
-
-	isAgressive() {
-		return this.animalDiet.diet === Diets.Herbivore ? false : false;
-	}
-}
-
-const dietHerbivore = new AnimalDiet(Diets.Herbivore);
-const dietCarnivore = new AnimalDiet(Diets.Carnivore);
-const camel = new AnimalType("Camel", dietHerbivore, "grunt", "🐫");
-const bear = new AnimalType("Bear", dietCarnivore, "growl", "🐻");
 
 class Animal {
 	private birthId: number;
