@@ -3,7 +3,6 @@ import { Gender, camel, bear } from "./AnimalType.js";
 import { Animal } from "./Animal.js";
 import { Cage, Biome } from "./Cage.js";
 
-
 function zoo() {
 	const animalA = new Animal(0, "Yulia", Gender.Female, camel);
 	const animalB = new Animal(0, "Vlad", Gender.Male, bear);

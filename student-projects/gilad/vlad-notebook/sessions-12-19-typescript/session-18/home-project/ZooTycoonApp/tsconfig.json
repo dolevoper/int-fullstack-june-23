@@ -6,5 +6,5 @@
 		"strictNullChecks": true,
 		"noImplicitAny": true
 	},
-	"include": ["./*.ts", "Animal/*.ts", "Cage/*.ts"]
+	"include": ["./ZooTycoonApp/*.ts"]
 }
