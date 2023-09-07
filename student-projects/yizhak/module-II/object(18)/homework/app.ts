@@ -59,7 +59,10 @@ const userInput = prompt(`hello and Welcome to the factory data control system,
  2. print the worker data.
  3. print the intern data`);
 
- switch(userInput){
+ if (userInput === null || userInput === "4"){
+    alert("please enter one of the option below")
+}
+ switch(userInput) {
     case "1":
         alert(`this is the directors list:
 names: ${Director.names}.
@@ -77,6 +80,9 @@ work-houres in day: ${worker.workHours}. `);
 names: ${intern.names}.
 salary: ${intern.salary}.
 work-houres in day: ${intern.workHours}. `);
+        break;
+    default:
+        alert("Please enter a valid option.")
         break;
 }
 
