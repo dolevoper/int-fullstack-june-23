@@ -32,5 +32,4 @@ for (const element of allProjectsArray) {
 		element.append(defaultProjectImageElement);
 		console.log("Found project without image");
 	}
-	// element.append(defaultProjectImageElement);
 }
