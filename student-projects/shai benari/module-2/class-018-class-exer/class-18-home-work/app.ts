@@ -4,6 +4,7 @@ const teacherNames:any = []
 const classGrade6:any = []
 const classGrade8:any = []
 const classGrades: any = []
+const classMaigor: any = []
 const students = [
     {
         class: "studant",
@@ -101,9 +102,10 @@ const teachers = [
 const promptText = `Welcome to quotes app!
 
 What would you like to do?
-    1. list of studants and there ages
-    2. lis of teacher and there expirance in teaching   
-    3. class dividing by grade`;
+    a. list of studants and there ages
+    b. lis of teacher and there expirance in teaching 
+    c. class dividing by grade
+    d. teachor and class by sobject`;
 
     let userInput = prompt(promptText);
 
@@ -114,26 +116,30 @@ What would you like to do?
 
 function handleUserInput(userInput: string) {
     switch (userInput.trim()) {
-        case "1":
+        case "a":
             ageToArray("name",0);
             break;
-        case "2":
+        case "b":
             seniorityToArray("name",0);
             break;
-        case "3":
+        case "c":
             classToArray("name",0);
+            case "d":
+                classMigor("name","sobject","maigor");
         default:
-            alert("Please choose an option from the menu using their numbers.");
+            alert("Please choose an option from the menu using their leters.");
     }
 }
 
-// ageToArray("name",0);
+ageToArray("name",0);
 alert("The studants ages are :" +" " + studentsNames);
-// seniorityToArray("name",0);
+seniorityToArray("name",0);
 alert("The teachers seniority is :" +" " + teacherNames);
-// classToArray("name",0);
+classToArray("name",0);
 alert("The studants in clas grade 6 are :" + " " + classGrade6);
 alert("The studants in clas grade 8 are :" + " " + classGrade8);
+classMigor("name","sobject","maigor");
+alert("teachor and class by sobject :  " + classMaigor);
 
 
 function ageToArray(name: string , age: number ){
@@ -172,4 +178,21 @@ function classToArray(name: string , grade: number ){
     }
     return(classGrades);
 }
+function classMigor(name: string , maigor: string , sobject: string ){
+    for (const type1 in teachers ){
+        let nameTeachor = teachers[type1].name;
+        let sobject = teachers[type1].sobject;
+        const classMaigor1 = classMaigor.push(("**"+ nameTeachor + ": "));
+        const classMaigor2 = classMaigor.push(( "--" + sobject + ": "));
+    for (const type in students ){
+      let nameSutdent = students[type].name;
+      let maigor = students[type].maigor;
+      if (maigor === sobject){
+        const classMaigor3 = classMaigor.push((nameSutdent + " / "));
+      }
+    }
+    }
+      return(classMaigor);
+    }
+    
 
