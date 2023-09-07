@@ -253,7 +253,7 @@ class Animal {
 	eat(food: Food, amount?: number) {
 		if (!this.getType().getDiet().canEat(food)) {
 			this.announce(
-				` can't eat ${food.name}, ${
+				`can't eat ${food.name}, ${
 					this.getGender() === Gender.Female ? "s" : ""
 				}he's a ${this.getType().getName()}!`
 			);
@@ -271,30 +271,30 @@ class Animal {
 	drink(amount?: number) {
 		if (amount) {
 			this.getHydrationBar().addValue(amount);
-			this.announce(` drinked ${amount} water!`);
+			this.announce(`drinked ${amount} water!`);
 		} else {
 			this.getHydrationBar().setFull();
-			this.announce(` drinked until hydration!`);
+			this.announce(`drinked until hydration!`);
 		}
 	}
 
 	addHappiness(amount?: number) {
 		if (amount) {
 			this.getHappinessBar().addValue(amount);
-			this.announce(` is now happier by ${amount}!`);
+			this.announce(`is now happier by ${amount}!`);
 		} else {
 			this.getHappinessBar().setFull();
-			this.announce(` is now fully happy!`);
+			this.announce(`is now fully happy!`);
 		}
 	}
 
 	reduceHappiness(amount?: number) {
 		if (amount) {
 			this.getHappinessBar().reduceValue(amount);
-			this.announce(` is now sadder by ${amount}!`);
+			this.announce(`is now sadder by ${amount}!`);
 		} else {
 			this.getHappinessBar().setEmpty();
-			this.announce(` is now fully sad!`);
+			this.announce(`is now fully sad!`);
 		}
 	}
 
@@ -323,8 +323,8 @@ class AnimalList {
 	private name: string;
 	private animals: Animal[];
 
-	constructor(name: string) {
-		this.name = name;
+	constructor() {
+		this.animals = [];
 	}
 
 	add(animal: Animal) {
@@ -407,6 +407,12 @@ class Cage {
 		);
 		this.foodBar = new NeedBar("food tray", 0, 4, 5, 0, this.noFoodAlert);
 		this.waterBar = new NeedBar("water tray", 0, 4, 5, 0, this.noWaterAlert);
+
+		this.animalsList = new AnimalList();
+	}
+
+	addAnimal(animal: Animal) {
+		this.animalsList.add(animal);
 	}
 
 	setBiome(biome: Biome) {
@@ -458,6 +464,7 @@ class Cage {
 	}
 
 	feedAllAnimals(food: Food) {
+		console.log("feeding all animals");
 		const animalsList = this.getAnimals();
 
 		for (const animal of animalsList) {
@@ -466,6 +473,8 @@ class Cage {
 	}
 
 	feedHungryAniamsl(food: Food) {
+		console.log("feeding all hungry animals");
+
 		const hungryAnimalsList = this.getAnimalsList().getAnimalsByHungry();
 
 		for (const animal of hungryAnimalsList) {
@@ -473,7 +482,7 @@ class Cage {
 		}
 	}
 
-	addHappinessAllAnimals() {
+	addHappinessToAllAnimals() {
 		for (const animal of this.getAnimals()) {
 			animal.reduceHappiness(-1);
 		}
@@ -484,7 +493,13 @@ function zoo() {
 	const animalA = new Animal(0, "Yulia", Gender.Female, camel);
 	const animalB = new Animal(0, "Vlad", Gender.Male, bear);
 
-	console.log(animalA.eat(foodList[2]));
+	animalA.eat(foodList[2]); // eat meat
+
+	const cage = new Cage("Camels", Biome.dessert);
+	cage.addAnimal(animalA);
+	cage.addAnimal(animalB);
+	console.log(cage.getAnimals());
+	cage.feedAllAnimals(foodList[1]);
 }
 
 zoo();
