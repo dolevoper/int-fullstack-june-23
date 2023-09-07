@@ -17,3 +17,20 @@ const projectsWithImage = Array.from(
 );
 
 console.log(`There are ${projectsWithImage.length} projects with images`);
+
+// Apply default images to all projects without an image
+
+for (const element of allProjectsArray) {
+	// console.log("current element: " + element.innerHTML);
+	if (!element.querySelector("img")) {
+		const defaultProjectImageElement = document.createElement(
+			"Img"
+		) as HTMLImageElement;
+		defaultProjectImageElement.src = "./assets/projects/default.png";
+		defaultProjectImageElement.setAttribute("width", "32");
+		defaultProjectImageElement.setAttribute("height", "32");
+		element.append(defaultProjectImageElement);
+		console.log("Found project without image");
+	}
+	// element.append(defaultProjectImageElement);
+}
