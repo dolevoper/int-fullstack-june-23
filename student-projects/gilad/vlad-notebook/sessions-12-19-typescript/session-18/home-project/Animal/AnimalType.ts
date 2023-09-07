@@ -31,7 +31,5 @@ class AnimalType {
 	}
 }
 
-const animalTypesList = [
-	new AnimalType("Camel", dietHerbivore, "grunt"),
-	new AnimalType("Bear", dietCarnivore, "growl"),
-];
+const camel = new AnimalType("Camel", dietHerbivore, "grunt");
+const bear = new AnimalType("Bear", dietCarnivore, "growl");
