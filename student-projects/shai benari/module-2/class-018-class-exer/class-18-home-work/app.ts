@@ -1,3 +1,4 @@
+console.log("connected")
 const studentsNames:any = [];
 const studentsAge = [];
 const teacherNames:any = []
@@ -115,9 +116,11 @@ What would you like to do?
     }
 
 function handleUserInput(userInput: string) {
+    console.log(userInput)
     switch (userInput.trim()) {
         case "a":
-            ageToArray("name",0);
+            const ages = ageToArray("name",0);
+            // alert(ages)
             break;
         case "b":
             seniorityToArray("name",0);
@@ -131,15 +134,15 @@ function handleUserInput(userInput: string) {
     }
 }
 
-ageToArray("name",0);
-alert("The studants ages are :" +" " + studentsNames);
-seniorityToArray("name",0);
-alert("The teachers seniority is :" +" " + teacherNames);
-classToArray("name",0);
-alert("The studants in clas grade 6 are :" + " " + classGrade6);
-alert("The studants in clas grade 8 are :" + " " + classGrade8);
-classMigor("name","sobject","maigor");
-alert("teachor and class by sobject :  " + classMaigor);
+// ageToArray("name",0);
+// alert("The studants ages are :" +" " + studentsNames);
+// seniorityToArray("name",0);
+// alert("The teachers seniority is :" +" " + teacherNames);
+// classToArray("name",0);
+// alert("The studants in clas grade 6 are :" + " " + classGrade6);
+// alert("The studants in clas grade 8 are :" + " " + classGrade8);
+// classMigor("name","sobject","maigor");
+// alert("teachor and class by sobject :  " + classMaigor);
 
 
 function ageToArray(name: string , age: number ){
