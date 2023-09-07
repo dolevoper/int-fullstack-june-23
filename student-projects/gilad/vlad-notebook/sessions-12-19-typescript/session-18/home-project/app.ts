@@ -1,4 +1,4 @@
-import * as AnimalDiet from "./AnimalDiet.js";
+import { Diets, AnimalDiet, foodList } from "./AnimalDiet.js";
 
 class NeedBar {
 	private name: string;
@@ -97,7 +97,7 @@ enum Gender {
 class AnimalType {
 	constructor(
 		private name: string,
-		private animalDiet: AnimalDiet.AnimalDiet,
+		private animalDiet: AnimalDiet,
 		private sound: string,
 		private emoji: string
 	) {
@@ -124,12 +124,12 @@ class AnimalType {
 	}
 
 	isAgressive() {
-		return this.animalDiet.diet === AnimalDiet.Diets.Herbivore ? false : false;
+		return this.animalDiet.diet === Diets.Herbivore ? false : false;
 	}
 }
 
-const dietHerbivore = new AnimalDiet.AnimalDiet(AnimalDiet.Diets.Herbivore);
-const dietCarnivore = new AnimalDiet.AnimalDiet(AnimalDiet.Diets.Carnivore);
+const dietHerbivore = new AnimalDiet(Diets.Herbivore);
+const dietCarnivore = new AnimalDiet(Diets.Carnivore);
 const camel = new AnimalType("Camel", dietHerbivore, "grunt", "🐫");
 const bear = new AnimalType("Bear", dietCarnivore, "growl", "🐻");
 
@@ -208,7 +208,7 @@ class Animal {
 		return !this.isSad();
 	}
 
-	eat(food: AnimalDiet.Food, amount?: number) {
+	eat(food: Food, amount?: number) {
 		if (!this.getType().getDiet().canEat(food)) {
 			this.announce(
 				`can't eat ${food.name}, ${
@@ -451,14 +451,14 @@ function zoo() {
 	const animalA = new Animal(0, "Yulia", Gender.Female, camel);
 	const animalB = new Animal(0, "Vlad", Gender.Male, bear);
 
-	animalA.eat(AnimalDiet.foodList[2]); // eat meat
+	animalA.eat(foodList[2]); // eat meat
 
 	const cage = new Cage("Camels", Biome.dessert);
 	cage.addAnimal(animalA);
 	cage.addAnimal(animalB);
 
 	console.log(cage.getAnimals());
-	cage.feedAllAnimals(AnimalDiet.foodList[1]);
+	cage.feedAllAnimals(foodList[1]);
 }
 
 zoo();
