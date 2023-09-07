@@ -19,7 +19,6 @@ class Cage {
 	constructor(name: string, startBiome?: Biome) {
 		this.name = name;
 
-		this.setSlots(4);
 		this.setBiome(startBiome !== undefined ? startBiome : Biome.grassland);
 		this.cleanlinessBar = new NeedBar(
 			"cleanliness",
@@ -37,16 +36,16 @@ class Cage {
 		this.biome = biome;
 	}
 
-	setSlots(slots: number) {
-		this.slots = slots;
-	}
-
 	getName() {
 		return this.name;
 	}
 
 	getAnimalsList() {
 		return this.animalsList;
+	}
+
+	getAnimals() {
+		return this.animalsList.getAll();
 	}
 
 	getBiome() {
@@ -66,9 +65,7 @@ class Cage {
 	}
 
 	isDirty() {
-		return this.cleanlinessBar.getValue() <= this.cleanlinessBar.getAlertValue()
-			? true
-			: false;
+		return this.cleanlinessBar.isAlertingValue();
 	}
 
 	dirtyCageAlert() {
@@ -81,5 +78,27 @@ class Cage {
 
 	noWaterAlert() {
 		console.log(`Cage ${this.getName()} has no water! `);
+	}
+
+	feedAllAnimals(food: Food) {
+		const animalsList = this.getAnimals();
+
+		for (const animal of animalsList) {
+			animal.eat(food);
+		}
+	}
+
+	feedHungryAniamsl(food: Food) {
+		const hungryAnimalsList = this.getAnimalsList().getAnimalsByHungry();
+
+		for (const animal of hungryAnimalsList) {
+			animal.eat(food);
+		}
+	}
+
+	addHappinessAllAnimals() {
+		for (const animal of this.getAnimals()) {
+			animal.reduceHappiness(-1);
+		}
 	}
 }
