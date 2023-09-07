@@ -1,3 +1,5 @@
+import * as AnimalDiet from "./AnimalDiet.js";
+
 class NeedBar {
 	private name: string;
 	private minValue: number;
@@ -87,52 +89,6 @@ class NeedBar {
 	}
 }
 
-enum Diets {
-	Herbivore = 0,
-	Carnivore = 1,
-	Omnivore = 2,
-}
-
-class Food {
-	constructor(public name: string, public diet: Diets) {
-		this.name = name;
-		this.diet = diet;
-	}
-}
-
-const foodList = [
-	new Food("Apple", Diets.Herbivore),
-	new Food("Carrot", Diets.Herbivore),
-	new Food("Meat", Diets.Carnivore),
-	new Food("Fish", Diets.Carnivore),
-	new Food("Dry Food", Diets.Omnivore),
-];
-
-function getFoodFromList(name: string) {
-	return foodList.find((food) => food.name === name);
-}
-
-class AnimalDiet {
-	constructor(public diet: Diets) {
-		this.diet = diet;
-	}
-
-	getName() {
-		return Diets[this.diet];
-	}
-
-	getDietId() {
-		return this.diet;
-	}
-
-	canEat(food: Food) {
-		return this.diet === food.diet ? true : false;
-	}
-}
-
-const dietHerbivore = new AnimalDiet(Diets.Herbivore);
-const dietCarnivore = new AnimalDiet(Diets.Carnivore);
-
 enum Gender {
 	Female = "Female",
 	Male = "Male",
@@ -141,7 +97,7 @@ enum Gender {
 class AnimalType {
 	constructor(
 		private name: string,
-		private animalDiet: AnimalDiet,
+		private animalDiet: AnimalDiet.AnimalDiet,
 		private sound: string,
 		private emoji: string
 	) {
@@ -168,10 +124,12 @@ class AnimalType {
 	}
 
 	isAgressive() {
-		return this.animalDiet.diet === Diets.Herbivore ? false : false;
+		return this.animalDiet.diet === AnimalDiet.Diets.Herbivore ? false : false;
 	}
 }
 
+const dietHerbivore = new AnimalDiet.AnimalDiet(AnimalDiet.Diets.Herbivore);
+const dietCarnivore = new AnimalDiet.AnimalDiet(AnimalDiet.Diets.Carnivore);
 const camel = new AnimalType("Camel", dietHerbivore, "grunt", "🐫");
 const bear = new AnimalType("Bear", dietCarnivore, "growl", "🐻");
 
@@ -250,7 +208,7 @@ class Animal {
 		return !this.isSad();
 	}
 
-	eat(food: Food, amount?: number) {
+	eat(food: AnimalDiet.Food, amount?: number) {
 		if (!this.getType().getDiet().canEat(food)) {
 			this.announce(
 				`can't eat ${food.name}, ${
@@ -493,14 +451,14 @@ function zoo() {
 	const animalA = new Animal(0, "Yulia", Gender.Female, camel);
 	const animalB = new Animal(0, "Vlad", Gender.Male, bear);
 
-	animalA.eat(foodList[2]); // eat meat
+	animalA.eat(AnimalDiet.foodList[2]); // eat meat
 
 	const cage = new Cage("Camels", Biome.dessert);
 	cage.addAnimal(animalA);
 	cage.addAnimal(animalB);
 
 	console.log(cage.getAnimals());
-	cage.feedAllAnimals(foodList[1]);
+	cage.feedAllAnimals(AnimalDiet.foodList[1]);
 }
 
 zoo();
