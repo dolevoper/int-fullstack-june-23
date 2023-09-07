@@ -64,6 +64,10 @@ class NeedBar {
 		return this.value;
 	}
 
+	getAlertValue() {
+		return this.alertValue;
+	}
+
 	getStatus() {
 		return `${this.getName()} is currently ${this.getValue} out of ${
 			this.maxValue
