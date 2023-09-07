@@ -48,11 +48,19 @@ class NeedBar {
 		this.setValue(0);
 	}
 
-	private setAlertValueListener(listener: Function | undefined) {
+	addValue(amount: number) {
+		this.setValue(this.getValue() + amount);
+	}
+
+	reduceValue(amount: number) {
+		this.setValue(this.getValue() - amount);
+	}
+
+	setAlertValueListener(listener: Function | undefined) {
 		if (listener) this.listenerAlertReached = listener;
 	}
 
-	private callAlertListener() {
+	callAlertListener() {
 		this.listenerAlertReached(this.value);
 	}
 
@@ -72,5 +80,9 @@ class NeedBar {
 		return `${this.getName()} is currently ${this.getValue} out of ${
 			this.maxValue
 		}`;
+	}
+
+	isAlertingValue() {
+		return this.getValue() <= this.getAlertValue() ? true : false;
 	}
 }
