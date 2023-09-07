@@ -28,4 +28,32 @@ class Animal {
 	sad() {
 		console.log(`${this.type.getName()} - ${this.name} is sad!`);
 	}
+
+	getName() {
+		return this.name;
+	}
+
+	getGender() {
+		return this.gender;
+	}
+
+	getType() {
+		return this.type;
+	}
+
+	getHungerBar() {
+		return this.hunger;
+	}
+
+	getHydrationBar() {
+		return this.hydration;
+	}
+
+	getHappinessBar() {
+		return this.happiness;
+	}
+
+	toString() {
+		return `${this.getGender()} ${this.getType().getName()} - ${this.getName()}`;
+	}
 }
