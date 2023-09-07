@@ -12,20 +12,27 @@ class Animal {
 		this.gender = gender;
 		this.type = type;
 
-		this.hunger = new NeedBar("hunger", 0, 100, 100, 25, this.hungry);
-		this.hydration = new NeedBar("hydration", 0, 100, 100, 50, this.thirsty);
-		this.happiness = new NeedBar("happiness", 0, 4, 4, 2, this.sad);
+		this.hunger = new NeedBar("hunger", 0, 100, 100, 25, this.hungryAlert);
+		this.hydration = new NeedBar(
+			"hydration",
+			0,
+			100,
+			100,
+			50,
+			this.thirstyAlert
+		);
+		this.happiness = new NeedBar("happiness", 0, 4, 4, 2, this.sadAlert);
 	}
 
-	hungry() {
+	hungryAlert() {
 		console.log(`${this.type.getName()} - ${this.name} is hungry!`);
 	}
 
-	thirsty() {
+	thirstyAlert() {
 		console.log(`${this.type.getName()} - ${this.name} is thirsty!`);
 	}
 
-	sad() {
+	sadAlert() {
 		console.log(`${this.type.getName()} - ${this.name} is sad!`);
 	}
 
