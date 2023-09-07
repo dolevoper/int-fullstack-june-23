@@ -142,11 +142,13 @@ class AnimalType {
 	constructor(
 		private name: string,
 		private animalDiet: AnimalDiet,
-		private sound: string
+		private sound: string,
+		private emoji: string
 	) {
 		this.name = name;
 		this.animalDiet = animalDiet;
 		this.sound = sound;
+		this.emoji = emoji;
 	}
 
 	getName() {
@@ -161,13 +163,17 @@ class AnimalType {
 		return this.sound;
 	}
 
+	getEmoji() {
+		return this.emoji;
+	}
+
 	isAgressive() {
 		return this.animalDiet.diet === Diets.Herbivore ? false : false;
 	}
 }
 
-const camel = new AnimalType("Camel", dietHerbivore, "grunt");
-const bear = new AnimalType("Bear", dietCarnivore, "growl");
+const camel = new AnimalType("Camel", dietHerbivore, "grunt", "🐫");
+const bear = new AnimalType("Bear", dietCarnivore, "growl", "🐻");
 
 class Animal {
 	private birthId: number;
@@ -247,17 +253,19 @@ class Animal {
 	eat(food: Food, amount?: number) {
 		if (!this.getType().getDiet().canEat(food)) {
 			this.announce(
-				` can't eat ${food.name}, ${this.getGender() === Gender.Female ? "s" : ""}he's a ${this.getType().getName()}!`
+				` can't eat ${food.name}, ${
+					this.getGender() === Gender.Female ? "s" : ""
+				}he's a ${this.getType().getName()}!`
 			);
 		} else {
-            if (amount) {
-                this.getHungerBar().addValue(amount);
-                this.announce(` eaten ${amount} ${food.name}!`);
-            } else {
-                this.getHungerBar().setFull();
-                this.announce(` eaten ${food.name}!`);
-            }
-        }
+			if (amount) {
+				this.getHungerBar().addValue(amount);
+				this.announce(` eaten ${amount} ${food.name}!`);
+			} else {
+				this.getHungerBar().setFull();
+				this.announce(` eaten ${food.name}!`);
+			}
+		}
 	}
 
 	drink(amount?: number) {
@@ -295,7 +303,7 @@ class Animal {
 	}
 
 	toString() {
-		return `${this.getGender()} ${this.getType().getName()} - ${this.getName()}`;
+		return `${this.getGender()} ${this.getType().getName()} ${this.getType().getEmoji()} - ${this.getName()}`;
 	}
 
 	hungryAlert() {
@@ -476,7 +484,7 @@ function zoo() {
 	const animalA = new Animal(0, "Yulia", Gender.Female, camel);
 	const animalB = new Animal(0, "Vlad", Gender.Male, bear);
 
-	console.log(animalA.eat(foodList[2]);
+	console.log(animalA.eat(foodList[2]));
 }
 
 zoo();
