@@ -1,9 +1,10 @@
 {
 	"compilerOptions": {
 		"target": "ESNext",
+		"module": "ESNext",
 		"lib": ["ESNext", "DOM"],
 		"strictNullChecks": true,
 		"noImplicitAny": true
 	},
-	"include": ["./*.ts", "Animal/*.ts", "Cage/Cage.ts"]
+	"include": ["./*.ts", "Animal/*.ts", "Cage/*.ts"]
 }
