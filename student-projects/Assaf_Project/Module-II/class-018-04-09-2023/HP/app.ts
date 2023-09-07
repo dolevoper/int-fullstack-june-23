@@ -8,13 +8,42 @@ This app will help you, "Noah", arrange your animals.
       3. Show free rooms
       4. Show animals in room by room number
       5. Add animal to room
-      6. Show problems`;
+      6. Show animal info`;
 
   let userInput = prompt(menuPromptText);
 
   while (userInput !== null) {
     handleUserInput(userInput);
     userInput = prompt(menuPromptText);
+  }
+}
+
+function showAnimalInfo() {
+  const animalChoice = simplePrompt(
+    "Choose an animal to see info:\n" + animalNames.join(", ")
+  );
+
+  const selectedAnimal = animals.find(
+    (animal) => animal.name.toLowerCase() === animalChoice
+  );
+
+  if (selectedAnimal) {
+    alert(`Name: ${selectedAnimal.name}
+Class: ${selectedAnimal.class}
+Order: ${selectedAnimal.order}
+Family: ${selectedAnimal.family}
+Habitats: ${selectedAnimal.habitats.join(", ")}
+
+${
+  selectedAnimal.isHerbivore
+    ? `The ${selectedAnimal.name} is a herbivore. `
+    : `The ${selectedAnimal.name} is a carnivore. `
+}${selectedAnimal.isSexual ? "" : "It is reproducing asexually. "}${
+      selectedAnimal.isTerritorial ? "It is a territorial animal." : ""
+    }
+      `);
+  } else {
+    alert("Invalid animal choice or animal not found.");
   }
 }
 
@@ -48,7 +77,6 @@ function addAnimalToRoom() {
     return;
   }
 
-  // Find the correct room from the 'rooms' array
   const selectedRoom = rooms.find((room) => room.name === `Room ${roomNumber}`);
 
   if (!selectedRoom) {
@@ -65,6 +93,32 @@ function addAnimalToRoom() {
   alert(`${selectedAnimal.name} has been added to ${selectedRoom.name}.`);
   console.log("Updated Selected Room:", selectedRoom);
 }
+
+function showAnimalsInRoom() {
+    const roomNumberInput = simplePrompt("Enter the room number to show animals in (101-110):");
+  
+    const roomNumber = parseInt(roomNumberInput);
+  
+    if (isNaN(roomNumber) || roomNumber < 101 || roomNumber > 110) {
+      alert("Invalid room number.");
+      return;
+    }
+  
+    const selectedRoom = rooms.find((room) => room.name === `Room ${roomNumber}`);
+  
+    if (!selectedRoom) {
+      alert("Room not found.");
+      return;
+    }
+  
+    const animalsInRoom = selectedRoom.contains.map((animal) => animal.name).join(", ");
+  
+    if (animalsInRoom) {
+      alert(`Animals in Room ${roomNumber}:\n${animalsInRoom}`);
+    } else {
+      alert(`Room ${roomNumber} is empty.`);
+    }
+  }
 
 function simplePrompt(message: string) {
   let userInput = prompt(message)?.trim()?.toLowerCase();
@@ -93,13 +147,13 @@ function handleUserInput(userInput: string) {
         : alert("All rooms are occupied.");
       break;
     case "4":
-      pairUp();
+      showAnimalsInRoom();
       break;
     case "5":
       addAnimalToRoom();
       break;
     case "6":
-      conflicts();
+      showAnimalInfo();
       break;
     default:
       alert("Please choose an option from the menu using their numbers.");
@@ -273,7 +327,7 @@ const animals = [
     isInRoom: false,
   },
   {
-    name: "Fire ant",
+    name: "Fire Ant",
     class: "Insecta",
     order: "Hymenoptera",
     family: "Formicidae",
@@ -386,6 +440,5 @@ const rooms = [
 
 const availableRooms = rooms.filter((room) => room.contains.length === 0);
 const occupiedRooms = rooms.filter((room) => room.contains.length > 0);
-
 
 arcApp();
