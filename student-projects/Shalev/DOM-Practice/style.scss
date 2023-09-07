@@ -1,0 +1,24 @@
+.title-container {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	top: 20px;
+
+	&__title {
+		color: white;
+		font-family: 'Poppins', sans-serif;
+		font-size: 2rem;
+	}
+}
+
+.button-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__btn {
+		background: white;
+		color: black;
+		font-size: 2rem;
+	}
+}
