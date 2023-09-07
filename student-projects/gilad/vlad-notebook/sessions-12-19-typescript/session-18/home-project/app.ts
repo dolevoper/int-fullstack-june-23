@@ -134,8 +134,8 @@ const dietHerbivore = new AnimalDiet(Diets.Herbivore);
 const dietCarnivore = new AnimalDiet(Diets.Carnivore);
 
 enum Gender {
-	Female,
-	Male,
+	Female = "Female",
+	Male = "Male",
 }
 
 class AnimalType {
@@ -179,6 +179,7 @@ class Animal {
 	private happiness: NeedBar;
 
 	constructor(id: number, name: string, gender: Gender, type: AnimalType) {
+		this.birthId = id;
 		this.name = name;
 		this.gender = gender;
 		this.type = type;
@@ -224,7 +225,7 @@ class Animal {
 	}
 
 	getSound() {
-		this.getType().getSound();
+		return this.getType().getSound();
 	}
 
 	isHungry() {
@@ -246,17 +247,17 @@ class Animal {
 	eat(food: Food, amount?: number) {
 		if (!this.getType().getDiet().canEat(food)) {
 			this.announce(
-				` can't eat ${food.name}, he's a ${this.getType().getName()}!`
+				` can't eat ${food.name}, ${this.getGender() === Gender.Female ? "s" : ""}he's a ${this.getType().getName()}!`
 			);
-		}
-
-		if (amount) {
-			this.getHungerBar().addValue(amount);
-			this.announce(` eaten ${amount} food!`);
 		} else {
-			this.getHungerBar().setFull();
-			this.announce(` drinked until hydration!`);
-		}
+            if (amount) {
+                this.getHungerBar().addValue(amount);
+                this.announce(` eaten ${amount} ${food.name}!`);
+            } else {
+                this.getHungerBar().setFull();
+                this.announce(` eaten ${food.name}!`);
+            }
+        }
 	}
 
 	drink(amount?: number) {
@@ -290,7 +291,7 @@ class Animal {
 	}
 
 	announce(message: string) {
-		console.log(`${this.toString()} + ${message} ${this.getSound()}`);
+		console.log(`${this.toString()} ${message} ${this.getSound()}`);
 	}
 
 	toString() {
@@ -475,7 +476,7 @@ function zoo() {
 	const animalA = new Animal(0, "Yulia", Gender.Female, camel);
 	const animalB = new Animal(0, "Vlad", Gender.Male, bear);
 
-	console.log(animalA.getName());
+	console.log(animalA.eat(foodList[2]);
 }
 
 zoo();
