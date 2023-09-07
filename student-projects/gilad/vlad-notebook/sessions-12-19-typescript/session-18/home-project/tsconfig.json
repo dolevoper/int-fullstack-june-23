@@ -5,5 +5,5 @@
 		"strictNullChecks": true,
 		"noImplicitAny": true
 	},
-	"include": ["./*.ts"]
+	"include": ["./*.ts", "Animal/*.ts"]
 }
