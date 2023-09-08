@@ -2,7 +2,7 @@ export class GameManager {
 	private daysPassed: number;
 
 	constructor() {
-		this.daysPassed = 0;
+		this.daysPassed = 1;
 	}
 
 	public nextDay() {
@@ -14,5 +14,9 @@ export class GameManager {
 		for (let i = 0; i < daysToSkip; i++) {
 			this.nextDay();
 		}
+	}
+
+	public getCurrentDay() {
+		return this.daysPassed;
 	}
 }
