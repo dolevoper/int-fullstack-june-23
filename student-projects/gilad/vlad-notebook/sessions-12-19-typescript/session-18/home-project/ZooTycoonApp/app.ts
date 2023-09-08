@@ -5,7 +5,7 @@ import { Cage, Biome } from "./Cage.js";
 
 function zoo() {
 	const animalA = new Animal(0, "Yulia", Gender.Female, camel);
-	const animalB = new Animal(0, "Vlad", Gender.Male, bear);
+	const animalB = new Animal(1, "Vlad", Gender.Male, bear);
 
 	animalA.eat(foodList[2]); // eat meat
 
@@ -14,7 +14,10 @@ function zoo() {
 	cage.addAnimal(animalB);
 
 	console.log(cage.getAnimals());
-	cage.feedAllAnimals(foodList[1]);
+	cage.feedAllAnimals(foodList[1]); // feed carrot
+
+	const animalVlad = cage.getAnimalsList().getAnimalByName("Vlad");
+	console.log(animalVlad);
 }
 
 zoo();

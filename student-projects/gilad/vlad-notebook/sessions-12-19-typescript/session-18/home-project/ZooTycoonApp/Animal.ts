@@ -87,10 +87,10 @@ export class Animal {
 		} else {
 			if (amount) {
 				this.getHungerBar().addValue(amount);
-				this.announce(` eaten ${amount} ${food.name}!`);
+				this.announce(`eaten ${amount} ${food.name}!`);
 			} else {
 				this.getHungerBar().setFull();
-				this.announce(` eaten ${food.name}!`);
+				this.announce(`eaten ${food.name}!`);
 			}
 		}
 	}
@@ -130,7 +130,7 @@ export class Animal {
 	}
 
 	toString() {
-		return `${this.getGender()} ${this.getType().getName()} ${this.getType().getEmoji()} - ${this.getName()}`;
+		return `${this.getType().getEmoji()} ${this.getGender()} ${this.getType().getName()} ${this.getName()} -`;
 	}
 
 	hungryAlert() {
@@ -163,14 +163,6 @@ export class AnimalList {
 		return this.animals;
 	}
 
-	getAnimalsByName(name: string) {
-		const animalsByName = this.animals.filter(
-			(animal) => animal.getName() === name
-		);
-
-		return animalsByName;
-	}
-
 	getAnimalsByType(type: AnimalType) {
 		return this.animals.filter((animal) => animal.getType() === type);
 	}
@@ -198,6 +190,10 @@ export class AnimalList {
 	}
 
 	getAnimalByID(id: number) {
-		return this.animals.find((animal) => animal.getBirthID());
+		return this.animals.find((animal) => animal.getBirthID() === id);
+	}
+
+	getAnimalByName(name: string) {
+		return this.animals.find((animal) => animal.getName() === name);
 	}
 }

@@ -91,7 +91,7 @@ export class Cage {
 	}
 
 	feedAllAnimals(food: Food) {
-		console.log("feeding all animals");
+		console.log(`feeding all animals with ${food.name}`);
 		const animalsList = this.getAnimals();
 
 		for (const animal of animalsList) {
