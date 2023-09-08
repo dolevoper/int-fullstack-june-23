@@ -61,7 +61,7 @@ export class NeedBar {
 	}
 
 	callAlertListener() {
-		this.listenerAlertReached(this.value);
+		if (this.listenerAlertReached) this.listenerAlertReached(this.getValue());
 	}
 
 	getName() {

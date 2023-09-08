@@ -1,8 +1,8 @@
 import { Diets, AnimalDiet } from "./AnimalDiet.js";
 
 export enum Gender {
-	Female = "Female",
-	Male = "Male",
+	Female,
+	Male,
 }
 
 export class AnimalType {
