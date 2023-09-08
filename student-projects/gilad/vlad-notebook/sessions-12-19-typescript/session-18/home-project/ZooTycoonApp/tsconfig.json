@@ -6,5 +6,5 @@
 		"strictNullChecks": true,
 		"noImplicitAny": true
 	},
-	"include": ["./ZooTycoonApp/*.ts"]
+	"include": ["./*.ts"]
 }
