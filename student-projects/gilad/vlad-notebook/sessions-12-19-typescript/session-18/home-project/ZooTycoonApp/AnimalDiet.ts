@@ -9,6 +9,10 @@ export class Food {
 		this.name = name;
 		this.diet = diet;
 	}
+
+	toString(): string {
+		return `${this.name}`;
+	}
 }
 
 export const foodList = [
