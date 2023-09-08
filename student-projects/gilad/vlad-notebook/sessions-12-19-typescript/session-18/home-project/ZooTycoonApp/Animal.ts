@@ -17,16 +17,30 @@ export class Animal {
 		this.gender = gender;
 		this.type = type;
 
-		this.hunger = new NeedBar("hunger", 0, 100, 100, 25, this.hungryAlert);
+		this.hunger = new NeedBar(
+			"hunger",
+			0,
+			100,
+			100,
+			25,
+			this.hungryAlert.bind(this)
+		);
 		this.hydration = new NeedBar(
 			"hydration",
 			0,
 			100,
 			100,
 			50,
-			this.thirstyAlert
+			this.thirstyAlert.bind(this)
 		);
-		this.happiness = new NeedBar("happiness", 0, 4, 4, 2, this.sadAlert);
+		this.happiness = new NeedBar(
+			"happiness",
+			0,
+			4,
+			4,
+			2,
+			this.sadAlert.bind(this)
+		);
 	}
 
 	getBirthID() {
@@ -37,6 +51,10 @@ export class Animal {
 		return this.name;
 	}
 
+	// REMOVE!!!!
+	setName(name: string) {
+		this.name = name;
+	}
 	getGender() {
 		return this.gender;
 	}
@@ -130,15 +148,15 @@ export class Animal {
 	}
 
 	hungryAlert() {
-		console.log(`${this.type.getName()} - ${this.name} is hungry!`);
+		this.announce("is hungry!");
 	}
 
 	thirstyAlert() {
-		console.log(`${this.type.getName()} - ${this.name} is thirsty!`);
+		this.announce("is thirsty!");
 	}
 
 	sadAlert() {
-		console.log(`${this.type.getName()} - ${this.name} is sad!`);
+		this.announce("is sad!");
 	}
 
 	toString() {
