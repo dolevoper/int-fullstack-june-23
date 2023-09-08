@@ -1,6 +1,7 @@
 import { Food } from "./AnimalDiet.js";
 import { NeedBar } from "./NeedBar.js";
-import { Animal, AnimalList } from "./Animal.js";
+import { Animal } from "./Animal.js";
+import { AnimalList } from "./AnimalList.js";
 
 export enum Biome {
 	grassland,
@@ -91,27 +92,40 @@ export class Cage {
 	}
 
 	feedAllAnimals(food: Food) {
-		console.log(`feeding all animals with ${food.name}`);
-		const animalsList = this.getAnimals();
-
-		for (const animal of animalsList) {
-			animal.eat(food);
-		}
+		this.announce(`Feeding all animals with ${food.name}`);
+		this.getAnimalsList().feedAllAnimals(food);
 	}
 
-	feedHungryAniamsl(food: Food) {
-		console.log("feeding all hungry animals");
+	feedHungryAnimals(food: Food) {
+		this.announce(`Feeding HUNGRY animals with ${food.name}`);
+		this.getAnimalsList().feedHungryAnimals(food);
+	}
 
-		const hungryAnimalsList = this.getAnimalsList().getAnimalsByHungry();
+	waterAllAnimals() {
+		this.announce(`Watering all animals`);
+		this.getAnimalsList().waterAllAnimals();
+	}
 
-		for (const animal of hungryAnimalsList) {
-			animal.eat(food);
-		}
+	waterThirstyAnimals() {
+		this.announce(`Watering THIRSTY animals`);
+		this.getAnimalsList().waterThirstyAnimals();
 	}
 
 	addHappinessToAllAnimals() {
 		for (const animal of this.getAnimals()) {
 			animal.reduceHappiness(-1);
 		}
+	}
+
+	announce(message: string) {
+		console.log(`${this.toString()} | ${message}`);
+	}
+
+	containingAnimalsToString() {
+		return `${this.toString()} - ${this.getAnimalsList().toString()}`;
+	}
+
+	toString() {
+		return `Cage ${this.getName()}`;
 	}
 }
