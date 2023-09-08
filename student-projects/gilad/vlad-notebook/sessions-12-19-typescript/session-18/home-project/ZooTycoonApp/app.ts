@@ -3,21 +3,21 @@ import { Gender, camel, bear } from "./AnimalType.js";
 import { Animal } from "./Animal.js";
 import { Cage, Biome } from "./Cage.js";
 
+import { GameManager } from "./GameManager.js";
+
 function zoo() {
-	const animalA = new Animal(0, "Yulia", Gender.Female, camel);
-	const animalB = new Animal(1, "Vlad", Gender.Male, bear);
+	const exitKey = null;
+	let userInput = "";
 
-	animalA.eat(foodList[2]); // eat meat
+	const gameManager = new GameManager();
 
-	const cage = new Cage("Camels", Biome.dessert);
-	cage.addAnimal(animalA);
-	cage.addAnimal(animalB);
+	while (userInput !== exitKey) {
+		userInput = prompt("How much days to skip?") as string;
+		console.log(userInput);
 
-	console.log(cage.getAnimals());
-	cage.feedAllAnimals(foodList[1]); // feed carrot
-
-	const animalVlad = cage.getAnimalsList().getAnimalByName("Vlad");
-	console.log(animalVlad);
+		gameManager.skipDays(Number(userInput));
+	}
+	console.log("Exiting Zoo Tycoon");
 }
 
 zoo();
