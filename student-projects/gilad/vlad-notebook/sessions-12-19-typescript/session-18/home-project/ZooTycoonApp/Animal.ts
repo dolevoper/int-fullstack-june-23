@@ -129,10 +129,6 @@ export class Animal {
 		console.log(`${this.toString()} ${message} ${this.getSound()}`);
 	}
 
-	toString() {
-		return `${this.getType().getEmoji()} ${this.getGender()} ${this.getType().getName()} ${this.getName()} -`;
-	}
-
 	hungryAlert() {
 		console.log(`${this.type.getName()} - ${this.name} is hungry!`);
 	}
@@ -144,56 +140,8 @@ export class Animal {
 	sadAlert() {
 		console.log(`${this.type.getName()} - ${this.name} is sad!`);
 	}
-}
 
-export class AnimalList {
-	private name: string;
-	private animals: Animal[];
-
-	constructor() {
-		this.animals = [];
-	}
-
-	add(animal: Animal) {
-		if (animal) this.animals.push(animal);
-		console.log(`${animal.toString()} added to the list`);
-	}
-
-	getAll() {
-		return this.animals;
-	}
-
-	getAnimalsByType(type: AnimalType) {
-		return this.animals.filter((animal) => animal.getType() === type);
-	}
-
-	getAnimalsByTypeName(typeName: string) {
-		return this.animals.filter(
-			(animal) => animal.getType().getName() === typeName
-		);
-	}
-
-	getAnimalsByHungry() {
-		return this.animals.filter((animal) => animal.isHungry());
-	}
-
-	getAnimalsByThirsty() {
-		return this.animals.filter((animal) => animal.isThirsty());
-	}
-
-	getAnimalsBySad() {
-		return this.animals.filter((animal) => animal.isSad());
-	}
-
-	getAnimalsByHappy() {
-		return this.animals.filter((animal) => animal.isHappy());
-	}
-
-	getAnimalByID(id: number) {
-		return this.animals.find((animal) => animal.getBirthID() === id);
-	}
-
-	getAnimalByName(name: string) {
-		return this.animals.find((animal) => animal.getName() === name);
+	toString() {
+		return `${this.getType().getEmoji()} ${this.getGender()} ${this.getType().getName()} ${this.getName()}`;
 	}
 }
