@@ -15,6 +15,10 @@ export class List<T extends Object> extends Array<T> {
 		if (item) this.push(item);
 	}
 
+	remove(item: T) {
+		if (item) this.remove(item);
+	}
+
 	getAllByPropertyValue(
 		property: string,
 		value: any,

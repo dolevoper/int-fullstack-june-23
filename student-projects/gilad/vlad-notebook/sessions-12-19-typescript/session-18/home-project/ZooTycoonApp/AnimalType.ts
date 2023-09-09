@@ -41,5 +41,8 @@ export class AnimalType {
 
 export const dietHerbivore = new AnimalDiet(Diets.Herbivore);
 export const dietCarnivore = new AnimalDiet(Diets.Carnivore);
+export const dietOmnivore = new AnimalDiet(Diets.Omnivore);
+
 export const camel = new AnimalType("Camel", dietHerbivore, "grunt", "🐫");
 export const bear = new AnimalType("Bear", dietCarnivore, "growl", "🐻");
+export const human = new AnimalType("Human", dietOmnivore, "hello", "🧑");

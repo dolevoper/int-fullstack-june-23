@@ -8,7 +8,7 @@ export class AnimalList extends List<Animal> {
 		super(name);
 	}
 
-	getByAnimalType(type: AnimalType) {
+	getAnimalsByType(type: AnimalType) {
 		return this.filter((animal) => animal.getType() === type) as AnimalList;
 	}
 
@@ -34,7 +34,7 @@ export class AnimalList extends List<Animal> {
 		return this.filter((animal) => animal.isHappy()) as AnimalList;
 	}
 
-	getAnimalByID(id: number) {
+	getAnimalByBirthID(id: number) {
 		return this.find((animal) => animal.getBirthID() === id);
 	}
 
@@ -69,6 +69,21 @@ export class AnimalList extends List<Animal> {
 
 	waterThirstyAnimals() {
 		this.forEach((animal) => (animal.isThirsty() ? animal.drink() : false));
+	}
+
+	makeHappyAll() {
+		this.forEach((animal) => animal.makeHappy());
+	}
+	makeSadAll() {
+		this.forEach((animal) => animal.makeSad());
+	}
+
+	addHappinessAll(amount: number) {
+		this.forEach((animal) => animal.addHappiness(amount));
+	}
+
+	reduceHappinessAll(amount: number) {
+		this.forEach((animal) => animal.reduceHappiness(amount));
 	}
 
 	toString() {

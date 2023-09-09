@@ -41,7 +41,7 @@ export class AnimalDiet {
 	}
 
 	canEat(food: Food) {
-		console.log("Can I eat " + food);
+		if (this.getDiet() === Diets.Omnivore) return true;
 		return this.diet === food.diet ? true : false;
 	}
 }

@@ -2,9 +2,9 @@ export class NeedBar {
 	private name: string;
 	private minValue: number;
 	private maxValue: number;
-	private value: number;
+	private value!: number;
 	private alertValue: number;
-	private listenerAlertReached: Function;
+	private listenerAlertReached!: Function;
 
 	constructor(
 		name: string,
@@ -37,7 +37,14 @@ export class NeedBar {
 
 	setValue(amount: number) {
 		this.value = this.normalizeBarValue(amount);
-		if (this.value <= this.alertValue) this.callAlertListener();
+		if (this.isAlertingValue()) this.callAlertListener();
+	}
+
+	setAlertValue(amount: number) {
+		if (amount < this.getValue() || amount > this.getValue()) return;
+
+		this.alertValue = amount;
+		if (this.isAlertingValue()) this.callAlertListener();
 	}
 
 	setFull() {
@@ -74,6 +81,14 @@ export class NeedBar {
 
 	getAlertValue() {
 		return this.alertValue;
+	}
+
+	isFull() {
+		return this.getValue() === this.maxValue;
+	}
+
+	isEmpty() {
+		return this.getValue() === this.minValue;
 	}
 
 	getStatus() {

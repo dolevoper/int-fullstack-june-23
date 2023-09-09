@@ -2,6 +2,7 @@ import { Food } from "./AnimalDiet.js";
 import { NeedBar } from "./NeedBar.js";
 import { Animal } from "./Animal.js";
 import { AnimalList } from "./AnimalList.js";
+import { GameObject } from "./GameObjectInterface.js";
 
 export enum Biome {
 	grassland,
@@ -11,11 +12,11 @@ export enum Biome {
 	forest,
 }
 
-export class Cage {
+export class Cage implements GameObject {
 	private name: string;
 	private animalsList: AnimalList;
 
-	private biome: Biome;
+	private biome!: Biome;
 
 	private cleanlinessBar: NeedBar;
 	private foodBar: NeedBar;
@@ -24,7 +25,7 @@ export class Cage {
 	constructor(name: string, startBiome?: Biome) {
 		this.name = name;
 
-		this.setBiome(startBiome !== undefined ? startBiome : Biome.grassland);
+		this.setBiome(startBiome ? startBiome : Biome.grassland);
 		this.cleanlinessBar = new NeedBar(
 			"cleanliness",
 			0,
@@ -51,12 +52,8 @@ export class Cage {
 		return this.name;
 	}
 
-	getAnimalsList() {
-		return this.animalsList;
-	}
-
 	getAnimals() {
-		return this.animalsList.getAll();
+		return this.animalsList;
 	}
 
 	getBiome() {
@@ -93,28 +90,33 @@ export class Cage {
 
 	feedAllAnimals(food: Food) {
 		this.announce(`Feeding all animals with ${food.name}`);
-		this.getAnimalsList().feedAllAnimals(food);
+		this.getAnimals().feedAllAnimals(food);
 	}
 
 	feedHungryAnimals(food: Food) {
 		this.announce(`Feeding HUNGRY animals with ${food.name}`);
-		this.getAnimalsList().feedHungryAnimals(food);
+		this.getAnimals().feedHungryAnimals(food);
 	}
 
 	waterAllAnimals() {
 		this.announce(`Watering all animals`);
-		this.getAnimalsList().waterAllAnimals();
+		this.getAnimals().waterAllAnimals();
 	}
 
 	waterThirstyAnimals() {
 		this.announce(`Watering THIRSTY animals`);
-		this.getAnimalsList().waterThirstyAnimals();
+		this.getAnimals().waterThirstyAnimals();
 	}
 
+	makeAllAnimalsSad() {
+		this.getAnimals().makeSadAll();
+	}
 	addHappinessToAllAnimals() {
-		for (const animal of this.getAnimals()) {
-			animal.reduceHappiness(-1);
-		}
+		this.getAnimals().addHappinessAll(1);
+	}
+
+	redceHappinessToAllAnimals() {
+		this.getAnimals().reduceHappinessAll(1);
 	}
 
 	announce(message: string) {
@@ -122,10 +124,14 @@ export class Cage {
 	}
 
 	containingAnimalsToString() {
-		return `${this.toString()} - ${this.getAnimalsList().toString()}`;
+		return `${this.toString()} - ${this.getAnimals().toString()}`;
 	}
 
 	toString() {
 		return `Cage ${this.getName()}`;
+	}
+
+	onDayPassed(): undefined {
+		this.getCleanlinessBar().reduceValue(-1);
 	}
 }
