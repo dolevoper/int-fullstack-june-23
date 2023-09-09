@@ -3,19 +3,214 @@
 
 .wrapper {
     height: 100%;
-    background-color: defaults.$color-zoo-background;
+    background-color: defaults.$color-ui-stroke;
 
     display: flex;
     flex-direction: column;
+
+    position: relative;
 }
 
 .zoo {
-    flex: 1;
+    --zoo-border: 0.5rem;
     background-color: defaults.$color-zoo-background;
+
+    position: absolute;
+    top: var(--zoo-border);
+    left: var(--zoo-border);
+    right: var(--zoo-border);
+    bottom: var(--zoo-border);
 }
 
-.objects-menu {
-    height: 10rem;
-    background-color: defaults.$color-zoo-mud;
-    border: solid 8px defaults.$color-zoo-mud-dark;
+.game-menu {
+    padding: 1rem;
+
+    display: flex;
+    gap: 1rem;
+    align-items: end;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+
+.ui-menu {
+    flex: 1;
+
+    overflow-y: hidden;
+    overflow-x: auto;
+
+    height: 11rem;
+
+    background-color: defaults.$color-ui-menu-fg;
+    border-bottom: solid 12px defaults.$color-ui-menu-bg;
+    border-radius: 5rem;
+    padding: 1rem;
+
+    &__list {
+
+        width: 90%;
+        height: 100%;
+
+        padding: 0.1rem;
+        margin-top: 0.25rem;
+        margin-inline: auto;
+
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 1rem;
+
+        border-radius: 0.5rem;
+
+        overflow-y: hidden;
+        overflow-x: overlay;
+        list-style: none;
+
+        &::-webkit-scrollbar {
+            width: 2em;
+            height: 0.5rem;
+            background-color: defaults.$color-ui-menu-bg;
+            border: solid 2px defaults.$color-ui-menu-fg;
+            border-radius: 1rem;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: defaults.$color-ui-button-fg;
+            border: solid 2px transparent;
+            border-radius: 1rem;
+        }
+    }
+
+    &__item {
+        flex-shrink: 0;
+        flex-basis: 8rem;
+
+        border-radius: 0.5rem;
+        margin-bottom: 0.25rem;
+
+        background-color: defaults.$color-ui-item-bg;
+
+        &:hover {
+            scale: 105%;
+        }
+    }
+}
+
+.object-card {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    &__info {
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        justify-content: center;
+        padding: 0.25rem;
+        gap: 1rem;
+    }
+
+    &__title {
+        font-size: 1.25rem;
+        font-stretch: ultra-expanded;
+    }
+
+    &__info-icon {
+        width: 2rem;
+        height: 2rem;
+        margin-inline: 0.2rem;
+        background-size: contain;
+
+        &--herbivore {
+            background: url("/assets/menu/icons/diets/diet-herbivore.svg") no-repeat center center;
+        }
+
+        &--carnivore {
+            background: url("/assets/menu/icons/diets/diet-carnivore.svg") no-repeat center center;
+        }
+
+        &--omnivore {
+            background: url("/assets/menu/icons/diets/diet-omnivore.svg") no-repeat center center;
+        }
+
+        &--fishivore {
+            background: url("/assets/menu/icons/diets/diet-fishivore.svg") no-repeat center center;
+        }
+    }
+
+    &__img {
+        margin-inline: auto;
+        flex: 1;
+        max-height: 60%;
+        background-image: radial-gradient(circle, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1), transparent, transparent);
+    }
+}
+
+.ui-button {
+    --button-size: 10rem;
+    --border-multiplier: 6;
+    --border-size: calc(var(--button-size) / var(--border-multiplier));
+    --outline-size: calc(var(--button-size) / 18);
+
+    width: var(--button-size);
+    height: var(--button-size);
+    padding: calc(var(--button-size) / 6);
+
+    background-color: defaults.$color-ui-button-fg;
+    border-bottom: solid var(--border-size) defaults.$color-ui-button-bg;
+    border-radius: var(--button-size);
+
+    outline: solid var(--outline-size) defaults.$color-ui-stroke;
+    outline-offset: calc(0rem - var(--outline-size)*1);
+    margin-top: 1rem;
+    margin-inline: auto;
+
+    &:hover {
+        scale: 105%;
+    }
+
+    &:active {
+        --border-multiplier: 8;
+    }
+
+    &__icon {
+        margin-top: calc(var(--button-size) / 15);
+        height: 100%;
+        background: url("/assets/menu/icons/paws.svg") no-repeat center center;
+        background-size: contain;
+
+        &--animals {
+            margin-top: 0;
+            background: url("/assets/animals/rhino.svg") no-repeat center center;
+            background-size: contain;
+        }
+
+        &--cages {
+            margin-top: 0;
+            background: url("/assets/menu/icons/cage.svg") no-repeat center center;
+            background-size: contain;
+        }
+    }
+
+    &--medium {
+        --button-size: 8rem
+    }
+
+    &--small {
+        --button-size: 6rem
+    }
+
+    &--very-small {
+        --button-size: 4rem
+    }
+}
+
+
+.expanding-menu {
+    margin-bottom: 0.5rem;
+
 }
