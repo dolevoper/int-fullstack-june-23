@@ -16,7 +16,10 @@ export class List<T extends Object> extends Array<T> {
 	}
 
 	remove(item: T) {
-		if (item) this.remove(item);
+		const targetIndex = this.findIndex((element) => element === item);
+		if (targetIndex !== -1) {
+			this.splice(targetIndex, 1);
+		}
 	}
 
 	getAllByPropertyValue(
