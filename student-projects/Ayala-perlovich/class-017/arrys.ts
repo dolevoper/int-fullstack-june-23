@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // reduce -סריקה על המערך 
 
 const arr = [2, 5, 7, 20, 30, 40, 44, 21, 27];
@@ -6,7 +5,6 @@ function sum(a, b){
     return a+b;
 
 }
-=======
 //  1 reduce -סריקה על המערך 
 
 const arr = [2, 5, 7, 20, 30, 40, 44, 21, 27];
@@ -15,29 +13,23 @@ const arr = [2, 5, 7, 20, 30, 40, 44, 21, 27];
 
 // }
 
->>>>>>> ayala/Hp/class-017
 
 function sum(a, b){
     return a*b;
 }
 
-<<<<<<< HEAD
 function sum(a, b){
     return a > b ? a:b;
 }
-=======
 // function sum(a, b){
 //     return a > b ? a:b;
 // }
->>>>>>> ayala/Hp/class-017
 
 const asum = arr.reduce(sum);
 alert(asum);
 
 //************************************ */
 // (1 Median
-<<<<<<< HEAD
-=======
 //I)
 function Median(arr){
     const Mid = Math.floor(arr.length / 2);
@@ -140,4 +132,3 @@ function medianWithOneLoop(arr) {
 const numbers = [5, 2, 9, 1, 5, 6];
 const medianResult = medianWithOneLoop(numbers);
 alert("Median calculated with a for loop:" + medianResult);  
->>>>>>> ayala/Hp/class-017
