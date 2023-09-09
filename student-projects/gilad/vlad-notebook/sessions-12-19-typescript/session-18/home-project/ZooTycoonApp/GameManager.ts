@@ -13,6 +13,7 @@ export class GameManager {
 	public nextDay() {
 		this.daysPassed++;
 		alert(`Another day passed, current day: ${this.daysPassed}`);
+		this.gameObjects.forEach((gameObject) => gameObject.onDayPassed());
 	}
 
 	public skipDays(daysToSkip: number) {
