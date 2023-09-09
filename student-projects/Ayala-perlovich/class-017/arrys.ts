@@ -101,7 +101,7 @@ alert("Median of filtered numbers: " + medianOfFiltered);
 // const medianOfMapped = median(mappedNumbers);
 // alert("Median of mapped numbers: " + medianOfMapped); 
 
-//version 2 
+//version 2 ********
 
 function medianWithOneLoop(arr) {
     for (let i = 0; i < arr.length - 1; i++) {
