@@ -36,11 +36,12 @@ export class AnimalDiet {
 		return Diets[this.diet];
 	}
 
-	getDietId() {
+	getDiet() {
 		return this.diet;
 	}
 
 	canEat(food: Food) {
+		console.log("Can I eat " + food);
 		return this.diet === food.diet ? true : false;
 	}
 }

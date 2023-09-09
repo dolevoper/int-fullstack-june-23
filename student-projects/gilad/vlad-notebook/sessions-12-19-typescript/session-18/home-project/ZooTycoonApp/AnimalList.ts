@@ -1,92 +1,80 @@
 import { Food } from "./AnimalDiet.js";
 import { AnimalType } from "./AnimalType.js";
 import { Animal } from "./Animal.js";
+import { List } from "./List.js";
 
-export class AnimalList {
-	private name: string;
-	private animals: Animal[];
-
-	constructor() {
-		this.animals = [];
+export class AnimalList extends List<Animal> {
+	constructor(name?: string) {
+		super(name);
 	}
 
-	add(animal: Animal) {
-		if (animal) this.animals.push(animal);
-		console.log(`${animal.toString()} added to the list`);
+	getByAnimalType(type: AnimalType) {
+		return this.filter((animal) => animal.getType() === type) as AnimalList;
 	}
 
-	getAll() {
-		return this.animals;
-	}
-
-	getAnimalsByType(type: AnimalType) {
-		return this.animals.filter((animal) => animal.getType() === type);
-	}
-
-	getAnimalsByTypeName(typeName: string) {
-		return this.animals.filter(
+	getByTypeName(typeName: string) {
+		return this.filter(
 			(animal) => animal.getType().getName() === typeName
-		);
+		) as AnimalList;
 	}
 
 	getAnimalsByHungry() {
-		return this.animals.filter((animal) => animal.isHungry());
+		return this.filter((animal) => animal.isHungry()) as AnimalList;
 	}
 
 	getAnimalsByThirsty() {
-		return this.animals.filter((animal) => animal.isThirsty());
+		return this.filter((animal) => animal.isThirsty()) as AnimalList;
 	}
 
 	getAnimalsBySad() {
-		return this.animals.filter((animal) => animal.isSad());
+		return this.filter((animal) => animal.isSad()) as AnimalList;
 	}
 
 	getAnimalsByHappy() {
-		return this.animals.filter((animal) => animal.isHappy());
+		return this.filter((animal) => animal.isHappy()) as AnimalList;
 	}
 
 	getAnimalByID(id: number) {
-		return this.animals.find((animal) => animal.getBirthID() === id);
+		return this.find((animal) => animal.getBirthID() === id);
 	}
 
 	getAnimalByName(name: string) {
-		return this.animals.find((animal) => animal.getName() === name);
+		return this.find((animal) => animal.getName() === name);
+	}
+
+	feedAllAnimalsWithResults(food: Food) {
+		return this.callMethodAll(
+			"eat",
+			`${this.getName()} feeded with ${food.name}`,
+			food
+		);
 	}
 
 	feedAllAnimals(food: Food) {
-		console.log(`feeding all animals with ${food.name}`);
-		for (const animal of this.getAll()) {
-			animal.eat(food);
-		}
+		this.forEach((animal) => animal.eat(food));
 	}
 
 	feedHungryAnimals(food: Food) {
 		console.log(`feeding all HUNGRY animals with ${food.name}`);
+		this.forEach((animal) => (animal.isHungry() ? animal.eat(food) : false));
+	}
 
-		for (const animal of this.getAll()) {
-			if (animal.isHungry()) animal.eat(food);
-		}
+	waterAllAnimalsWithResults() {
+		return this.callMethodAll("drink", `watered ${this.getName()}`);
 	}
 
 	waterAllAnimals() {
-		console.log(`Watering all animals`);
-		for (const animal of this.getAll()) {
-			animal.drink();
-		}
+		this.forEach((animal) => animal.drink());
 	}
 
 	waterThirstyAnimals() {
-		console.log(`Watering THIRSTY animals`);
-
-		for (const animal of this.getAll()) {
-			if (animal.isThirsty()) animal.drink();
-		}
+		this.forEach((animal) => (animal.isThirsty() ? animal.drink() : false));
 	}
 
 	toString() {
 		let animalsDescriptionList: string = "";
 
-		for (const animal of this.getAll()) {
+		for (const animal of this) {
 			animalsDescriptionList += `\n ${animal.toString()}`;
 		}
 

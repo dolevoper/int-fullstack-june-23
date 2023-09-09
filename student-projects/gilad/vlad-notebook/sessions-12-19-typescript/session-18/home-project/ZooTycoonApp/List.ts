@@ -1,8 +1,8 @@
 export class List<T extends Object> extends Array<T> {
 	private name: string;
 
-	constructor(name?: string) {
-		super();
+	constructor(name?: string, ...items: T[]) {
+		super(...items);
 
 		this.name = name ? name : "";
 	}
@@ -13,7 +13,6 @@ export class List<T extends Object> extends Array<T> {
 
 	add(item: T) {
 		if (item) this.push(item);
-		// console.log(`${item.toString()} added to list ${this.getName()}`);
 	}
 
 	getAllByPropertyValue(

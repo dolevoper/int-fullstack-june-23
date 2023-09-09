@@ -51,10 +51,6 @@ export class Animal {
 		return this.name;
 	}
 
-	// REMOVE!!!!
-	setName(name: string) {
-		this.name = name;
-	}
 	getGender() {
 		return this.gender;
 	}
@@ -95,20 +91,23 @@ export class Animal {
 		return !this.isSad();
 	}
 
-	eat(food: Food, amount?: number) {
+	eat(food: Food, amount?: number): Boolean {
 		if (!this.getType().getDiet().canEat(food)) {
 			this.announce(
 				`can't eat ${food.name}, ${
 					this.getGender() === Gender.Female ? "s" : ""
 				}he's a ${this.getType().getName()}!`
 			);
+			return false;
 		} else {
 			if (amount) {
 				this.getHungerBar().addValue(amount);
 				this.announce(`eaten ${amount} ${food.name}!`);
+				return true;
 			} else {
 				this.getHungerBar().setFull();
 				this.announce(`eaten ${food.name}!`);
+				return true;
 			}
 		}
 	}
