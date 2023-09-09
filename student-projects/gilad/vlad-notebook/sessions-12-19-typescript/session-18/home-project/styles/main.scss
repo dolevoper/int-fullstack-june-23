@@ -1,0 +1,21 @@
+@use 'reset';
+@use 'defaults'as defaults;
+
+.wrapper {
+    height: 100%;
+    background-color: defaults.$color-zoo-background;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.zoo {
+    flex: 1;
+    background-color: defaults.$color-zoo-background;
+}
+
+.objects-menu {
+    height: 10rem;
+    background-color: defaults.$color-zoo-mud;
+    border: solid 8px defaults.$color-zoo-mud-dark;
+}
