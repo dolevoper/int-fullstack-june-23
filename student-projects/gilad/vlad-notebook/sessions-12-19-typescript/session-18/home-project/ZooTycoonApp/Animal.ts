@@ -21,17 +21,17 @@ export class Animal implements GameObject {
 		this.hunger = new NeedBar(
 			"hunger",
 			0,
-			100,
-			100,
-			25,
+			3,
+			3,
+			1,
 			this.hungryAlert.bind(this)
 		);
 		this.hydration = new NeedBar(
 			"hydration",
 			0,
-			100,
-			100,
-			50,
+			3,
+			3,
+			2,
 			this.thirstyAlert.bind(this)
 		);
 		this.happiness = new NeedBar(
@@ -191,7 +191,8 @@ export class Animal implements GameObject {
 	getGenderPerfix(): string {
 		return `${this.getGender() === Gender.Female ? "s" : ""}he's`;
 	}
-	onDayPassed(): undefined {
+	onDayPassed() {
+		this.announce("starts a new day!");
 		this.getHungerBar().reduceValue(1);
 		this.getHydrationBar().reduceValue(1);
 
@@ -201,6 +202,6 @@ export class Animal implements GameObject {
 		const isSatisfiedThirst = this.drinkIfThirsty();
 
 		if (!isSatisfiedHunger || isSatisfiedThirst)
-			this.getHappinessBar().reduceValue(-1);
+			this.getHappinessBar().reduceValue(1);
 	}
 }

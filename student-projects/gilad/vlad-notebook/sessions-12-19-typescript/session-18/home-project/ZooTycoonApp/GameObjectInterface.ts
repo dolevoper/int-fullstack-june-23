@@ -1,3 +1,4 @@
 export interface GameObject {
-	onDayPassed(): undefined;
+	onDayPassed(): void;
+	announce(message: string): void;
 }

@@ -19,8 +19,8 @@ export class Cage implements GameObject {
 	private biome!: Biome;
 
 	private cleanlinessBar: NeedBar;
-	private foodBar: NeedBar;
-	private waterBar: NeedBar;
+	private foodTray: NeedBar;
+	private waterTray: NeedBar;
 
 	constructor(name: string, startBiome?: Biome) {
 		this.name = name;
@@ -34,8 +34,8 @@ export class Cage implements GameObject {
 			1,
 			this.dirtyCageAlert
 		);
-		this.foodBar = new NeedBar("food tray", 0, 4, 5, 0, this.noFoodAlert);
-		this.waterBar = new NeedBar("water tray", 0, 4, 5, 0, this.noWaterAlert);
+		this.foodTray = new NeedBar("food tray", 0, 4, 5, 0, this.noFoodAlert);
+		this.waterTray = new NeedBar("water tray", 0, 4, 5, 0, this.noWaterAlert);
 
 		this.animalsList = new AnimalList();
 	}
@@ -65,11 +65,11 @@ export class Cage implements GameObject {
 	}
 
 	getFoodBar() {
-		return this.foodBar;
+		return this.foodTray;
 	}
 
 	getWaterBar() {
-		return this.waterBar;
+		return this.waterTray;
 	}
 
 	isDirty() {
@@ -132,6 +132,7 @@ export class Cage implements GameObject {
 	}
 
 	onDayPassed(): undefined {
-		this.getCleanlinessBar().reduceValue(-1);
+		this.announce("cleanliness reduced by 1");
+		this.getCleanlinessBar().reduceValue(1);
 	}
 }
