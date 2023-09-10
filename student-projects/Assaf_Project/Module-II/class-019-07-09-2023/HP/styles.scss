@@ -1,0 +1,44 @@
+:root {
+    --main-object-size: 150px;
+    --sky-color: skyblue;
+    --sea-color: darkblue;
+}
+
+.sky {
+    background-color: var(--sky-color);
+    position: relative;
+}
+
+.sea {
+    background-color: var(--sea-color);
+    position: relative;
+
+}
+
+.wave {
+    position: relative;
+    // transform: translateX(50px);
+    animation: waves 7s ease-in infinite forwards;
+    top: 50vh;
+
+    &::before {
+        content: "";
+        background-color: var(--sea-color);
+        height: var(--main-object-size);
+        position: absolute;
+        aspect-ratio: 5/3;
+        bottom: 100%;
+        border-radius: 50%;
+    }
+
+    &::after {
+        content: "";
+        background-color: var(--sky-color);
+        height: calc(var(--main-object-size)*.8);
+        position: absolute;
+        aspect-ratio: 5/3;
+        bottom: 54%;
+        left: -70px;
+        border-radius: 50%;
+    }
+}

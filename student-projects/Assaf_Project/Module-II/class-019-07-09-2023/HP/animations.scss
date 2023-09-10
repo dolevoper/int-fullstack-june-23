@@ -1,0 +1,10 @@
+@keyframes waves {
+	0% {
+		left: 110vw;
+        transform: translateY(40px);
+	}
+
+	100% {
+		left: -50vw;
+	}
+}
