@@ -7,9 +7,9 @@ import { GameObject } from "./GameObjectInterface.js";
 export enum Biome {
 	grassland,
 	dessert,
-	antartica,
-	jungle,
+	tundra,
 	forest,
+	mudland,
 }
 
 export class Cage implements GameObject {
