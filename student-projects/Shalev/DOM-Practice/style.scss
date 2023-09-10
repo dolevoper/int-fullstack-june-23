@@ -11,7 +11,7 @@
 	}
 }
 
-.button-container {
+.button-container-red {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -20,5 +20,37 @@
 		background: white;
 		color: black;
 		font-size: 2rem;
+		width: 100px;
+		height: 80px;
+		border-radius: 15px;
+	}
+}
+
+.button-container-white {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__btn {
+		background: white;
+		color: black;
+		font-size: 2rem;
+		width: 100px;
+		height: 80px;
+		border-radius: 15px;
+	}
+}
+.button-container-new {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__btn {
+		background: white;
+		color: black;
+		font-size: 2rem;
+		width: 100px;
+		height: 80px;
+		border-radius: 15px;
 	}
 }
