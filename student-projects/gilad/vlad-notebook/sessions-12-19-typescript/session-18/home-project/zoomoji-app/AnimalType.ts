@@ -1,4 +1,5 @@
 import { Diets, AnimalDiet } from "./AnimalDiet.js";
+import { List } from "./List.js";
 
 export enum Gender {
 	Female,
@@ -42,9 +43,46 @@ export class AnimalType {
 export const dietHerbivore = new AnimalDiet(Diets.Herbivore);
 export const dietCarnivore = new AnimalDiet(Diets.Carnivore);
 export const dietOmnivore = new AnimalDiet(Diets.Omnivore);
+export const dietFishivore = new AnimalDiet(Diets.Fishivore);
 
+export const seal = new AnimalType("Seal", dietFishivore, "bark", "🦭");
 export const camel = new AnimalType("Camel", dietHerbivore, "grunt", "🐫");
-export const penguin = new AnimalType("Penguin", dietCarnivore, "honk", "🐧");
+export const penguin = new AnimalType("Penguin", dietFishivore, "honk", "🐧");
 export const bear = new AnimalType("Bear", dietCarnivore, "growl", "🐻");
 export const human = new AnimalType("Human", dietOmnivore, "hello", "🧑");
 export const lizard = new AnimalType("Lizard", dietOmnivore, "hissing", "🦎");
+
+export const alpaca = new AnimalType("Alpaca", dietHerbivore, "snorting", "🦙");
+export const zebra = new AnimalType("Zebra", dietHerbivore, "bray", "🦓");
+
+export const tiger = new AnimalType("Tiger", dietCarnivore, "roar", "🐅");
+
+export const rhino = new AnimalType("Rhino", dietHerbivore, "trumpet", "🦏");
+
+export const hippo = new AnimalType("Hippo", dietHerbivore, "honks", "🦛");
+
+export const gorilla = new AnimalType("Gorilla", dietOmnivore, "grunt", "🦍");
+
+export const giraffe = new AnimalType("Giraffe", dietHerbivore, "bleat", "🦒");
+export const elephant = new AnimalType(
+	"Elephant",
+	dietHerbivore,
+	"trumpet",
+	"🐘"
+);
+
+export const animalTypes = new List<AnimalType>("Animal Types");
+animalTypes.add(camel);
+animalTypes.add(seal);
+animalTypes.add(penguin);
+animalTypes.add(bear);
+animalTypes.add(human);
+animalTypes.add(lizard);
+animalTypes.add(alpaca);
+animalTypes.add(zebra);
+animalTypes.add(tiger);
+animalTypes.add(rhino);
+animalTypes.add(hippo);
+animalTypes.add(gorilla);
+animalTypes.add(giraffe);
+animalTypes.add(elephant);
