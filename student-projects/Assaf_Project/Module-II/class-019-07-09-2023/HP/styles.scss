@@ -217,17 +217,29 @@
 
 .game-menu {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
-    
+    box-shadow: -2px -5px 5px 3px rgba(0, 0, 0, 0.084);
+
     &__button {
-        width: 24%;
+        width: 100%;
         cursor: pointer;
         background-color: transparent;
         border: none;
+        font-size: calc(min(5vw, 20px));
+        color: white;
+        font-weight: 600;
+        border-left: 2px solid rgba(0, 0, 0, 0) ;
+        border-right: 2px solid rgba(0, 0, 0, 0) ;
+        border-top: 3px solid rgba(0, 0, 0, 0) ;
 
         &:hover {
-            background-color: rgba(255, 255, 255, 0.237);
+            background-color: rgba(255, 255, 255, 0.84);
+            transition: all .3s ease;
+            color: var(--sea-color);
+            border-left: 2px solid #86868677;
+            border-right: 2px solid #86868677;
+            border-top: 3px solid #86868677;
         }
     }
 }
