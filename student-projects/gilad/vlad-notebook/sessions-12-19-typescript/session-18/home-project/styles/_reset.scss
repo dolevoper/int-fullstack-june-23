@@ -11,5 +11,30 @@
 
 html,
 body {
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+
+    @media (orientation: landscape) {
+        // rotate: (90deg);
+    }
+
+    @media (orientation: portrait) {
+        transform: rotate(90deg);
+        transform-origin: bottom left;
+
+        width: 100vh;
+        height: 100vw;
+
+        position: absolute;
+        top: -100vw;
+        left: 0;
+
+        overflow: auto;
+    }
 }
