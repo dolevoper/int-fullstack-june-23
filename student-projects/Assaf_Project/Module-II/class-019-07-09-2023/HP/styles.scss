@@ -226,10 +226,10 @@
         cursor: pointer;
         background-color: transparent;
         border: none;
-        font-size:4vw;
+        font-size: 4vw;
         color: white;
         font-weight: 600;
-        border-top: 1vh solid rgba(0, 0, 0, 0) ;
+        border-top: 1vh solid rgba(0, 0, 0, 0);
         transition: all .3s ease;
 
         &:hover {
@@ -238,10 +238,34 @@
             border-color: var(--arc-primary-color);
         }
 
-        &:active, &.is-active {
+        &:active,
+        &.is-active {
             background-color: var(--arc-primary-color);
             color: white;
             border-color: var(--arc-secondary-color);
         }
+    }
+}
+
+.fold-bar {
+    position: fixed;
+    display: flex;
+    height: 80%;
+    width: 100%;
+    top: -80%;
+    background-color: rgba(255, 255, 255, 0.795);
+    overflow: hidden;
+    transition: .3s ease;
+
+    &.is-active {
+        top: 0;
+    }
+}
+
+.animals {
+
+    &__list {
+
+        &-item {}
     }
 }

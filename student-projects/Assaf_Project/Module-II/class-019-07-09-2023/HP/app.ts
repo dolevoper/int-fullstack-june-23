@@ -279,3 +279,13 @@ const rooms = [
 const availableRooms = rooms.filter((room) => room.contains.length === 0);
 const occupiedRooms = rooms.filter((room) => room.contains.length > 0);
 
+const foldBar = document.querySelector(".fold-bar");
+const gameMenuButton = document.querySelectorAll(".game-menu__button");
+
+if (gameMenuButton.length > 0) {
+  gameMenuButton.forEach(function(button) {
+    button.addEventListener("click", function() {
+      foldBar?.classList.toggle("is-active");
+    });
+  });
+}

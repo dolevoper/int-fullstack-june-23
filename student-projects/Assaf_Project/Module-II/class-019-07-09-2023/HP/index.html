@@ -48,53 +48,55 @@
         </div>
         <footer class="site-footer">
             <nav class="game-menu">
-                <button class="game-menu__button">Animals</button>
-                <button class="game-menu__button">Rooms</button>
-                <button class="game-menu__button">Conflicts</button>
-                <button class="game-menu__button">Options</button>
+                <button onclick="removeActiveClass()" class="game-menu__button --animals-button">Animals</button>
+                <button onclick="removeActiveClass()" class="game-menu__button --rooms-button">Rooms</button>
+                <button onclick="removeActiveClass()" class="game-menu__button --conflicts-button">Conflicts</button>
+                <button onclick="removeActiveClass()" class="game-menu__button --options-button">Options</button>
             </nav>
         </footer>
-        <article class="animals">
-            <ul class="animals__list">
-                <li class="animals__list-item">Lion</li>
-                <li class="animals__list-item">Horse</li>
-                <li class="animals__list-item">Boar</li>
-                <li class="animals__list-item">Prairie Dog</li>
-                <li class="animals__list-item">Badger</li>
-                <li class="animals__list-item">Three-Toed Sloth</li>
-                <li class="animals__list-item">Koala</li>
-                <li class="animals__list-item">Green Tree Python</li>
-                <li class="animals__list-item">Bat</li>
-                <li class="animals__list-item">Eagle</li>
-                <li class="animals__list-item">Dove</li>
-                <li class="animals__list-item">Rose-Ringed Parakeet</li>
-                <li class="animals__list-item">Wolf</li>
-                <li class="animals__list-item">Camel</li>
-                <li class="animals__list-item">Tarantula</li>
-                <li class="animals__list-item">Fire Ant</li>
-                <li class="animals__list-item">Komodo Dragon</li>
-                <li class="animals__list-item">Brahminy Blind Snake</li>
-                <li class="animals__list-item">Sheep</li>
-                <li class="animals__list-item">Cow</li>
-            </ul>
-        </article>
-        <article class="rooms">
-            <ul class="rooms__list">
-                <li class="rooms__list-number">101</li>
-                <li class="rooms__list-number">102</li>
-                <li class="rooms__list-number">103</li>
-                <li class="rooms__list-number">104</li>
-                <li class="rooms__list-number">105</li>
-                <li class="rooms__list-number">106</li>
-                <li class="rooms__list-number">107</li>
-                <li class="rooms__list-number">108</li>
-                <li class="rooms__list-number">109</li>
-                <li class="rooms__list-number">110</li>
-            </ul>
-        </article>
-        <article class="conflicts">
-            <ul class="conflicts__list"></ul>
-        </article>
+        <aside class="fold-bar">
+            <article class="animals">
+                <ul class="animals__list">
+                    <li class="animals__list-item"><a href="#">Lion</a></li>
+                    <li class="animals__list-item"><a href="#">Horse</a></li>
+                    <li class="animals__list-item"><a href="#">Boar</a></li>
+                    <li class="animals__list-item"><a href="#">Prairie Dog</a></li>
+                    <li class="animals__list-item"><a href="#">Badger</a></li>
+                    <li class="animals__list-item"><a href="#">Three-Toed Sloth</a></li>
+                    <li class="animals__list-item"><a href="#">Koala</a></li>
+                    <li class="animals__list-item"><a href="#">Green Tree Python</a></li>
+                    <li class="animals__list-item"><a href="#">Bat</a></li>
+                    <li class="animals__list-item"><a href="#">Eagle</a></li>
+                    <li class="animals__list-item"><a href="#">Dove</a></li>
+                    <li class="animals__list-item"><a href="#">Rose-Ringed Parakeet</a></li>
+                    <li class="animals__list-item"><a href="#">Wolf</a></li>
+                    <li class="animals__list-item"><a href="#">Camel</a></li>
+                    <li class="animals__list-item"><a href="#">Tarantula</a></li>
+                    <li class="animals__list-item"><a href="#">Fire Ant</li>
+                    <li class="animals__list-item"><a href="#">Komodo Dragon</a></li>
+                    <li class="animals__list-item"><a href="#">Brahminy Blind Snake</a></li>
+                    <li class="animals__list-item"><a href="#">Sheep</a></li>
+                    <li class="animals__list-item"><a href="#">Cow</a></li>
+                </ul>
+            </article>
+            <article class="rooms">
+                <ul class="rooms__list">
+                    <li class="rooms__list-number"><a href="#">101</a></li>
+                    <li class="rooms__list-number"><a href="#">102</a></li>
+                    <li class="rooms__list-number"><a href="#">103</a></li>
+                    <li class="rooms__list-number"><a href="#">104</a></li>
+                    <li class="rooms__list-number"><a href="#">105</a></li>
+                    <li class="rooms__list-number"><a href="#">106</a></li>
+                    <li class="rooms__list-number"><a href="#">107</a></li>
+                    <li class="rooms__list-number"><a href="#">108</a></li>
+                    <li class="rooms__list-number"><a href="#">109</a></li>
+                    <li class="rooms__list-number"><a href="#">110</a></li>
+                </ul>
+            </article>
+            <article class="conflicts">
+                <ul class="conflicts__list"></ul>
+            </article>
+        </aside>
     </main>
 
 
