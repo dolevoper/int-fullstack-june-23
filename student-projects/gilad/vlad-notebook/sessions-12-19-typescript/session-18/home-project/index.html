@@ -18,10 +18,22 @@
 
         <menu class="game-menu">
 
-            <div class="ui-menu">
+            <div class="ui-menu js-menu" hidden>
 
-                <ul class="ui-menu__list">
-                    <li class="ui-menu__item">
+                <ul class="ui-menu__list js-menu-list">
+
+
+                    <!-- <li class="ui-menu__item">
+                        <div class="object-card">
+                            <div class="object-card__info">
+                                <h3 class="object-card__title">Forest</h3>
+                            </div>
+                            <img class="object-card__img" src="assets/cage/cage-forest.svg" alt="">
+                        </div>
+                    </li> -->
+
+                    <!-- 
+                    <li class="ui-menu__item js-menu-list-item">
                         <div class="object-card">
                             <div class="object-card__info">
                                 <h3 class="object-card__title">GIRAaaaaaFFE</h3>
@@ -29,8 +41,9 @@
                             </div>
                             <img class="object-card__img" src="assets/animals/giraffe.svg" alt="">
                         </div>
-                    </li>
-                    <li class="ui-menu__item">
+                    </li> -->
+
+                    <!-- <li class="ui-menu__item">
 
                         <div class="object-card">
                             <div class="object-card__info">
@@ -38,8 +51,8 @@
                             </div>
                             <img class="object-card__img" src="assets/cage/cage-tundra.svg" alt="">
                         </div>
-                    </li>
-
+                    </li> -->
+                    <!-- 
                     <li class="ui-menu__item">
                         <div class="object-card">
                             <div class="object-card__info">
@@ -51,7 +64,6 @@
                     </li>
 
                     <li class="ui-menu__item">
-
                         <div class="object-card">
                             <div class="object-card__info">
                                 <h3 class="object-card__title">Forest</h3>
@@ -88,30 +100,29 @@
                             </div>
                             <img class="object-card__img" src="assets/cage/cage-forest.svg" alt="">
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
 
             <div class="expanding-menu">
-                <div class="expanding-menu__expandable-items">
-                    <div class="ui-button ui-button--small">
-                        <div class="ui-button__icon ui-button__icon--animals"></div>
+                <div class="expanding-menu__expandable-items js-expandable-buttons" hidden>
+                    <div class="ui-button ui-button--small js-menu-button-animals">
+                        <div class="ui-button__icon ui-button__icon--animals "></div>
                     </div>
-                    <div class="ui-button ui-button--small">
+                    <div class="ui-button ui-button--small js-menu-button-cages">
                         <div class="ui-button__icon ui-button__icon--cages"></div>
                     </div>
                 </div>
-                <div class="expanding-menu__main-button ui-button">
+                <div class="expanding-menu__main-button ui-button js-menu-button-main">
                     <div class="ui-button__icon"></div>
                 </div>
             </div>
-
         </menu>
     </div>
 
 
 
-    <!-- <script type="module" src="zoomoji-app/dist/app.js"></script> -->
+    <script type="module" src="zoomoji-app/dist/app.js"></script>
 </body>
 
 </html>
