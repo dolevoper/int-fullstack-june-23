@@ -1,3 +1,165 @@
+function arcApp() {
+  const menuPromptText = `Welcome to the Arc app!
+This app will help you, "Noah", arrange your animals.
+  
+  What would you like to do?
+      1. Show all animals
+      2. Show occupied rooms
+      3. Show free rooms
+      4. Show animals in room by room number
+      5. Add animal to room
+      6. Show animal info`;
+
+  let userInput = prompt(menuPromptText);
+
+  while (userInput !== null) {
+    handleUserInput(userInput);
+    userInput = prompt(menuPromptText);
+  }
+}
+
+function showAnimalInfo() {
+  const animalChoice = simplePrompt(
+    "Choose an animal to see info:\n" + animalNames.join(", ")
+  );
+
+  const selectedAnimal = animals.find(
+    (animal) => animal.name.toLowerCase() === animalChoice
+  );
+
+  if (selectedAnimal) {
+    alert(`Name: ${selectedAnimal.name}
+Class: ${selectedAnimal.class}
+Order: ${selectedAnimal.order}
+Family: ${selectedAnimal.family}
+Habitats: ${selectedAnimal.habitats.join(", ")}
+
+${
+  selectedAnimal.isHerbivore
+    ? `The ${selectedAnimal.name} is a herbivore. `
+    : `The ${selectedAnimal.name} is a carnivore. `
+}${selectedAnimal.isSexual ? "" : "It is reproducing asexually. "}${
+      selectedAnimal.isTerritorial ? "It is a territorial animal." : ""
+    }
+      `);
+  } else {
+    alert("Invalid animal choice or animal not found.");
+  }
+}
+
+function addAnimalToRoom() {
+  const availableAnimalList = animals.filter((animal) => !animal.isInRoom);
+  const animalNamesList = availableAnimalList.map((animal) => animal.name);
+  const animalChoice = simplePrompt(
+    "Choose an animal to add to a room:\n" + animalNamesList.join(", ")
+  );
+
+  const selectedAnimal = availableAnimalList.find(
+    (animal) => animal.name.toLowerCase() === animalChoice
+  );
+
+  if (!selectedAnimal) {
+    alert("Invalid animal choice or animal is already in a room.");
+    return;
+  }
+
+  const availableRoomList = availableRooms;
+  const roomNamesList = availableRoomList.map((room) => room.name);
+  const roomChoice = simplePrompt(
+    "Choose a room (by room number) to add the animal to:\n" +
+      roomNamesList.join(", ")
+  );
+
+  const roomNumber = parseInt(roomChoice);
+
+  if (isNaN(roomNumber) || roomNumber < 101 || roomNumber > 110) {
+    alert("Invalid room number.");
+    return;
+  }
+
+  const selectedRoom = rooms.find((room) => room.name === `Room ${roomNumber}`);
+
+  if (!selectedRoom) {
+    alert("Invalid room choice or room is already occupied.");
+    return;
+  }
+
+  console.log("Selected Animal:", selectedAnimal);
+  console.log("Selected Room:", selectedRoom);
+
+  selectedRoom.contains.push(selectedAnimal);
+  selectedAnimal.isInRoom = true;
+
+  alert(`${selectedAnimal.name} has been added to ${selectedRoom.name}.`);
+  console.log("Updated Selected Room:", selectedRoom);
+}
+
+function showAnimalsInRoom() {
+    const roomNumberInput = simplePrompt("Enter the room number to show animals in (101-110):");
+  
+    const roomNumber = parseInt(roomNumberInput);
+  
+    if (isNaN(roomNumber) || roomNumber < 101 || roomNumber > 110) {
+      alert("Invalid room number.");
+      return;
+    }
+  
+    const selectedRoom = rooms.find((room) => room.name === `Room ${roomNumber}`);
+  
+    if (!selectedRoom) {
+      alert("Room not found.");
+      return;
+    }
+  
+    const animalsInRoom = selectedRoom.contains.map((animal) => animal.name).join(", ");
+  
+    if (animalsInRoom) {
+      alert(`Animals in Room ${roomNumber}:\n${animalsInRoom}`);
+    } else {
+      alert(`Room ${roomNumber} is empty.`);
+    }
+  }
+
+function simplePrompt(message: string) {
+  let userInput = prompt(message)?.trim()?.toLowerCase();
+  return userInput;
+}
+
+function handleUserInput(userInput: string) {
+  switch (userInput.trim()) {
+    case "1":
+      alert("Animals list:\n" + animalNames.join(", "));
+      break;
+    case "2":
+      occupiedRooms.length > 0
+        ? alert(
+            "Occupied rooms:\n" +
+              occupiedRooms.map((room) => room.name).join(", ")
+          )
+        : alert("There are no occupied rooms.");
+      break;
+    case "3":
+      availableRooms.length > 0
+        ? alert(
+            "Available rooms:\n" +
+              availableRooms.map((room) => room.name).join(", ")
+          )
+        : alert("All rooms are occupied.");
+      break;
+    case "4":
+      showAnimalsInRoom();
+      break;
+    case "5":
+      addAnimalToRoom();
+      break;
+    case "6":
+      showAnimalInfo();
+      break;
+    default:
+      alert("Please choose an option from the menu using their numbers.");
+  }
+}
+
 const animals = [
   {
     name: "Lion",
@@ -279,3 +441,4 @@ const rooms = [
 const availableRooms = rooms.filter((room) => room.contains.length === 0);
 const occupiedRooms = rooms.filter((room) => room.contains.length > 0);
 
+arcApp();

@@ -5,5 +5,5 @@
         "strictNullChecks": true,
         "noImplicitAny": true
     },
-    "include": ["./*.ts"]
+    "include": ["./*.ts", "refreneced/_appbase.ts"]
 }

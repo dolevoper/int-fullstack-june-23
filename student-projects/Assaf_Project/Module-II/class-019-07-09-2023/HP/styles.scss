@@ -238,7 +238,7 @@
             border-color: var(--arc-primary-color);
         }
 
-        &:active {
+        &:active, &.is-active {
             background-color: var(--arc-primary-color);
             color: white;
             border-color: var(--arc-secondary-color);
