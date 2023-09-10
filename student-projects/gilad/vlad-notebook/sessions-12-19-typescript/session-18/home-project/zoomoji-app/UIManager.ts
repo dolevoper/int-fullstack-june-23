@@ -220,3 +220,95 @@ animalB.getAnimal().makeThirsty();
 animalB.getAnimal().makeHungry();
 animalB.animationWalkStart();
 animalB.updateNeedsList();
+
+let zooBoundaries = zoo.getBoundingClientRect();
+let zooWidth = zooBoundaries.width;
+let zooHeight = zooBoundaries.height;
+
+function updateZooBounds(orientation: ScreenOrientation) {
+	zooBoundaries = zoo.getBoundingClientRect();
+
+	if (orientation.type === "portrait-primary") {
+		zooWidth = zooBoundaries.height;
+		zooHeight = zooBoundaries.width;
+	} else {
+		zooWidth = zooBoundaries.width;
+		zooHeight = zooBoundaries.height;
+	}
+}
+window
+	.matchMedia("(orientation: portrait)")
+	.addEventListener("change", function (e) {});
+
+window.addEventListener("resize", function (e) {
+	updateZooBounds(screen.orientation);
+});
+
+updateZooBounds(screen.orientation);
+
+console.log(zooBoundaries);
+const hitbox = animalB.getBoundingClientRect();
+
+let xPos = 0;
+let yPos = 0;
+let xDirection = true;
+let yDirection = true;
+
+let degree = 0;
+
+// animalB.style.left = `${xPos}`;
+// animalB.style.top = `${yPos}`;
+
+function move(element: HTMLElement, x: number, y: number) {
+	element.style.left = `${x}px`;
+	element.style.top = `${y}px`;
+	// element.style.transform = `translate(${x}%)`;
+}
+
+function rotate(element: HTMLElement, degree: number) {
+	element.style.rotate = `${degree}deg`;
+	// element.style.transform = `rotate(${degree}deg)`;
+}
+
+function flip(element: HTMLElement, direction: number) {
+	element.style.transform = `scaleX(${direction})`;
+}
+
+function flipLeft(element: HTMLElement) {
+	flip(element, -1);
+}
+function flipRight(element: HTMLElement) {
+	flip(element, 1);
+}
+
+function moveAnimal(speed: number) {
+	if (xPos + hitbox.width >= zooWidth) {
+		xDirection = false;
+		flipRight(animalB);
+	}
+	if (xPos <= 0 - zooBoundaries.x) {
+		xDirection = true;
+		flipLeft(animalB);
+	}
+
+	if (yPos + hitbox.height >= zooHeight) {
+		yDirection = false;
+
+		rotate(animalB, degree);
+	}
+	if (yPos <= 0 - zooBoundaries.y) {
+		yDirection = true;
+		rotate(animalB, degree);
+	}
+
+	if (xDirection) xPos += speed;
+	else xPos -= speed;
+
+	if (yDirection) yPos += speed;
+	else yPos -= speed;
+
+	move(animalB as HTMLElement, xPos, yPos);
+}
+setInterval(moveAnimal, 1, 0.5);
+// degree = Math.random() * 360;
+// rotate(animalB, degree);

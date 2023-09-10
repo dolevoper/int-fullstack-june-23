@@ -1,6 +1,6 @@
 .animal {
 
-    --animal-size: 10vh;
+    --animal-size: 11vh;
     --animal-x: 25px;
     --animal-y: 50px;
 
@@ -36,8 +36,8 @@
     }
 
     &__need-icon {
-        max-width: 1rem;
-        max-height: 1rem;
+        max-width: 2rem;
+        max-height: 2rem;
     }
 
     @media (orientation: landscape) {
