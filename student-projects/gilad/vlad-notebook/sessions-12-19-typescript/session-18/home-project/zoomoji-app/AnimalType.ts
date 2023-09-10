@@ -1,4 +1,11 @@
-import { Diets, AnimalDiet } from "./AnimalDiet.js";
+import {
+	Diets,
+	AnimalDiet,
+	dietFishivore,
+	dietHerbivore,
+	dietOmnivore,
+	dietCarnivore,
+} from "./AnimalDiet.js";
 import { List } from "./List.js";
 
 export enum Gender {
@@ -40,15 +47,9 @@ export class AnimalType {
 	}
 }
 
-export const dietHerbivore = new AnimalDiet(Diets.Herbivore);
-export const dietCarnivore = new AnimalDiet(Diets.Carnivore);
-export const dietOmnivore = new AnimalDiet(Diets.Omnivore);
-export const dietFishivore = new AnimalDiet(Diets.Fishivore);
-
 export const seal = new AnimalType("Seal", dietFishivore, "bark", "🦭");
 export const camel = new AnimalType("Camel", dietHerbivore, "grunt", "🐫");
 export const penguin = new AnimalType("Penguin", dietFishivore, "honk", "🐧");
-// export const bear = new AnimalType("Bear", dietCarnivore, "growl", "🐻");
 export const human = new AnimalType("Human", dietOmnivore, "hello", "🧑");
 export const lizard = new AnimalType("Lizard", dietOmnivore, "hissing", "🦎");
 
@@ -75,7 +76,6 @@ export const animalTypes = new List<AnimalType>("Animal Types");
 animalTypes.add(camel);
 animalTypes.add(seal);
 animalTypes.add(penguin);
-// animalTypes.add(bear);
 animalTypes.add(human);
 animalTypes.add(lizard);
 animalTypes.add(alpaca);
