@@ -1,3 +1,4 @@
+import { Food, foodList } from "./AnimalDiet.js";
 import { AnimalType, animalTypes } from "./AnimalType.js";
 import { Biome } from "./Cage.js";
 import { List } from "./List.js";
@@ -19,6 +20,10 @@ function getMenuAnimalsButton(): HTMLElement {
 
 function getMenuCagesButton(): HTMLElement {
 	return document.querySelector(".js-menu-button-cages") as HTMLElement;
+}
+
+function getMenuFoodButton(): HTMLElement {
+	return document.querySelector(".js-menu-button-food") as HTMLElement;
 }
 
 function getMenu(): HTMLElement {
@@ -86,6 +91,13 @@ function createMenuListItemCage(biome: Biome): HTMLElement {
 	return createMenuListItem(title, imageURL);
 }
 
+function createMenuListItemFood(food: Food): HTMLElement {
+	const title = food.name;
+	const imageURL = getImageByFoodType(food);
+	const dietName = food.getAnimalDiet().getName().toLowerCase();
+	return createMenuListItem(title, imageURL, dietName);
+}
+
 function getImageByAnimalType(type: AnimalType) {
 	const animalName = type.getName().toLowerCase();
 	return `./assets/animals/${animalName}.svg`;
@@ -94,15 +106,21 @@ function getImageByBiomeType(biome: Biome) {
 	const biomeName = Biome[biome];
 	return `./assets/cage/cage-${biomeName}.svg`;
 }
+function getImageByFoodType(food: Food) {
+	const foodName = food.name.toLowerCase();
+	return `./assets/food/${foodName}.svg`;
+}
 
 function initExpandableMenu(
 	animalsList: List<HTMLElement>,
-	biomesList: List<HTMLElement>
+	biomesList: List<HTMLElement>,
+	foodList: List<HTMLElement>
 ) {
 	const menuMainButton = getMenuButton();
 
 	const menuAnimalsButton = getMenuAnimalsButton();
 	const menuCagesButton = getMenuCagesButton();
+	const menuFoodButton = getMenuFoodButton();
 
 	const menu = getMenu();
 	const menuList = getMenuList(menu);
@@ -125,6 +143,14 @@ function initExpandableMenu(
 		menuList.innerHTML = "";
 		biomesList.forEach((biome) => {
 			menuList.appendChild(biome);
+		});
+		menu.hidden = false;
+	});
+
+	menuFoodButton.addEventListener("click", (e) => {
+		menuList.innerHTML = "";
+		foodList.forEach((food) => {
+			menuList.appendChild(food);
 		});
 		menu.hidden = false;
 	});
@@ -155,4 +181,9 @@ animalTypes.forEach((type) => {
 	animalsMenuItems.add(createMenuListItemAnimal(type));
 });
 
-initExpandableMenu(animalsMenuItems, biomesMenuItems);
+const foodMenuItems = new List<HTMLElement>("Food UI Items");
+foodList.forEach((food) => {
+	foodMenuItems.add(createMenuListItemFood(food));
+});
+
+initExpandableMenu(animalsMenuItems, biomesMenuItems, foodMenuItems);
