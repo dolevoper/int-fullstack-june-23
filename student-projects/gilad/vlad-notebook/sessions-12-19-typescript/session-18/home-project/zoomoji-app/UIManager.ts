@@ -101,11 +101,11 @@ function createMenuListItemCage(biome: Biome): HTMLElement {
 
 function getImageByAnimalType(type: AnimalType) {
 	const animalName = type.getName().toLowerCase();
-	return `/assets/animals/${animalName}.svg`;
+	return `./assets/animals/${animalName}.svg`;
 }
 function getImageByBiomeType(biome: Biome) {
 	const biomeName = Biome[biome];
-	return `/assets/cage/cage-${biomeName}.svg`;
+	return `./assets/cage/cage-${biomeName}.svg`;
 }
 
 function initExpandableMenu(

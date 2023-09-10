@@ -126,19 +126,19 @@
         background-size: contain;
 
         &--herbivore {
-            background: url("/assets/menu/icons/diets/diet-herbivore.svg") no-repeat center center;
+            background: url("../../assets/menu/icons/diets/diet-herbivore.svg") no-repeat center center;
         }
 
         &--carnivore {
-            background: url("/assets/menu/icons/diets/diet-carnivore.svg") no-repeat center center;
+            background: url("../../assets/menu/icons/diets/diet-carnivore.svg") no-repeat center center;
         }
 
         &--omnivore {
-            background: url("/assets/menu/icons/diets/diet-omnivore.svg") no-repeat center center;
+            background: url("../../assets/menu/icons/diets/diet-omnivore.svg") no-repeat center center;
         }
 
         &--fishivore {
-            background: url("/assets/menu/icons/diets/diet-fishivore.svg") no-repeat center center;
+            background: url("../../assets/menu/icons/diets/diet-fishivore.svg") no-repeat center center;
         }
     }
 
@@ -180,18 +180,18 @@
     &__icon {
         margin-top: calc(var(--button-size) / 15);
         height: 100%;
-        background: url("/assets/menu/icons/paws.svg") no-repeat center center;
+        background: url("../../assets/menu/icons/paws.svg") no-repeat center center;
         background-size: contain;
 
         &--animals {
             margin-top: 0;
-            background: url("/assets/animals/rhino.svg") no-repeat center center;
+            background: url("../../assets/animals/rhino.svg") no-repeat center center;
             background-size: contain;
         }
 
         &--cages {
             margin-top: 0;
-            background: url("/assets/menu/icons/cage.svg") no-repeat center center;
+            background: url("../../assets/menu/icons/cage.svg") no-repeat center center;
             background-size: contain;
         }
     }
