@@ -3,7 +3,7 @@
     --arc-sizes: 60vw;
     --sky-color: rgb(6, 38, 50);
     --sea-color: rgb(0, 0, 194);
-    --arc-primary-color: rgb(121,88,45);
+    --arc-primary-color: rgb(121, 88, 45);
     --arc-secondary-color: rgb(105, 47, 15);
 }
 
@@ -14,11 +14,80 @@
 
 .star {
     position: absolute;
-    color: white;
-    height: 10px;
-    top: 10px;
-    left: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
     aspect-ratio: 1;
+    opacity: .4;
+    animation: sparkle 15s infinite alternate forwards;
+
+    &:nth-child(1) {
+        height: 5px;
+        top: 1vh;
+        left: 2%;
+    }
+
+    &:nth-child(2) {
+        height: 2px;
+        top: 8vh;
+        left: 8%;
+        animation-delay: 2s;
+    }
+
+    &:nth-child(3) {
+        height: 3px;
+        top: 6vh;
+        left: 19%;
+        animation-delay: 4s;
+    }
+
+    &:nth-child(4) {
+        height: 2px;
+        top: 20vh;
+        left: 13%;
+        animation-delay: 7s;
+    }
+
+    &:nth-child(5) {
+        height: 3px;
+        top: 15vh;
+        left: 68%;
+        animation-delay: 8s;
+    }
+
+    &:nth-child(6) {
+        height: 4px;
+        top: 8vh;
+        left: 48%;
+        animation-delay: 10s;
+    }
+
+    &:nth-child(7) {
+        height: 2px;
+        top: 11vh;
+        left: 29%;
+        animation-delay: 12s;
+    }
+
+    &:nth-child(8) {
+        height: 5px;
+        top: 18vh;
+        left: 95%;
+        animation-delay: 13s;
+    }
+
+    &:nth-child(9) {
+        height: 3px;
+        top: 4vh;
+        left: 77%;
+        animation-delay: 13.3s;
+    }
+
+    &:nth-child(10) {
+        height: 2px;
+        top: 3vh;
+        left: 62%;
+        animation-delay: 14s;
+    }
 }
 
 .sea {
@@ -60,11 +129,11 @@
     top: 35%;
     left: 20%;
     aspect-ratio: 4/1;
-    background: linear-gradient(180deg, rgba(121,88,45,1) 45%, rgba(94,62,21,1) 90%);
+    background: linear-gradient(180deg, rgba(121, 88, 45, 1) 45%, rgba(94, 62, 21, 1) 90%);
     border-top: 1vh dashed var(--arc-secondary-color);
     border-radius: 0 0 var(--arc-sizes) var(--arc-sizes);
     animation: shake 15s ease-in infinite alternate;
-    
+
     &__house {
         position: absolute;
         background-color: var(--arc-primary-color);
