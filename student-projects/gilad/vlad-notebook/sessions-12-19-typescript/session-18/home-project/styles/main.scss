@@ -272,6 +272,12 @@
             background: url("../../assets/menu/icons/cage.svg") no-repeat center center;
             background-size: contain;
         }
+
+        &--food {
+            margin-top: 0.25rem;
+            background: url("../../assets/menu/icons/food.svg") no-repeat center center;
+            background-size: contain;
+        }
     }
 
     &--medium {
