@@ -2,6 +2,7 @@ export enum Diets {
 	Herbivore = 0,
 	Carnivore = 1,
 	Omnivore = 2,
+	Fishivore = 3,
 }
 
 export class Food {
@@ -19,7 +20,7 @@ export const foodList = [
 	new Food("Apple", Diets.Herbivore),
 	new Food("Carrot", Diets.Herbivore),
 	new Food("Meat", Diets.Carnivore),
-	new Food("Fish", Diets.Carnivore),
+	new Food("Fish", Diets.Fishivore),
 	new Food("Dry Food", Diets.Omnivore),
 ];
 
