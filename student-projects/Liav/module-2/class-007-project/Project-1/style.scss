@@ -1,0 +1,47 @@
+body{
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+input{
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+
+button{
+  padding: 15px;
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+ul{
+  text-align: left;
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+ul li{
+  text-align: center;
+  margin: 20px
+}
+
+.flexTime{
+  display: flex;
+  justify-content: center;
+}
+
+.delete-button {
+  margin-right: 5px; 
+  margin-left: 5px;
+}
+
+.finish-button {
+  margin-left: 5px; 
+}
+
+.finished{
+  text-decoration: line-through;
+}
