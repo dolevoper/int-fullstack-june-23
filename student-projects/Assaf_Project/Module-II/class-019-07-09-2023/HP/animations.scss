@@ -4,8 +4,12 @@
         transform: translateY(40px);
     }
 
-    100% {
+    50% {
         left: -50vw;
+        transform: translateY(0px);
+    }
+    100% {
+        left: -100vw;
     }
 }
 
