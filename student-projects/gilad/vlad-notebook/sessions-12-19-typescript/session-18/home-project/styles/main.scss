@@ -27,9 +27,9 @@
 
 .game-menu {
     --game-menu-offset: var(--zoo-border);
-    --main-button-offset: calc((var(--menu-list-height) / 7));
+    --main-button-offset: 0;
+    --menu-list-height: 11rem;
 
-    --menu-list-height: 12rem;
     display: flex;
     gap: 1rem;
     align-items: end;
@@ -119,11 +119,12 @@
         align-items: start;
         justify-content: space-around;
         padding: 0.25rem;
+        max-height: 2.5rem;
     }
 
     &__title {
-        font-size: 1.25rem;
-        font-stretch: ultra-expanded;
+        word-break: keep-all;
+        font-size: 1rem;
     }
 
     &__info-icon {
@@ -159,7 +160,7 @@
 }
 
 .ui-button {
-    --button-size: 8rem;
+    --button-size: 6rem;
     --border-multiplier: 6;
     --border-size: calc(var(--button-size) / var(--border-multiplier));
     --outline-size: calc(var(--button-size) / 18);
