@@ -1,7 +1,10 @@
 :root {
     --main-object-size: 150px;
-    --sky-color: skyblue;
-    --sea-color: darkblue;
+    --arc-sizes: 60vw;
+    --sky-color: rgb(6, 38, 50);
+    --sea-color: rgb(0, 0, 194);
+    --arc-primary-color: rgb(121,88,45);
+    --arc-secondary-color: rgb(105, 47, 15);
 }
 
 .sky {
@@ -9,10 +12,18 @@
     position: relative;
 }
 
+.star {
+    position: absolute;
+    color: white;
+    height: 10px;
+    top: 10px;
+    left: 20px;
+    aspect-ratio: 1;
+}
+
 .sea {
     background-color: var(--sea-color);
     position: relative;
-
 }
 
 .wave {
@@ -37,8 +48,91 @@
         height: calc(var(--main-object-size)*.8);
         position: absolute;
         aspect-ratio: 5/3;
-        bottom: 54%;
+        bottom: 50px;
         left: -70px;
         border-radius: 50%;
+    }
+}
+
+.ark {
+    position: absolute;
+    width: var(--arc-sizes);
+    top: 35%;
+    left: 20%;
+    aspect-ratio: 4/1;
+    background: linear-gradient(180deg, rgba(121,88,45,1) 45%, rgba(94,62,21,1) 90%);
+    border-top: 1vh dashed var(--arc-secondary-color);
+    border-radius: 0 0 var(--arc-sizes) var(--arc-sizes);
+    animation: shake 15s ease-in infinite alternate;
+    
+    &__house {
+        position: absolute;
+        background-color: var(--arc-primary-color);
+        width: 60%;
+        left: 20%;
+        bottom: calc(100% + .9vh);
+        aspect-ratio: 6/1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            clip-path: polygon(10% 85%, 90% 85%, 100% 100%, 0% 100%);
+            background-color: var(--arc-secondary-color);
+            width: 120%;
+            bottom: 70%;
+            left: -10%;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.427);
+            aspect-ratio: 5/3;
+        }
+
+        &-window {
+            content: "";
+            position: absolute;
+            width: 5%;
+            bottom: 10%;
+            aspect-ratio: 2/3;
+            // border-radius: 50%;
+            background-color: rgb(0, 0, 0);
+
+            &:nth-child(1) {
+                left: 3%;
+            }
+
+            &:nth-child(2) {
+                left: 12%;
+            }
+
+            &:nth-child(3) {
+                left: 22%;
+            }
+
+            &:nth-child(4) {
+                left: 32%;
+            }
+
+            &:nth-child(5) {
+                left: 42.5%;
+            }
+
+            &:nth-child(6) {
+                right: 42.5%;
+            }
+
+            &:nth-child(7) {
+                right: 32%;
+            }
+
+            &:nth-child(8) {
+                right: 22%;
+            }
+
+            &:nth-child(9) {
+                right: 12%;
+            }
+
+            &:nth-child(10) {
+                right: 3%;
+            }
+        }
     }
 }
