@@ -97,7 +97,15 @@ export class NeedBar {
 		}`;
 	}
 
+	getMaxValue() {
+		return this.maxValue;
+	}
+
+	getMinValue() {
+		return this.minValue;
+	}
+
 	isAlertingValue() {
-		return this.getValue() <= this.getAlertValue() ? true : false;
+		return this.getValue() <= this.getAlertValue();
 	}
 }

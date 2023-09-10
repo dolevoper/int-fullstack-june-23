@@ -1,5 +1,6 @@
-import { Diets, Food } from "./AnimalDiet.js";
+import { Diets, Food, foodList } from "./AnimalDiet.js";
 import { Gender, AnimalType } from "./AnimalType.js";
+import { Cage } from "./Cage.js";
 import { GameObject } from "./GameObjectInterface.js";
 import { NeedBar } from "./NeedBar.js";
 
@@ -11,6 +12,8 @@ export class Animal implements GameObject {
 	private hunger: NeedBar;
 	private hydration: NeedBar;
 	private happiness: NeedBar;
+
+	private cage!: Cage;
 
 	constructor(id: number, name: string, gender: Gender, type: AnimalType) {
 		this.birthId = id;
@@ -84,6 +87,10 @@ export class Animal implements GameObject {
 		return this.getHungerBar().isFull();
 	}
 
+	isThirstFull() {
+		return this.getHydrationBar().isFull();
+	}
+
 	isThirsty() {
 		return this.getHydrationBar().isAlertingValue();
 	}
@@ -114,12 +121,13 @@ export class Animal implements GameObject {
 		if (amount) {
 			this.getHungerBar().addValue(amount);
 			this.announce(`eaten ${amount} ${food.name}!`);
-			return this.isHungerFull();
 		} else {
 			this.getHungerBar().setFull();
 			this.announce(`eaten ${food.name}!`);
-			return true;
 		}
+
+		this.calculateHappiness();
+		return this.isHungerFull();
 	}
 
 	makeHungry() {
@@ -135,6 +143,11 @@ export class Animal implements GameObject {
 	}
 
 	drink(amount?: number) {
+		if (this.isThirstFull()) {
+			this.announce(`wont drink, ${this.getGenderPerfix()} fully hydrated!`);
+			return true;
+		}
+
 		if (amount) {
 			this.getHydrationBar().addValue(amount);
 			this.announce(`drinked ${amount} water!`);
@@ -142,6 +155,9 @@ export class Animal implements GameObject {
 			this.getHydrationBar().setFull();
 			this.announce(`drinked until hydration!`);
 		}
+
+		this.calculateHappiness();
+		return this.isThirstFull();
 	}
 
 	drinkIfThirsty(amount?: number) {
@@ -174,14 +190,31 @@ export class Animal implements GameObject {
 
 	hungryAlert() {
 		this.announce("is hungry!");
+		this.calculateHappiness();
 	}
 
 	thirstyAlert() {
 		this.announce("is thirsty!");
+		this.calculateHappiness();
+	}
+
+	calculateHappiness() {
+		this.makeHappy();
+		if (this.isHungry()) this.reduceHappiness(1);
+		if (this.isThirsty()) this.reduceHappiness(1);
 	}
 
 	sadAlert() {
 		this.announce("is sad!");
+	}
+
+	getCage(): Cage {
+		return this.cage;
+	}
+
+	setCage(cage: Cage) {
+		this.cage = cage;
+		this.announce(`moved to a new cage: ${cage}`);
 	}
 
 	toString() {
@@ -191,17 +224,10 @@ export class Animal implements GameObject {
 	getGenderPerfix(): string {
 		return `${this.getGender() === Gender.Female ? "s" : ""}he's`;
 	}
+
 	onDayPassed() {
 		this.announce("starts a new day!");
 		this.getHungerBar().reduceValue(1);
 		this.getHydrationBar().reduceValue(1);
-
-		const isSatisfiedHunger = this.eatIfHungry(
-			new Food("Banana", Diets.Herbivore)
-		);
-		const isSatisfiedThirst = this.drinkIfThirsty();
-
-		if (!isSatisfiedHunger || isSatisfiedThirst)
-			this.getHappinessBar().reduceValue(1);
 	}
 }

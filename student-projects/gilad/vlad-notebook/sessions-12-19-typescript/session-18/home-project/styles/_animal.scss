@@ -2,15 +2,17 @@
 
     --animal-size: 10vh;
     --animal-x: 25px;
-    --animal-y: 10px;
+    --animal-y: 50px;
 
     width: var(--animal-size);
     height: var(--animal-size);
 
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
     position: absolute;
-    top: var(--test);
+    top: var(--animal-y);
     left: var(--animal-x);
 
 
@@ -18,18 +20,25 @@
         animation: --anim-animal-walking 1s infinite;
     }
 
+    &__name {
+        text-align: center;
+        flex: 1;
+        font-size: medium;
+    }
+
     &__body {
-        max-width: 100%;
-        max-height: 100%;
-
-
+        flex: 2;
     }
 
     &__needs {
+
+        margin-bottom: -0.5rem;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        list-style: none;
+
     }
 
     &__need-icon {

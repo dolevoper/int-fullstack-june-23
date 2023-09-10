@@ -1,7 +1,15 @@
 import { Food, foodList } from "./AnimalDiet.js";
-import { AnimalType, animalTypes } from "./AnimalType.js";
+import {
+	AnimalType,
+	Gender,
+	animalTypes,
+	gorilla,
+	penguin,
+} from "./AnimalType.js";
 import { Biome } from "./Cage.js";
 import { List } from "./List.js";
+import { AnimalElement, getAnimalImageByType } from "./AnimalElement.js";
+import { Animal } from "./Animal.js";
 
 export class UIManager {
 	constructor() {}
@@ -79,7 +87,7 @@ function createMenuListItem(
 function createMenuListItemAnimal(type: AnimalType): HTMLElement {
 	const title = type.getName();
 	const dietName = type.getDiet().getName().toLowerCase();
-	const imageURL = getImageByAnimalType(type);
+	const imageURL = getAnimalImageByType(type);
 
 	return createMenuListItem(title, imageURL, dietName);
 }
@@ -98,10 +106,6 @@ function createMenuListItemFood(food: Food): HTMLElement {
 	return createMenuListItem(title, imageURL, dietName);
 }
 
-function getImageByAnimalType(type: AnimalType) {
-	const animalName = type.getName().toLowerCase();
-	return `./assets/animals/${animalName}.svg`;
-}
 function getImageByBiomeType(biome: Biome) {
 	const biomeName = Biome[biome];
 	return `./assets/cage/cage-${biomeName}.svg`;
@@ -187,3 +191,32 @@ foodList.forEach((food) => {
 });
 
 initExpandableMenu(animalsMenuItems, biomesMenuItems, foodMenuItems);
+
+// ANIMALS CREATION
+
+const zoo = document.querySelector(".zoo") as HTMLElement;
+console.log(zoo);
+const animal = new AnimalElement(
+	new Animal(0, "Yulia", Gender.Female, penguin)
+);
+const animalB = new AnimalElement(new Animal(0, "Vlad", Gender.Male, gorilla));
+console.log("Adding animal:");
+console.log(animal.getAnimal());
+console.log(animal.getAnimal().isHungry());
+
+// zoo.append(animal);
+zoo.append(animalB);
+
+animal.getAnimal().makeHungry();
+animal.getAnimal().makeThirsty();
+animal.updateNeedsList();
+animalB.updateNeedsList();
+
+// animal.getAnimal().drink();
+// animal.getAnimal().eat(foodList[12]);
+// animal.getAnimal().makeSad();
+
+animalB.getAnimal().makeThirsty();
+animalB.getAnimal().makeHungry();
+animalB.animationWalkStart();
+animalB.updateNeedsList();
