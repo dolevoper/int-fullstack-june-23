@@ -1,24 +1,11 @@
-import { Animal } from "./Animal.js";
-import {
-	AnimalType,
-	Gender,
-	alpaca,
-	animalTypes,
-	camel,
-	elephant,
-	giraffe,
-	penguin,
-} from "./AnimalType.js";
-import { Biome, Cage } from "./Cage.js";
+import { AnimalType, animalTypes } from "./AnimalType.js";
+import { Biome } from "./Cage.js";
 import { List } from "./List.js";
 
 export class UIManager {
 	constructor() {}
 
-	initMainUI() {
-		// getMenuButton();
-		// initExpandableMenu();
-	}
+	initMainUI() {}
 }
 
 function getMenuButton(): HTMLElement {
@@ -146,6 +133,13 @@ function initExpandableMenu(
 		menu.hidden = true;
 		expandableButtons.hidden = !expandableButtons.hidden;
 	});
+
+	window
+		.matchMedia("(orientation: portrait)")
+		.addEventListener("change", function (e) {
+			menu.hidden = true;
+			expandableButtons.hidden = true;
+		});
 }
 
 const biomesMenuItems = new List<HTMLElement>("Biomes UI Items");
