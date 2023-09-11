@@ -1,35 +1,32 @@
-console.log("connected");
+document.addEventListener('DOMContentLoaded', () => {
+	const infoContainer = document.querySelector('.info-container')
 
-//truthy values
-// "withContent", {} , [] , 2 (numbers other than 0), true
+	if (infoContainer) {
+		// Create circles and text properties dynamically
+		for (let i = 0; i < 3; i++) {
+			const circle = document.createElement('div')
+			circle.className = 'info-container__info-circle'
 
-// //falsy values
-// "", 0 , false, null undefiend
+			const textProperty = document.createElement('p')
+			textProperty.className = 'info-container__info'
 
+			// Define the text content based on the position
+			switch (i) {
+				case 0:
+					textProperty.textContent = 'Name'
+					break
+				case 1:
+					textProperty.textContent = 'Age'
+					break
+				case 2:
+					textProperty.textContent = 'Company'
+					break
+				default:
+					break
+			}
 
-
-// DOM Manipulation
-
-// GetElementByID()
-
-const title = document.getElementById("main-heading") as HTMLHeadingElement;
-
-
-// GetElementByClassName()
-const listItems = document.getElementsByClassName("list-item") as HTMLCollectionOf<HTMLLIElement>
-
-// for (let i = 0; i <listItems.length ; i++) {
-//     listItems[i].style.color = "blue"
-// }
-
-// GetElementByTagName()
-const listItemsTag = document.getElementsByTagName("li")
-
-// querySelector()
-const containerTag = document.querySelector("div")
-const containerClass = document.querySelector(".container")
-const h1Query = document.querySelector("#main-heading")
-
-// querySelectorAll()
-const listItemsQuery = document.querySelectorAll(".list-item")
-console.log(listItemsQuery)
+			infoContainer.appendChild(circle)
+			infoContainer.appendChild(textProperty)
+		}
+	}
+})

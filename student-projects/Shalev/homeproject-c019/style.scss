@@ -1,0 +1,31 @@
+// .hidden {
+// 	opacity: 0;
+// }
+
+.show {
+	opacity: 1;
+}
+
+.info-container-bg {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	background: white;
+	width: 80%;
+	height: 100px;
+	border-radius: 15px;
+}
+
+.info-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__info-circle1 {
+		width: 100px;
+		height: 100px;
+		border-radius: 50px;
+		background: #b1b1b1;
+	}
+}
