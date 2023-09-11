@@ -176,7 +176,7 @@
 
     outline: solid var(--outline-size) defaults.$color-ui-stroke;
     outline-offset: calc(0rem - var(--outline-size)*1);
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     margin-inline: auto;
 
     &:hover {
@@ -230,4 +230,8 @@
     margin-right: calc(var(--main-button-offset)/2);
     margin-bottom: var(--main-button-offset);
 
+    &__expandable-items {
+        display: flex;
+        flex-direction: column;
+    }
 }
