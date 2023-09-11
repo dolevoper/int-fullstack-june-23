@@ -32,6 +32,7 @@ function playGame() {
 
 	function checkBalloons() {
 		if (ammountOfHiddenBalloons >= 3) {
+			alert('All balloons popped!')
 			removeAllHiddens()
 			playGame()
 		}
