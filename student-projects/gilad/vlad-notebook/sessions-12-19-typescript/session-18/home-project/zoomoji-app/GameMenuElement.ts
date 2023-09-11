@@ -1,12 +1,13 @@
 import { ExpandableMenuElement } from "./ExpandableMenuElement.js";
 import { GameObjectsMenuElement } from "./GameObjectsMenuElement.js";
+import { MenuButtonElement } from "./MenuButtonElement.js";
 import { UIObject } from "./UIManager.js";
 
 export class GameMenuElement extends HTMLElement implements UIObject {
 	static bemName = "game-menu";
 	// static bemPerfix = GameMenuElement.bemName + "__";
 
-	private expandableMenu!: ExpandableMenuElement;
+	public expandableMenu!: ExpandableMenuElement;
 	private gameObjectsMenu!: GameObjectsMenuElement;
 
 	constructor() {
@@ -27,15 +28,42 @@ export class GameMenuElement extends HTMLElement implements UIObject {
 
 	private initExpandableMenu() {
 		this.expandableMenu = new ExpandableMenuElement();
+		this.expandableMenu.setOnShowObjectsMenuListener(
+			this,
+			this.onShowObjectsMenu
+		);
+		this.expandableMenu.setOnHideObjectsMenuListener(
+			this,
+			this.onHideObjectsMenu
+		);
 	}
 
 	private initMain() {
 		this.classList.add(GameMenuElement.bemName);
 		this.append(this.gameObjectsMenu);
 		this.append(this.expandableMenu);
+		this.expandableMenu.setOnMainButtonPressed(this, this.onExpandMenuButtons);
+		this.expandableMenu.setOnMainButtonNotPressed(this, this.onHideMenuButtons);
 	}
 
 	public updateUI() {}
+
+	private onExpandMenuButtons(context: any) {
+		context.expandableMenu.expandMenu();
+	}
+
+	private onHideMenuButtons(context: any) {
+		context.expandableMenu.hideMenu();
+	}
+
+	private onShowObjectsMenu(context: any, button: MenuButtonElement) {
+		context.expandableMenu.setButtonsUnpressedExcept(button);
+		context.gameObjectsMenu.showMenu();
+	}
+
+	private onHideObjectsMenu(context: any, button: MenuButtonElement) {
+		context.gameObjectsMenu.hideMenu();
+	}
 }
 
 window.customElements.define("gamemenu-element", GameMenuElement);
@@ -47,111 +75,3 @@ window.customElements.define("gamemenu-element", GameMenuElement);
 // </div>
 
 // </div>
-
-// function createMenuListItemAnimal(type: AnimalType): HTMLElement {
-// 	const title = type.getName();
-// 	const dietName = type.getDiet().getName().toLowerCase();
-// 	const imageURL = getAnimalImageByType(type);
-
-// 	return createMenuListItem(title, imageURL, dietName);
-// }
-
-// function createMenuListItemCage(biome: Biome): HTMLElement {
-// 	const title = Biome[biome];
-// 	const imageURL = getImageByBiomeType(biome);
-
-// 	return createMenuListItem(title, imageURL);
-// }
-
-// function createMenuListItemFood(food: Food): HTMLElement {
-// 	const title = food.name;
-// 	const imageURL = getImageByFoodType(food);
-// 	const dietName = food.getAnimalDiet().getName().toLowerCase();
-// 	return createMenuListItem(title, imageURL, dietName);
-// }
-
-// function getImageByBiomeType(biome: Biome) {
-// 	const biomeName = Biome[biome];
-// 	return `./assets/cage/cage-${biomeName}.svg`;
-// }
-// function getImageByFoodType(food: Food) {
-// 	const foodName = food.name.toLowerCase();
-// 	return `./assets/food/${foodName}.svg`;
-// }
-
-// function initExpandableMenu(
-// 	animalsList: List<HTMLElement>,
-// 	biomesList: List<HTMLElement>,
-// 	foodList: List<HTMLElement>
-// ) {
-// 	const menuMainButton = getMenuButton();
-
-// 	const menuAnimalsButton = getMenuAnimalsButton();
-// 	const menuCagesButton = getMenuCagesButton();
-// 	const menuFoodButton = getMenuFoodButton();
-
-// 	const menu = getMenu();
-// 	const menuList = getMenuList(menu);
-// 	menu.hidden = true;
-
-// 	const expandableButtons = document.querySelector(
-// 		".js-expandable-buttons"
-// 	) as HTMLElement;
-// 	expandableButtons.hidden = true;
-
-// 	menuAnimalsButton.addEventListener("click", (e) => {
-// 		menuList.innerHTML = "";
-// 		animalsList.forEach((animal) => {
-// 			menuList.appendChild(animal);
-// 		});
-// 		menu.hidden = false;
-// 	});
-
-// 	menuCagesButton.addEventListener("click", (e) => {
-// 		menuList.innerHTML = "";
-// 		biomesList.forEach((biome) => {
-// 			menuList.appendChild(biome);
-// 		});
-// 		menu.hidden = false;
-// 	});
-
-// 	menuFoodButton.addEventListener("click", (e) => {
-// 		menuList.innerHTML = "";
-// 		foodList.forEach((food) => {
-// 			menuList.appendChild(food);
-// 		});
-// 		menu.hidden = false;
-// 	});
-
-// 	menuMainButton.addEventListener("click", (e) => {
-// 		menu.hidden = true;
-// 		expandableButtons.hidden = !expandableButtons.hidden;
-// 	});
-
-// 	window
-// 		.matchMedia("(orientation: portrait)")
-// 		.addEventListener("change", function (e) {
-// 			menu.hidden = true;
-// 			expandableButtons.hidden = true;
-// 		});
-// }
-
-// const biomesMenuItems = new List<HTMLElement>("Biomes UI Items");
-
-// biomesMenuItems.add(createMenuListItemCage(Biome.dessert));
-// biomesMenuItems.add(createMenuListItemCage(Biome.mudland));
-// biomesMenuItems.add(createMenuListItemCage(Biome.tundra));
-// biomesMenuItems.add(createMenuListItemCage(Biome.grassland));
-// biomesMenuItems.add(createMenuListItemCage(Biome.forest));
-
-// const animalsMenuItems = new List<HTMLElement>("Animals UI Items");
-// animalTypes.forEach((type) => {
-// 	animalsMenuItems.add(createMenuListItemAnimal(type));
-// });
-
-// const foodMenuItems = new List<HTMLElement>("Food UI Items");
-// foodList.forEach((food) => {
-// 	foodMenuItems.add(createMenuListItemFood(food));
-// });
-
-// initExpandableMenu(animalsMenuItems, biomesMenuItems, foodMenuItems);

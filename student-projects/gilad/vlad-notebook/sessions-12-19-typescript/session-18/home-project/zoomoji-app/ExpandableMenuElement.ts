@@ -11,6 +11,9 @@ export class ExpandableMenuElement extends HTMLElement implements UIObject {
 
 	private mainButton!: MenuButtonElement;
 
+	private onShowObjectsMenuListener!: Function;
+	private onHideObjectsMenuListener!: Function;
+
 	constructor() {
 		super();
 
@@ -35,16 +38,13 @@ export class ExpandableMenuElement extends HTMLElement implements UIObject {
 		this.addButton(new MenuButtonElement("animals", MenuButtonElement.SMALL));
 		this.addButton(new MenuButtonElement("cages", MenuButtonElement.SMALL));
 		this.addButton(new MenuButtonElement("food", MenuButtonElement.SMALL));
+		this.hideMenu();
 	}
 
 	private initMainButton() {
 		this.mainButton = new MenuButtonElement("main", MenuButtonElement.BIG);
 		this.mainButton.classList.add(this.bemPerfix + "main-button");
 	}
-
-	// 	<div class="expanding-menu__main-button ui-button js-menu-button-main">
-	// 	<div class="ui-button__icon"></div>
-	// </div>
 
 	private initMain() {
 		this.classList.add(this.bemName);
@@ -55,33 +55,69 @@ export class ExpandableMenuElement extends HTMLElement implements UIObject {
 		this.append(this.buttonsContainer);
 		this.append(this.mainButton);
 	}
+
 	private addButton(button: MenuButtonElement) {
 		this.buttonsList.add(button);
 		this.append(button);
 	}
-	private show() {
-		this.hidden = true;
+
+	private isHidden() {
+		return this.buttonsContainer.style.display === "none" ? true : false;
 	}
 
-	private hide() {
-		this.hidden = false;
+	private isShown() {
+		return !this.isHidden();
 	}
 
+	public setOnShowObjectsMenuListener(context: any, listener: Function) {
+		this.buttonsList.forEach((button) => {
+			button.addOnPressedListener(() => {
+				listener(context, button);
+			});
+		});
+	}
+
+	public setOnHideObjectsMenuListener(context: any, listener: Function) {
+		this.onHideObjectsMenuListener = listener;
+
+		this.buttonsList.forEach((button) => {
+			button.addOnNotPressedListener(() => {
+				listener(context, button);
+			});
+		});
+
+		this.mainButton.addOnNotPressedListener(() => {
+			listener(context, this.mainButton.getName());
+		});
+	}
+
+	public setOnMainButtonPressed(context: any, listener: Function) {
+		this.mainButton.addOnPressedListener(() => {
+			listener(context);
+		});
+	}
+	public setOnMainButtonNotPressed(context: any, listener: Function) {
+		this.mainButton.addOnNotPressedListener(() => {
+			listener(context);
+		});
+	}
+
+	public expandMenu() {
+		this.buttonsContainer.style.display = "flex";
+	}
+
+	public hideMenu() {
+		this.buttonsContainer.style.display = "none";
+	}
+
+	public setButtonsUnpressedExcept(exceptButton: MenuButtonElement) {
+		this.buttonsList.forEach((button) => {
+			if (button !== exceptButton) button.setPressed(false);
+		});
+	}
 	updateUI(): void {
 		throw new Error("Method not implemented.");
 	}
 }
 
 window.customElements.define("expandable-menu-element", ExpandableMenuElement);
-
-// <div class="expanding-menu__expandable-items js-expandable-buttons" hidden>
-
-//     <div class="ui-button ui-button--small js-menu-button-cages">
-//         <div class="ui-button__icon ui-button__icon--cages"></div>
-//     </div>
-
-//     <div class="ui-button ui-button--small js-menu-button-food">
-//         <div class="ui-button__icon ui-button__icon--food"></div>
-//     </div>
-
-// </div>

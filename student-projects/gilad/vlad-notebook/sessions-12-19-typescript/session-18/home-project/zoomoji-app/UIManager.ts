@@ -17,10 +17,9 @@ export interface UIObject {
 
 const wrapper = document.querySelector(".wrapper") as HTMLDivElement;
 const gameMenu = new GameMenuElement();
+
 console.log(gameMenu);
 wrapper.append(gameMenu);
-
-const test = new GameMenuElement();
 
 const zoo = document.querySelector(".zoo") as HTMLElement;
 
