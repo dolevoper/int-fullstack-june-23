@@ -1,0 +1,12 @@
+.draggable-contaner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__card {
+		background: white;
+		width: 100px;
+		height: 50px;
+		border-radius: 15px;
+	}
+}

@@ -1,0 +1,22 @@
+.balloons-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 400px;
+
+	&__balloon {
+		background: #b1b1b1;
+		width: 100px;
+		height: 100px;
+		border-radius: 100px;
+		transition: transform 500ms;
+
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+}
+
+.hidden {
+	opacity: 0;
+}
