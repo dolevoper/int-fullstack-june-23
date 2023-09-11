@@ -249,7 +249,7 @@
             @extend .game-menu__button;
             width: calc(100% - 3vh);
             border-left: 1vh solid rgba(0, 0, 0, 0);
-            
+
             &.is-active {
                 border-left: 1vh solid var(--arc-secondary-color);
                 border-color: var(--arc-secondary-color);
@@ -269,6 +269,14 @@
     overflow: hidden;
     transition: .3s ease;
 
+    & a:hover {
+        color: var(--sea-color);
+    }
+
+    & a:active {
+        color: var(--arc-secondary-color);
+    }
+
     &.is-active {
         top: 0;
     }
@@ -281,16 +289,48 @@
     width: 25%;
     bottom: -80%;
     right: 0;
+    color: transparent;
     background-color: transparent;
     border-left: 1vh solid rgba(0, 0, 0, 0);
     overflow: hidden;
     transition: .3s ease;
 
     &.is-active {
-      bottom: 20%;
-      background-color: var(--arc-primary-color);
-      border-color: var(--arc-secondary-color);
-      box-shadow: -9px 0px 18px 1px rgba(0,0,0,0.25);
+        bottom: 20%;
+        color: black;
+        background-color: var(--arc-primary-color);
+        border-color: var(--arc-secondary-color);
+        box-shadow: -9px 0px 18px 1px rgba(0, 0, 0, 0.25);
+    }
+
+    &-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        list-style: none;
+        padding: 0;
+        width: 100%;
+
+        &-list-item {
+            margin-inline: auto;
+            font-size: min(4vw, 25px);
+            word-break: break-all;
+            cursor: pointer;
+            transition: .2s ease;
+
+            &:hover {
+                color: var(--arc-secondary-color);
+                scale: 1.2;
+            }
+
+            & a:hover {
+                color: inherit;
+            }
+
+            & a:active {
+                color: white;
+            }
+        }
     }
 }
 
