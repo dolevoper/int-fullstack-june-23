@@ -244,9 +244,17 @@
             color: white;
             border-color: var(--arc-secondary-color);
         }
-        
+
         &--options-button {
             @extend .game-menu__button;
+            width: calc(100% - 3vh);
+            border-left: 1vh solid rgba(0, 0, 0, 0);
+            
+            &.is-active {
+                border-left: 1vh solid var(--arc-secondary-color);
+                border-color: var(--arc-secondary-color);
+                border-top: 1vh solid rgba(0, 0, 0, 0);
+            }
         }
     }
 }
@@ -263,6 +271,26 @@
 
     &.is-active {
         top: 0;
+    }
+}
+
+.options__nav {
+    position: fixed;
+    display: flex;
+    height: 80%;
+    width: 25%;
+    bottom: -80%;
+    right: 0;
+    background-color: transparent;
+    border-left: 1vh solid rgba(0, 0, 0, 0);
+    overflow: hidden;
+    transition: .3s ease;
+
+    &.is-active {
+      bottom: 20%;
+      background-color: var(--arc-primary-color);
+      border-color: var(--arc-secondary-color);
+      box-shadow: -9px 0px 18px 1px rgba(0,0,0,0.25);
     }
 }
 

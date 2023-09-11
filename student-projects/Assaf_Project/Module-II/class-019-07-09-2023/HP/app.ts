@@ -287,6 +287,7 @@ if (gameMenuButton.length > 0) {
   });
 }
 
+const optionsNav = document.querySelector(".options__nav");
 const optionsButton = document.querySelector(
   ".game-menu__button--options-button"
 );
@@ -294,4 +295,5 @@ optionsButton?.addEventListener("click", optionsSelected);
 
 function optionsSelected() {
   optionsButton?.classList.toggle("is-active");
+  optionsNav?.classList.toggle("is-active");
 }
