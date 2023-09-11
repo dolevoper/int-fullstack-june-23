@@ -70,6 +70,7 @@
     0%,
     100% {
         transform: scale(1);
+        box-shadow: 0px 0px 50px 15px rgba(255, 152, 9, 0.265) inset;
     }
 
     50% {
@@ -85,7 +86,8 @@
 	}
 
 	100% {
-		opacity: 0;
-		transform: translateY(200px);
+		opacity: .5;
+        background-color: rgb(194, 49, 0);
+		transform: translateY(300px);
 	}
 }

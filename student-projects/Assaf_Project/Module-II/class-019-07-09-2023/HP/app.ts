@@ -311,6 +311,12 @@ function timeToggle() {
   sky?.classList.toggle("--is-day");
   nightDayToggle?.classList.toggle("--is-day");
   wave?.classList.toggle("--is-day");
+
+  if (nightDayToggle?.classList.contains("--is-day")) {
+    (nightDayToggle as HTMLElement).innerText = "Night Time";
+  } else {
+    (nightDayToggle as HTMLElement).innerText = "Day Time";
+  }
 }
 
 function toggleStarsDayClass() {
