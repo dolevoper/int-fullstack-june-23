@@ -1,21 +1,20 @@
 import { Animal } from "./Animal.js";
 import { AnimalType } from "./AnimalType.js";
-import { List } from "./List.js";
+import { NeedBubbleListElement } from "./NeedBubbleListElement.js";
+import { UIObject } from "./UIManager.js";
 
-export class AnimalElement extends HTMLElement {
+export class AnimalElement extends HTMLElement implements UIObject {
 	private animal: Animal;
 	private nameElement!: HTMLParagraphElement;
 	private bodyElement!: HTMLImageElement;
 
-	private needsContainerElement!: HTMLUListElement;
-	private needBubblesList!: List<NeedBubbleElement>;
+	private needsElement!: NeedBubbleListElement;
 	private readonly hungryBubbleName = "hungry";
 	private readonly thirstyBubbleName = "thirsty";
 	private readonly sadBubbleName = "sad";
 
 	private componentName = "animal";
 	private bemPerfix = this.componentName + "__";
-	private needBubblePerfix = "js-animal-need-bubble-";
 
 	constructor(animal: Animal) {
 		super();
@@ -24,13 +23,15 @@ export class AnimalElement extends HTMLElement {
 
 		this.initUI();
 	}
+	updateUI(): void {
+		this.updateNeedsList();
+	}
 
 	initUI() {
 		this.initNameElement();
 		this.initBodyElement();
 
 		this.initNeedsContainerElement();
-		this.initNeedBubbleElements();
 		this.updateNeedsList();
 
 		this.initMainElement();
@@ -38,7 +39,7 @@ export class AnimalElement extends HTMLElement {
 
 	initMainElement() {
 		this.classList.add(this.componentName);
-		this.append(this.needsContainerElement);
+		this.append(this.needsElement);
 		this.append(this.nameElement);
 		this.append(this.bodyElement);
 	}
@@ -56,74 +57,28 @@ export class AnimalElement extends HTMLElement {
 	}
 
 	initNeedsContainerElement() {
-		this.needsContainerElement = document.createElement(
-			"ul"
-		) as HTMLUListElement;
-		this.needsContainerElement.classList.add(this.bemPerfix + "needs");
-	}
+		this.needsElement = new NeedBubbleListElement(this.componentName);
+		this.needsElement.addNeedBubble(this.hungryBubbleName);
+		this.needsElement.addNeedBubble(this.thirstyBubbleName);
+		this.needsElement.addNeedBubble(this.sadBubbleName);
 
-	initNeedBubbleElements() {
-		this.needBubblesList = new List<NeedBubbleElement>();
-
-		this.needBubblesList.add(
-			this.createNeedBubbleElement(this.hungryBubbleName)
-		);
-		this.needBubblesList.add(
-			this.createNeedBubbleElement(this.thirstyBubbleName)
-		);
-		this.needBubblesList.add(this.createNeedBubbleElement(this.sadBubbleName));
-	}
-
-	createNeedBubbleElement(needName: string): NeedBubbleElement {
-		const bubbleElement = document.createElement("li");
-		bubbleElement.classList.add(this.needBubblePerfix + needName);
-		const bubbleIcon = document.createElement("img");
-		bubbleIcon.classList.add(this.bemPerfix + "need-icon");
-		bubbleIcon.src = getNeedImageByName(needName);
-
-		bubbleElement.appendChild(bubbleIcon);
-
-		return new NeedBubbleElement(needName, bubbleElement);
+		this.needsElement.hideAllBubbles();
 	}
 
 	updateNeedsList() {
 		const isHungry = this.getAnimal().isHungry();
 		const isThirsty = this.getAnimal().isThirsty();
 		const isSad = this.getAnimal().isSad();
-
+		this.needsElement.showNeedBubble(this.hungryBubbleName);
 		if (isHungry) {
-			this.showNeedBubble(this.hungryBubbleName);
-		} else this.hideNeedBubble(this.hungryBubbleName);
+			this.needsElement.showNeedBubble(this.hungryBubbleName);
+		} else this.needsElement.hideNeedBubble(this.hungryBubbleName);
 		if (isThirsty) {
-			this.showNeedBubble(this.thirstyBubbleName);
-		} else this.hideNeedBubble(this.thirstyBubbleName);
+			this.needsElement.showNeedBubble(this.thirstyBubbleName);
+		} else this.needsElement.hideNeedBubble(this.thirstyBubbleName);
 		if (isSad) {
-			this.showNeedBubble(this.sadBubbleName);
-		} else this.hideNeedBubble(this.sadBubbleName);
-	}
-
-	showNeedBubble(needName: string) {
-		const needBubble = this.getNeedBubbleElement(needName);
-		if (needBubble) this.needsContainerElement.append(needBubble.element);
-	}
-
-	hideNeedBubble(needName: string) {
-		const needBubble = this.findShownNeedBubbleElement(needName);
-		if (needBubble) needBubble.remove();
-	}
-
-	findShownNeedBubbleElement(needName: string): HTMLLIElement {
-		return this.needsContainerElement.querySelector(
-			"." + this.needBubblePerfix + needName
-		) as HTMLLIElement;
-	}
-
-	getNeedBubbleElement(needName: string): NeedBubbleElement | undefined {
-		const needBubble = this.needBubblesList.find(
-			(need) => need.name === needName
-		);
-
-		return needBubble;
+			this.needsElement.showNeedBubble(this.sadBubbleName);
+		} else this.needsElement.hideNeedBubble(this.sadBubbleName);
 	}
 
 	private setAnimationWalking(state: Boolean) {
@@ -152,35 +107,18 @@ export class AnimalElement extends HTMLElement {
 	}
 }
 
-window.customElements.define("animal-element", AnimalElement);
-
-class NeedBubbleElement {
-	constructor(public name: string, public element: HTMLLIElement) {
-		this.name = name;
-		this.element = element;
-	}
-}
-
 export function getAnimalImageByType(type: AnimalType) {
 	const typeName = type.getName().toLowerCase();
 	return `./assets/animals/${typeName}.svg`;
 }
 
-export function getNeedImageByName(needName: string) {
-	return `./assets/menu/icons/needs/need-${needName}.svg`;
-}
+window.customElements.define("animal-element", AnimalElement);
 
 /*
 ANIMAL HTML:
 
 <div class="animal animal--walking">
-    <ul class="animal__needs">
-        <li class="js-animal-need-bubble-sad"><img class="animal__need-icon" src="assets/menu/icons/needs/need-sad.svg"></img></li>
-        <li class="js-animal-need-bubble-hungry"><img class="animal__need-icon" src="assets/menu/icons/needs/need-hungry.svg"></img></li>
-        <li class="js-animal-need-bubble-water"><img class="animal__need-icon" src="assets/menu/icons/needs/need-water.svg"></img></li>
-        <li class="js-animal-need-bubble-clean"><img class="animal__need-icon" src="assets/menu/icons/needs/need-clean.svg"></img></li>
-        <li class="js-animal-need-bubble-happy"><img class="animal__need-icon" src="assets/menu/icons/needs/need-happy.svg"></img></li>
-    </ul>
+    
 
     <img class="animal__body" src="assets/animals/alpaca.svg" alt="">
 </div>

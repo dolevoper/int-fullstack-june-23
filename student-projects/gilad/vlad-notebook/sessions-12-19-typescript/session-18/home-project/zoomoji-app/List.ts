@@ -22,6 +22,14 @@ export class List<T extends Object> extends Array<T> {
 		}
 	}
 
+	findByName(name: string): T | undefined {
+		return this.find((element) => {
+			const convertedElement = element as any;
+			if (convertedElement.hasOwnProperty("name"))
+				return convertedElement.getName() === name;
+		});
+	}
+
 	getAllByPropertyValue(
 		property: string,
 		value: any,
