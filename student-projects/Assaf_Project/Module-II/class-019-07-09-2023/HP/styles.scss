@@ -283,6 +283,10 @@
             width: calc(100% - 3vh);
             border-left: 1vh solid rgba(0, 0, 0, 0);
 
+            &:hover {
+                border-left: 1vh solid rgba(0, 0, 0, 0);
+            }
+
             &.is-active {
                 border-left: 1vh solid var(--arc-secondary-color);
                 border-color: var(--arc-secondary-color);
