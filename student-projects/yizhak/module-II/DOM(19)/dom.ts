@@ -71,4 +71,13 @@ let cars = [
     }
 ]
 
+//יוצרים תג ואז דוחפים לתוכו את מה שרוצים ואז דוחפים את התג לאלמנט.
+let paragraph = document.createElement("p");
+
+for (let i=0;i < cars.length;i++){
+    paragraph.innerHTML += "Car: " + cars[i].name + " color: " + cars[i].color + " type: " + cars[i].type + " year: " + cars[i].year + "<br>";
+}
+document.body.appendChild(paragraph);
+
+
 
