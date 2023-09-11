@@ -1,12 +1,12 @@
 import { List } from "./List.js";
-import { MenuButtonElement, MenuButtonSize } from "./MenuButtonElement.js";
+import { MenuButtonElement } from "./MenuButtonElement.js";
 import { UIObject } from "./UIManager.js";
 
 export class ExpandableMenuElement extends HTMLElement implements UIObject {
 	private bemName = "expanding-menu";
 	private bemPerfix = this.bemName + "__";
 
-	private buttonsContainer!: HTMLDivElement;
+	private buttonsContainer!: HTMLUListElement;
 	private buttonsList!: List<MenuButtonElement>;
 
 	private mainButton!: MenuButtonElement;
@@ -25,20 +25,20 @@ export class ExpandableMenuElement extends HTMLElement implements UIObject {
 	}
 
 	private initButtonsContainer() {
-		this.buttonsContainer = document.createElement("div");
+		this.buttonsContainer = document.createElement("ul");
 		this.buttonsContainer.classList.add(this.bemPerfix + "expandable-items");
 	}
 
 	private initButtonsList() {
 		this.buttonsList = new List<MenuButtonElement>();
 
-		this.addButton(new MenuButtonElement("animals", MenuButtonSize.SMALL));
-		this.addButton(new MenuButtonElement("cages", MenuButtonSize.SMALL));
-		this.addButton(new MenuButtonElement("food", MenuButtonSize.SMALL));
+		this.addButton(new MenuButtonElement("animals", MenuButtonElement.SMALL));
+		this.addButton(new MenuButtonElement("cages", MenuButtonElement.SMALL));
+		this.addButton(new MenuButtonElement("food", MenuButtonElement.SMALL));
 	}
 
 	private initMainButton() {
-		this.mainButton = new MenuButtonElement("main", MenuButtonSize.BIG);
+		this.mainButton = new MenuButtonElement("main", MenuButtonElement.BIG);
 		this.mainButton.classList.add(this.bemPerfix + "main-button");
 	}
 

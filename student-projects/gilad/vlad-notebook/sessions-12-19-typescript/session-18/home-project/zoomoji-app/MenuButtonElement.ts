@@ -7,10 +7,10 @@ export class MenuButtonElement extends HTMLElement implements UIObject {
 	private bemPerfix = this.bemName + "__";
 	private pointerPerfix = "js-menu-button-";
 
-	private VERY_SMALL = "very-small";
-	private SMALL = "small";
-	private MEDIUM = "medium";
-	private BIG = "";
+	static VERY_SMALL = "very-small";
+	static SMALL = "small";
+	static MEDIUM = "medium";
+	static BIG = "big";
 
 	private name: string;
 	private size: string;
@@ -45,9 +45,7 @@ export class MenuButtonElement extends HTMLElement implements UIObject {
 	private initMain() {
 		this.classList.add(this.bemName);
 		console.log(this.bemName + "--" + this.getSize());
-		let size = this.getSize();
-		size = size === this.BIG ? size : "--" + size;
-		this.classList.add(this.bemName + size);
+		this.classList.add(this.bemName + "--" + this.getSize());
 
 		this.append(this.icon);
 	}

@@ -1,18 +1,8 @@
-import { Food, foodList } from "./AnimalDiet.js";
-import {
-	AnimalType,
-	Gender,
-	animalTypes,
-	gorilla,
-	penguin,
-} from "./AnimalType.js";
-import { Biome } from "./Cage.js";
-import { List } from "./List.js";
-import { AnimalElement, getAnimalImageByType } from "./AnimalElement.js";
+import { Gender, gorilla } from "./AnimalType.js";
+
+import { AnimalElement } from "./AnimalElement.js";
 import { Animal } from "./Animal.js";
-import { MenuButtonElement, MenuButtonSize } from "./MenuButtonElement.js";
-import { ExpandableMenuElement } from "./ExpandableMenuElement.js";
-import { GameObjectsMenuElement } from "./GameObjectsMenuElement.js";
+
 import { GameMenuElement } from "./GameMenuElement.js";
 
 export class UIManager {
@@ -139,4 +129,4 @@ function moveAnimal(speed: number) {
 }
 
 setScreenListeners();
-startAnimalAnimation();
+// startAnimalAnimation();

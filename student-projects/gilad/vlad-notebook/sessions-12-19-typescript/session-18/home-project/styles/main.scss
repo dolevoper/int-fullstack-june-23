@@ -165,6 +165,7 @@
     --border-size: calc(var(--button-size) / var(--border-multiplier));
     --outline-size: calc(var(--button-size) / 18);
 
+    display: inline-block;
     width: var(--button-size);
     height: var(--button-size);
     padding: calc(var(--button-size) / 6);
@@ -228,4 +229,5 @@
 .expanding-menu {
     margin-right: calc(var(--main-button-offset)/2);
     margin-bottom: var(--main-button-offset);
+
 }
