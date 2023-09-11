@@ -1,0 +1,46 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.cardList {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+button{
+    margin: 2px;
+    height: 30px;
+    font-weight: 600;
+    border: 0.5px solid black;
+
+    &:hover {
+        color: white;
+        background-color: rgba(170, 0, 255, 0.633);
+    }
+
+}
