@@ -276,15 +276,58 @@ const rooms = [
   },
 ];
 
-const foldBar = document.querySelector(".fold-bar");
-const gameMenuButton = document.querySelectorAll(".game-menu__button");
+const animalsFoldBar = document.querySelector(".animals");
+const roomsFoldBar = document.querySelector(".rooms");
+const conflictsFoldBar = document.querySelector(".conflicts");
 
-if (gameMenuButton.length > 0) {
-  gameMenuButton.forEach(function (button) {
-    button.addEventListener("click", function () {
-      foldBar?.classList.toggle("is-active");
-    });
-  });
+const animalMenuButton = document.querySelector(
+  ".game-menu__button.--animals-button"
+);
+const roomsMenuButton = document.querySelector(
+  ".game-menu__button.--rooms-button"
+);
+const conflictsMenuButton = document.querySelector(
+  ".game-menu__button.--conflicts-button"
+);
+
+animalMenuButton?.addEventListener("click", animalMenuButtonSelected);
+roomsMenuButton?.addEventListener("click", roomsMenuButtonSelected);
+conflictsMenuButton?.addEventListener("click", conflictsMenuButtonSelected);
+
+function animalMenuButtonSelected() {
+  animalMenuButton?.classList.toggle("is-active");
+  animalsFoldBar?.classList.toggle("is-active");
+  if (roomsMenuButton?.classList.contains("is-active")) {
+    roomsMenuButton?.classList.toggle("is-active");
+    roomsFoldBar?.classList.toggle("is-active");
+  } else if (conflictsMenuButton?.classList.contains("is-active")) {
+    conflictsMenuButton?.classList.toggle("is-active");
+    conflictsFoldBar?.classList.toggle("is-active");
+  }
+}
+
+function roomsMenuButtonSelected() {
+  roomsMenuButton?.classList.toggle("is-active");
+  roomsFoldBar?.classList.toggle("is-active");
+  if (animalMenuButton?.classList.contains("is-active")) {
+    animalMenuButton?.classList.toggle("is-active");
+    animalsFoldBar?.classList.toggle("is-active");
+  } else if (conflictsMenuButton?.classList.contains("is-active")) {
+    conflictsMenuButton?.classList.toggle("is-active");
+    conflictsFoldBar?.classList.toggle("is-active");
+  }
+}
+
+function conflictsMenuButtonSelected() {
+  conflictsMenuButton?.classList.toggle("is-active");
+  conflictsFoldBar?.classList.toggle("is-active");
+  if (animalMenuButton?.classList.contains("is-active")) {
+    animalMenuButton?.classList.toggle("is-active");
+    animalsFoldBar?.classList.toggle("is-active");
+  } else if (roomsMenuButton?.classList.contains("is-active")) {
+    roomsMenuButton?.classList.toggle("is-active");
+    roomsFoldBar?.classList.toggle("is-active");
+  }
 }
 
 const optionsNav = document.querySelector(".options__nav");

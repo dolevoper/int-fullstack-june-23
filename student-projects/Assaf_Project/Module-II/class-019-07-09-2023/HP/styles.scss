@@ -293,6 +293,7 @@
 }
 
 .fold-bar {
+    width: 100%;
     position: fixed;
     display: flex;
     height: 80%;
@@ -310,9 +311,7 @@
         color: var(--arc-secondary-color);
     }
 
-    &.is-active {
-        top: 0;
-    }
+    &.is-active {}
 }
 
 .options__nav {
@@ -343,7 +342,7 @@
         list-style: none;
         padding: 0;
         width: 100%;
-        
+
         &-list-item {
             word-break: break-all;
             margin-inline: auto;
@@ -368,6 +367,37 @@
 }
 
 .animals {
+    @extend .fold-bar;
+
+    &.is-active {
+        top: 0;
+    }
+
+    &__list {
+
+        &-item {}
+    }
+}
+
+.rooms {
+    @extend .fold-bar;
+
+    &.is-active {
+        top: 0;
+    }
+
+    &__list {
+
+        &-item {}
+    }
+}
+
+.conflicts {
+    @extend .fold-bar;
+
+    &.is-active {
+        top: 0;
+    }
 
     &__list {
 
