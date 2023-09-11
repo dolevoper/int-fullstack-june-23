@@ -371,3 +371,18 @@ function toggleStarsDayClass() {
 if (nightDayToggle) {
   nightDayToggle.addEventListener("click", toggleStarsDayClass);
 }
+
+const audio = document.getElementById("audio") as HTMLAudioElement;
+const playButton = document.getElementById("soundtrack");
+
+playButton?.addEventListener("click", playAudio);
+
+function playAudio() {
+  playButton?.classList.toggle("is-playing");
+  audio?.play();
+  (playButton as HTMLElement).innerText = "Sound Off";
+  if (playButton?.classList.contains("is-playing")) {
+    audio.pause();
+    (playButton as HTMLElement).innerText = "Sound On";
+  }
+}
