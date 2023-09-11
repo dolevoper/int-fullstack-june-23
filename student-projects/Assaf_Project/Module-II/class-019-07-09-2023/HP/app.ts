@@ -297,3 +297,28 @@ function optionsSelected() {
   optionsButton?.classList.toggle("is-active");
   optionsNav?.classList.toggle("is-active");
 }
+
+const sky = document.querySelector(".sky");
+const stars = document.querySelectorAll(".star");
+const wave = document.querySelector(".wave");
+
+const nightDayToggle = document.querySelector(
+  ".options__nav-menu-list-item.--time-of-day"
+);
+nightDayToggle?.addEventListener("click", timeToggle);
+
+function timeToggle() {
+  sky?.classList.toggle("--is-day");
+  nightDayToggle?.classList.toggle("--is-day");
+  wave?.classList.toggle("--is-day");
+}
+
+function toggleStarsDayClass() {
+  stars.forEach(function (star) {
+    star.classList.toggle("--is-day");
+  });
+}
+
+if (nightDayToggle) {
+  nightDayToggle.addEventListener("click", toggleStarsDayClass);
+}

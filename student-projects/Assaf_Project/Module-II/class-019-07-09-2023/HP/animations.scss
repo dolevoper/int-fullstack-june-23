@@ -8,6 +8,7 @@
         left: -300vw;
         transform: translateY(-50px);
     }
+
     100% {
         left: -500vw;
         transform: translateY(-50px);
@@ -62,4 +63,29 @@
         opacity: 1;
         transform: scale(1.1);
     }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0px 0px 30px 15px rgba(255, 152, 9, 0.505) inset;
+    }
+}
+
+@keyframes toNight {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateY(200px);
+	}
 }

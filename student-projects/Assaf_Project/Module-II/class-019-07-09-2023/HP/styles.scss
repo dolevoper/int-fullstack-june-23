@@ -1,15 +1,34 @@
 :root {
     --main-object-size: 150px;
     --arc-sizes: 60vw;
-    --sky-color: rgb(6, 38, 50);
+    --night-sky-color: rgb(6, 38, 50);
+    --day-sky-color: rgb(137, 214, 255);
     --sea-color: rgb(0, 0, 194);
     --arc-primary-color: rgb(121, 88, 45);
     --arc-secondary-color: rgb(105, 47, 15);
 }
 
 .sky {
-    background-color: var(--sky-color);
+    background-color: var(--night-sky-color);
     position: relative;
+    transition: all 1s ease;
+    
+
+    &.--is-day {
+        background-color: var(--day-sky-color);
+
+        &::before {
+            content: "";
+            position: absolute;
+            background-color: rgb(255, 228, 181);
+            height: var(--main-object-size);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            top: 5%;
+            left: 10%;
+            animation: toNight 1s ease 0s 1 reverse, pulse 5s 2s ease infinite forwards;
+        }
+    }
 }
 
 .star {
@@ -19,6 +38,11 @@
     aspect-ratio: 1;
     opacity: .4;
     animation: sparkle 15s infinite forwards;
+    transition: all 1s ease;
+
+    &.--is-day {
+        background-color: transparent;
+    }
 
     &:nth-child(1) {
         height: 5px;
@@ -97,7 +121,6 @@
 
 .wave {
     position: relative;
-    // transform: translateX(50px);
     animation: waves 14s ease-in infinite forwards;
     top: 50vh;
 
@@ -113,13 +136,22 @@
 
     &::after {
         content: "";
-        background-color: var(--sky-color);
+        background-color: var(--night-sky-color);
         height: calc(var(--main-object-size)*.8);
         position: absolute;
         aspect-ratio: 5/3;
         bottom: 50px;
         left: -70px;
         border-radius: 50%;
+        transition: all 1s ease;
+    }
+
+
+    &.--is-day {
+        &::after {
+            content: "";
+            background-color: var(--day-sky-color);
+        }
     }
 }
 
