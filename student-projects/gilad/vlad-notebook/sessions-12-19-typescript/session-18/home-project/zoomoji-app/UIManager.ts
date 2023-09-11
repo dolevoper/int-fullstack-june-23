@@ -224,11 +224,16 @@ animalB.updateNeedsList();
 let zooBoundaries = zoo.getBoundingClientRect();
 let zooWidth = zooBoundaries.width;
 let zooHeight = zooBoundaries.height;
+let hitbox = animalB.getBoundingClientRect();
 
-function updateZooBounds(orientation: ScreenOrientation) {
+function updateZooBounds() {
 	zooBoundaries = zoo.getBoundingClientRect();
+	hitbox = animalB.getBoundingClientRect();
 
-	if (orientation.type === "portrait-primary") {
+	if (
+		screen.orientation.type === "portrait-primary" ||
+		window.innerWidth < window.innerHeight
+	) {
 		zooWidth = zooBoundaries.height;
 		zooHeight = zooBoundaries.width;
 	} else {
@@ -238,16 +243,15 @@ function updateZooBounds(orientation: ScreenOrientation) {
 }
 window
 	.matchMedia("(orientation: portrait)")
-	.addEventListener("change", function (e) {});
+	.addEventListener("change", function (e) {
+		updateZooBounds();
+	});
 
 window.addEventListener("resize", function (e) {
-	updateZooBounds(screen.orientation);
+	updateZooBounds();
 });
 
-updateZooBounds(screen.orientation);
-
-console.log(zooBoundaries);
-const hitbox = animalB.getBoundingClientRect();
+updateZooBounds();
 
 let xPos = 0;
 let yPos = 0;

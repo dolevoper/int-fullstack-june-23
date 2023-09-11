@@ -20,9 +20,7 @@ body {
 body {
     overflow: hidden;
 
-    @media (orientation: landscape) {
-        // rotate: (90deg);
-    }
+    @media (orientation: landscape) {}
 
     @media (orientation: portrait) {
         transform: rotate(90deg);
