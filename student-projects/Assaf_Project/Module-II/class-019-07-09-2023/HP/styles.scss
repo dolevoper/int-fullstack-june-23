@@ -1,0 +1,410 @@
+:root {
+    --main-object-size: 150px;
+    --arc-sizes: 60vw;
+    --night-sky-color: rgb(6, 38, 50);
+    --day-sky-color: rgb(137, 214, 255);
+    --sea-color: rgb(0, 0, 194);
+    --arc-primary-color: rgb(121, 88, 45);
+    --arc-secondary-color: rgb(105, 47, 15);
+}
+
+.sky {
+    background-color: var(--night-sky-color);
+    position: relative;
+    transition: all 1s ease;
+
+
+    &.--is-day {
+        background-color: var(--day-sky-color);
+
+        &::before {
+            content: "";
+            position: absolute;
+            background-color: rgb(255, 228, 181);
+            box-shadow: 0px 0px 50px 15px rgba(255, 152, 9, 0.265) inset;
+            height: var(--main-object-size);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            top: 5%;
+            left: 10%;
+            animation: toNight 1s ease 0s 1 reverse, pulse 5s 2s ease infinite forwards;
+        }
+    }
+}
+
+.star {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    aspect-ratio: 1;
+    opacity: .4;
+    animation: sparkle 15s infinite forwards;
+    transition: all 1s ease;
+
+    &.--is-day {
+        background-color: transparent;
+    }
+
+    &:nth-child(1) {
+        height: 5px;
+        top: 1vh;
+        left: 2%;
+    }
+
+    &:nth-child(2) {
+        height: 2px;
+        top: 8vh;
+        left: 8%;
+        animation-delay: 2s;
+    }
+
+    &:nth-child(3) {
+        height: 3px;
+        top: 6vh;
+        left: 19%;
+        animation-delay: 4s;
+    }
+
+    &:nth-child(4) {
+        height: 2px;
+        top: 20vh;
+        left: 13%;
+        animation-delay: 7s;
+    }
+
+    &:nth-child(5) {
+        height: 3px;
+        top: 15vh;
+        left: 68%;
+        animation-delay: 8s;
+    }
+
+    &:nth-child(6) {
+        height: 4px;
+        top: 8vh;
+        left: 48%;
+        animation-delay: 10s;
+    }
+
+    &:nth-child(7) {
+        height: 2px;
+        top: 11vh;
+        left: 29%;
+        animation-delay: 12s;
+    }
+
+    &:nth-child(8) {
+        height: 5px;
+        top: 18vh;
+        left: 95%;
+        animation-delay: 13s;
+    }
+
+    &:nth-child(9) {
+        height: 3px;
+        top: 4vh;
+        left: 77%;
+        animation-delay: 13.3s;
+    }
+
+    &:nth-child(10) {
+        height: 2px;
+        top: 3vh;
+        left: 62%;
+        animation-delay: 14s;
+    }
+}
+
+.sea {
+    background-color: var(--sea-color);
+    position: relative;
+}
+
+.wave {
+    position: relative;
+    animation: waves 14s ease-in infinite forwards;
+    top: 50vh;
+
+    &::before {
+        content: "";
+        background-color: var(--sea-color);
+        height: var(--main-object-size);
+        position: absolute;
+        aspect-ratio: 5/3;
+        bottom: 100%;
+        border-radius: 50%;
+    }
+
+    &::after {
+        content: "";
+        background-color: var(--night-sky-color);
+        height: calc(var(--main-object-size)*.8);
+        position: absolute;
+        aspect-ratio: 5/3;
+        bottom: 50px;
+        left: -70px;
+        border-radius: 50%;
+        transition: all 1s ease;
+    }
+
+
+    &.--is-day {
+        &::after {
+            content: "";
+            background-color: var(--day-sky-color);
+        }
+    }
+}
+
+.ark {
+    position: absolute;
+    width: var(--arc-sizes);
+    top: 38%;
+    left: 20%;
+    aspect-ratio: 4/1;
+    background: linear-gradient(180deg, rgba(121, 88, 45, 1) 45%, rgba(94, 62, 21, 1) 90%);
+    border-top: 1vh dashed var(--arc-secondary-color);
+    border-radius: 0 0 var(--arc-sizes) var(--arc-sizes);
+    animation: shake 20s ease-in infinite alternate;
+
+    &__house {
+        position: absolute;
+        background-color: var(--arc-primary-color);
+        width: 60%;
+        left: 20%;
+        bottom: calc(100% + .9vh);
+        aspect-ratio: 6/1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            clip-path: polygon(10% 85%, 90% 85%, 100% 100%, 0% 100%);
+            background-color: var(--arc-secondary-color);
+            width: 120%;
+            bottom: 70%;
+            left: -10%;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.427);
+            aspect-ratio: 5/3;
+        }
+
+        &-window {
+            content: "";
+            position: absolute;
+            width: 5%;
+            bottom: 10%;
+            aspect-ratio: 2/3;
+            // border-radius: 50%;
+            background-color: rgb(0, 0, 0);
+
+            &:nth-child(1) {
+                left: 3%;
+            }
+
+            &:nth-child(2) {
+                left: 12%;
+            }
+
+            &:nth-child(3) {
+                left: 22%;
+            }
+
+            &:nth-child(4) {
+                left: 32%;
+            }
+
+            &:nth-child(5) {
+                left: 42.5%;
+            }
+
+            &:nth-child(6) {
+                right: 42.5%;
+            }
+
+            &:nth-child(7) {
+                right: 32%;
+            }
+
+            &:nth-child(8) {
+                right: 22%;
+            }
+
+            &:nth-child(9) {
+                right: 12%;
+            }
+
+            &:nth-child(10) {
+                right: 3%;
+            }
+        }
+    }
+}
+
+.site-footer {
+    position: fixed;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.477);
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+}
+
+.game-menu {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: -2px -5px 5px 3px rgba(0, 0, 0, 0.084);
+
+    &__button {
+        width: 100%;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        font-size: 4vw;
+        color: white;
+        font-weight: 600;
+        border-top: 1vh solid rgba(0, 0, 0, 0);
+        transition: all .3s ease;
+
+        &:hover {
+            background-color: white;
+            color: var(--sea-color);
+            border-color: var(--arc-primary-color);
+        }
+
+        &:active,
+        &.is-active {
+            background-color: var(--arc-primary-color);
+            color: white;
+            border-color: var(--arc-secondary-color);
+        }
+
+        &--options-button {
+            @extend .game-menu__button;
+            width: calc(100% - 3vh);
+            border-left: 1vh solid rgba(0, 0, 0, 0);
+
+            &:hover {
+                border-left: 1vh solid rgba(0, 0, 0, 0);
+            }
+
+            &.is-active {
+                border-left: 1vh solid var(--arc-secondary-color);
+                border-color: var(--arc-secondary-color);
+                border-top: 1vh solid rgba(0, 0, 0, 0);
+            }
+        }
+    }
+}
+
+.fold-bar {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    height: 80%;
+    width: 100%;
+    top: -80%;
+    background-color: rgba(255, 255, 255, 0.795);
+    overflow: hidden;
+    transition: .3s ease;
+
+    & a:hover {
+        color: var(--sea-color);
+    }
+
+    & a:active {
+        color: var(--arc-secondary-color);
+    }
+
+    &.is-active {}
+}
+
+.options__nav {
+    position: fixed;
+    display: flex;
+    height: 80%;
+    width: 25%;
+    bottom: -80%;
+    right: 0;
+    color: transparent;
+    background-color: transparent;
+    border-left: 1vh solid rgba(0, 0, 0, 0);
+    overflow: hidden;
+    transition: .3s ease;
+
+    &.is-active {
+        bottom: 20%;
+        color: black;
+        background-color: var(--arc-primary-color);
+        border-color: var(--arc-secondary-color);
+        box-shadow: -9px 0px 18px 1px rgba(0, 0, 0, 0.25);
+    }
+
+    &-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        list-style: none;
+        padding: 0;
+        width: 100%;
+
+        &-list-item {
+            word-break: break-all;
+            margin-inline: auto;
+            font-size: min(4vw, 25px);
+            cursor: pointer;
+            transition: .2s ease;
+
+            &:hover {
+                color: var(--arc-secondary-color);
+                scale: 1.2;
+            }
+
+            & a:hover {
+                color: inherit;
+            }
+
+            & a:active {
+                color: white;
+            }
+        }
+    }
+}
+
+.animals {
+    @extend .fold-bar;
+
+    &.is-active {
+        top: 0;
+    }
+
+    &__list {
+
+        &-item {}
+    }
+}
+
+.rooms {
+    @extend .fold-bar;
+
+    &.is-active {
+        top: 0;
+    }
+
+    &__list {
+
+        &-item {}
+    }
+}
+
+.conflicts {
+    @extend .fold-bar;
+
+    &.is-active {
+        top: 0;
+    }
+
+    &__list {
+
+        &-item {}
+    }
+}
