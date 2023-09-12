@@ -6,6 +6,7 @@ import {
 	dietOmnivore,
 	dietCarnivore,
 } from "./AnimalDiet.js";
+import { GameType } from "./GameObjectInterface.js";
 import { List } from "./List.js";
 
 export enum Gender {
@@ -13,7 +14,7 @@ export enum Gender {
 	Male,
 }
 
-export class AnimalType {
+export class AnimalType implements GameType {
 	constructor(
 		private name: string,
 		private animalDiet: AnimalDiet,
@@ -24,6 +25,12 @@ export class AnimalType {
 		this.animalDiet = animalDiet;
 		this.sound = sound;
 		this.emoji = emoji;
+	}
+	getTypeName(): string {
+		return "animaltype";
+	}
+	getDietName(): string {
+		return this.getDiet().getName();
 	}
 
 	getName() {

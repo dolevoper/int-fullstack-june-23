@@ -1,25 +1,29 @@
-import { Gender, gorilla } from "./AnimalType.js";
+import { Gender, alpaca, gorilla } from "./AnimalType.js";
 
-import { AnimalElement } from "./AnimalElement.js";
+import { AnimalElement, getAnimalImageByType } from "./AnimalElement.js";
 import { Animal } from "./Animal.js";
 
 import { GameMenuElement } from "./GameMenuElement.js";
+import { CardElement } from "./CardElement.js";
 
 export class UIManager {
 	constructor() {}
 
-	initMainUI() {}
+	initMainUI() {
+		this.initGameMenu();
+	}
+
+	private initGameMenu() {
+		const wrapper = document.querySelector(".wrapper") as HTMLDivElement;
+		const gameMenu = new GameMenuElement();
+
+		wrapper.append(gameMenu);
+	}
 }
 
 export interface UIObject {
 	updateUI(): void;
 }
-
-const wrapper = document.querySelector(".wrapper") as HTMLDivElement;
-const gameMenu = new GameMenuElement();
-
-console.log(gameMenu);
-wrapper.append(gameMenu);
 
 const zoo = document.querySelector(".zoo") as HTMLElement;
 

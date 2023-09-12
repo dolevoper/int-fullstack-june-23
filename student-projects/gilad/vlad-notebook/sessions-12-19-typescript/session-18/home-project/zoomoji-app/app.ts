@@ -38,7 +38,6 @@ function zoo() {
 
 	while (userInput) {
 		console.clear();
-		console.log(gameManager);
 		gameManager.skipDays(1);
 		userInput = confirm(
 			`Current day: ${gameManager.getCurrentDay()}\nStart a new day?`

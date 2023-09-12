@@ -5,7 +5,6 @@ export class MenuButtonElement extends HTMLElement implements UIObject {
 
 	private bemName = "ui-button";
 	private bemPerfix = this.bemName + "__";
-	private pointerPerfix = "js-menu-button-";
 
 	static VERY_SMALL = "very-small";
 	static SMALL = "small";
@@ -68,7 +67,6 @@ export class MenuButtonElement extends HTMLElement implements UIObject {
 		this.onClickedListeners = [];
 		this.onPressedListeners = [];
 		this.onNotPressedListeners = [];
-		console.log(this.getName() + " pressed events inited ");
 		this.addEventListener("click", () => {
 			this.setPressed(!this.isPressed());
 

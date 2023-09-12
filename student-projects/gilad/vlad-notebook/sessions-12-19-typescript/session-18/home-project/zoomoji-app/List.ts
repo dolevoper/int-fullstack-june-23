@@ -8,7 +8,7 @@ export class List<T extends Object> extends Array<T> {
 	}
 
 	getName(): string {
-		return !this.name ? "" : this.name + " ";
+		return this.name;
 	}
 
 	add(item: T) {
@@ -22,10 +22,14 @@ export class List<T extends Object> extends Array<T> {
 		}
 	}
 
+	clearAll() {
+		this.splice(0, this.length);
+	}
+
 	findByName(name: string): T | undefined {
 		return this.find((element) => {
 			const convertedElement = element as any;
-			if (convertedElement.hasOwnProperty("name"))
+			if (convertedElement.hasOwnProperty("getName"))
 				return convertedElement.getName() === name;
 		});
 	}

@@ -1,3 +1,5 @@
+import { GameType } from "./GameObjectInterface";
+
 export enum Diets {
 	Herbivore = 0,
 	Carnivore = 1,
@@ -5,14 +7,23 @@ export enum Diets {
 	Fishivore = 3,
 }
 
-export class Food {
+export class Food implements GameType {
 	constructor(public name: string, private animalDiet: AnimalDiet) {
 		this.name = name;
 		this.animalDiet = animalDiet;
 	}
+	getTypeName(): string {
+		return "food";
+	}
+	getName(): string {
+		return this.name;
+	}
 
-	getAnimalDiet() {
+	getDietAnimal() {
 		return this.animalDiet;
+	}
+	getDietName(): string {
+		return this.animalDiet.getName();
 	}
 
 	toString(): string {
@@ -20,9 +31,15 @@ export class Food {
 	}
 }
 
-export class AnimalDiet {
+export class AnimalDiet implements GameType {
 	constructor(public diet: Diets) {
 		this.diet = diet;
+	}
+	getTypeName(): string {
+		return "animaldiet";
+	}
+	getDietName(): string {
+		return this.getName();
 	}
 
 	getName() {
@@ -35,7 +52,7 @@ export class AnimalDiet {
 
 	canEat(food: Food) {
 		if (this.getDiet() === Diets.Omnivore) return true;
-		return this.diet === food.getAnimalDiet().getDiet() ? true : false;
+		return this.diet === food.getDietAnimal().getDiet() ? true : false;
 	}
 }
 

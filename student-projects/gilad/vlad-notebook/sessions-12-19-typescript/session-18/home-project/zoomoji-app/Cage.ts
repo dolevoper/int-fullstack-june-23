@@ -1,16 +1,30 @@
-import { Food } from "./AnimalDiet.js";
+import { AnimalDiet, Food } from "./AnimalDiet.js";
 import { NeedBar } from "./NeedBar.js";
 import { Animal } from "./Animal.js";
 import { AnimalList } from "./AnimalList.js";
-import { GameObject } from "./GameObjectInterface.js";
+import { GameObject, GameType } from "./GameObjectInterface.js";
+import { List } from "./List.js";
 
-export enum Biome {
-	grassland,
-	dessert,
-	tundra,
-	forest,
-	mudland,
+export class Biome implements GameType {
+	constructor(public name: string) {}
+	getTypeName(): string {
+		return "biome";
+	}
+	getDietName(): string {
+		return "";
+	}
+	getName(): string {
+		return this.name;
+	}
 }
+
+export const biomesList = new List<Biome>("biomes");
+
+biomesList.add(new Biome("grassland"));
+biomesList.add(new Biome("dessert"));
+biomesList.add(new Biome("tundra"));
+biomesList.add(new Biome("forest"));
+biomesList.add(new Biome("mudland"));
 
 export class Cage implements GameObject {
 	private name: string;
@@ -25,7 +39,7 @@ export class Cage implements GameObject {
 	constructor(name: string, startBiome?: Biome) {
 		this.name = name;
 
-		this.setBiome(startBiome ? startBiome : Biome.grassland);
+		this.setBiome(startBiome ? startBiome : biomesList[0]);
 		this.cleanlinessBar = new NeedBar(
 			"cleanliness",
 			0,
@@ -38,6 +52,9 @@ export class Cage implements GameObject {
 		this.waterTray = new NeedBar("water tray", 0, 4, 5, 0, this.noWaterAlert);
 
 		this.animalsList = new AnimalList();
+	}
+	getDiet(): AnimalDiet | undefined {
+		return undefined;
 	}
 
 	addAnimal(animal: Animal) {

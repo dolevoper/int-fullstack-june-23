@@ -55,6 +55,10 @@ export class Animal implements GameObject {
 		return this.name;
 	}
 
+	getDiet() {
+		return this.type.getDiet();
+	}
+
 	getGender() {
 		return this.gender;
 	}

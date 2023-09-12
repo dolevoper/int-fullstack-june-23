@@ -98,6 +98,7 @@ export class ExpandableMenuElement extends HTMLElement implements UIObject {
 	}
 	public setOnMainButtonNotPressed(context: any, listener: Function) {
 		this.mainButton.addOnNotPressedListener(() => {
+			this.setButtonsUnpressedAll();
 			listener(context);
 		});
 	}
@@ -110,6 +111,11 @@ export class ExpandableMenuElement extends HTMLElement implements UIObject {
 		this.buttonsContainer.style.display = "none";
 	}
 
+	public setButtonsUnpressedAll() {
+		this.buttonsList.forEach((button) => {
+			button.setPressed(false);
+		});
+	}
 	public setButtonsUnpressedExcept(exceptButton: MenuButtonElement) {
 		this.buttonsList.forEach((button) => {
 			if (button !== exceptButton) button.setPressed(false);
