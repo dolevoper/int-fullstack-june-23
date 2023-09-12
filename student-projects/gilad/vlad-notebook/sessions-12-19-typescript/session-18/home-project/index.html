@@ -4,12 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZooTycoon</title>
+    <title>Zoomoji</title>
+    <link rel="stylesheet" href="styles/dist/main.css">
+    <link rel="shortcut icon" href="assets/favicon-32.svg" type="image/x-icon">
 </head>
 
 <body>
 
-    <script src="dist/app.js"></script>
+    <div class="wrapper">
+
+        <main class="zoo">
+
+            <div class="cage">
+                <img class="cage__background" src="assets/cage/cage-tundra.svg" alt="">
+                <div class="cage__animals">
+                    <div class="animal animal--walking">
+                        <ul class="animal__needs">
+                            <img class="animal__need-icon" src="assets/menu/icons/needs/need-clean.svg"></img>
+                            <img class="animal__need-icon" src="assets/menu/icons/needs/need-happy.svg"></img>
+                        </ul>
+                        <p class="animal__name">Vlad</p>
+
+                        <img class="animal__body" src="assets/animals/alpaca.svg" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <script type="module" src="zoomoji-app/dist/app.js"></script>
 </body>
 
 </html>

@@ -4,7 +4,8 @@
 		"module": "ESNext",
 		"lib": ["ESNext", "DOM"],
 		"strictNullChecks": true,
-		"noImplicitAny": true
+		"noImplicitAny": true,
+		"strictPropertyInitialization": true
 	},
-	"include": ["./*.ts", "Animal/*.ts", "Cage/*.ts"]
+	"include": ["./*.ts"]
 }
