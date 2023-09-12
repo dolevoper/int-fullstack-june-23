@@ -10,3 +10,10 @@ function changeBgcolor(){
     alert("MOUSE OVER IS APPLIDE")
 }
 Bgcolor.addEventListener("mouseover" ,changeBgcolor );
+
+const Status = document.querySelector(".button3") as HTMLButtonElement
+function changStatus(){
+   
+    Status.target.inertext="cliked"
+}
+Bgcolor.addEventListener("click" ,changStatus );
