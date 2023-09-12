@@ -17,9 +17,9 @@ export class Game {
 
 	private previousTime!: number;
 
-	private load!: Function;
-	private update!: Function;
-	private render!: Function;
+	public load!: Function;
+	public update!: Function;
+	public render!: Function;
 
 	constructor() {
 		this.initializeGame();
@@ -30,13 +30,13 @@ export class Game {
 		log(Game.TAG, "initializing");
 
 		this.load = () => {
-			log(Game.TAG, "load not implemented");
+			// log(Game.TAG, "load not implemented");
 		};
 		this.update = () => {
-			log(Game.TAG, "update not implemented");
+			// log(Game.TAG, "update not implemented");
 		};
 		this.render = () => {
-			log(Game.TAG, "render not implemented");
+			// log(Game.TAG, "render not implemented");
 		};
 
 		this.setGameState(GameState.READY);
@@ -53,11 +53,8 @@ export class Game {
 	}
 
 	private run(time: number): void {
-		log(Game.TAG, "Game is running...");
-
 		const deltaTime = calculateDeltaTime(time, this.previousTime);
 
-		console.log(deltaTime);
 		this.update(deltaTime);
 		this.render(deltaTime);
 
@@ -98,7 +95,7 @@ export class Game {
 	}
 
 	private frame(gameLoop: FrameRequestCallback) {
-		window.requestAnimationFrame(gameLoop);
+		window.requestAnimationFrame(gameLoop.bind(this));
 	}
 
 	private pauseGameLoop() {
