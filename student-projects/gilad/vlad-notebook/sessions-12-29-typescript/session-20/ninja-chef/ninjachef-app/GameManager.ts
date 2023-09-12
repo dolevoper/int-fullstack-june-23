@@ -1,8 +1,10 @@
-import { log } from "./helpers.js";
+import { calculateDeltaTime, log } from "./helpers.js";
 
 enum GameState {
 	INTIALIZE,
-	WAITINGSTART,
+	READY,
+	LOADING,
+	STARTED,
 	RUNNING,
 	PAUSED,
 	EXITING,
@@ -12,30 +14,54 @@ export class Game {
 	static TAG = "Game";
 
 	private state!: GameState;
-	private gameLoop!: number;
-	private loopTimeInMiliseconds: number;
+
+	private previousTime!: number;
+
+	private load!: Function;
+	private update!: Function;
+	private render!: Function;
 
 	constructor() {
-		this.loopTimeInMiliseconds = 500;
-
-		this.initialize();
+		this.initializeGame();
 	}
 
-	private initialize() {
+	private initializeGame() {
 		this.setGameState(GameState.INTIALIZE);
-		log(Game.TAG, "initializing...");
+		log(Game.TAG, "initializing");
 
-		this.setGameState(GameState.WAITINGSTART);
-		log(Game.TAG, "done initialize.");
-	}
+		this.load = () => {
+			log(Game.TAG, "load not implemented");
+		};
+		this.update = () => {
+			log(Game.TAG, "update not implemented");
+		};
+		this.render = () => {
+			log(Game.TAG, "render not implemented");
+		};
 
-	private run() {
-		log(Game.TAG, "Game is running...");
+		this.setGameState(GameState.READY);
+		log(Game.TAG, "ready.");
 	}
 
 	public start() {
-		log(Game.TAG, "starting.");
+		this.setGameState(GameState.LOADING);
+		log(Game.TAG, "loading.");
+		this.load();
+
+		this.setGameState(GameState.STARTED);
 		this.startGameLoop();
+	}
+
+	private run(time: number): void {
+		log(Game.TAG, "Game is running...");
+
+		const deltaTime = calculateDeltaTime(time, this.previousTime);
+
+		console.log(deltaTime);
+		this.update(deltaTime);
+		this.render(deltaTime);
+
+		if (this.canRun()) this.frame(this.run);
 	}
 
 	public resume() {
@@ -44,15 +70,40 @@ export class Game {
 	}
 
 	public pause() {
-		this.setGameState(GameState.PAUSED);
-		log(Game.TAG, "paused.");
-		this.stopGameLoop();
+		log(Game.TAG, "pause.");
+		this.pauseGameLoop();
 	}
 
 	public exit() {
 		this.setGameState(GameState.EXITING);
-		log(Game.TAG, "exiting");
-		this.stopGameLoop();
+		log(Game.TAG, "exiting.");
+		this.pauseGameLoop();
+	}
+
+	private startGameLoop() {
+		if (!this.canStartLoop()) {
+			log(
+				Game.TAG,
+				"Unable to start game loop, not in WAITINGSTART or PAUSED."
+			);
+			return;
+		}
+
+		this.frame((time) => {
+			this.previousTime = time;
+			this.setGameState(GameState.RUNNING);
+			log(Game.TAG, "loop started.");
+			this.frame(this.run);
+		});
+	}
+
+	private frame(gameLoop: FrameRequestCallback) {
+		window.requestAnimationFrame(gameLoop);
+	}
+
+	private pauseGameLoop() {
+		this.setGameState(GameState.PAUSED);
+		log(Game.TAG, "loop paused.");
 	}
 
 	private setGameState(state: GameState) {
@@ -63,27 +114,14 @@ export class Game {
 		return this.state;
 	}
 
-	private startGameLoop() {
-		if (!this.canStartGameLoop()) {
-			log(
-				Game.TAG,
-				"Unable to start game loop, not in WAITINGSTART or PAUSED."
-			);
-			return;
-		}
-
-		this.setGameState(GameState.RUNNING);
-		this.gameLoop = setInterval(this.run, this.loopTimeInMiliseconds);
-	}
-
-	private canStartGameLoop(): boolean {
+	private canStartLoop(): boolean {
 		return (
-			this.getState() === GameState.PAUSED ||
-			this.getState() === GameState.WAITINGSTART
+			this.getState() === GameState.STARTED ||
+			this.getState() === GameState.PAUSED
 		);
 	}
-	private stopGameLoop() {
-		this.setGameState(GameState.PAUSED);
-		clearInterval(this.gameLoop);
+
+	private canRun(): boolean {
+		return this.getState() === GameState.RUNNING;
 	}
 }
