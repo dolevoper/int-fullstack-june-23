@@ -1,44 +1,46 @@
-playGame();
+let gameLoop = setInterval(createBalloon, randomInterval(500, 2000));
 
-function playGame() {
-  createBalloon();
-  createBalloon();
-  createBalloon();
-  createBalloon();
-  createBalloon();
-  createBalloon();
-  createBalloon();
-  createBalloon();
-  createBalloon();
+window.addEventListener("keydown", (ev) => {
+  if (ev.key === "Escape") {
+    clearInterval(gameLoop);
+  }
+});
 
-  document.querySelectorAll(".static-balloon").forEach((balloon) => {
-    balloon.addEventListener("click", (event) => {
-      balloon.remove();
-      if (document.querySelectorAll(".static-balloon").length === 0) {
-        location.reload();
-        alert("You popped all the balloons!");
-        playGame();
-      }
-    });
-
-    balloon.addEventListener("mouseover", (event) => {
-      (event.target as HTMLElement).style.cursor = "pointer";
-    });
-
-    balloon.addEventListener("mouseout", (event) => {
-      (event.target as HTMLElement).style.cursor = "default";
-    });
-  });
+function randomInterval(min, max) {
+  return Math.random() * (max - min) + min;
 }
 
 function createBalloon() {
   const balloon = document.createElement("div");
-  balloon.className = "static-balloon";
+  balloon.className = "soaring-balloon";
+  balloon.style.userSelect = "none";
   const img = document.createElement("img");
   img.src = "assets/balloon.png";
   img.alt = "Balloon";
+  img.draggable = false;
   balloon.appendChild(img);
-  balloon.style.top = Math.random() * 600 + "px";
-  balloon.style.left = Math.random() * 600 + "px";
+  balloon.style.top = window.innerHeight + "px";
+  balloon.style.left = Math.random() * (window.innerWidth - 150) + "px";
   document.body.appendChild(balloon);
+
+  const moveBalloonUp = () => {
+    let position = window.innerHeight;
+    const interval = setInterval(() => {
+      position -= 2;
+      balloon.style.top = position + "px";
+      if (position <= -100) {
+        clearInterval(interval);
+        balloon.remove();
+      }
+    }, 16);
+
+    clearInterval(gameLoop);
+    gameLoop = setInterval(createBalloon, randomInterval(500, 2000));
+  };
+
+  moveBalloonUp();
+
+  balloon.onclick = () => {
+    balloon.remove();
+  };
 }
