@@ -8,3 +8,29 @@
     --object-size-small: calc(var(--object-size-medium)/2);
 }
 
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--object-size-medium);
+    background-color: var(--primary-color);
+}
+
+.score {
+    padding: var(--object-size-small);
+    margin-inline: var(--object-size-small);
+}
+
+.lives {
+    color: var(--secondary-color);
+    padding: var(--object-size-small);
+    margin-inline: var(--object-size-small);
+}
+
+.sky {
+    background: var(--sky-color);
+}
+
+.ground {
+    background: var(--ground-color);
+}
+
