@@ -3,7 +3,9 @@
     --ground-color: green;
     --primary-color: burlywood;
     --secondary-color: crimson;
-    --object-size-large: calc(var(--object-size-medium)*2);
+    --leaves-color: darkolivegreen;
+    --tree-trunk-color: saddlebrown;
+    --object-size-large: calc(var(--object-size-medium)*4);
     --object-size-medium: 20px;
     --object-size-small: calc(var(--object-size-medium)/2);
 }
@@ -22,6 +24,7 @@
     @media screen and (max-width: 400px) {
         font-size: 7vw;
     }
+
     @media screen and (min-width: 800px) {
         font-size: 2.5vw;
     }
@@ -39,6 +42,7 @@
         @media screen and (max-width: 400px) {
             max-width: 5vw;
         }
+
         @media screen and (min-width: 800px) {
             max-width: 2vw;
         }
@@ -51,4 +55,77 @@
 
 .ground {
     background: var(--ground-color);
+    position: relative;
+}
+
+.tree {
+    position: relative;
+
+    &:nth-child(1) {
+        left: -20%;
+        top: -8%;
+        scale: .4;
+    }
+
+    &:nth-child(2) {
+        left: 70%;
+        top: -5%;
+        scale: .5;
+    }
+
+    &:nth-child(3) {
+        left: 10%;
+        top: -5%;
+        scale: .6;
+    }
+
+    &:nth-child(4) {
+        left: 40%;
+        scale: .7;
+    }
+
+    &:nth-child(5) {
+        left: 45%;
+        scale: .9;
+    }
+
+    &:nth-child(6) {
+        left: 60%;
+        scale: 1;
+    }
+
+    &:nth-child(7) {
+        left: 80%;
+        scale: 1.2;
+    }
+
+    &:nth-child(8) {
+        left: 100%;
+        scale: 1.4;
+    }
+
+    &:nth-child(9) {
+        left: 45%;
+        scale: 1.7;
+    }
+}
+
+.tree__leaves {
+    height: var(--object-size-large);
+    aspect-ratio: 1;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background: linear-gradient(90deg, rgba(65, 94, 18, 1) 25%, rgba(85, 107, 47, 1) 51%, rgba(65, 94, 18, 1) 77%);
+    ;
+    position: absolute;
+    top: -100px;
+    border: 2px solid rgba(2, 38, 14, 0.66);
+}
+
+.tree__trunk {
+    position: absolute;
+    background: linear-gradient(90deg, rgba(108, 55, 17, 1) 22%, rgba(128, 65, 20, 1) 52%, rgba(108, 55, 17, 1) 77%);
+    height: var(--object-size-large);
+    aspect-ratio: 1 / 4;
+    left: calc(var(--object-size-large) - (var(--object-size-large)/1.6));
+    top: -20px;
 }
