@@ -1,6 +1,6 @@
 import { log } from "./helpers.js";
 
-enum GameState {
+export enum GameState {
 	NOT_STARTED,
 	INTIALIZE,
 	LOADING,
@@ -11,6 +11,7 @@ enum GameState {
 }
 
 type GameLoopCallback = (deltaTime: number) => void;
+type GameRenderCallback = () => void;
 
 export class Game {
 	static TAG = "Game";
@@ -18,11 +19,12 @@ export class Game {
 	private state!: GameState;
 	private shouldLogStates!: boolean;
 
+	private animationRequestId!: number;
 	private deltaTime!: number;
 
 	protected onLoad!: Function;
 	protected onUpdate!: GameLoopCallback;
-	protected onRender!: GameLoopCallback;
+	protected onRender!: GameRenderCallback;
 
 	protected onPause!: Function;
 	protected onResume!: Function;
@@ -83,19 +85,21 @@ export class Game {
 		this.deltaTime = this.calculateDeltaTime(time, this.deltaTime);
 
 		this.onUpdate(this.deltaTime);
-		this.onRender(this.deltaTime);
+		this.onRender();
 
-		if (this.canRun()) this.frame(this.run);
+		this.deltaTime = time;
+
+		this.frame(this.run);
 	}
 
-	private pause() {
+	public pause() {
 		this.pauseGameLoop();
 		this.logGameStateEvent("pause.");
 
 		this.onPause();
 	}
 
-	private resume() {
+	public resume() {
 		this.logGameStateEvent("resumed.");
 
 		this.onResume();
@@ -112,11 +116,20 @@ export class Game {
 	}
 
 	private startGameLoop() {
+		this.logGameStateEvent(
+			`Starting loop at state ${GameState[this.getState()]}`
+		);
+
+		if (this.getState() === GameState.RUNNING) return;
+
 		if (!this.canStartLoop()) {
 			throw new Error(
-				"Unable to start game loop, not in WAITINGSTART or PAUSED."
+				`Unable to start game loop from state ${
+					GameState[this.getState()]
+				}, not in WAITINGSTART or PAUSED.\n`
 			);
 		}
+
 		this.setGameState(GameState.RUNNING);
 		this.logGameStateEvent("loop started.");
 
@@ -127,12 +140,13 @@ export class Game {
 	}
 
 	private frame(gameLoop: FrameRequestCallback) {
-		window.requestAnimationFrame(gameLoop.bind(this));
+		this.animationRequestId = window.requestAnimationFrame(gameLoop.bind(this));
 	}
 
 	private pauseGameLoop() {
+		cancelAnimationFrame(this.animationRequestId);
 		this.setGameState(GameState.PAUSED);
-		this.logGameStateEvent("loop paused.");
+		this.logGameStateEvent("loop discarded.");
 	}
 
 	private setGameState(state: GameState) {
@@ -145,6 +159,7 @@ export class Game {
 
 	private canStartLoop(): boolean {
 		return (
+			this.getState() === GameState.RUNNING ||
 			this.getState() === GameState.STARTED ||
 			this.getState() === GameState.PAUSED
 		);
@@ -161,12 +176,12 @@ export class Game {
 	}
 
 	private attachScreenListener() {
-		document.addEventListener("visibilitychange", (event) => {
-			if (document.visibilityState === "visible") {
-				this.resume();
-			} else {
-				this.pause();
-			}
+		window.addEventListener("focus", (event) => {
+			if (this.getState() !== GameState.RUNNING) this.resume();
+		});
+
+		window.addEventListener("blur", (event) => {
+			this.pause();
 		});
 	}
 
