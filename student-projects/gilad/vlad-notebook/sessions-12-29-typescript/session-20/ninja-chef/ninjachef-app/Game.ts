@@ -1,8 +1,8 @@
 import { calculateDeltaTime, log } from "./helpers.js";
 
 enum GameState {
+	NOT_STARTED,
 	INTIALIZE,
-	READY,
 	LOADING,
 	STARTED,
 	RUNNING,
@@ -18,9 +18,9 @@ export class Game {
 
 	private previousTime!: number;
 
-	protected load!: Function;
-	protected update!: Function;
-	protected render!: Function;
+	protected onLoad!: Function;
+	protected onUpdate!: Function;
+	protected onRender!: Function;
 
 	protected onPause!: Function;
 	protected onResume!: Function;
@@ -28,21 +28,13 @@ export class Game {
 
 	constructor() {
 		this.debugGameStateLogs(false);
-	}
+		this.setGameState(GameState.NOT_STARTED);
 
-	protected initialize() {
-		this.setGameState(GameState.INTIALIZE);
-		this.logGameStateEvent("initializing");
-
-		this.load = () => {
+		this.onLoad = () => {
 			this.logGameStateEvent("load not implemented");
 		};
-		this.update = () => {
-			this.logGameStateEvent("update not implemented");
-		};
-		this.render = () => {
-			this.logGameStateEvent("render not implemented");
-		};
+		this.onUpdate = () => {};
+		this.onRender = () => {};
 		this.onPause = () => {
 			this.logGameStateEvent("onPause not implemented");
 		};
@@ -52,20 +44,32 @@ export class Game {
 		this.onExit = () => {
 			this.logGameStateEvent("onExit not implemented");
 		};
-
-		this.attachScreenListeners();
 	}
 
 	protected start() {
-		if (this.getState() !== GameState.READY) {
+		if (this.getState() !== GameState.NOT_STARTED) {
 			throw new Error(
-				`${Game.TAG} not ready to start.\nGame not initialized.\nPlease call initialize() before start().`
+				`${Game.TAG} Game already started.\nPlease call start() only once.`
 			);
 		}
 
+		this.initialize();
+	}
+
+	private initialize() {
+		this.setGameState(GameState.INTIALIZE);
+		this.logGameStateEvent("initializing");
+
+		this.attachOnLoadListener();
+	}
+
+	private load() {
 		this.setGameState(GameState.LOADING);
 		this.logGameStateEvent("loading...");
-		this.load();
+
+		this.onLoad();
+
+		this.attachScreenListener();
 
 		this.setGameState(GameState.STARTED);
 		this.logGameStateEvent("starting.");
@@ -76,8 +80,8 @@ export class Game {
 	private run(time: number): void {
 		const deltaTime = calculateDeltaTime(time, this.previousTime);
 
-		this.update(deltaTime);
-		this.render(deltaTime);
+		this.onUpdate(deltaTime);
+		this.onRender(deltaTime);
 
 		if (this.canRun()) this.frame(this.run);
 	}
@@ -150,12 +154,13 @@ export class Game {
 		return this.getState() === GameState.RUNNING;
 	}
 
-	private attachScreenListeners() {
+	private attachOnLoadListener() {
 		window.addEventListener("load", () => {
-			this.setGameState(GameState.READY);
-			this.logGameStateEvent("ready.");
+			this.load();
 		});
+	}
 
+	private attachScreenListener() {
 		document.addEventListener("visibilitychange", (event) => {
 			if (document.visibilityState === "visible") {
 				this.resume();
