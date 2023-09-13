@@ -1,4 +1,4 @@
-import { calculateDeltaTime, log } from "./helpers.js";
+import { log } from "./helpers.js";
 
 enum GameState {
 	NOT_STARTED,
@@ -18,7 +18,7 @@ export class Game {
 	private state!: GameState;
 	private shouldLogStates!: boolean;
 
-	private previousTime!: number;
+	private deltaTime!: number;
 
 	protected onLoad!: Function;
 	protected onUpdate!: GameLoopCallback;
@@ -80,10 +80,10 @@ export class Game {
 	}
 
 	private run(time: number): void {
-		const deltaTime = calculateDeltaTime(time, this.previousTime);
+		this.deltaTime = this.calculateDeltaTime(time, this.deltaTime);
 
-		this.onUpdate(deltaTime);
-		this.onRender(deltaTime);
+		this.onUpdate(this.deltaTime);
+		this.onRender(this.deltaTime);
 
 		if (this.canRun()) this.frame(this.run);
 	}
@@ -121,7 +121,7 @@ export class Game {
 		this.logGameStateEvent("loop started.");
 
 		this.frame((time) => {
-			this.previousTime = time;
+			this.deltaTime = time;
 			this.frame(this.run);
 		});
 	}
@@ -176,5 +176,9 @@ export class Game {
 
 	private logGameStateEvent(message: string) {
 		if (this.shouldLogStates) log(Game.TAG, message);
+	}
+
+	private calculateDeltaTime(time: number, previousTime: number): number {
+		return time - previousTime;
 	}
 }
