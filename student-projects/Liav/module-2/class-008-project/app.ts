@@ -62,3 +62,10 @@ function loseLife (){
 }
 //--------------------------------------------------------------------------------
 
+function gameOver(){
+    const balloon = document.getElementsByClassName("balloon");
+    
+    if(balloon.length === 0){
+        alert("GAME OVER!")
+    }
+}
