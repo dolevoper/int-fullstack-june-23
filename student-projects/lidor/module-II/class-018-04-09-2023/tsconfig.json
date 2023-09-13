@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "lib": ["ESNext", "DOM"],
+        "strictNullChecks": true,
+        "noImplicitAny": true
+    },
+    "include": ["./*.ts", "homework/homework.ts"]
+}
