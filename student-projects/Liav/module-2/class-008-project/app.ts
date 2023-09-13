@@ -1,4 +1,5 @@
 
+
 function createBalloon() {
    
     const container = document.querySelector('.balloon-container') as HTMLDivElement;
@@ -27,15 +28,13 @@ function createBalloon() {
         }
     );
     }
-
-
+//--------------------------------------------------------------------------------
 const numBalloons = 10;
-
 for (let i = 0; i < numBalloons; i++) {
     createBalloon();
 }
 
-
+//--------------------------------------------------------------------------------
 let points = 0;
 
 function popBalloon(event) {
@@ -49,7 +48,7 @@ function popBalloon(event) {
 }
 document.querySelector('.balloon-container').addEventListener('click', popBalloon,);
 
-
+//--------------------------------------------------------------------------------
 let lifes = 5;
 
 function loseLife (){
@@ -61,3 +60,5 @@ function loseLife (){
         alert("GAME OVER!");
     }
 }
+//--------------------------------------------------------------------------------
+
