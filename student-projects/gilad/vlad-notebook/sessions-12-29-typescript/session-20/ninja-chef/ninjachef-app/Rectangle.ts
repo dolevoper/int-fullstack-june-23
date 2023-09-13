@@ -1,4 +1,4 @@
-import { Point } from "./Point";
+import { Point } from "./Point.js";
 
 export enum RectangleSide {
 	TOP,
@@ -7,7 +7,7 @@ export enum RectangleSide {
 	RIGHT,
 }
 
-export class Rectangle extends DOMRect {
+export class Rectangle extends DOMRectReadOnly {
 	readonly center;
 
 	readonly topLeft;
@@ -16,10 +16,16 @@ export class Rectangle extends DOMRect {
 	readonly bottomRight;
 
 	constructor(domRectangle: DOMRect) {
-		super();
+		super(
+			domRectangle.x,
+			domRectangle.y,
+			domRectangle.width,
+			domRectangle.height
+		);
 
 		this.topLeft = new Point(domRectangle.left, domRectangle.top);
 		this.topRight = new Point(domRectangle.right, domRectangle.top);
+
 		this.bottomLeft = new Point(domRectangle.left, domRectangle.bottom);
 		this.bottomRight = new Point(domRectangle.right, domRectangle.bottom);
 
@@ -41,8 +47,8 @@ export class Rectangle extends DOMRect {
 			rectangle.topRight
 		);
 		const yMiddle = Point.getMiddleOfLine(
-			rectangle.bottomLeft,
-			rectangle.bottomRight
+			rectangle.topLeft,
+			rectangle.bottomLeft
 		);
 
 		return new Point(xMiddle.x, yMiddle.y);

@@ -1,15 +1,16 @@
-import { Point } from "./Point";
-import { Rectangle } from "./Rectangle";
+import { Point } from "./Point.js";
+import { Rectangle } from "./Rectangle.js";
 
 export class GameScreen {
 	private view: HTMLElement;
-	private rectangle!: Rectangle;
+	public boundaries!: Rectangle;
 
 	private mutationObserver!: MutationObserver;
 
 	constructor(screenElement: HTMLElement) {
 		this.view = screenElement;
 		this.attachMutationObserver();
+		this.update();
 	}
 
 	public getScreenElement(): HTMLElement {
@@ -17,12 +18,16 @@ export class GameScreen {
 	}
 
 	public update() {
-		this.rectangle = new Rectangle(this.fetchRectangle());
+		this.boundaries = new Rectangle(this.fetchRectangle());
+		console.log(this.fetchRectangle());
 	}
 
-	// check if point is out of screen, returns at which side
+	public getCenter(): Point {
+		return this.boundaries.center;
+	}
+
 	public isOutOfScreen(point: Point): boolean {
-		return this.rectangle.contains(point);
+		return this.boundaries.contains(point);
 	}
 
 	private fetchRectangle(): DOMRect {

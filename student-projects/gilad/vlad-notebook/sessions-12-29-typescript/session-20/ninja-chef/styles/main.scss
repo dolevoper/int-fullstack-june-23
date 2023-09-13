@@ -1,3 +1,10 @@
+@use "defaults"as defaults;
+@use "reset";
+
+.game-screen {
+    height: 100%;
+}
+
 .box {
 
     display: inline-block;
@@ -10,6 +17,6 @@
     top: 0;
 }
 
-.speed {
+.delta {
     float: right;
 }
