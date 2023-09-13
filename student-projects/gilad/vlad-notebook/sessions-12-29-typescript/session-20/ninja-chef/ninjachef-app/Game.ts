@@ -50,7 +50,7 @@ export class Game {
 		};
 	}
 
-	protected start() {
+	private start() {
 		if (this.getState() !== GameState.NOT_STARTED) {
 			throw new Error(
 				`${Game.TAG} Game already started.\nPlease call start() only once.`
@@ -108,9 +108,9 @@ export class Game {
 	}
 
 	private exit() {
+		this.pauseGameLoop();
 		this.setGameState(GameState.EXITING);
 		this.logGameStateEvent("exiting.");
-		this.pauseGameLoop();
 
 		this.onExit();
 	}
@@ -195,5 +195,21 @@ export class Game {
 
 	private calculateDeltaTime(time: number, previousTime: number): number {
 		return time - previousTime;
+	}
+
+	protected startGame() {
+		this.start();
+	}
+
+	protected pauseGame() {
+		this.pause();
+	}
+
+	protected resumeGame() {
+		this.resume();
+	}
+
+	protected exitGame() {
+		this.resume();
 	}
 }
