@@ -92,14 +92,14 @@ export class Game {
 		this.frame(this.run);
 	}
 
-	public pause() {
+	private pause() {
 		this.pauseGameLoop();
 		this.logGameStateEvent("pause.");
 
 		this.onPause();
 	}
 
-	public resume() {
+	private resume() {
 		this.logGameStateEvent("resumed.");
 
 		this.onResume();
