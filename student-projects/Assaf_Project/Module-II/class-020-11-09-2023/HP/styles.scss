@@ -1,0 +1,10 @@
+:root {
+    --sky-color: skyblue;
+    --ground-color: green;
+    --primary-color: burlywood;
+    --secondary-color: crimson;
+    --object-size-large: calc(var(--object-size-medium)*2);
+    --object-size-medium: 20px;
+    --object-size-small: calc(var(--object-size-medium)/2);
+}
+

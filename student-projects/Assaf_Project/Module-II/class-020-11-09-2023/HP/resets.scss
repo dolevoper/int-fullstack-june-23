@@ -27,3 +27,7 @@
   #root, #__next {
     isolation: isolate;
   }
+  
+  body, html {
+    width: 100%;
+  }
