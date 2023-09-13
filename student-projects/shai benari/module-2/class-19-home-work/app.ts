@@ -11,9 +11,9 @@ function changeBgcolor(){
 }
 Bgcolor.addEventListener("mouseover" ,changeBgcolor );
 
-const Status = document.querySelector(".button3") as HTMLButtonElement
-function changStatus(){
+// const Status = document.querySelector(".button3") as HTMLButtonElement
+// function changStatus(){
    
-    Status.target.inertext="cliked"
-}
-Bgcolor.addEventListener("click" ,changStatus );
+//     Status.target.inenrText = "clicked"
+// }
+// Status.addEventListener("click" ,changStatus );
