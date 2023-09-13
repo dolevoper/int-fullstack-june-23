@@ -14,41 +14,62 @@ export class Game {
 	static TAG = "Game";
 
 	private state!: GameState;
+	private shouldLogStates!: boolean;
 
 	private previousTime!: number;
 
-	public load!: Function;
-	public update!: Function;
-	public render!: Function;
+	protected load!: Function;
+	protected update!: Function;
+	protected render!: Function;
+
+	protected onPause!: Function;
+	protected onResume!: Function;
+	protected onExit!: Function;
 
 	constructor() {
-		this.initializeGame();
+		this.debugGameStateLogs(false);
 	}
 
-	private initializeGame() {
+	protected initialize() {
 		this.setGameState(GameState.INTIALIZE);
-		log(Game.TAG, "initializing");
+		this.logGameStateEvent("initializing");
 
 		this.load = () => {
-			// log(Game.TAG, "load not implemented");
+			this.logGameStateEvent("load not implemented");
 		};
 		this.update = () => {
-			// log(Game.TAG, "update not implemented");
+			this.logGameStateEvent("update not implemented");
 		};
 		this.render = () => {
-			// log(Game.TAG, "render not implemented");
+			this.logGameStateEvent("render not implemented");
+		};
+		this.onPause = () => {
+			this.logGameStateEvent("onPause not implemented");
+		};
+		this.onResume = () => {
+			this.logGameStateEvent("onResume not implemented");
+		};
+		this.onExit = () => {
+			this.logGameStateEvent("onExit not implemented");
 		};
 
-		this.setGameState(GameState.READY);
-		log(Game.TAG, "ready.");
+		this.attachScreenListeners();
 	}
 
-	public start() {
+	protected start() {
+		if (this.getState() !== GameState.READY) {
+			throw new Error(
+				`${Game.TAG} not ready to start.\nGame not initialized.\nPlease call initialize() before start().`
+			);
+		}
+
 		this.setGameState(GameState.LOADING);
-		log(Game.TAG, "loading.");
+		this.logGameStateEvent("loading...");
 		this.load();
 
 		this.setGameState(GameState.STARTED);
+		this.logGameStateEvent("starting.");
+
 		this.startGameLoop();
 	}
 
@@ -61,26 +82,33 @@ export class Game {
 		if (this.canRun()) this.frame(this.run);
 	}
 
-	public resume() {
-		log(Game.TAG, "resumed.");
+	private resume() {
+		this.logGameStateEvent("resumed.");
+
+		this.onResume();
+
 		this.startGameLoop();
 	}
 
-	public pause() {
-		log(Game.TAG, "pause.");
+	private pause() {
+		this.logGameStateEvent("pause.");
+
 		this.pauseGameLoop();
+
+		this.onPause();
 	}
 
-	public exit() {
+	private exit() {
 		this.setGameState(GameState.EXITING);
-		log(Game.TAG, "exiting.");
+		this.logGameStateEvent("exiting.");
 		this.pauseGameLoop();
+
+		this.onExit();
 	}
 
 	private startGameLoop() {
 		if (!this.canStartLoop()) {
-			log(
-				Game.TAG,
+			this.logGameStateEvent(
 				"Unable to start game loop, not in WAITINGSTART or PAUSED."
 			);
 			return;
@@ -89,7 +117,7 @@ export class Game {
 		this.frame((time) => {
 			this.previousTime = time;
 			this.setGameState(GameState.RUNNING);
-			log(Game.TAG, "loop started.");
+			this.logGameStateEvent("loop started.");
 			this.frame(this.run);
 		});
 	}
@@ -100,14 +128,14 @@ export class Game {
 
 	private pauseGameLoop() {
 		this.setGameState(GameState.PAUSED);
-		log(Game.TAG, "loop paused.");
+		this.logGameStateEvent("loop paused.");
 	}
 
 	private setGameState(state: GameState) {
 		this.state = state;
 	}
 
-	private getState(): GameState {
+	protected getState(): GameState {
 		return this.state;
 	}
 
@@ -120,5 +148,28 @@ export class Game {
 
 	private canRun(): boolean {
 		return this.getState() === GameState.RUNNING;
+	}
+
+	private attachScreenListeners() {
+		window.addEventListener("load", () => {
+			this.setGameState(GameState.READY);
+			this.logGameStateEvent("ready.");
+		});
+
+		document.addEventListener("visibilitychange", (event) => {
+			if (document.visibilityState === "visible") {
+				this.resume();
+			} else {
+				this.pause();
+			}
+		});
+	}
+
+	protected debugGameStateLogs(shouldLog: boolean) {
+		this.shouldLogStates = shouldLog;
+	}
+
+	private logGameStateEvent(message: string) {
+		if (this.shouldLogStates) log(Game.TAG, message);
 	}
 }
