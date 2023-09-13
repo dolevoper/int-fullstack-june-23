@@ -10,6 +10,8 @@ enum GameState {
 	EXITING,
 }
 
+type GameLoopCallback = (deltaTime: number) => void;
+
 export class Game {
 	static TAG = "Game";
 
@@ -19,8 +21,8 @@ export class Game {
 	private previousTime!: number;
 
 	protected onLoad!: Function;
-	protected onUpdate!: Function;
-	protected onRender!: Function;
+	protected onUpdate!: GameLoopCallback;
+	protected onRender!: GameLoopCallback;
 
 	protected onPause!: Function;
 	protected onResume!: Function;
