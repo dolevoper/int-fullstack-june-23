@@ -11,19 +11,38 @@
 .game-header {
     display: flex;
     justify-content: space-between;
-    font-size: var(--object-size-medium);
+    align-items: center;
     background-color: var(--primary-color);
 }
 
 .score {
-    padding: var(--object-size-small);
     margin-inline: var(--object-size-small);
+    font-size: 4vw;
+
+    @media screen and (max-width: 400px) {
+        font-size: 7vw;
+    }
+    @media screen and (min-width: 800px) {
+        font-size: 2.5vw;
+    }
 }
 
 .lives {
-    color: var(--secondary-color);
-    padding: var(--object-size-small);
     margin-inline: var(--object-size-small);
+    display: flex;
+    gap: .5rem;
+    list-style: none;
+
+    &__hearts {
+        max-width: 3vw;
+
+        @media screen and (max-width: 400px) {
+            max-width: 5vw;
+        }
+        @media screen and (min-width: 800px) {
+            max-width: 2vw;
+        }
+    }
 }
 
 .sky {
@@ -33,4 +52,3 @@
 .ground {
     background: var(--ground-color);
 }
-
