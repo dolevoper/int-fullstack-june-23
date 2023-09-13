@@ -1,0 +1,20 @@
+@keyframes flyingDisc {
+    0% {
+        right: 100vw;
+        transform: translateY(50px);
+    }
+
+    30%,
+    50% {
+        transform: translateY(-50px);
+    }
+
+    55% {
+        transform: translateY(-30px); 
+    }
+
+    100% {
+        left: 100vw;
+        transform: translateY(50px);
+    }
+}
