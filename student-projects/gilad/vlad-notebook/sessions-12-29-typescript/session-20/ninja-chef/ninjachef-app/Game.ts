@@ -33,18 +33,18 @@ export class Game {
 		this.setGameState(GameState.NOT_STARTED);
 
 		this.onLoad = () => {
-			this.logGameStateEvent("load not implemented");
+			this.logGameStateEvent("load not defined");
 		};
 		this.onUpdate = () => {};
 		this.onRender = () => {};
 		this.onPause = () => {
-			this.logGameStateEvent("onPause not implemented");
+			this.logGameStateEvent("onPause not defined");
 		};
 		this.onResume = () => {
-			this.logGameStateEvent("onResume not implemented");
+			this.logGameStateEvent("onResume not defined");
 		};
 		this.onExit = () => {
-			this.logGameStateEvent("onExit not implemented");
+			this.logGameStateEvent("onExit not defined");
 		};
 	}
 
@@ -88,20 +88,19 @@ export class Game {
 		if (this.canRun()) this.frame(this.run);
 	}
 
+	private pause() {
+		this.pauseGameLoop();
+		this.logGameStateEvent("pause.");
+
+		this.onPause();
+	}
+
 	private resume() {
 		this.logGameStateEvent("resumed.");
 
 		this.onResume();
 
 		this.startGameLoop();
-	}
-
-	private pause() {
-		this.logGameStateEvent("pause.");
-
-		this.pauseGameLoop();
-
-		this.onPause();
 	}
 
 	private exit() {
@@ -114,16 +113,15 @@ export class Game {
 
 	private startGameLoop() {
 		if (!this.canStartLoop()) {
-			this.logGameStateEvent(
+			throw new Error(
 				"Unable to start game loop, not in WAITINGSTART or PAUSED."
 			);
-			return;
 		}
+		this.setGameState(GameState.RUNNING);
+		this.logGameStateEvent("loop started.");
 
 		this.frame((time) => {
 			this.previousTime = time;
-			this.setGameState(GameState.RUNNING);
-			this.logGameStateEvent("loop started.");
 			this.frame(this.run);
 		});
 	}
