@@ -46,6 +46,30 @@ if (!addCarForm) {
 	});
 }
 
+const saveCarChangesForm = document.querySelector(
+	`form[name='cars-list-changes']`
+) as HTMLFormElement;
+
+console.log(saveCarChangesForm);
+if (!saveCarChangesForm) {
+	console.error("Couldn't find cars list changes form.");
+} else {
+	saveCarChangesForm.addEventListener("submit", (e) => {
+		e.preventDefault();
+		const changesData = new FormData(e.target as HTMLFormElement);
+
+		cars.forEach((car) => {
+			const status_value = parseStatus(
+				getRequiredString(changesData, `car__status-${car.registrationNumber}`)
+			);
+
+			console.log(status_value);
+			car.status = status_value;
+		});
+		generateCarsList();
+	});
+}
+
 function getString(formData: FormData, key: string) {
 	const value = formData.get(key);
 
@@ -99,12 +123,9 @@ function generateCarsList() {
 	const carsListElement = document.querySelector(
 		".cars-list"
 	) as HTMLUListElement;
-	console.log(carsListElement);
 
 	carsListElement.replaceChildren();
 	cars.forEach((car) => {
-		console.log("generating car:");
-		console.log(car);
 		carsListElement?.append(generateCarElement(car));
 	});
 }
@@ -178,7 +199,6 @@ class CarElement extends HTMLElement {
 		optionElement.value = name;
 		optionElement.innerText = name;
 		if (name === this.status) optionElement.selected = true;
-		console.log(name + " equals:" + this.status);
 		return optionElement;
 	}
 }
