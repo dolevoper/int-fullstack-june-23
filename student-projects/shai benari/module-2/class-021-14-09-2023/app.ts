@@ -34,7 +34,8 @@ if (!addCarForm) {
             brand: getRequiredString(formData, "brand"),
             type: getString(formData, "type"),
             color: getRequiredString(formData, "color"),
-            licenseType: parseLicenseType(getRequiredString(formData, "licenseType"))
+            licenseType: parseLicenseType(getRequiredString(formData, "licenseType")),
+            status: parseStatus(getRequiredString(formData, "status")),
         });
 
         console.log(cars);
@@ -74,5 +75,11 @@ function parseLicenseType(value: string): LicenseType {
         throw new Error(`Invalid license type: ${value}`);
     }
 
+    return value;
+}
+function parseStatus(value: string): status {
+    if (value !== "normal" && value !== "free" && value !== "discount" && value !== "banned") {
+        throw new Error(`Invalid status type: ${value}`);
+    }
     return value;
 }
