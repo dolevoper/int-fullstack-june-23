@@ -2,6 +2,16 @@ console.log("connected");
 
 let score = 0;
 
+const myCursor = document.querySelector(".my-cursor") as HTMLElement;
+
+document.addEventListener("mousemove", (ev) => {
+  let leftPosition = ev.pageX + 0.6;
+  let topPosition = ev.pageY + 0.6;
+
+  myCursor.style.left = leftPosition + "px";
+  myCursor.style.top = topPosition + "px";
+});
+
 const livesContainer = document.querySelector(".lives");
 let remainingLives = 5;
 
@@ -28,11 +38,21 @@ function updateScore() {
 }
 
 const hitAudio = document.getElementById("hit-audio") as HTMLAudioElement;
+const errorAudio = document.getElementById("error-audio") as HTMLAudioElement;
+const loseAudio = document.getElementById("lose-audio") as HTMLAudioElement;
+const throwAudio = document.getElementById("throw-audio") as HTMLAudioElement;
+const shotAudio = document.getElementById("shot-audio") as HTMLAudioElement;
+
+window.addEventListener("click", shoot);
+function shoot() {
+  shotAudio.play();
+}
 
 const gameLoop = setInterval(addDisc, 3000);
 function addDisc() {
   const disc = document.createElement("div");
   disc.className = "disc";
+  throwAudio.play();
   disc.addEventListener("click", hitDisc);
   const randomTop = Math.floor(Math.random() * (400 - 100 + 1)) + 100;
   disc.style.top = `${randomTop}px`;
@@ -60,6 +80,7 @@ function addDisc() {
     if (discLeft + discWidth * 0.2 > screenWidth) {
       disc.remove();
       clearInterval(missedDisc);
+      errorAudio.play();
       if (remainingLives > 0) {
         remainingLives--;
         heartsArray.pop();
@@ -67,8 +88,9 @@ function addDisc() {
       }
       if (heartsArray.length === 0) {
         clearInterval(gameLoop);
-        alert(`Your score is ${score}`);
         disc.remove();
+        loseAudio.play();
+        alert(`Your score is ${score}`);
       }
     }
   });
