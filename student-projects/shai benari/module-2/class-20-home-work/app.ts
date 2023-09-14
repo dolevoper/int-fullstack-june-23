@@ -14,6 +14,8 @@ function addBalloon(){
     console.log("balloon")
     }
 }
+window.addEventListener("click",addBalloon )
+
 const gameloop = setInterval(addBalloon,1000);
 
 window.addEventListener("keydown" , (ev) => {
