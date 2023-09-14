@@ -4,28 +4,16 @@ import { Rectangle } from "./Rectangle.js";
 
 export class GameObject {
 	protected screen: GameScreen;
-	public view: HTMLElement;
-	public hitbox: Rectangle;
-	public position: Point;
+	public view!: HTMLElement;
+	public hitbox!: Rectangle;
+	public position!: Point;
 
 	public id: number;
 	public name: string;
-	public imageUrl: string;
 
-	constructor(
-		id: number,
-		name: string,
-		view: HTMLElement,
-		imageUrl: string,
-		screen: GameScreen
-	) {
+	constructor(id: number, name: string, screen: GameScreen) {
 		this.id = id;
 		this.name = name;
-		this.imageUrl = imageUrl;
-
-		this.view = view;
-		this.hitbox = new Rectangle(view.getBoundingClientRect());
-		this.position = new Point(this.hitbox.x, this.hitbox.y);
 
 		this.screen = screen;
 	}
@@ -35,6 +23,13 @@ export class GameObject {
 	public update(gameTime: number) {}
 
 	public draw() {}
+
+	protected setElement(view: HTMLElement) {
+		this.view = view;
+		this.hitbox = new Rectangle(view.getBoundingClientRect());
+		this.position = new Point(this.hitbox.x, this.hitbox.y);
+		this.screen.addGameObject(this);
+	}
 
 	protected moveParabaloic(
 		object: Point,
