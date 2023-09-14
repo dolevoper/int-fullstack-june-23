@@ -31,12 +31,19 @@ function addDisc() {
     updateScore();
   };
 
+  window.addEventListener("keydown", (ev) => {
+    if (ev.key === "Escape") {
+      clearInterval(gameLoop);
+      disc.remove();
+    }
+  })
+
   const missedDisc = setInterval(() => {
     const discLeft = parseFloat(getComputedStyle(disc).left);
     const discWidth = parseFloat(getComputedStyle(disc).width);
     const screenWidth = window.innerWidth;
     const heart = document.querySelector(".lives__hearts");
-    const lives = document.getElementsByClassName("lives");
+    // const lives = document.getElementsByClassName("lives");
     if (discLeft + discWidth * 0.2 > screenWidth) {
       disc.remove();
       clearInterval(missedDisc);
@@ -46,12 +53,7 @@ function addDisc() {
         clearInterval(gameLoop);
         alert(`Your score is ${score}`);
       }
-      window.addEventListener("keydown", (ev) => {
-        if (ev.key === "Escape") {
-          clearInterval(gameLoop);
-          disc.remove();
-        }
-      });
+      ;
     }
   });
 }
