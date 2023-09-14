@@ -24,3 +24,15 @@
 
     }
 }
+
+.pause {
+    width: 100px;
+    background-color: azure;
+    border: solid 2px black;
+    font-size: 2rem;
+}
+
+.game-menu {
+    display: flex;
+    justify-content: space-between;
+}

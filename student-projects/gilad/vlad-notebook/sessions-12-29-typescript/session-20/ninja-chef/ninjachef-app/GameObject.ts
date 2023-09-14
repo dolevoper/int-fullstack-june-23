@@ -2,6 +2,8 @@ import { GameScreen } from "./GameScreen.js";
 import { Point } from "./Point.js";
 import { Rectangle } from "./Rectangle.js";
 
+type OnGameObjectListener = (event: MouseEvent) => void;
+
 export class GameObject {
 	protected screen: GameScreen;
 	public view!: HTMLElement;
@@ -10,6 +12,8 @@ export class GameObject {
 
 	public id: number;
 	public name: string;
+
+	private onClickListener: OnGameObjectListener | undefined;
 
 	constructor(id: number, name: string, screen: GameScreen) {
 		this.id = id;
@@ -29,6 +33,7 @@ export class GameObject {
 		this.hitbox = new Rectangle(view.getBoundingClientRect());
 		this.position = new Point(this.hitbox.x, this.hitbox.y);
 		this.screen.addGameObject(this);
+		this.initOnClickEvent();
 	}
 
 	protected moveParabaloic(
@@ -63,5 +68,15 @@ export class GameObject {
 	): number {
 		const frequency = 6 * fullCycleInSeconds;
 		return offset + amplitude * Math.sin(frequency * time + timeoffset);
+	}
+
+	public setOnClickListener(listener: OnGameObjectListener) {
+		this.onClickListener = listener;
+	}
+
+	private initOnClickEvent() {
+		this.view.addEventListener("click", (event) => {
+			if (this.onClickListener) this.onClickListener(event);
+		});
 	}
 }

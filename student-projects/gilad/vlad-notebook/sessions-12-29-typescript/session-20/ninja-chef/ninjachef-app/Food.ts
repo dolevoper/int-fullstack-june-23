@@ -23,6 +23,7 @@ export class Food extends GameObject {
 	public initialise(): void {
 		this.generateFoodElement();
 		this.setRandomJump();
+		this.initOnClick();
 	}
 
 	public update(gameTime: number): void {
@@ -64,7 +65,7 @@ export class Food extends GameObject {
 			randomEndX,
 			this.screen.boundaries.height,
 			randomHeight,
-			2,
+			1,
 			randomDirection
 		);
 	}
@@ -97,5 +98,15 @@ export class Food extends GameObject {
 	private generateFoodElement() {
 		const foodElement = new FoodElement(this.foodType);
 		this.setElement(foodElement);
+	}
+
+	public destroy() {
+		this.screen.removeGameObject(this);
+	}
+
+	private initOnClick() {
+		this.setOnClickListener((event) => {
+			this.destroy();
+		});
 	}
 }
