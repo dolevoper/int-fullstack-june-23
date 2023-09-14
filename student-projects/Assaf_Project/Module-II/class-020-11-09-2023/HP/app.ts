@@ -1,6 +1,8 @@
 console.log("connected");
 
 let score = 0;
+let remainingLives = 5;
+
 updateScore();
 
 function updateScore() {
@@ -14,7 +16,7 @@ function hitDisc() {
   console.log("Disc Hit!");
 }
 
-const gameLoop = setInterval(addDisc, 1000);
+const gameLoop = setInterval(addDisc, 3000);
 function addDisc() {
   const disc = document.createElement("div");
   disc.className = "disc";
@@ -33,15 +35,23 @@ function addDisc() {
     const discLeft = parseFloat(getComputedStyle(disc).left);
     const discWidth = parseFloat(getComputedStyle(disc).width);
     const screenWidth = window.innerWidth;
+    const heart = document.querySelector(".lives__hearts");
+    const lives = document.getElementsByClassName("lives");
     if (discLeft + discWidth * 0.2 > screenWidth) {
       disc.remove();
       clearInterval(missedDisc);
-    }
-    window.addEventListener("keydown", (ev) => {
-      if (ev.key === "Escape") {
+      heart?.remove();
+      remainingLives--;
+      if (remainingLives === 0) {
         clearInterval(gameLoop);
-        disc.remove();
+        alert(`Your score is ${score}`);
       }
-    });
+      window.addEventListener("keydown", (ev) => {
+        if (ev.key === "Escape") {
+          clearInterval(gameLoop);
+          disc.remove();
+        }
+      });
+    }
   });
 }

@@ -1,12 +1,13 @@
 @keyframes flyingDisc {
     0% {
         right: 100vw;
-        transform: translateY(50px), rotateZ(90deg);
+        transform: translateY(50px) rotateZ(-30deg);
     }
 
     30%,
     50% {
         transform: translateY(-50px);
+        
     }
 
     55% {
@@ -15,6 +16,6 @@
 
     100% {
         left: 100vw;
-        transform: translateY(50px);
+        transform: translateY(50px) rotateZ(20deg);
     }
 }
