@@ -21,6 +21,7 @@ export class Game {
 
 	private animationRequestId!: number;
 	private deltaTime!: number;
+	static milisecod = 1000;
 
 	protected onLoad!: Function;
 	protected onUpdate!: GameLoopCallback;
@@ -194,7 +195,8 @@ export class Game {
 	}
 
 	private calculateDeltaTime(time: number, previousTime: number): number {
-		return time - previousTime;
+		return (time - previousTime) / Game.milisecod;
+		// return (time - previousTime) / Game.milisecod;
 	}
 
 	protected startGame() {

@@ -11,13 +11,14 @@ export class NinjaChef extends Game {
 	box!: GameObject;
 	xPos!: number;
 	yPos!: number;
-	xVertex: number;
-	yVertex: number;
-	time: number;
-	amplitude: number;
+	yCenter: number;
+	xCenter: number;
+	gameTime: number;
 
 	deltaView!: HTMLElement;
+	timeView!: HTMLElement;
 	delta!: string;
+	cycles: number;
 
 	constructor() {
 		super();
@@ -27,37 +28,57 @@ export class NinjaChef extends Game {
 	}
 
 	onLoad = () => {
+		this.gameTime = 0;
+
 		const boxElement = document.querySelector(".box") as HTMLElement;
+		this.timeView = document.querySelector(".time") as HTMLElement;
 		this.deltaView = document.querySelector(".delta") as HTMLElement;
 
 		// this.xPos = Number(this.boxView.style.left);
 		// this.yPos = Number(this.boxView.style.top);
 		this.box = new GameObject(boxElement);
 		// this.xVertex = this.screen.getCenter().x - this.box.hitbox.center.x;
-		this.yVertex = this.screen.getCenter().y - this.box.hitbox.height;
-		this.xVertex = this.screen.getCenter().x - this.box.hitbox.center.x;
-		this.yPos = 0;
-		this.xPos = this.xVertex / 1.2;
-		this.time = 0;
-		this.amplitude = 200;
+		this.yCenter = this.screen.getCenter().y - this.box.hitbox.center.y;
+		this.xCenter = this.screen.getCenter().x - this.box.hitbox.center.x;
+		this.yPos = this.yCenter;
+		this.xPos = this.xCenter;
+		this.cycles = 0;
+		// this.xPos = 0;
+		// this.xPos = this.xVertex / 1.2;
 	};
 
 	onUpdate = (deltaTime: number) => {
+		this.gameTime += deltaTime;
 		this.delta = deltaTime.toString();
-		// this.time += 1 / (10 * deltaTime);
 
 		// sin wave
-		// this.yPos += 1;
-		// this.yPos = this.yVertex + this.amplitude * Math.sin(this.time);
-		// this.xPos = Math.sqrt(-this.yPos / 1) + 1;
-		this.xPos += (0.5 * deltaTime) / 16;
-		this.yPos = this.yVertex + 0.5 * Math.pow(this.xPos - this.xVertex, 2);
+		this.xPos = this.moveSinusWave(this.xCenter, 100, 1, this.gameTime, 0);
+
+		// parabola wave
+		// start position (time axis)
+		// this.xPos = this.xVertex / 1.2;
+		// parabola speed
+		// this.xPos += (0.5 * deltaTime) / 16;
+		// calculate y of parabola
+		// this.yPos = this.yVertex + 0.5 * Math.pow(this.xPos - this.xVertex, 2);
 	};
 
+	moveSinusWave(
+		offset: number,
+		amplitude: number,
+		fullCycleInSeconds: number,
+		time: number,
+		timeoffset: number
+	): number {
+		const frequency = 6 * fullCycleInSeconds;
+		return offset + amplitude * Math.sin(frequency * time + timeoffset);
+	}
+
 	onRender = () => {
+		this.timeView.textContent = `Time: ${this.gameTime.toFixed(2)} `;
+		this.deltaView.textContent = `DELTA: ${this.delta} `;
 		this.box.view.style.left = `${this.xPos}px`;
 		this.box.view.style.top = `${this.yPos}px`;
-		this.deltaView.textContent = `DELTA: ${this.delta} `;
 	};
 
 	onPause = () => {};
