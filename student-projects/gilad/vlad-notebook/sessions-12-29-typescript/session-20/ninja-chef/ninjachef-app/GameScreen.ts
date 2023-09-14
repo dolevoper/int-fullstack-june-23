@@ -1,3 +1,4 @@
+import { GameObject } from "./GameObject.js";
 import { Point } from "./Point.js";
 import { Rectangle } from "./Rectangle.js";
 
@@ -31,6 +32,14 @@ export class GameScreen {
 
 	private fetchRectangle(): DOMRect {
 		return this.view.getBoundingClientRect();
+	}
+
+	public addGameObject(object: GameObject) {
+		this.view.append(object.view);
+	}
+
+	public removeGameObject(object: GameObject) {
+		object.view.remove();
 	}
 
 	public closeScreen() {
