@@ -3,8 +3,7 @@ import { foodList } from "./FoodType.js";
 import { Game } from "./Game.js";
 import { GameObject } from "./GameObject.js";
 import { GameScreen } from "./GameScreen.js";
-import { Point } from "./Point.js";
-import { log } from "./helpers.js";
+import { List } from "./List.js";
 
 export class NinjaChef extends Game {
 	static TAG = "NinjaChef";
@@ -12,7 +11,7 @@ export class NinjaChef extends Game {
 	screen!: GameScreen;
 
 	box!: GameObject;
-
+	gameObjects!: List<GameObject>;
 	deltaView!: HTMLElement;
 	timeView!: HTMLElement;
 	delta!: string;
@@ -30,20 +29,24 @@ export class NinjaChef extends Game {
 		this.timeView = document.querySelector(".time") as HTMLElement;
 		this.deltaView = document.querySelector(".delta") as HTMLElement;
 
-		const randomFood = Math.floor(Math.random() * foodList.length + 1);
-		this.box = new Food(1, foodList[randomFood], this.screen);
+		this.gameObjects = new List("Game Objects in game");
+		for (let i = 0; i < 3; i++) {
+			const randomFood = Math.floor(Math.random() * (foodList.length - 1));
+			this.gameObjects.add(new Food(1, foodList[randomFood], this.screen));
+		}
 	};
 
 	onUpdate = (deltaTime: number) => {
 		this.delta = deltaTime.toString();
-		this.box.update(this.gameTime);
+
+		this.updateAllGameObjects(this.gameTime);
 	};
 
 	onRender = () => {
 		this.timeView.textContent = `Time: ${this.gameTime.toFixed(2)} `;
 		this.deltaView.textContent = `DELTA: ${this.delta} `;
 
-		this.box.draw();
+		this.drawAllGameObjects();
 	};
 
 	onPause = () => {};
@@ -52,6 +55,12 @@ export class NinjaChef extends Game {
 
 	onExit = () => {};
 
+	updateAllGameObjects(gameTime: number) {
+		this.gameObjects.forEach((object) => object.update(this.gameTime));
+	}
+	drawAllGameObjects() {
+		this.gameObjects.forEach((object) => object.draw());
+	}
 	initGameScreen() {
 		const screenElement = document.querySelector(
 			".game-screen"
