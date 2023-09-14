@@ -15,13 +15,14 @@ type GameRenderCallback = () => void;
 
 export class Game {
 	static TAG = "Game";
+	static milisecod = 1000;
 
 	private state!: GameState;
 	private shouldLogStates!: boolean;
 
 	private animationRequestId!: number;
-	private deltaTime!: number;
-	static milisecod = 1000;
+	protected deltaTime!: number;
+	protected gameTime!: number;
 
 	protected onLoad!: Function;
 	protected onUpdate!: GameLoopCallback;
@@ -72,9 +73,9 @@ export class Game {
 		this.setGameState(GameState.LOADING);
 		this.logGameStateEvent("loading...");
 
-		this.onLoad();
-
 		this.attachScreenListener();
+		this.gameTime = 0;
+		this.onLoad();
 
 		this.setGameState(GameState.STARTED);
 		this.logGameStateEvent("starting.");
@@ -84,6 +85,7 @@ export class Game {
 
 	private run(time: number): void {
 		this.deltaTime = this.calculateDeltaTime(time, this.deltaTime);
+		this.gameTime += this.deltaTime;
 
 		this.onUpdate(this.deltaTime);
 		this.onRender();
