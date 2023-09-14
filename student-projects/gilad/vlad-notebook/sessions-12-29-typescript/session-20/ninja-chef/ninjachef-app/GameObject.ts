@@ -33,21 +33,24 @@ export class GameObject {
 
 	protected moveParabaloic(
 		object: Point,
-		startPoint: Point,
-		endPoint: Point,
+		startX: number,
+		endX: number,
+		startY: number,
 		vertexY: number,
 		speed: number,
+		direction: boolean,
 		time: number
 	) {
-		const width = endPoint.x - startPoint.x;
-		const height = startPoint.y - vertexY;
+		const width = endX - startX;
+		const height = startY - vertexY;
 
-		const k = height;
-		const h = startPoint.x + width / 2;
+		const k = startY - height;
+		const h = startX + width / 2;
 
-		const stretch = k / Math.pow(width / 2, 2);
+		const stretch = height / Math.pow(width / 2, 2);
+		if (direction) object.x += speed * time;
+		else object.x -= speed * time;
 
-		object.x += speed * time;
 		object.y = k + stretch * Math.pow(object.x - h, 2);
 	}
 

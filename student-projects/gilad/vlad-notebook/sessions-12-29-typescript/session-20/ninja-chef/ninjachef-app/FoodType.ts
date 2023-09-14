@@ -25,7 +25,7 @@ export const foodList = [
 	new FoodType("Cuttlefish"),
 	new FoodType("Shrimp"),
 	new FoodType("Hamburger"),
-	new FoodType("Bubble-T"),
+	new FoodType("Bubble-tea"),
 	new FoodType("Pizza"),
 	new FoodType("Cookie"),
 ];
