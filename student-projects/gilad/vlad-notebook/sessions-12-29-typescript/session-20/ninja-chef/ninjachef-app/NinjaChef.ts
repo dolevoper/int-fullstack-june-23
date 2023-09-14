@@ -38,8 +38,9 @@ export class NinjaChef extends Game {
 
 		for (let i = 0; i < 3; i++) {
 			const randomFood = Math.floor(Math.random() * (foodList.length - 1));
-			const newFood = new Food(1, foodList[randomFood], this.screen);
+			const newFood = new Food(i, foodList[randomFood], this.screen);
 			newFood.setOnFoodClickedListener(this.onFoodClicked.bind(this));
+			newFood.setOnFoodMissed(this.onFoodMissed.bind(this));
 			this.gameObjects.add(newFood);
 		}
 	};
@@ -66,6 +67,13 @@ export class NinjaChef extends Game {
 	onFoodClicked() {
 		console.log("food clicked");
 		this.gameManager.addScore(1);
+	}
+
+	onFoodMissed(food: Food) {
+		console.log("food missed");
+		food.destroy();
+		this.gameObjects.remove(food);
+		this.gameManager.addScore(-1);
 	}
 
 	updateAllGameObjects(gameTime: number) {
