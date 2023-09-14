@@ -19,7 +19,6 @@ export class GameScreen {
 
 	public update() {
 		this.boundaries = new Rectangle(this.fetchRectangle());
-		console.log(this.fetchRectangle());
 	}
 
 	public getCenter(): Point {
@@ -40,7 +39,7 @@ export class GameScreen {
 
 	private onScreenChanged(mutations: MutationRecord[]) {
 		mutations.forEach((mutation) => {
-			console.log(mutation);
+			this.update();
 		});
 	}
 
