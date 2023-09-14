@@ -12,6 +12,7 @@ type Car = {
     type?: string;
     color: string;
     licenseType: LicenseType;
+    status: StatusType;
 };
 
 type CarArray = Car[];
@@ -32,7 +33,8 @@ if (!addCarForm) {
             brand: getRequiredString(formData, "brand"),
             type: getString(formData, "type"),
             color: getRequiredString(formData, "color"),
-            licenseType: parseLicenseType(getRequiredString(formData, "licenseType"))
+            licenseType: parseLicenseType(getRequiredString(formData, "licenseType")),
+            status: parseStatusType(getRequiredString(formData, "status")),
         });
 
         console.log(cars);
@@ -70,6 +72,14 @@ function getRequiredString(formData: FormData, key: string) {
 function parseLicenseType(value: string): LicenseType {
     if (value !== "A" && value !== "B" && value !== "C") {
         throw new Error(`Invalid license type: ${value}`);
+    }
+
+    return value;
+}
+
+function parseStatusType(value: string): Status {
+    if (value !== "Normal" && value !== "Free" && value !== "Discount" && value !== "Banned") {
+        throw new Error(`Invalid status type: ${value}`);
     }
 
     return value;
