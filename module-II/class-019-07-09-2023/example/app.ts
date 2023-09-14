@@ -1,3 +1,4 @@
+
 console.log("connected");
 
 //truthy values
@@ -77,4 +78,7 @@ a.setAttribute("href", "https://www.w3schools.com/jsref/obj_window.asp")
 // add div, add image
 
 
+
+=======
+console.log("connected")
 
