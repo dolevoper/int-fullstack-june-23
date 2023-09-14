@@ -1,6 +1,6 @@
 import { Food } from "./Food.js";
 import { foodList } from "./FoodType.js";
-import { Game } from "./Game.js";
+import { Game, GameState } from "./Game.js";
 import { GameObject } from "./GameObject.js";
 import { GameScreen } from "./GameScreen.js";
 import { List } from "./List.js";
@@ -12,7 +12,7 @@ export class NinjaChef extends Game {
 
 	box!: GameObject;
 	gameObjects!: List<GameObject>;
-	deltaView!: HTMLElement;
+	pauseButton!: HTMLElement;
 	timeView!: HTMLElement;
 	delta!: string;
 
@@ -20,6 +20,7 @@ export class NinjaChef extends Game {
 		super();
 
 		this.initGameScreen();
+		this.initMenu();
 		this.startGame();
 	}
 
@@ -27,7 +28,6 @@ export class NinjaChef extends Game {
 		this.gameTime = 0;
 
 		this.timeView = document.querySelector(".time") as HTMLElement;
-		this.deltaView = document.querySelector(".delta") as HTMLElement;
 
 		this.gameObjects = new List("Game Objects in game");
 		for (let i = 0; i < 3; i++) {
@@ -44,7 +44,6 @@ export class NinjaChef extends Game {
 
 	onRender = () => {
 		this.timeView.textContent = `Time: ${this.gameTime.toFixed(2)} `;
-		this.deltaView.textContent = `DELTA: ${this.delta} `;
 
 		this.drawAllGameObjects();
 	};
@@ -58,13 +57,25 @@ export class NinjaChef extends Game {
 	updateAllGameObjects(gameTime: number) {
 		this.gameObjects.forEach((object) => object.update(this.gameTime));
 	}
+
 	drawAllGameObjects() {
 		this.gameObjects.forEach((object) => object.draw());
 	}
+
 	initGameScreen() {
 		const screenElement = document.querySelector(
 			".game-screen"
 		) as HTMLBodyElement;
 		this.screen = new GameScreen(screenElement);
+	}
+
+	initMenu() {
+		this.pauseButton = document.querySelector(".pause") as HTMLElement;
+
+		this.pauseButton.addEventListener("click", () => {
+			console.log("pause clicked");
+			if (this.getState() === GameState.RUNNING) this.pauseGame();
+			else if (this.getState() === GameState.PAUSED) this.resumeGame();
+		});
 	}
 }
