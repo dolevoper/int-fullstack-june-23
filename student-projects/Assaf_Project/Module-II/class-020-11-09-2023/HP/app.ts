@@ -48,6 +48,17 @@ function shoot() {
   shotAudio.play();
 }
 
+function gameOver() {
+  alert(`Your score is ${score}`);
+  let userInput = prompt("Would you like to play again?")?.trim().toLowerCase();
+  switch (userInput) {
+    case "yes":
+    case "y":
+      location.reload();
+      break;
+  }
+}
+
 const gameLoop = setInterval(addDisc, 3000);
 function addDisc() {
   const disc = document.createElement("div");
@@ -90,8 +101,13 @@ function addDisc() {
         clearInterval(gameLoop);
         disc.remove();
         loseAudio.play();
-        alert(`Your score is ${score}`);
+        setTimeout(gameOver, 1000);
       }
     }
   });
 }
+
+function simplePrompt(message: string) {
+    let userInput = prompt(message)?.trim()?.toLowerCase();
+    return userInput;
+  }
