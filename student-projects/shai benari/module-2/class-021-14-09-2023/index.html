@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="dist/styles.css" />
+</head>
+
+<body class="flow">
+    <main>
+        <h1 class="garge-header">Garage Management</h1>
+        <form name="add-new-car" class="flow" novalidate>
+            <h2>Add new car</h2>
+            <div class="form-input">
+                <label for="registration-number">Registration Number</label>
+                <input type="text" id="registration-number" inputmode="numeric" name="registrationNumber" pattern="\d+"
+                    minlength="7" maxlength="8" required autofocus />
+            </div>
+            <div class="form-input">
+                <label for="brand">Brand</label>
+                <input type="text" id="brand" name="brand" required />
+            </div>
+            <div class="form-input">
+                <label for="type">Type</label>
+                <input type="text" id="type" name="type" />
+            </div>
+            <div class="form-input">
+                <label for="color">Color</label>
+                <input type="text" id="color" name="color" required />
+            </div>
+            <div class="form-input">
+                <label for="license-type">License Type</label>
+                <select name="licenseType" id="license-type">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C" selected>C</option>
+                </select>
+                <div class="form-input">
+                    <label for="status">License Type</label>
+                    <select name="status" id="status-type">
+                        <option value="normal">normal</option>
+                        <option value="free" selected>free</option>
+                        <option value="discount" >discount</option>
+                        <option value="banned" >banned</option>
+                    </select>
+            </div>
+            <button type="submit">Add</button>
+        </form>
+    </main>
+    <script src="dist/app.js"></script>
+</body>
+
+</html>
