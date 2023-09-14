@@ -5,6 +5,7 @@
 // (Choose 2 or 3, or do both if you finish the first quickly)
 
 type LicenseType = "A" | "B" | "C";
+
 type Status = "normal" | "free" | "discount" | "banned";
 
 type Car = {
@@ -100,6 +101,7 @@ function generateCarsList() {
 	) as HTMLUListElement;
 	console.log(carsListElement);
 
+	carsListElement.replaceChildren();
 	cars.forEach((car) => {
 		console.log("generating car:");
 		console.log(car);
@@ -129,14 +131,6 @@ class CarElement extends HTMLElement {
 		if (car.type) this.type = car.type;
 
 		this.initView();
-
-		// for (var prop in car) {
-		// 	if (Object.prototype.hasOwnProperty.call(car as Car, prop)) {
-		// 		const element = document.createElement("div");
-		// 		element.innerText = `${prop}:`;
-		// 		this.append(prop);
-		// 	}
-		// }
 	}
 
 	initView() {
@@ -164,6 +158,37 @@ class CarElement extends HTMLElement {
 		const status = document.createElement("div");
 		status.innerText = this.status;
 		this.append(status);
+
+		const statusLabel = document.createElement("label");
+		statusLabel.setAttribute("for", `car__status-${this.number}`);
+		this.append(statusLabel);
+		const statusInput = document.createElement("select");
+		statusInput.setAttribute("name", `car__status-${this.number}`);
+		statusLabel.setAttribute("id", `car__status-${this.number}`);
+		this.append(statusInput);
+
+		statusInput.append(this.generateOption("free"));
+		statusInput.append(this.generateOption("normal"));
+		statusInput.append(this.generateOption("discount"));
+		statusInput.append(this.generateOption("banned"));
+		/*
+                                <label for="car__status-1">Status</label>
+                        <select name="car__status" id="car__status-1">
+                            <option value="normal">Normal</option>
+                            <option value="free" selected>Free</option>
+                            <option value="discount">Discount</option>
+                            <option value="banned">Banned</option>
+                        </select>
+        */
+	}
+
+	generateOption(name: string): HTMLOptionElement {
+		const optionElement = document.createElement("option");
+		optionElement.value = name;
+		optionElement.innerText = name;
+		if (name === this.status) optionElement.selected = true;
+		console.log(name + " equals:" + this.status);
+		return optionElement;
 	}
 }
 window.customElements.define("car-element", CarElement);
