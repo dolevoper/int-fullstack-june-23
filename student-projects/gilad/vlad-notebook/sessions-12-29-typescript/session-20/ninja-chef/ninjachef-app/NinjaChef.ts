@@ -15,6 +15,7 @@ export class NinjaChef extends Game {
 	gameObjects!: List<GameObject>;
 	pauseButton!: HTMLElement;
 	scoreView!: HTMLElement;
+	livesView!: HTMLElement;
 	timeView!: HTMLElement;
 	delta!: string;
 
@@ -29,6 +30,7 @@ export class NinjaChef extends Game {
 	onLoad = () => {
 		this.gameManager = new GameManager();
 		this.gameManager.resetScore();
+		this.gameManager.setLives(3);
 
 		this.gameTime = 0;
 
@@ -73,7 +75,8 @@ export class NinjaChef extends Game {
 		console.log("food missed");
 		food.destroy();
 		this.gameObjects.remove(food);
-		this.gameManager.addScore(-1);
+		this.gameManager.removeHeart(1);
+		this.onLiveRemoved();
 	}
 
 	updateAllGameObjects(gameTime: number) {
@@ -101,5 +104,15 @@ export class NinjaChef extends Game {
 		});
 
 		this.scoreView = document.querySelector(".score") as HTMLElement;
+		this.livesView = document.querySelector(".lives") as HTMLElement;
+	}
+
+	onLiveRemoved() {
+		let livesText = "";
+		for (let i = 0; i < this.gameManager.getLives(); i++) {
+			livesText += "💖";
+		}
+
+		this.livesView.innerText = livesText;
 	}
 }
