@@ -148,7 +148,7 @@
     position: absolute;
     cursor: crosshair;
     z-index: 1;
-    animation: flyingDisc 2s cubic-bezier(.29,.64,.75,.7) infinite normal forwards;
+    animation: flyingDisc 3s cubic-bezier(.29,.64,.75,.7) infinite normal forwards;
 
     &::before {
         position: absolute;

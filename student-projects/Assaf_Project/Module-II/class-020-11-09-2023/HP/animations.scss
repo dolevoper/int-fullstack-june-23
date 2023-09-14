@@ -1,7 +1,7 @@
 @keyframes flyingDisc {
     0% {
         right: 100vw;
-        transform: translateY(50px);
+        transform: translateY(50px), rotateZ(90deg);
     }
 
     30%,
