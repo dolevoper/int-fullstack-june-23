@@ -164,22 +164,13 @@ class CarElement extends HTMLElement {
 		this.append(statusLabel);
 		const statusInput = document.createElement("select");
 		statusInput.setAttribute("name", `car__status-${this.number}`);
-		statusLabel.setAttribute("id", `car__status-${this.number}`);
+		statusInput.setAttribute("id", `car__status-${this.number}`);
 		this.append(statusInput);
 
 		statusInput.append(this.generateOption("free"));
 		statusInput.append(this.generateOption("normal"));
 		statusInput.append(this.generateOption("discount"));
 		statusInput.append(this.generateOption("banned"));
-		/*
-                                <label for="car__status-1">Status</label>
-                        <select name="car__status" id="car__status-1">
-                            <option value="normal">Normal</option>
-                            <option value="free" selected>Free</option>
-                            <option value="discount">Discount</option>
-                            <option value="banned">Banned</option>
-                        </select>
-        */
 	}
 
 	generateOption(name: string): HTMLOptionElement {
