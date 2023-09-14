@@ -1,0 +1,30 @@
+
+#imgOne {
+    display: inline-block;
+    position: fixed; 
+    left: 3rem;  
+}
+#imgTwo {
+    display: inline-block;
+    position: fixed;  
+    left: 18rem; 
+    
+}
+
+#imgThree {
+    display: inline-block;
+    position: fixed;
+    left: 33rem; 
+}
+#style{
+    width: 200px;
+    height: 203px;
+}
+div{  
+    width: 200px;
+    height: 207px;
+}
+body{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
