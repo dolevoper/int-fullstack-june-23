@@ -25,6 +25,11 @@
     }
 }
 
+.game-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
 .pause {
     width: 100px;
     background-color: azure;
@@ -32,7 +37,8 @@
     font-size: 2rem;
 }
 
-.game-menu {
-    display: flex;
-    justify-content: space-between;
+.score {
+    font-weight: bold;
+    font-size: 4rem;
+    text-align: center;
 }

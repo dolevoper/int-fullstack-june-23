@@ -1,6 +1,6 @@
 import { FoodElement } from "./FoodElement.js";
 import { FoodType } from "./FoodType.js";
-import { GameObject } from "./GameObject.js";
+import { GameObject, OnGameObjectListener } from "./GameObject.js";
 import { GameScreen } from "./GameScreen.js";
 import { Point } from "./Point.js";
 import { random, randomBoolean } from "./helpers.js";
@@ -13,6 +13,8 @@ export class Food extends GameObject {
 	jumpHeight!: number;
 	jumpSpeed!: number;
 	jumpDirection!: boolean;
+
+	onFoodClickedListener!: OnGameObjectListener;
 
 	constructor(id: number, foodType: FoodType, screen: GameScreen) {
 		super(id, foodType.name, screen);
@@ -87,12 +89,6 @@ export class Food extends GameObject {
 		this.jumpHeight = startY - height;
 		this.jumpSpeed = speed;
 		this.jumpDirection = direction;
-
-		console.log("screen width = " + this.screen.boundaries.width);
-		console.log("start x = " + startX);
-		console.log("end x = " + endX);
-		console.log("start y = " + startY);
-		console.log("height= " + height);
 	}
 
 	private generateFoodElement() {
@@ -106,7 +102,12 @@ export class Food extends GameObject {
 
 	private initOnClick() {
 		this.setOnClickListener((event) => {
+			if (this.onFoodClickedListener) this.onFoodClickedListener(event);
 			this.destroy();
 		});
+	}
+
+	public setOnFoodClickedListener(listener: OnGameObjectListener) {
+		this.onFoodClickedListener = listener;
 	}
 }

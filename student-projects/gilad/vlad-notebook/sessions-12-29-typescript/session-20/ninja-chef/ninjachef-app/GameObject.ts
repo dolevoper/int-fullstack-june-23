@@ -2,7 +2,7 @@ import { GameScreen } from "./GameScreen.js";
 import { Point } from "./Point.js";
 import { Rectangle } from "./Rectangle.js";
 
-type OnGameObjectListener = (event: MouseEvent) => void;
+export type OnGameObjectListener = (event: MouseEvent) => void;
 
 export class GameObject {
 	protected screen: GameScreen;
@@ -70,7 +70,7 @@ export class GameObject {
 		return offset + amplitude * Math.sin(frequency * time + timeoffset);
 	}
 
-	public setOnClickListener(listener: OnGameObjectListener) {
+	protected setOnClickListener(listener: OnGameObjectListener) {
 		this.onClickListener = listener;
 	}
 
