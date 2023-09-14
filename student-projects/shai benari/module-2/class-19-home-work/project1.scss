@@ -13,14 +13,16 @@ html {
     line-height: 1.6;
 }
 
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    display: flex;
    justify-content: center;
    align-items: center;
    height: 100hv;
-   text-align: center;
-    background-color: rgb(175, 196, 173);
+   text-align: center; 
+   background-image: url(picture/woman.jpg) no-repeat center center / cover;
+
 }
 .main-content{
     width: 550px;
@@ -46,7 +48,7 @@ body {
 
 }
 .main-content .text-erea{
-    line-height: 1.5;
+    line-height: 1.3;
     font-size: 1.2rem;
 }
 .main-content .person{
@@ -54,14 +56,17 @@ body {
     line-height: 1.2;
     color: red;
     text-transform: uppercase;
-    margin: 2rem;
+    margin: 1rem;
 }
-.buttonQoute{
+.main-content .buttonQoute{
+    position: relative;
     border: 2px solid black;
     font-size: 1.3rem;
     padding: 10px 15px;
     background-color: grey;
     border-radius: 10px;
     color: white;
+   margin-bottom: 1rem;
 
 }
+
