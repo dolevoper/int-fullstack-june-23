@@ -1,0 +1,66 @@
+.animal {
+
+    --animal-size: 11vh;
+    --animal-x: 25px;
+    --animal-y: 50px;
+
+    width: var(--animal-size);
+    height: var(--animal-size);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    position: absolute;
+    top: var(--animal-y);
+    left: var(--animal-x);
+
+
+    &--walking>&__body {
+        animation: --anim-animal-walking 1s infinite;
+    }
+
+    &__name {
+        text-align: center;
+    }
+
+    &__body {}
+
+    &__needs {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+
+    }
+
+    &__need-icon {
+        max-width: 2rem;
+        max-height: 2rem;
+    }
+
+    @media (orientation: landscape) {
+        --animal-size: 10vh;
+    }
+
+    @media (orientation: portrait) {
+        --animal-size: 10vw;
+
+    }
+}
+
+@keyframes --anim-animal-walking {
+
+    0% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(5deg);
+    }
+}

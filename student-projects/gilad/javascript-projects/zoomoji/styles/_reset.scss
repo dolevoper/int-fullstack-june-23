@@ -1,0 +1,38 @@
+@use "defaults"as defaults;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: defaults.$color-ui-font-main;
+    font-family: defaults.$font-main;
+    font-weight: 100;
+}
+
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+
+    @media (orientation: landscape) {}
+
+    @media (orientation: portrait) {
+        transform: rotate(90deg);
+        transform-origin: bottom left;
+
+        width: 100vh;
+        height: 100vw;
+
+        position: absolute;
+        top: -100vw;
+        left: 0;
+
+        // overflow: auto;
+    }
+}
