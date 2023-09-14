@@ -123,7 +123,7 @@ export class NinjaChef extends Game {
 	}
 
 	generateFood() {
-		const amoundPerLevel = random(2, this.gameManager.getLevel() * 2);
+		const amoundPerLevel = random(2, this.gameManager.getLevel() + 1);
 
 		for (let i = 0; i < amoundPerLevel; i++) {
 			const randomFood = random(1, Math.random() * foodList.length);
