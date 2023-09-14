@@ -1,0 +1,89 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: calc(1rem + 0.5vw);
+    line-height: 1.6;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+   
+}
+.garge-header{
+    background-color: gray;
+    text-align: center;
+    border: 2px solid black;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px rgb(22, 24, 22);
+    padding: 0.5rem 3rem;
+    margin-bottom: 2rem;
+}
+
+main {
+    width: min(75ch, 100% - 2rem);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+    align-items: center;
+}
+h2{
+    text-align: center;
+}
+form{
+    margin-inline: auto;
+    border: 2px solid gray;
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    background-color: rgb(238, 235, 235);
+}
+
+.flow>*+* {
+    margin-block-start: 1em;
+    
+    
+}
+
+input
+ {
+    font-size: inherit;
+    color: inherit;
+    font-family: inherit;
+    border-radius: 3px;
+}
+select, button{
+    margin: 10px;
+    border-radius: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.submitted input:invalid {
+    border-color: red;
+}
