@@ -147,7 +147,17 @@
     left: calc(0px - (var(--object-size-large)));
     position: absolute;
     z-index: 1;
-    animation: flyingDisc 3s cubic-bezier(.29, .64, .75, .7) infinite normal forwards;
+    animation: flyingDisc 2s cubic-bezier(.29, .64, .75, .7) infinite normal forwards;
+
+    @media screen and (max-width: 400px) {
+        animation: flyingDisc 1.4s cubic-bezier(.29, .64, .75, .7) infinite normal forwards;
+        height: calc(var(--object-size-medium));
+    }
+
+    @media screen and (min-width: 800px) {
+        animation: flyingDisc 3s cubic-bezier(.29, .64, .75, .7) infinite normal forwards;
+        height: calc(var(--object-size-medium)*1.7);
+    }
 
     &::before {
         position: absolute;
