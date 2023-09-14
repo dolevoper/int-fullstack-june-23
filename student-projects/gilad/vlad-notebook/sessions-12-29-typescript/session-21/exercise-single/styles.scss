@@ -37,3 +37,8 @@ select {
 .submitted input:invalid {
     border-color: red;
 }
+
+.car {
+    display: flex;
+    gap: 1rem;
+}

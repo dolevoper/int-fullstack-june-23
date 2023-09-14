@@ -92,3 +92,49 @@ function parseStatus(value: string): Status {
 
 	return value;
 }
+
+function generateCarsList() {
+	const carsListElement = document.querySelector(
+		"cars-list"
+	) as HTMLUListElement;
+
+	cars.forEach((car) => {
+		carsListElement?.append(generateCarElement(car));
+	});
+}
+
+function generateCarElement(car: Car): CarElement {
+	return new CarElement(car);
+}
+
+class CarElement extends HTMLElement {
+	private number: string;
+	private brand: string;
+	private color: string;
+	private status: Status;
+	private licenseType: LicenseType;
+	private type: string;
+
+	constructor(car: Car) {
+		super();
+		this.number = car.registrationNumber;
+		this.brand = car.brand;
+		this.color = car.color;
+		this.status = car.status;
+		this.licenseType = car.licenseType;
+		if (car.type) this.type = car.type;
+	}
+}
+window.customElements.define("car-element", CarElement);
+
+/*
+type Car = {
+	registrationNumber: string;
+	brand: string;
+	type?: string;
+	color: string;
+	licenseType: LicenseType;
+	status: Status;
+};
+
+*/

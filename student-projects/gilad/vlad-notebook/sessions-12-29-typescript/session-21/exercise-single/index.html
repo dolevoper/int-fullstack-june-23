@@ -49,6 +49,28 @@
             </div>
             <button type="submit">Add</button>
         </form>
+
+        <ul class="cars-list">
+            <form name="cars-list-changes">
+                <button type="submit">Save</button>
+
+                <li class="car">
+                    <div class="car__number">123456</div>
+                    <div class="car__brand">brand</div>
+                    <div class="car__type">type</div>
+                    <div class="car__color">color</div>
+                    <div class="save-input">
+                        <label for="car__status-1">Status</label>
+                        <select name="car__status" id="car__status-1">
+                            <option value="normal">Normal</option>
+                            <option value="free" selected>Free</option>
+                            <option value="discount">Discount</option>
+                            <option value="banned">Banned</option>
+                        </select>
+                    </div>
+                </li>
+            </form>
+        </ul>
     </main>
     <script src="dist/app.js"></script>
 </body>
