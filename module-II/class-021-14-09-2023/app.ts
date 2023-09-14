@@ -7,72 +7,70 @@
 type LicenseType = "A" | "B" | "C";
 
 type Car = {
-	registrationNumber: string;
-	brand: string;
-	type?: string;
-	color: string;
-	licenseType: LicenseType;
+    registrationNumber: string;
+    brand: string;
+    type?: string;
+    color: string;
+    licenseType: LicenseType;
 };
 
 type CarArray = Car[];
 
 const cars: CarArray = [];
 
-const addCarForm = document.querySelector(
-	"form[name='add-new-car']"
-) as HTMLFormElement | null;
+const addCarForm = document.querySelector("form[name='add-new-car']") as HTMLFormElement | null;
 if (!addCarForm) {
-	console.error("Couldn't find add car form.");
+    console.error("Couldn't find add car form.");
 } else {
-	addCarForm.addEventListener("submit", function (e) {
-		e.preventDefault();
+    addCarForm.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-		const formData = new FormData(e.target as HTMLFormElement);
+        const formData = new FormData(e.target as HTMLFormElement);
 
-		cars.push({
-			registrationNumber: getRequiredString(formData, "registrationNumber"),
-			brand: getRequiredString(formData, "brand"),
-			type: getString(formData, "type"),
-			color: getRequiredString(formData, "color"),
-			licenseType: parseLicenseType(getRequiredString(formData, "licenseType")),
-		});
+        cars.push({
+            registrationNumber: getRequiredString(formData, "registrationNumber"),
+            brand: getRequiredString(formData, "brand"),
+            type: getString(formData, "type"),
+            color: getRequiredString(formData, "color"),
+            licenseType: parseLicenseType(getRequiredString(formData, "licenseType"))
+        });
 
-		console.log(cars);
-	});
+        console.log(cars);
+    });
 }
 
 function getString(formData: FormData, key: string) {
-	const value = formData.get(key);
+    const value = formData.get(key);
 
-	if (value == null) {
-		throw new Error(`Field ${key} doesn't exist!`);
-	}
+    if (value == null) {
+        throw new Error(`Field ${key} doesn't exist!`);
+    }
 
-	if (typeof value !== "string") {
-		throw new Error(`Value of field ${key} is not a string!`);
-	}
+    if (typeof value !== "string") {
+        throw new Error(`Value of field ${key} is not a string!`);
+    }
 
-	if (!value) {
-		return undefined;
-	}
+    if (!value) {
+        return undefined;
+    }
 
-	return value;
+    return value;
 }
 
 function getRequiredString(formData: FormData, key: string) {
-	const value = getString(formData, key);
+    const value = getString(formData, key);
 
-	if (!value) {
-		throw new Error(`Value for ${key} is required!`);
-	}
+    if (!value) {
+        throw new Error(`Value for ${key} is required!`);
+    }
 
-	return value;
+    return value;
 }
 
 function parseLicenseType(value: string): LicenseType {
-	if (value !== "A" && value !== "B" && value !== "C") {
-		throw new Error(`Invalid license type: ${value}`);
-	}
+    if (value !== "A" && value !== "B" && value !== "C") {
+        throw new Error(`Invalid license type: ${value}`);
+    }
 
-	return value;
+    return value;
 }
