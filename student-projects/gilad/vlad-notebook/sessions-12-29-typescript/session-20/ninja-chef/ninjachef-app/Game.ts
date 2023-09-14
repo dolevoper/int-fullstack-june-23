@@ -96,6 +96,8 @@ export class Game {
 	}
 
 	private pause() {
+		this.setGameState(GameState.PAUSED);
+
 		this.pauseGameLoop();
 		this.logGameStateEvent("pause.");
 
@@ -136,19 +138,21 @@ export class Game {
 		this.setGameState(GameState.RUNNING);
 		this.logGameStateEvent("loop started.");
 
-		this.frame((time) => {
+		window.requestAnimationFrame((time) => {
 			this.deltaTime = time;
 			this.frame(this.run);
 		});
 	}
 
 	private frame(gameLoop: FrameRequestCallback) {
-		this.animationRequestId = window.requestAnimationFrame(gameLoop.bind(this));
+		if (this.isCanRun())
+			this.animationRequestId = window.requestAnimationFrame(
+				gameLoop.bind(this)
+			);
 	}
 
 	private pauseGameLoop() {
 		cancelAnimationFrame(this.animationRequestId);
-		this.setGameState(GameState.PAUSED);
 		this.logGameStateEvent("loop discarded.");
 	}
 
@@ -168,7 +172,7 @@ export class Game {
 		);
 	}
 
-	private canRun(): boolean {
+	private isCanRun(): boolean {
 		return this.getState() === GameState.RUNNING;
 	}
 
@@ -184,7 +188,7 @@ export class Game {
 		});
 
 		window.addEventListener("blur", (event) => {
-			this.pause();
+			if (this.getState() === GameState.RUNNING) this.pause();
 		});
 	}
 
@@ -214,6 +218,6 @@ export class Game {
 	}
 
 	protected exitGame() {
-		this.resume();
+		this.exit();
 	}
 }

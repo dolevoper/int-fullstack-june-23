@@ -22,6 +22,7 @@ export class GameManager {
 
 	public nextLevel() {
 		this.level++;
+		console.log("Next Level!");
 	}
 
 	public resetLevels() {
@@ -41,5 +42,9 @@ export class GameManager {
 	public removeHeart(amount: number) {
 		this.lives -= amount;
 		if (this.lives < 0) this.lives = 0;
+	}
+
+	public noMoreLives(): boolean {
+		return this.lives ? false : true;
 	}
 }

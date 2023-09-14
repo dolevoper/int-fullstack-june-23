@@ -6,6 +6,7 @@ import { Point } from "./Point.js";
 import { random, randomBoolean } from "./helpers.js";
 
 export type onFoodMissedListener = (missedFood: Food) => void;
+export type onFoodClickedListener = (clickedFood: Food) => void;
 
 export class Food extends GameObject {
 	foodType: FoodType;
@@ -17,7 +18,7 @@ export class Food extends GameObject {
 	jumpDirection!: boolean;
 
 	isInScreen!: boolean;
-	onFoodClickedListener!: OnGameObjectListener;
+	onFoodClickedListener!: onFoodClickedListener;
 	onFoodMissedListener!: onFoodMissedListener;
 
 	constructor(id: number, foodType: FoodType, screen: GameScreen) {
@@ -44,6 +45,7 @@ export class Food extends GameObject {
 			gameTime
 		);
 		this.updateIsInScreen();
+
 		if (!this.isInScreen) {
 			this.onFoodMissed();
 		}
@@ -115,16 +117,16 @@ export class Food extends GameObject {
 
 	public onFoodMissed() {
 		if (this.onFoodMissedListener) this.onFoodMissedListener(this);
+		this.destroy();
 	}
 
 	private initOnClick() {
 		this.setOnClickListener((event) => {
-			if (this.onFoodClickedListener) this.onFoodClickedListener(event);
-			this.destroy();
+			if (this.onFoodClickedListener) this.onFoodClickedListener(this);
 		});
 	}
 
-	public setOnFoodClickedListener(listener: OnGameObjectListener) {
+	public setOnFoodClickedListener(listener: onFoodClickedListener) {
 		this.onFoodClickedListener = listener;
 	}
 

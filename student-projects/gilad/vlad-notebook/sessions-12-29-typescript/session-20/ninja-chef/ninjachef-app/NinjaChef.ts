@@ -23,6 +23,7 @@ export class NinjaChef extends Game {
 	constructor() {
 		super();
 
+		this.debugGameStateLogs(true);
 		this.initGameScreen();
 		this.initMenu();
 		this.startGame();
@@ -32,12 +33,12 @@ export class NinjaChef extends Game {
 		this.gameManager = new GameManager();
 		this.gameManager.resetScore();
 		this.gameManager.setLives(3);
-		this.gameManager.nextLevel();
 
 		this.timeView = document.querySelector(".time") as HTMLElement;
 
 		this.gameObjects = new List("Game Objects in game");
-		this.generateFood();
+
+		this.startNextLevel();
 	};
 
 	onUpdate = (deltaTime: number) => {
@@ -46,6 +47,7 @@ export class NinjaChef extends Game {
 		this.updateAllGameObjects(this.deltaTime);
 
 		if (this.gameObjects.length === 0) this.onNoMoreFood();
+		if (this.gameManager.noMoreLives()) this.onGameOver();
 	};
 
 	onRender = () => {
@@ -59,23 +61,37 @@ export class NinjaChef extends Game {
 
 	onResume = () => {};
 
-	onExit = () => {};
+	onExit = () => {
+		this.gameObjects.clearAll();
+	};
 
-	onFoodClicked() {
-		console.log("food clicked");
+	onGameOver() {
+		console.log("Game Over! score: " + this.gameManager.getScore());
+		this.exitGame();
+	}
+
+	onFoodClicked(food: Food) {
+		console.log(`Food ${food.name} clicked`);
+		food.destroy();
+		this.gameObjects.remove(food);
+
 		this.gameManager.addScore(1);
 	}
 
 	onFoodMissed(food: Food) {
 		console.log("food missed");
-		food.destroy();
 		this.gameObjects.remove(food);
 		this.gameManager.removeHeart(1);
 		this.onLiveRemoved();
 	}
 
 	onNoMoreFood() {
+		this.startNextLevel();
+	}
+
+	startNextLevel() {
 		this.generateFood();
+		this.gameManager.nextLevel();
 		console.log(this.gameObjects);
 	}
 
@@ -111,12 +127,13 @@ export class NinjaChef extends Game {
 		const amoundPerLevel = random(2, this.gameManager.getLevel() * 2);
 
 		for (let i = 0; i < amoundPerLevel; i++) {
-			const randomFood = Math.floor(Math.random() * (foodList.length - 1));
+			const randomFood = random(1, Math.random() * foodList.length);
 			const newFood = new Food(i, foodList[randomFood], this.screen);
 			newFood.setOnFoodClickedListener(this.onFoodClicked.bind(this));
 			newFood.setOnFoodMissed(this.onFoodMissed.bind(this));
 			this.gameObjects.add(newFood);
 		}
+		console.log(`Generated ${amoundPerLevel}`);
 	}
 
 	onLiveRemoved() {
