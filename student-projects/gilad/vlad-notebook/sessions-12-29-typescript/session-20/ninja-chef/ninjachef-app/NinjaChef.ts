@@ -5,6 +5,7 @@ import { GameObject } from "./GameObject.js";
 import { GameManager } from "./GameManager.js";
 import { GameScreen } from "./GameScreen.js";
 import { List } from "./List.js";
+import { random } from "./helpers.js";
 
 export class NinjaChef extends Game {
 	static TAG = "NinjaChef";
@@ -31,26 +32,20 @@ export class NinjaChef extends Game {
 		this.gameManager = new GameManager();
 		this.gameManager.resetScore();
 		this.gameManager.setLives(3);
-
-		this.gameTime = 0;
+		this.gameManager.nextLevel();
 
 		this.timeView = document.querySelector(".time") as HTMLElement;
 
 		this.gameObjects = new List("Game Objects in game");
-
-		for (let i = 0; i < 3; i++) {
-			const randomFood = Math.floor(Math.random() * (foodList.length - 1));
-			const newFood = new Food(i, foodList[randomFood], this.screen);
-			newFood.setOnFoodClickedListener(this.onFoodClicked.bind(this));
-			newFood.setOnFoodMissed(this.onFoodMissed.bind(this));
-			this.gameObjects.add(newFood);
-		}
+		this.generateFood();
 	};
 
 	onUpdate = (deltaTime: number) => {
 		this.delta = deltaTime.toString();
 
-		this.updateAllGameObjects(this.gameTime);
+		this.updateAllGameObjects(this.deltaTime);
+
+		if (this.gameObjects.length === 0) this.onNoMoreFood();
 	};
 
 	onRender = () => {
@@ -79,8 +74,13 @@ export class NinjaChef extends Game {
 		this.onLiveRemoved();
 	}
 
+	onNoMoreFood() {
+		this.generateFood();
+		console.log(this.gameObjects);
+	}
+
 	updateAllGameObjects(gameTime: number) {
-		this.gameObjects.forEach((object) => object.update(this.gameTime));
+		this.gameObjects.forEach((object) => object.update(gameTime));
 	}
 
 	drawAllGameObjects() {
@@ -105,6 +105,18 @@ export class NinjaChef extends Game {
 
 		this.scoreView = document.querySelector(".score") as HTMLElement;
 		this.livesView = document.querySelector(".lives") as HTMLElement;
+	}
+
+	generateFood() {
+		const amoundPerLevel = random(2, this.gameManager.getLevel() * 2);
+
+		for (let i = 0; i < amoundPerLevel; i++) {
+			const randomFood = Math.floor(Math.random() * (foodList.length - 1));
+			const newFood = new Food(i, foodList[randomFood], this.screen);
+			newFood.setOnFoodClickedListener(this.onFoodClicked.bind(this));
+			newFood.setOnFoodMissed(this.onFoodMissed.bind(this));
+			this.gameObjects.add(newFood);
+		}
 	}
 
 	onLiveRemoved() {

@@ -25,7 +25,7 @@ export class GameManager {
 	}
 
 	public resetLevels() {
-		this.level = 0;
+		this.level = 1;
 	}
 
 	public getLevel(): number {

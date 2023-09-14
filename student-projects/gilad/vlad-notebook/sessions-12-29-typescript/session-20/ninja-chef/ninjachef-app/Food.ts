@@ -73,12 +73,14 @@ export class Food extends GameObject {
 			this.screen.boundaries.height - 100
 		);
 
+		const randomSpeed = random(50, 150);
+
 		this.setJump(
 			randomStartX,
 			randomEndX,
 			this.screen.boundaries.height,
 			randomHeight,
-			1,
+			randomSpeed,
 			randomDirection
 		);
 	}
