@@ -27,12 +27,7 @@ function updateScore() {
   }
 }
 
-function hitDisc() {
-  console.log("Disc Hit!");
-  
-  score += 10;
-  updateScore();
-}
+const hitAudio = document.getElementById("hit-audio") as HTMLAudioElement;
 
 const gameLoop = setInterval(addDisc, 3000);
 function addDisc() {
@@ -46,6 +41,7 @@ function addDisc() {
   function hitDisc() {
     console.log("Disc Hit!");
     disc.remove();
+    hitAudio.play();
     score += 10;
     updateScore();
   }
