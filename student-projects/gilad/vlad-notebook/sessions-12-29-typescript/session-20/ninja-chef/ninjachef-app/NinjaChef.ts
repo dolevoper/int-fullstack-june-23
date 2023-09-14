@@ -92,7 +92,6 @@ export class NinjaChef extends Game {
 	startNextLevel() {
 		this.generateFood();
 		this.gameManager.nextLevel();
-		console.log(this.gameObjects);
 	}
 
 	updateAllGameObjects(gameTime: number) {
@@ -133,7 +132,6 @@ export class NinjaChef extends Game {
 			newFood.setOnFoodMissed(this.onFoodMissed.bind(this));
 			this.gameObjects.add(newFood);
 		}
-		console.log(`Generated ${amoundPerLevel}`);
 	}
 
 	onLiveRemoved() {
