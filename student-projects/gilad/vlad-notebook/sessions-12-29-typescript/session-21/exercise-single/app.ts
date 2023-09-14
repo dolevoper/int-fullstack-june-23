@@ -41,6 +41,7 @@ if (!addCarForm) {
 		});
 
 		console.log(cars);
+		generateCarsList();
 	});
 }
 
@@ -95,10 +96,13 @@ function parseStatus(value: string): Status {
 
 function generateCarsList() {
 	const carsListElement = document.querySelector(
-		"cars-list"
+		".cars-list"
 	) as HTMLUListElement;
+	console.log(carsListElement);
 
 	cars.forEach((car) => {
+		console.log("generating car:");
+		console.log(car);
 		carsListElement?.append(generateCarElement(car));
 	});
 }
@@ -123,18 +127,43 @@ class CarElement extends HTMLElement {
 		this.status = car.status;
 		this.licenseType = car.licenseType;
 		if (car.type) this.type = car.type;
+
+		this.initView();
+
+		// for (var prop in car) {
+		// 	if (Object.prototype.hasOwnProperty.call(car as Car, prop)) {
+		// 		const element = document.createElement("div");
+		// 		element.innerText = `${prop}:`;
+		// 		this.append(prop);
+		// 	}
+		// }
+	}
+
+	initView() {
+		this.classList.add("car");
+		const numberElement = document.createElement("div");
+		numberElement.innerText = this.number;
+		this.append(numberElement);
+
+		const brand = document.createElement("div");
+		brand.innerText = this.brand;
+		this.append(brand);
+
+		const color = document.createElement("div");
+		color.innerText = this.color;
+		this.append(color);
+
+		const type = document.createElement("div");
+		type.innerText = this.type;
+		this.append(type);
+
+		const license = document.createElement("div");
+		license.innerText = this.licenseType;
+		this.append(license);
+
+		const status = document.createElement("div");
+		status.innerText = this.status;
+		this.append(status);
 	}
 }
 window.customElements.define("car-element", CarElement);
-
-/*
-type Car = {
-	registrationNumber: string;
-	brand: string;
-	type?: string;
-	color: string;
-	licenseType: LicenseType;
-	status: Status;
-};
-
-*/
