@@ -1,8 +1,10 @@
 export class GameManager {
-	private score: number;
+	private score!: number;
+	private level!: number;
 
 	constructor() {
-		this.score = 0;
+		this.resetScore();
+		this.resetLevels();
 	}
 
 	public addScore(amount: number) {
@@ -15,5 +17,17 @@ export class GameManager {
 
 	public resetScore() {
 		this.score = 0;
+	}
+
+	public nextLevel() {
+		this.level++;
+	}
+
+	public resetLevels() {
+		this.level = 0;
+	}
+
+	public getLevel(): number {
+		return this.level;
 	}
 }

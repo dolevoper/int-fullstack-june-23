@@ -14,6 +14,7 @@ export class Food extends GameObject {
 	jumpSpeed!: number;
 	jumpDirection!: boolean;
 
+	isInScreen!: boolean;
 	onFoodClickedListener!: OnGameObjectListener;
 
 	constructor(id: number, foodType: FoodType, screen: GameScreen) {
@@ -39,8 +40,13 @@ export class Food extends GameObject {
 			this.jumpDirection,
 			gameTime
 		);
+		this.updateIsInScreen();
+		if (!this.isInScreen) this.destroy();
 	}
 
+	public updateIsInScreen() {
+		this.isInScreen = this.position.y < this.screen.boundaries.height;
+	}
 	public onExitScreen() {}
 
 	public draw(): void {
