@@ -5,18 +5,22 @@
     height: 100%;
 }
 
-.box {
+.food {
 
     display: inline-block;
     width: 100px;
     height: 100px;
-    background-color: red;
+    // background-color: red;
 
     position: absolute;
     left: 0;
     top: 0;
-}
 
-.debug {
-    // float: right;
+    &__img {
+        background: url("../../assets/food/apple.svg") no-repeat center center;
+        background-size: contain;
+        width: 100%;
+        height: 100%;
+
+    }
 }

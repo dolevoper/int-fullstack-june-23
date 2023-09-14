@@ -1,4 +1,5 @@
 import { Food } from "./Food.js";
+import { foodList } from "./FoodType.js";
 import { Game } from "./Game.js";
 import { GameObject } from "./GameObject.js";
 import { GameScreen } from "./GameScreen.js";
@@ -29,8 +30,8 @@ export class NinjaChef extends Game {
 		this.timeView = document.querySelector(".time") as HTMLElement;
 		this.deltaView = document.querySelector(".delta") as HTMLElement;
 
-		const boxElement = document.querySelector(".box") as HTMLElement;
-		this.box = new Food(1, "Apple", boxElement, "", this.screen);
+		const randomFood = Math.floor(Math.random() * foodList.length + 1);
+		this.box = new Food(1, foodList[randomFood], this.screen);
 	};
 
 	onUpdate = (deltaTime: number) => {
