@@ -6,6 +6,7 @@
 
 type LicenseType = "A" | "B" | "C";
 type status = "normal" | "free" | "discount" | "banned";
+let DiscountRate = ""
 
 type Car = {
     registrationNumber: string;
@@ -14,6 +15,8 @@ type Car = {
     color: string;
     licenseType: LicenseType;
     status: status;
+    DiscountRate?: string;
+
 };
 
 type CarArray = Car[];
@@ -36,6 +39,7 @@ if (!addCarForm) {
             color: getRequiredString(formData, "color"),
             licenseType: parseLicenseType(getRequiredString(formData, "licenseType")),
             status: parseStatus(getRequiredString(formData, "status")),
+            DiscountRate: getString(formData, "DiscountRate"),
         });
 
         console.log(cars);
