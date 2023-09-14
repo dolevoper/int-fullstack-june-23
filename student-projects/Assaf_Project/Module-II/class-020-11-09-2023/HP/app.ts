@@ -3,6 +3,14 @@ console.log("connected");
 let score = 0;
 
 const myCursor = document.querySelector(".my-cursor") as HTMLElement;
+const restartButton = document.querySelector(
+  ".restart__button"
+) as HTMLButtonElement;
+
+restartButton.addEventListener("click", restart);
+function restart() {
+  location.reload();
+}
 
 document.addEventListener("mousemove", (ev) => {
   let leftPosition = ev.pageX + 0.6;
@@ -49,14 +57,7 @@ function shoot() {
 }
 
 function gameOver() {
-  alert(`Your score is ${score}`);
-  let userInput = prompt("Would you like to play again?")?.trim().toLowerCase();
-  switch (userInput) {
-    case "yes":
-    case "y":
-      location.reload();
-      break;
-  }
+  alert(`Game Over!\nYou scored ${score} points!`);
 }
 
 const gameLoop = setInterval(addDisc, 3000);
@@ -108,6 +109,6 @@ function addDisc() {
 }
 
 function simplePrompt(message: string) {
-    let userInput = prompt(message)?.trim()?.toLowerCase();
-    return userInput;
-  }
+  let userInput = prompt(message)?.trim()?.toLowerCase();
+  return userInput;
+}
