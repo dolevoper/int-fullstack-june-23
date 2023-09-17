@@ -22,13 +22,11 @@ main {
     margin-inline: auto;
 }
 
-.flow>*+* {
+.flow > *+* {
     margin-block-start: 1em;
 }
 
-input,
-button,
-select {
+input, button, select {
     font-size: inherit;
     color: inherit;
     font-family: inherit;

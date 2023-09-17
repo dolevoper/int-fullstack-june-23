@@ -12,6 +12,7 @@ type Car = {
     type?: string;
     color: string;
     licenseType: LicenseType;
+    status: string;
 };
 
 type CarArray = Car[];
@@ -33,7 +34,7 @@ if (!addCarForm) {
             type: getString(formData, "type"),
             color: getRequiredString(formData, "color"),
             licenseType: parseLicenseType(getRequiredString(formData, "licenseType")),
-            //status: getRequiredString(formData, "status"),
+            status: getRequiredString(formData, "status"),
         });
 
         console.log(cars);
@@ -59,6 +60,7 @@ function getString(formData: FormData, key: string) {
 }
 
 function getRequiredString(formData: FormData, key: string) {
+    alert(formData + " " + key);
     const value = getString(formData, key);
     alert(value);
     if (!value) {
