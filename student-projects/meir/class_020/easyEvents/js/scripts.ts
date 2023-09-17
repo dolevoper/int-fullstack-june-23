@@ -89,7 +89,7 @@ myContent.appendChild(myObjToMove);
 
 document.addEventListener('keydown', press);
 
-function press(e) {
+function press(e: KeyboardEvent) {
     switch (e.code) {
         case "KeyW":
             myObjToMove.style.transform += "translateY(-5px)";

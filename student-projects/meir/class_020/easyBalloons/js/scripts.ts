@@ -17,7 +17,7 @@ function initBaloon() {
         myCounter.innerHTML = counter.toString();
     }
     for (let i= 0; i < counter; i++) {
-        let balloon: HTMLElement = document.createElement('div');
+        let balloon = document.createElement('div');
         balloon.style.display = "inline-block";
         balloon.style.width = "5em";
         balloon.style.height = "5em";
@@ -26,6 +26,7 @@ function initBaloon() {
         balloon.style.background = "green";
         balloon.style.clipPath = "ellipse(25% 40% at 50% 50%)";
         balloon.style.border = "1px solid green";
+        
         balloon.onclick = function () {
             if (counter <= 1) {
                 alert("Game over, start again");
