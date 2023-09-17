@@ -1,4 +1,6 @@
+const popSound = document.getElementById("popSound") as HTMLAudioElement;
 let gameLoop = setInterval(createBalloon, randomInterval(500, 2000));
+let score = 0;
 
 window.addEventListener("keydown", (ev) => {
   if (ev.key === "Escape") {
@@ -26,7 +28,7 @@ function createBalloon() {
   const moveBalloonUp = () => {
     let position = window.innerHeight;
     const interval = setInterval(() => {
-      position -= 2;
+      position -= 2+ (score / 100);
       balloon.style.top = position + "px";
       if (position <= -100) {
         clearInterval(interval);
@@ -39,8 +41,11 @@ function createBalloon() {
   };
 
   moveBalloonUp();
-
-  balloon.onclick = () => {
-    balloon.remove();
+  
+    balloon.onclick = () => {
+      popSound.play();
+      balloon.remove();
+      score += 10;
+      document.getElementById("score")!.textContent = `Score: ${score}`;
   };
 }
