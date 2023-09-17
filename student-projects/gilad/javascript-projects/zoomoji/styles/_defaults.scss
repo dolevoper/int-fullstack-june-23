@@ -1,0 +1,28 @@
+$color-zoo-background: #86BC77;
+$color-zoo-mud: #A5863D;
+$color-zoo-mud-dark: #957835;
+
+$color-ui-font-main: #464646;
+
+$color-ui-main: white;
+$color-ui-stroke: #957835;
+
+
+$color-ui-button-fg: #88B145;
+$color-ui-button-bg: #5E7E2A;
+
+$color-ui-menu-fg: #A5863D;
+$color-ui-menu-bg: $color-ui-stroke;
+$color-ui-item-bg: rgba(255, 255, 255, 0.5);
+
+@font-face {
+    font-family: 'Zoo';
+    src: url("../../assets/fonts/zoo-font.otf") format('opentype');
+}
+
+$font-main: 'Zoo',
+Arial,
+sans-serif;
+
+
+$screen-mobile: 750px;
