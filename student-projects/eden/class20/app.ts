@@ -1,3 +1,6 @@
+
+
+const popSound = document.getElementById("popSound") as HTMLAudioElement;
 let gameLoop = setInterval(createBalloon, randomInterval(500, 2000));
 
 window.addEventListener("keydown", (ev) => {
@@ -10,7 +13,8 @@ function randomInterval(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-function createBalloon() {
+
+  function createBalloon() {
   const balloon = document.createElement("div");
   balloon.className = "soaring-balloon";
   balloon.style.userSelect = "none";
@@ -22,21 +26,17 @@ function createBalloon() {
   balloon.style.top = window.innerHeight + "px";
   balloon.style.left = Math.random() * (window.innerWidth - 150) + "px";
   document.body.appendChild(balloon);
-   
-
-
-
-
+}
+  
   const moveBalloonUp = () => {
     let position = window.innerHeight;
     const interval = setInterval(() => {
       position -= 4;
-      balloon.style.top = position + "px";
-      if (position <= -100) {
-        clearInterval(interval);
+      balloon.onclick = () => {
+        popSound.play();
         balloon.remove();
-      }
-    }, 16);
+        clearInterval(interval)
+      };
 
     clearInterval(gameLoop);
     gameLoop = setInterval(createBalloon, randomInterval(500, 1000));
