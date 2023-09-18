@@ -45,7 +45,7 @@
             </div>
 
             <div class="form-input">
-                <label for="status">status</label>
+                <label for="status">Status</label>
                 <select name="status" id="status">
                     <option value="Normal">Normal</option>
                     <option value="Free" selected>Free</option>
@@ -54,8 +54,16 @@
                 </select>
             </div>
 
+            <div class="form-input">
+                <label for="discountRate">Discount Rate</label>
+                <input type="text" id="discountRate" name="discountRate" required />
+            </div>
+
             <button type="submit">Add</button>
         </form>
+
+        <div class="carStatus"></div>
+
     </main>
     <script src="js/dist/scripts.js"></script>
 </body>

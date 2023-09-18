@@ -13,6 +13,7 @@ type Car = {
     color: string;
     licenseType: LicenseType;
     status: string;
+    discountRate: string;
 };
 
 type CarArray = Car[];
@@ -28,6 +29,8 @@ if (!addCarForm) {
 
         const formData = new FormData(e.target as HTMLFormElement);
 
+        cars.splice(0); // איפוס המערך
+
         cars.push({
             registrationNumber: getRequiredString(formData, "registrationNumber"),
             brand: getRequiredString(formData, "brand"),
@@ -35,9 +38,15 @@ if (!addCarForm) {
             color: getRequiredString(formData, "color"),
             licenseType: parseLicenseType(getRequiredString(formData, "licenseType")),
             status: getRequiredString(formData, "status"),
+            discountRate: calcRate(getRequiredString(formData, "discountRate"), getRequiredString(formData, "status")),
         });
 
         console.log(cars);
+
+        const carObj = document.querySelector(".carStatus") as HTMLDivElement;
+        const carList = cars[0].registrationNumber + "<br>" + cars[0].brand + "<br>" + cars[0].type + "<br>" + cars[0].color + "<br>" + cars[0].licenseType + "<br>" + cars[0].status + "<br>" + cars[0].discountRate;
+        carObj.innerHTML = carList;
+
     });
 }
 
@@ -60,9 +69,8 @@ function getString(formData: FormData, key: string) {
 }
 
 function getRequiredString(formData: FormData, key: string) {
-    alert(formData + " " + key);
     const value = getString(formData, key);
-    alert(value);
+    //alert(value);
     if (!value) {
         throw new Error(`Value for ${key} is required!`);
     }
@@ -76,4 +84,16 @@ function parseLicenseType(value: string): LicenseType {
     }
 
     return value;
+}
+
+function calcRate(myValue: string, myStatus: string) {
+
+    let rate = 0;
+    if (myStatus === "Discount") {
+        rate = 50 * Number(myValue) / 100;
+        return String(rate + "%");
+    } else {
+        return myValue;
+    }
+
 }
