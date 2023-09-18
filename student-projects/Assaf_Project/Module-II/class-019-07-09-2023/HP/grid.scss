@@ -1,0 +1,14 @@
+.main__container {
+    height: 100vh;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: 2fr 3fr;
+}
+
+.sky {
+    grid-row: 1 / 2;
+}
+
+.sea {
+    grid-row: 2 / 3;
+}

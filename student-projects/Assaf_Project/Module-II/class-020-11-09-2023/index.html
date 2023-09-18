@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input style="width: 500px;" type="text" oninput="inputFunction()" onblur="blurFunction()" onfocus="focusFunction()">
+    <select oninput="inputFunction()" onchange="changeFunction()" onblur="blurFunction()" onfocus="focusFunction()"
+        name="Starter Pokemon">
+        <option value="Bulbasaur">Bulbasaur</option>
+        <option value="Charmander">Charmander</option>
+        <option value="Squirtle">Squirtle</option>
+    </select>
+    <input type="checkbox" oninput="inputFunction()" onblur="blurFunction()" onfocus="focusFunction()">
+
+
+
+    <script>
+        function inputFunction() {
+            console.log("input");
+        }
+
+        function changeFunction() {
+            console.log("change");
+        }
+
+        function blurFunction() {
+            console.log("blur");
+        }
+
+        function focusFunction() {
+            console.log("focus");
+        }
+
+    </script>
+</body>
+
+</html>
