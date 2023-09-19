@@ -43,6 +43,7 @@ if (!addCarForm) {
         });
 
         console.log(cars);
+        console.log(DiscountRate);
     });
 }
 
