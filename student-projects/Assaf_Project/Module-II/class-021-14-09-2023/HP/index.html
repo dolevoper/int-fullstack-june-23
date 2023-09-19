@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="dist/resets.css">
+    <link rel="stylesheet" href="dist/styles.css">
+</head>
+
+<body>
+    <main class="grid">
+        <form class="card" name="card-collection">
+            <h2>Pokemon Card Collection</h2>
+            <div><label for="pokemon-name">Name</label>
+                <input type="text" id="pokemon-name" name="pokemon-name" required autofocus>
+            </div>
+            <div><label for="pokemon-index">Index Number</label>
+                <input type="number" id="pokemon-index" name="pokemon-index" inputmode="numeric" required>
+            </div>
+            <div><label for="pokemon-hp">HP</label>
+                <input type="number" id="pokemon-hp" name="pokemon-hp" inputmode="numeric" required >
+            </div>
+            <div><label for="pokemon-attack-#1">Attack #1</label>
+                <input type="text" id="pokemon-attack-#1" name="pokemon-attack-#1" required >
+            </div>
+            <div><label for="pokemon-attack-#2">Attack #2</label>
+                <input type="text" id="pokemon-attack-#2" name="pokemon-attack-#2">
+            </div>
+            <div><label for="pokemon-attack-#3">Attack #3</label>
+                <input type="text" id="pokemon-attack-#3" name="pokemon-attack-#3">
+            </div>
+        </form>
+    </main>
+    <script src="dist/app.js"></script>
+</body>
+
+</html>
