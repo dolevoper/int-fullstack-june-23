@@ -11,7 +11,7 @@
 <body class="flow">
     <main>
         <h1 class="garge-header">Garage Management</h1>
-        <form name="add-new-car" class="flow" novalidate>
+        <form name="add-new-car" class="flow" >
             <h2>Add new car</h2>
             <div class="form-input">
                 <label for="registration-number">Registration Number</label>
@@ -21,7 +21,7 @@
             <div class="form-input">
                 <label for="brand">Brand</label>
                 <input type="text" id="brand" name="brand" required />
-            </div>
+            
             <div class="form-input">
                 <label for="type">Type</label>
                 <input type="text" id="type" name="type" />
@@ -37,19 +37,19 @@
                     <option value="B">B</option>
                     <option value="C" selected>C</option>
                 </select>
-                <div class="form-input">
+            </div>
+            <div class="form-input">
                     <label for="status">Status</label>
                     <select name="status" id="status-type">
                         <option value="normal">normal</option>
                         <option value="free" selected>free</option>
                         <option value="discount" >discount</option>
                         <option value="banned" >banned</option>
-                    </select>
-                <div class="form-input">
-                    <label for="discount-rate">Discount rate</label>
-                    <input type="text" id="discount-rate" name="discount-rate"/>
-                </div>
-                    
+                    </select> 
+            </div>
+             <div class="form-input">
+               <label for="discount-rate">Discount rate</label>
+               <input type="text" id="discount-rate" name="discount-rate"/>
             </div>
             <button type="submit">Add</button>
         </form>

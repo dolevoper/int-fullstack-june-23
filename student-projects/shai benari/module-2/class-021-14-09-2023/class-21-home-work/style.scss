@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: calc(1rem + 0.5vw);
+    line-height: 1.6;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.main-header{
+    background-color: aquamarine;
+    width: 80%;
+    margin-inline: auto;
+    text-align: center;
+    border: 2px solid gray;
+    border-radius: 10px;
+    text-align: center;
+}
