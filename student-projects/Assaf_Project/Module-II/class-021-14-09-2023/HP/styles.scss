@@ -3,11 +3,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(135deg, rgba(0, 153, 0, 1) 29%, rgba(0, 128, 0, 1) 65%);
 }
 
 .card {
     border: 1px solid black;
     line-height: 1.8;
-    padding: 1rem;
+    padding: 2rem;
+    background-color: gainsboro;
+    width: 60%;
+    box-shadow: -5px -5px 10px 5px rgba(0,0,0,0.2);
 }
 
+.card__headline {
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.card-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: .5rem;
+}

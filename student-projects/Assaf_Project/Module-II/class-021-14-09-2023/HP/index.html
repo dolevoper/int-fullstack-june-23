@@ -12,24 +12,142 @@
 <body>
     <main class="grid">
         <form class="card" name="card-collection">
-            <h2>Pokemon Card Collection</h2>
-            <div><label for="pokemon-name">Name</label>
+            <h2 class="card__headline">Pokemon Card Collection</h2>
+            <div class="card-input"><label for="pokemon-name">Name</label>
                 <input type="text" id="pokemon-name" name="pokemon-name" required autofocus>
             </div>
-            <div><label for="pokemon-index">Index Number</label>
+            <div class="card-input"><label for="pokemon-index">Index Number</label>
                 <input type="number" id="pokemon-index" name="pokemon-index" inputmode="numeric" required>
             </div>
-            <div><label for="pokemon-hp">HP</label>
-                <input type="number" id="pokemon-hp" name="pokemon-hp" inputmode="numeric" required >
+            <div class="card-input"><label for="pokemon-hp">HP</label>
+                <input type="number" id="pokemon-hp" name="pokemon-hp" inputmode="numeric" required>
             </div>
-            <div><label for="pokemon-attack-#1">Attack #1</label>
-                <input type="text" id="pokemon-attack-#1" name="pokemon-attack-#1" required >
+            <div class="card-input"><label for="pokemon-attack-#1">Attack #1</label>
+                <select name="attack-#1-element" id="attack-#1-element" required>
+                    <option value="No-Element">None</option>
+                    <option value="Grass" selected>🍃</option>
+                    <option value="Fire">🔥</option>
+                    <option value="Water">💦</option>
+                    <option value="Rock">🪨</option>
+                    <option value="Electricity">⚡</option>
+                    <option value="Psychic">🔮</option>
+                    <option value="Poison">💉</option>
+                </select>
+                <input type="text" id="pokemon-attack-#1" name="pokemon-attack-#1" required>
             </div>
-            <div><label for="pokemon-attack-#2">Attack #2</label>
+            <div class="card-input"><label for="pokemon-attack-#2">Attack #2</label>
+                <select name="attack-#2-element" id="attack-#2-element">
+                    <option value="No-Element">None</option>
+                    <option value="Grass">🍃</option>
+                    <option value="Fire">🔥</option>
+                    <option value="Water">💦</option>
+                    <option value="Rock">🪨</option>
+                    <option value="Electricity">⚡</option>
+                    <option value="Psychic">🔮</option>
+                    <option value="Poison">💉</option>
+                </select>
                 <input type="text" id="pokemon-attack-#2" name="pokemon-attack-#2">
             </div>
-            <div><label for="pokemon-attack-#3">Attack #3</label>
+            <div class="card-input"><label for="pokemon-attack-#3">Attack #3</label>
+                <select name="attack-#3-element" id="attack-#3-element">
+                    <option value="No-Element">None</option>
+                    <option value="Grass">🍃</option>
+                    <option value="Fire">🔥</option>
+                    <option value="Water">💦</option>
+                    <option value="Rock">🪨</option>
+                    <option value="Electricity">⚡</option>
+                    <option value="Psychic">🔮</option>
+                    <option value="Poison">💉</option>
+                </select>
                 <input type="text" id="pokemon-attack-#3" name="pokemon-attack-#3">
+            </div>
+            <div class="card-input"><label for="pokemon-weakness-#1">Weakness</label>
+                <div class="--multy-options">
+                    <select name="pokemon-weakness-#1" id="pokemon-weakness-#1">
+                        <option value="No-Element">None</option>
+                        <option value="Grass">🍃</option>
+                        <option value="Fire">🔥</option>
+                        <option value="Water">💦</option>
+                        <option value="Rock">🪨</option>
+                        <option value="Electricity">⚡</option>
+                        <option value="Psychic">🔮</option>
+                        <option value="Poison">💉</option>
+                    </select>
+                    <select name="pokemon-weakness-#2" id="pokemon-weakness-#2">
+                        <option value="No-Element">None</option>
+                        <option value="Grass">🍃</option>
+                        <option value="Fire">🔥</option>
+                        <option value="Water">💦</option>
+                        <option value="Rock">🪨</option>
+                        <option value="Electricity">⚡</option>
+                        <option value="Psychic">🔮</option>
+                        <option value="Poison">💉</option>
+                    </select>
+                    <select name="pokemon-weakness-#3" id="pokemon-weakness-#3">
+                        <option value="No-Element">None</option>
+                        <option value="Grass">🍃</option>
+                        <option value="Fire">🔥</option>
+                        <option value="Water">💦</option>
+                        <option value="Rock">🪨</option>
+                        <option value="Electricity">⚡</option>
+                        <option value="Psychic">🔮</option>
+                        <option value="Poison">💉</option>
+                    </select>
+                    <select name="pokemon-weakness-#4" id="pokemon-weakness-#4">
+                        <option value="No-Element">None</option>
+                        <option value="Grass">🍃</option>
+                        <option value="Fire">🔥</option>
+                        <option value="Water">💦</option>
+                        <option value="Rock">🪨</option>
+                        <option value="Electricity">⚡</option>
+                        <option value="Psychic">🔮</option>
+                        <option value="Poison">💉</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card-input"><label for="pokemon-resistance-#1">Resistance</label>
+                <div class="--multy-options">
+                    <select name="pokemon-resistance-#1" id="pokemon-resistance-#1">
+                        <option value="No-Element">None</option>
+                        <option value="Grass">🍃</option>
+                        <option value="Fire">🔥</option>
+                        <option value="Water">💦</option>
+                        <option value="Rock">🪨</option>
+                        <option value="Electricity">⚡</option>
+                        <option value="Psychic">🔮</option>
+                        <option value="Poison">💉</option>
+                    </select>
+                    <select name="pokemon-resistance-#2" id="pokemon-resistance-#2">
+                        <option value="No-Element">None</option>
+                        <option value="Grass">🍃</option>
+                        <option value="Fire">🔥</option>
+                        <option value="Water">💦</option>
+                        <option value="Rock">🪨</option>
+                        <option value="Electricity">⚡</option>
+                        <option value="Psychic">🔮</option>
+                        <option value="Poison">💉</option>
+                    </select>
+                    <select name="pokemon-resistance-#3" id="pokemon-resistance-#3">
+                        <option value="No-Element">None</option>
+                        <option value="Grass">🍃</option>
+                        <option value="Fire">🔥</option>
+                        <option value="Water">💦</option>
+                        <option value="Rock">🪨</option>
+                        <option value="Electricity">⚡</option>
+                        <option value="Psychic">🔮</option>
+                        <option value="Poison">💉</option>
+                    </select>
+                    <select name="pokemon-resistance-#4" id="pokemon-resistance-#4">
+                        <option value="No-Element">None</option>
+                        <option value="Grass">🍃</option>
+                        <option value="Fire">🔥</option>
+                        <option value="Water">💦</option>
+                        <option value="Rock">🪨</option>
+                        <option value="Electricity">⚡</option>
+                        <option value="Psychic">🔮</option>
+                        <option value="Poison">💉</option>
+                    </select>
+                </div>
             </div>
         </form>
     </main>
