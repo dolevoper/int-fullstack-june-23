@@ -68,6 +68,24 @@ if (!addCarForm) {
   });
 }
 
+const statusField = document.getElementById("status") as HTMLSelectElement;
+statusField.addEventListener('change', function () {
+    const selectedStatus = statusField.value;
+    if (selectedStatus === "discount") {
+        const discountRateHTML = `
+                <label for="discount">Discount Rate</label>
+                <input type="numeric" id="discount" name="discount" />
+        `;
+        const discountRate = document.createElement("div");
+        discountRate.className = "form-input discountClass";
+        discountRate.innerHTML = discountRateHTML;
+        statusField.parentElement!.appendChild(discountRate);
+    } else {
+        let discountRate = document.querySelector(".discountClass");
+        discountRate?.remove();
+    }
+});
+
 function getString(formData: FormData, key: string) {
   const value = formData.get(key);
 
