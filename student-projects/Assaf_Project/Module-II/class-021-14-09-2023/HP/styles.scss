@@ -3,6 +3,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.main {
     background: linear-gradient(135deg, rgba(0, 153, 0, 1) 29%, rgba(0, 128, 0, 1) 65%);
 }
 
@@ -19,7 +22,7 @@
 
 .brand {
     font-size: 2rem;
-    background-color: rgba(195, 255, 0, 0.564);
+    background-color: rgba(0, 0, 0, 0.374);
     border-radius: 20px;
     padding-inline: 1ch;
     font-weight: 600;
@@ -69,7 +72,7 @@
     transition: .3s ease;
 
     &:hover {
-        background: rgba(0, 0, 0, 0.356);
+        background: rgba(0, 0, 0, 0.516);
         color: white;
         cursor: pointer;
     }
@@ -81,4 +84,9 @@
 
 .--pointer {
     cursor: pointer;
+}
+
+.--dark-mode {
+    background: rgba(0, 0, 0, 0.568);
+    color: rgb(189, 189, 189);
 }
