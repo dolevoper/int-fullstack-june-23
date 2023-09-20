@@ -7,7 +7,6 @@
 }
 
 .card {
-    border: 1px solid black;
     line-height: 1.8;
     padding: 2rem;
     background-color: gainsboro;
@@ -26,4 +25,32 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: .5rem;
+}
+
+.button-container {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form-button {
+    text-transform: uppercase;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: .5rem;
+    transition: .3s ease;
+    
+    &:hover {
+        background: rgba(0, 0, 0, 0.356);
+        color: white;
+        cursor: pointer;
+    }
+    
+    &:active {
+        background: rgb(0, 17, 199);
+    }
+}
+
+.--pointer {
+    cursor: pointer;
 }
