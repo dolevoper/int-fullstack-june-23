@@ -21,20 +21,27 @@
           </div>
         <div class="customer-input">
           <label for="event">Event</label>
-          <select name="event" id="event-type"></select>
-          <option value="birthday ">Birthday</option>
-          <option value="wedding">Wedding</option>
-          <option value="bar-mitzva">Bar mitzva</option>
-          <option value="funeral">Funeral</option>
-          <option value="other">Other</option>
+          <select name="event" id="event-type">
+             <option value="birthday ">Birthday</option>
+             <option value="wedding">Wedding</option>
+             <option value="bar-mitzva">Bar mitzva</option>
+             <option value="funeral">Funeral</option>
+             <option value="other">Other</option>
+            </select>
         </div>
         <div class="customer-input">
-          <label for="price">Price</label>
-          <select name="price" id="price-type"></select>
-          <option value="economic">economic</option>
-          <option value="standard">standard</option>
-          <option value="luxurie">luxurie</option>
+          <label for="price">Bouquet type</label>
+          <select name="price" id="price-type">
+            <option value="economic">Economic</option>
+            <option value="standard">Standard</option>
+            <option value="luxurie">Luxurie</option>
+          </select>
         </div>
+        <div class="customer-input">
+          <label for="priceTag ">Price tag</label>
+          <input type="text" id="priceTag" required>
+        </div>
+        <button type="submit">Add</button>
     </form>
   </main>
 
