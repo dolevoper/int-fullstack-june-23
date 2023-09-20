@@ -12,11 +12,7 @@ const darkModeButton = document.querySelector(
 darkModeButton.addEventListener("click", darkModeToggle);
 
 function darkModeToggle() {
-  if (darkModeButton.innerText === "DARK MODE") {
-    darkModeButton.innerText = "light mode";
-  } else {
-    darkModeButton.innerText = "dark mode";
-  }
+    darkModeButton.innerText = darkModeButton.innerText === "DARK MODE" ? "light mode" : "dark mode";
 if (darkModeButton) {
     main?.classList.toggle("--dark-mode");
     card?.classList.toggle("--dark-mode");
