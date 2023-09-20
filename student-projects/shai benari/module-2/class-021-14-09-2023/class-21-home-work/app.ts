@@ -16,9 +16,8 @@ type flwer = {
 type flwerArry = flwer[];
 const flwers: flwerArry =[];
 
+const addFlwerForm = document.querySelector(".bouquet") as HTMLFormElement | null;
 
-
-const addFlwerForm = document.querySelector("form[name='send-flowers']") as HTMLFormElement | null;
 if (!addFlwerForm){
     console.error("Couldn't find send flwer form.");
 } 
@@ -36,19 +35,20 @@ else{
     priceTag: getRequiredString(formData, "priceTag"),
 });
     console.log(flwers);
+   
 });
 }
 function getString(formData:FormData , key: string ){
     const value = formData.get(key);
    
-
+    console.log(value);
     return value;
+    
 };
 
 function getRequiredString(formData:FormData , key: string ){
     const value = getString(formData, key);
     
-
     return value;
 };
 
