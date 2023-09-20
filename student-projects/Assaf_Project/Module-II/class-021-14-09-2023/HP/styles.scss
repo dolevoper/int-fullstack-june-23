@@ -26,6 +26,7 @@
     border-radius: 20px;
     padding-inline: 1ch;
     font-weight: 600;
+    color: yellowgreen;
 }
 
 #dark-mode-button {
@@ -84,6 +85,10 @@
 
 .--pointer {
     cursor: pointer;
+}
+
+.--centered-text {
+    text-align: center;
 }
 
 .--dark-mode {
