@@ -18,6 +18,7 @@
     align-content: center;
     padding: 1rem;
     box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.482);
+    user-select: none;
 }
 
 .brand {
@@ -71,6 +72,7 @@
     border: 1px solid black;
     border-radius: 8px;
     padding: .5rem;
+    user-select: none;
     transition: .3s ease;
 
     &:hover {

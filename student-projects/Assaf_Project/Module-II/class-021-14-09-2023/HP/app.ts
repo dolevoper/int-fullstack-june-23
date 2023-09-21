@@ -7,7 +7,7 @@ const darkModeButton = document.querySelector("#dark-mode-button") as HTMLButton
 
 darkModeButton.addEventListener("click", () => { 
   lightOrDarkMode = lightOrDarkMode === "dark" ? "light" : "dark";
-  darkModeButton.innerText = lightOrDarkMode === "dark" ? "dark mode" : "light mode";
+  darkModeButton.innerText = lightOrDarkMode === "dark" ? "light mode" : "dark mode";
   elementsToToggleDarkMode.forEach((element) => { element.classList.toggle("--dark-mode")});
   saveLightOrDarkToLocalStorage();
 });
@@ -17,7 +17,7 @@ function saveLightOrDarkToLocalStorage() {
 }
 
 if (lightOrDarkMode === "dark") {
-  darkModeButton.innerText = "dark mode";
+  darkModeButton.innerText = "light mode";
   elementsToToggleDarkMode.forEach((element) => { element.classList.add("--dark-mode") });
 } else {
   saveLightOrDarkToLocalStorage();
