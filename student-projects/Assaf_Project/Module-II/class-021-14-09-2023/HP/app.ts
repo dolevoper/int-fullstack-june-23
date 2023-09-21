@@ -5,16 +5,18 @@ let lightOrDarkMode =
 
 type Pokemon = {
   name: string;
-  indexNumber: number;
-  healthPoints: number;
+  indexNumber: string;
+  healthPoints: string;
   attack1Element: any;
   attack1: string;
   attack2Element?: any;
   attack2?: string;
   attack3Element?: any;
   attack3?: string;
-  weakness?: any;
-  resistance?: any;
+  weakness1?: any;
+  weakness2?: any;
+  resistance1?: any;
+  resistance2?: any;
 };
 
 type PokemonArray = Pokemon[];
@@ -26,8 +28,63 @@ const elementsToToggleDarkMode = document.querySelectorAll(
 );
 
 const addPokemonForm = document.querySelector(
-  "#add-new-pokemon"
-) as HTMLFormElement;
+  "form[name='card-collection']"
+) as HTMLFormElement | null;
+if (!addPokemonForm) {
+  console.error("Couldn't find card collection form.");
+} else {
+  addPokemonForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(e.target as HTMLFormElement);
+
+    pokemons.push({
+      name: getRequiredString(formData, "pokemonName"),
+      indexNumber: getRequiredString(formData, "pokemonIndex"),
+      healthPoints: getRequiredString(formData, "pokemonHp"),
+      attack1Element: getRequiredString(formData, "attack1Element"),
+      attack1: getRequiredString(formData, "pokemonAttack1"),
+      attack2Element: getString(formData, "attack2Element"),
+      attack2: getString(formData, "pokemonAttack2"),
+      attack3Element: getString(formData, "attack3Element"),
+      attack3: getString(formData, "pokemonAttack3"),
+      weakness1: getString(formData, "pokemonWeakness1"),
+      weakness2: getString(formData, "pokemonWeakness2"),
+      resistance1: getString(formData, "pokemonResistance1"),
+      resistance2: getString(formData, "pokemonResistance2"),
+    });
+
+    console.log(pokemons);
+  });
+}
+
+function getString(formData: FormData, key: string) {
+  const value = formData.get(key);
+
+  if (value == null) {
+    throw new Error(`Field ${key} doesn't exist!`);
+  }
+
+  if (typeof value !== "string") {
+    throw new Error(`Value of field ${key} is not a string!`);
+  }
+
+  if (!value) {
+    return undefined;
+  }
+
+  return value;
+}
+
+function getRequiredString(formData: FormData, key: string) {
+  const value = getString(formData, key);
+
+  if (!value) {
+    throw new Error(`Value for ${key} is required!`);
+  }
+
+  return value;
+}
 
 const idsToSaveInputs = [
   "pokemon-name",
