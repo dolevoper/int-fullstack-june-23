@@ -1,10 +1,12 @@
 
 document.body.style.background = "#f3f3f3 url('flwer.jpg') no-repeat center"
+const backgroundImg = document.createElement("img");
+backgroundImg.src = "flwer.jpg"
+backgroundImg.style.opacity = "0.5";
 const price = {economic:90 ,standard:140 , luxurie: 180 }
-
 type evantType = "Birthday" | "Wedding" | "Bar mitzva" | "Funetral" | "Other";
 type bouquetType = "Economic" | "Standard" | "Luxurie" ;
-
+console.log(backgroundImg);
 type flwer = {
     name: string
     address: string
