@@ -18,3 +18,14 @@
 		}
 	}
 }
+
+.balloons-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__balloon {
+		width: 225px;
+		height: 225px;
+	}
+}
