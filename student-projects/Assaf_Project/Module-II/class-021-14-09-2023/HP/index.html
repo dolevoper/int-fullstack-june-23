@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
+    <title>Pokémon Form</title>
     <link rel="stylesheet" href="dist/resets.css">
     <link rel="stylesheet" href="dist/styles.css">
 </head>
@@ -13,11 +13,12 @@
     <header class="site-header">
         <span class="brand">TCG</span>
         <button id="dark-mode-button" class="button">dark mode</button>
-        <summary class="avatar --pointer"><img class="avatar__image" src="https://i.pravatar.cc/" alt="avatar picture"></summary>
+        <summary class="avatar --pointer"><img class="avatar__image" src="https://i.pravatar.cc/" alt="avatar picture">
+        </summary>
     </header>
     <main class="grid main">
         <form id="add-new-pokemon" class="card" name="card-collection">
-            <h2 class="card__headline">Pokemon Card Collection</h2>
+            <h2 class="card__headline">Pokémon Card Collection</h2>
             <div class="card-input"><label for="pokemon-name">Name</label>
                 <input type="text" id="pokemon-name" name="pokemonName" required autofocus>
             </div>
@@ -141,6 +142,10 @@
                         <option value="Darkness">🌑</option>
                     </select>
                 </div>
+            </div>
+            <div class="button-container">
+                <button id="show-list-button" class="button" type="button">show list</button>
+                <button id="clear-button" class="button" type="button">clear list</button>
             </div>
             <div class="button-container">
                 <button class="button" type="reset">reset</button>

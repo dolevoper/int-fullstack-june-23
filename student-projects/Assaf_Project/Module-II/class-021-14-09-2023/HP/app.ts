@@ -162,3 +162,32 @@ if (lightOrDarkMode === "dark") {
     element.classList.add("--dark-mode");
   });
 }
+
+const clearListButton = document.querySelector("#clear-button");
+const showListButton = document.querySelector("#show-list-button");
+
+if (clearListButton && pokemons.length > 0) {
+  clearListButton.addEventListener("click", () => {
+    const userInput = prompt("Are you sure you want to clear the list?")
+      ?.trim()
+      .toLowerCase();
+
+    userInput === "yes"
+      ? (alert("List cleared"), (pokemons.length = 0))
+      : alert("The list remains");
+    localStorage.setItem("pokemonsArray", JSON.stringify(pokemons));
+  });
+}
+
+if (showListButton && pokemons.length > 0) {
+  showListButton.addEventListener("click", () => {
+    const pokemonNames = pokemons
+      .map((pokemon) => "#" + pokemon.indexNumber + " " + pokemon.name)
+      .join(", ");
+    alert(`Pokémon list:\n${pokemonNames}`);
+  });
+} else if (showListButton && pokemons.length === 0) {
+  showListButton.addEventListener("click", () => {
+    alert("List is empty");
+  });
+}
