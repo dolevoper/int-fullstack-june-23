@@ -3,6 +3,24 @@ console.clear();
 let lightOrDarkMode =
   JSON.parse(localStorage.getItem("lightOrDarkMode")!) || "light";
 
+type Pokemon = {
+  name: string;
+  indexNumber: number;
+  healthPoints: number;
+  attack1Element: any;
+  attack1: string;
+  attack2Element?: any;
+  attack2?: string;
+  attack3Element?: any;
+  attack3?: string;
+  weakness?: any;
+  resistance?: any;
+};
+
+type PokemonArray = Pokemon[];
+
+const pokemons: PokemonArray = [];
+
 const elementsToToggleDarkMode = document.querySelectorAll(
   ".main, .card, .brand, .button, input, select"
 );
