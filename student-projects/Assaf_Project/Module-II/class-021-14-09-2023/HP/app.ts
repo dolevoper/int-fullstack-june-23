@@ -21,7 +21,8 @@ type Pokemon = {
 
 type PokemonArray = Pokemon[];
 
-const pokemons: PokemonArray = [];
+const pokemons: PokemonArray =
+  JSON.parse(localStorage.getItem("pokemonsArray")!) || [];
 
 const elementsToToggleDarkMode = document.querySelectorAll(
   ".main, .card, .brand, .button, input, select"
@@ -38,7 +39,7 @@ if (!addPokemonForm) {
 
     const formData = new FormData(e.target as HTMLFormElement);
 
-    pokemons.push({
+    const newPokemon: Pokemon = {
       name: getRequiredString(formData, "pokemonName"),
       indexNumber: getRequiredString(formData, "pokemonIndex"),
       healthPoints: getRequiredString(formData, "pokemonHp"),
@@ -52,8 +53,10 @@ if (!addPokemonForm) {
       weakness2: getString(formData, "pokemonWeakness2"),
       resistance1: getString(formData, "pokemonResistance1"),
       resistance2: getString(formData, "pokemonResistance2"),
-    });
+    };
+    pokemons.push(newPokemon);
 
+    localStorage.setItem("pokemonsArray", JSON.stringify(pokemons));
     console.log(pokemons);
   });
 }
@@ -137,19 +140,21 @@ idsToSaveInputs.forEach((id) => {
   }
 });
 
-addPokemonForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  addPokemonForm.reset();
-  idsToSaveInputs.forEach((id) => {
-    localStorage.setItem(id, "reset");
+if (addPokemonForm) {
+  addPokemonForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    addPokemonForm.reset();
+    idsToSaveInputs.forEach((id) => {
+      localStorage.setItem(id, "reset");
+    });
   });
-});
 
-addPokemonForm.addEventListener("reset", () => {
-  idsToSaveInputs.forEach((id) => {
-    localStorage.removeItem(id);
+  addPokemonForm.addEventListener("reset", () => {
+    idsToSaveInputs.forEach((id) => {
+      localStorage.removeItem(id);
+    });
   });
-});
+}
 
 if (lightOrDarkMode === "dark") {
   darkModeButton.innerText = "light mode";
