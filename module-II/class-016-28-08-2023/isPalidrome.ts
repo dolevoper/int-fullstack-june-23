@@ -1,3 +1,5 @@
+//ispalidrome.ts
+
 // Problem definition
 // Write a function that accepts a string and returns true if it is a palindrome and false otherwise.
 // Do not use reverse function.
