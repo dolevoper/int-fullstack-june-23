@@ -6,31 +6,31 @@ console.log("connected");
 // //falsy values
 // "", 0 , false, null undefiend
 
+
 // DOM Manipulation
 
 // GetElementByID()
 
 const title = document.getElementById("main-heading") as HTMLHeadingElement;
 
+
 // GetElementByClassName()
-const listItems = document.getElementsByClassName(
-  "list-item"
-) as HTMLCollectionOf<HTMLLIElement>;
+const listItems = document.getElementsByClassName("list-item") as HTMLCollectionOf<HTMLLIElement>
 
 // for (let i = 0; i <listItems.length ; i++) {
 //     listItems[i].style.color = "blue"
 // }
 
 // GetElementByTagName()
-const listItemsTag = document.getElementsByTagName("li");
+const listItemsTag = document.getElementsByTagName("li")
 
 // querySelector()
-const containerTag = document.querySelector("div");
-const containerClass = document.querySelector(".container");
-const h1Query = document.querySelector("#main-heading");
+const containerTag = document.querySelector("div")
+const containerClass = document.querySelector(".container")
+const h1Query = document.querySelector("#main-heading")
 
 // querySelectorAll()
-const listItemsQuery = document.querySelectorAll(".list-item");
+const listItemsQuery = document.querySelectorAll(".list-item")
 // console.log(listItemsQuery)
 
 // CSS
@@ -45,20 +45,20 @@ const listItemsQuery = document.querySelectorAll(".list-item");
 
 const ul = document.querySelector("ul") as HTMLUListElement;
 
-const li = document.createElement("li");
-ul.append(li);
-li.innerText = "X-men";
+const li = document.createElement("li")
+ul.append(li)
+li.innerText = "X-men"
 
-li.classList.add("list-item");
-li.classList.remove("list-item");
+li.classList.add("list-item")
+li.classList.remove("list-item")
 
-li.setAttribute("id", "red");
-li.removeAttribute("id");
+li.setAttribute("id", "red")
+li.removeAttribute("id")
 
 const a = document.querySelector("a") as HTMLAnchorElement;
-a.setAttribute("href", "https://www.w3schools.com/jsref/obj_window.asp");
+a.setAttribute("href", "https://www.w3schools.com/jsref/obj_window.asp")
 
-// const colorPicked = prompt("enter Color name:")
+// const colorPicked = prompt("enter Color name:") 
 // if (colorPicked) {
 //     title.style.color = colorPicked
 // }
@@ -75,3 +75,6 @@ a.setAttribute("href", "https://www.w3schools.com/jsref/obj_window.asp");
 
 //add class, remove class, attributes, add elements remove elements inlie style,
 // add div, add image
+
+
+

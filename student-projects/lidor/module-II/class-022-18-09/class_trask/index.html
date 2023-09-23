@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form name="add_user">
+        <h2>add users </h2>
+        <div class="username">
+            <label for="user-name">username:</label>
+            <input type="text" id="user-name" name="username" minlength="3" maxlength="8" required autofocus>
+        </div>
+        <div class="age">
+            <label for="age">age:</label>
+            <input type="text" id="age" name="age" minlength="1" maxlength="2">
+        </div>
+        <div class="email">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" minlength="8" maxlength="20">
+        </div>
+        <div class="password">
+            <label for="password">password:</label>
+            <input type="text" id="password" name="password" minlength="5" maxlength="10">
+        </div>
+           <button name="submit">login</button>
+    </form>
+    <script src="dist/app.js"></script>
+</body>
+
+</html>
