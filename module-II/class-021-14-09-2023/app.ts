@@ -18,7 +18,7 @@ type CarArray = Car[];
 
 const cars: CarArray = [];
 
-const addCarForm = document.querySelector("form[name='add-new-car']") as HTMLFormElement | null;
+const addCarForm = document.querySelector("form[name='add-new-car']");
 if (!addCarForm) {
     console.error("Couldn't find add car form.");
 } else {
