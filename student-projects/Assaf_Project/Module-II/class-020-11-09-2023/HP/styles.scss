@@ -168,6 +168,34 @@
         height: 10%;
         top: 50%;
     }
+
+}
+
+.--golden {
+    @extend .disc;
+    background-color: goldenrod;
+    animation-duration: 1.4s;
+
+    @media screen and (max-width: 400px) {
+        animation: flyingDisc 1.2s cubic-bezier(.29, .64, .75, .7) infinite normal forwards;
+        height: calc(var(--object-size-medium));
+    }
+
+    @media screen and (min-width: 800px) {
+        animation: flyingDisc 2.4s cubic-bezier(.29, .64, .75, .7) infinite normal forwards;
+        height: calc(var(--object-size-medium)*1.7);
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        background-color: blueviolet;
+        height: var(--object-size-small);
+        width: 100%;
+        height: 10%;
+        top: 50%;
+    }
+
 }
 
 .my-cursor {
@@ -196,10 +224,11 @@
     }
 
     &:hover {
-        background-color: rgba(0, 0, 0, 0.112); 
+        background-color: rgba(0, 0, 0, 0.112);
     }
+
     &:active {
-        background-color: var(--tree-trunk-color); 
+        background-color: var(--tree-trunk-color);
         color: white;
     }
 }
