@@ -1,1 +1,1 @@
-alert("StoreOut Alive");
+import { Admin, Client, User } from "./login.js";
