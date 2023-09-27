@@ -18,7 +18,14 @@ type Character = {
   image: string;
 };
 type CharacterArray = Character[];
-const characters: CharacterArray = [];
+let characters: CharacterArray;
+
+const retrieveCharactersString = localStorage.getItem("characters");
+if (retrieveCharactersString == null) {
+    characters = [];
+} else {
+    characters = JSON.parse(retrieveCharactersString);
+}
 
 let totalPoints = 55;
 let strenghPoints = 7;
@@ -102,7 +109,9 @@ removeCharisma.addEventListener("click", () => {
   }
 });
 
-const characterImage = document.getElementById("characterImage") as HTMLImageElement;
+const characterImage = document.getElementById(
+  "characterImage"
+) as HTMLImageElement;
 let currentCharacterIndex = 1;
 
 chevronLeft.addEventListener("click", () => {
@@ -142,6 +151,9 @@ detailsForm?.addEventListener("submit", (e) => {
     },
     image: "assets/character" + currentCharacterIndex + ".png",
   });
+
+  const charactersString = JSON.stringify(characters);
+  localStorage.setItem("characters", charactersString);
 });
 
 function showAttributePoints() {

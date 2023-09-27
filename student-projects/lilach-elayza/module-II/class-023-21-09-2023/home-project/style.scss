@@ -97,28 +97,22 @@ body {
 
     &__bottom {
         grid-area: 3 / 1 / 4 / 3;
-        position: relative;
+        display: flex;
+        justify-content: space-around;
+        padding: 1.4rem 0;
 
-        &__buttons {
-            left: 50%;
-            position: absolute;
-            top: 50%;
-            transform: translate(-50%, -50%);
+        &__button {
+            background-color: rgb(74, 55, 34);
+            border-radius: 15px;
+            border: 1px solid rgb(109, 81, 51);
+            color: rgb(254, 186, 114);
+            font-family: 'Old Standard TT', serif;
+            font-size: 1rem;
+            padding: 0 2rem;
 
-            &__button {
-                background-color: rgb(74, 55, 34);
-                border-radius: 15px;
-                border: 1px solid rgb(109, 81, 51);
-                color: rgb(254, 186, 114);
-                font-family: 'Old Standard TT', serif;
-                font-size: 1rem;
-                margin: 0 5rem;
-                padding: 0.8rem 2rem;
-
-                &:hover {
-                    background-color: rgb(118, 87, 54);
-                    cursor: pointer;
-                }
+            &:hover {
+                background-color: rgb(118, 87, 54);
+                cursor: pointer;
             }
         }
     }
