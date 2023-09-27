@@ -152,9 +152,8 @@ detailsForm?.addEventListener("submit", (e) => {
     image: "assets/character" + currentCharacterIndex + ".png",
   });
 
-//   const charactersString = JSON.stringify(characters);
-//   localStorage.setItem("characters", charactersString);
-console.log("character saved!");
+  const charactersString = JSON.stringify(characters);
+  localStorage.setItem("characters", charactersString);
 });
 
 function showAttributePoints() {

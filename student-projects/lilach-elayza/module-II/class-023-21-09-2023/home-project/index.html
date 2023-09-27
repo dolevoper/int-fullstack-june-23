@@ -16,10 +16,12 @@
     <div class="container">
         <div class="container__details">
             <form name="character_details" id="character_details" class="container__details__form" action="">
+
                 <div class="container__details__form__input">
                     <label for="name">Name:</label>
                     <input class="container__details__form__input__field" name="name" id="name" type="text">
                 </div>
+
                 <div class="container__details__form__input">
                     <label for="gender">Gender:</label>
                     <select class="container__details__form__input__field" name="gender" id="gender">
@@ -27,6 +29,7 @@
                         <option value="Female">Female</option>
                     </select>
                 </div>
+
                 <div class="container__details__form__input">
                     <label for="race">Race:</label>
                     <select class="container__details__form__input__field" name="race" id="race">
@@ -36,6 +39,7 @@
                         <option value="Orc">Orc</option>
                     </select>
                 </div>
+
                 <div class="container__details__form__input">
                     <label for="class">Class:</label>
                     <select class="container__details__form__input__field" name="class" id="class">
@@ -45,43 +49,52 @@
                         <option value="Cleric">Cleric</option>
                     </select>
                 </div>
-            </form>
+
+                <div></div>
+
+                <div class="container__details__form__attributes">
+                    <div>Attribute Points</div>
+                    <span></span>
+                    <div class="container__details__form__attributes__points" id="attributePoints"></div>
+                    <span></span>
+
+                    <div>Strength</div>
+                    <span class="container__details__form__attributes__points" id="removeStrength"><img class="svg"
+                            src="assets/minus-solid.svg" alt="minus"></span>
+                    <div class="container__details__form__attributes__points" id="strength"></div>
+                    <span class="container__details__form__attributes__points" id="addStrength"><img class="svg"
+                            src="assets/plus-solid.svg" alt="plus"></span>
+
+                    <div>Dexterity</div>
+                    <span class="container__details__form__attributes__points" id="removeDexterity"><img class="svg"
+                            src="assets/minus-solid.svg" alt="minus"></span>
+                    <div class="container__details__form__attributes__points" id="dexterity"></div>
+                    <span class="container__details__form__attributes__points" id="addDexterity"><img class="svg"
+                            src="assets/plus-solid.svg" alt="plus"></span>
+
+                    <div>Intelligence</div>
+                    <span class="container__details__form__attributes__points" id="removeIntelligence"><img class="svg"
+                            src="assets/minus-solid.svg" alt="minus"></span>
+                    <div class="container__details__form__attributes__points" id="intelligence"></div>
+                    <span class="container__details__form__attributes__points" id="addIntelligence"><img class="svg"
+                            src="assets/plus-solid.svg" alt="plus"></span>
+
+                    <div>Wisdom</div>
+                    <span class="container__details__form__attributes__points" id="removeWisdom"><img class="svg"
+                            src="assets/minus-solid.svg" alt="minus"></span>
+                    <div class="container__details__form__attributes__points" id="wisdom"></div>
+                    <span class="container__details__form__attributes__points" id="addWisdom"><img class="svg"
+                            src="assets/plus-solid.svg" alt="plus"></span>
+
+                    <div>Charisma</div>
+                    <span class="container__details__form__attributes__points" id="removeCharisma"><img class="svg"
+                            src="assets/minus-solid.svg" alt="minus"></span>
+                    <div class="container__details__form__attributes__points" id="charisma"></div>
+                    <span class="container__details__form__attributes__points" id="addCharisma"><img class="svg"
+                            src="assets/plus-solid.svg" alt="plus"></span>
+                </div>
         </div>
-
-        <div class="container__attributes">
-            <div class="container__attributes__grid">
-                <div>Attribute Points</div>
-                <span></span>
-                <div class="container__attributes__grid__points" id="attributePoints"></div>
-                <span></span>
-
-                <div>Strength</div>
-                <span id="removeStrength"><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
-                <div class="container__attributes__grid__points" id="strength"></div>
-                <span id="addStrength"><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
-
-                <div>Dexterity</div>
-                <span id="removeDexterity"><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
-                <div class="container__attributes__grid__points" id="dexterity"></div>
-                <span id="addDexterity"><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
-
-                <div>Intelligence</div>
-                <span id="removeIntelligence"><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
-                <div class="container__attributes__grid__points" id="intelligence"></div>
-                <span id="addIntelligence"><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
-
-                <div>Wisdom</div>
-                <span id="removeWisdom"><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
-                <div class="container__attributes__grid__points" id="wisdom"></div>
-                <span id="addWisdom"><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
-
-                <div>Charisma</div>
-                <span id="removeCharisma"><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
-                <div class="container__attributes__grid__points" id="charisma"></div>
-                <span id="addCharisma"><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
-            </div>
-        </div>
-
+        </form>
         <div class="container__bottom">
             <button type="menu" form="character_details" class="container__bottom__button">Characters</button>
             <button type="submit" form="character_details" class="container__bottom__button">Confirm</button>
