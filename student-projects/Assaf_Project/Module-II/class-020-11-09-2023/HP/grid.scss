@@ -1,0 +1,18 @@
+.play-field {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: 3fr 2fr;
+}
+
+.game-header {
+    position: fixed;
+    width: 100%;
+}
+
+.sky {
+    grid-row: 1 / 2;
+}
+
+.ground {
+    grid-row: 2 / 3;
+}
