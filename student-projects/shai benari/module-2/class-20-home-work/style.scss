@@ -12,9 +12,17 @@ html {
   font-size: 1.2rem;
   line-height: 1.6;
 }
+.sky{
+  width: 100%;
+  height: 120px;
+    background-image: linear-gradient(rgb(27, 4, 110), rgb(112, 213, 240));
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+}
 
 #balloon{
-    width: 150px;
+    width: 60px;
     // display: none;
 }
 .graund{
@@ -26,12 +34,13 @@ html {
 }
 header{
   text-align: center;
-  background-color: rgb(233, 226, 226);
+  background-color: rgb(188, 194, 237);
   width: 20%;
   margin-inline: auto;
   padding: 1px;
   border-radius: 10px;
-  box-shadow: 2px 3px rgb(177, 176, 176);
+  box-shadow: 2px 3px rgb(9, 47, 236);
+  color: blue;
   
 }
 
