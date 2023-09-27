@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Creation</title>
+    <link rel="stylesheet" href="dist/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap"rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="container__details">
+            <form name="character_details" class="container__details__form" action="">
+                <div class="container__details__form__input">
+                    <label for="name">Name:</label>
+                    <input name="name" id="name" type="text">
+                </div>
+                <div class="container__details__form__input">
+                    <label for="gender">Gender:</label>
+                    <select name="gender" id="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="container__details__form__input">
+                    <label for="race">Race:</label>
+                    <select name="race" id="race">
+                        <option value="Human">Human</option>
+                        <option value="Elf">Elf</option>
+                        <option value="Dwarf">Dwarf</option>
+                        <option value="Orc">Orc</option>
+                    </select>
+                </div>
+                <div class="container__details__form__input">
+                    <label for="class">Class:</label>
+                    <select name="class" id="class">
+                        <option value="Fighter">Fighter</option>
+                        <option value="Barbarian">Barbarian</option>
+                        <option value="Wizard">Wizard</option>
+                        <option value="Cleric">Cleric</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <div class="container__attributes">
+            <div class="container__attributes__grid">
+                <div>Attribute Points</div>
+                <span></span>
+                <div id="attributePoints"></div>
+                <span></span>
+
+                <div>Strength</div>
+                <span><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
+                <div id="strength"></div>
+                <span><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
+
+                <div>Dexterity</div>
+                <span><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
+                <div id="dexterity"></div>
+                <span><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
+
+                <div>Intelligence</div>
+                <span><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
+                <div id="intelligence"></div>
+                <span><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
+
+                <div>Wisdom</div>
+                <span><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
+                <div id="wisdom"></div>
+                <span><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
+
+                <div>Charisma</div>
+                <span><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
+                <div id="charisma"></div>
+                <span><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
+            </div>
+        </div>
+
+        <div class="container__bottom">
+            <div class="container__bottom__buttons">
+                <button type="submit" class="container__bottom__buttons__button">Confirm</button>
+                <button type="reset" class="container__bottom__buttons__button">Cancel</button>
+            </div>
+        </div>
+
+        <div class="container__visuals">
+            <img class="container__visuals__image" src="https://picsum.photos/500/700" alt="character picture">
+        </div>
+    </div>
+
+    <script src="dist/app.js"></script>
+</body>
+
+</html>

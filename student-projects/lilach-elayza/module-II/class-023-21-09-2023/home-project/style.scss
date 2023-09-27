@@ -1,0 +1,107 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Old Standard TT', serif;
+    font-size: 1.2rem;
+}
+
+.svg {
+    width: 12px;
+    margin: 0 0.5rem;
+}
+
+.container {
+    background-color: rgb(18, 14, 9);
+    display: grid;
+    grid-template-columns: 50% auto;
+    grid-template-rows: 35% 55% auto;
+    max-width: 1440px;
+    margin-inline: auto;
+    height: 100vh;
+
+    &__details {
+        // background-color: red;
+        position: relative;
+
+        &__form {
+            position: absolute;
+            transform: translateY(-50%);
+            left: 8rem;
+            top: 60%;
+
+            &__input {
+                padding: 1.8rem 0;
+            }
+        }
+    }
+
+    &__attributes {
+        // background-color: blue;
+        position: relative;
+
+        &__grid {
+            display: grid;
+            grid-template-columns: 1fr auto auto auto;
+            text-align: center;
+            position: absolute;
+            transform: translateY(-50%);
+            left: 8rem;
+            top: 50%;
+            gap: 3rem 0;
+        }
+    }
+
+    &__visuals {
+        // background-color: green;
+        grid-area: 1 / 2 / 3 / 3;
+        position: relative;
+
+        &__image {
+            width: 30vw;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+        }
+    }
+
+    &__bottom {
+        // background-color: yellow;
+        grid-area: 3 / 1 / 4 / 3;
+        position: relative;
+
+        &__buttons {
+            // background-color: purple;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+
+            &__button {
+                font-family: 'Old Standard TT', serif;
+                font-size: 1rem;
+                background-color: rgb(74, 55, 34);
+                border: 1px solid rgb(109, 81, 51);
+                color: rgb(254, 186, 114);
+                padding: 0.8rem 2rem;
+                margin: 0 5rem;
+                border-radius: 15px;
+
+                &:hover {
+                    background-color: rgb(118, 87, 54);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
