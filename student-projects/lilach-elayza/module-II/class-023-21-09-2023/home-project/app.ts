@@ -33,12 +33,72 @@ let availablePoints =
   wisdomPoints -
   charismaPoints;
 
-attributePoints.textContent = availablePoints;
-strength.textContent = strenghPoints;
-dexterity.textContent = dexterityPoints;
-intelligence.textContent = intelligencePoints;
-wisdom.textContent = wisdomPoints;
-charisma.textContent = charismaPoints;
+showAttributePoints();
+
+addStrength.addEventListener("click", () => {
+  strenghPoints++;
+  showAttributePoints();
+});
+
+removeStrength.addEventListener("click", () => {
+  strenghPoints--;
+  showAttributePoints();
+});
+addDexterity.addEventListener("click", () => {
+  dexterityPoints++;
+  showAttributePoints();
+});
+
+removeDexterity.addEventListener("click", () => {
+  dexterityPoints--;
+  showAttributePoints();
+});
+addIntelligence.addEventListener("click", () => {
+  intelligencePoints++;
+  showAttributePoints();
+});
+
+removeIntelligence.addEventListener("click", () => {
+  intelligencePoints--;
+  showAttributePoints();
+});
+addWisdom.addEventListener("click", () => {
+  wisdomPoints++;
+  showAttributePoints();
+});
+
+removeWisdom.addEventListener("click", () => {
+  wisdomPoints--;
+  showAttributePoints();
+});
+addCharisma.addEventListener("click", () => {
+  charismaPoints++;
+  showAttributePoints();
+});
+
+removeCharisma.addEventListener("click", () => {
+  charismaPoints--;
+  showAttributePoints();
+});
+
+const characterImage = document.getElementById("characterImage") as HTMLImageElement;
+let currentCharacterIndex = 1;
+
+chevronLeft.addEventListener("click", () => {
+  if (currentCharacterIndex > 1) {
+    currentCharacterIndex--;
+    characterImage.src = `assets/character${currentCharacterIndex}.png`;
+  }
+});
+
+chevronRight.addEventListener("click", () => {
+  const totalCharacters = 7;
+
+  if (currentCharacterIndex < totalCharacters) {
+    currentCharacterIndex++;
+    characterImage.src = `assets/character${currentCharacterIndex}.png`;
+  }
+});
 
 const detailsForm = document.forms.namedItem("character_details");
 
@@ -52,16 +112,34 @@ detailsForm?.addEventListener("submit", (e) => {
     race: parseRace(getString(formData, "race")),
     class: parseClass(getString(formData, "class")),
     attributePoints: {
-      availablePoints: 20,
-      strengh: 5,
-      dexterity: 5,
-      intelligence: 5,
-      wisdom: 5,
-      charisma: 5,
+      availablePoints: availablePoints,
+      strengh: strenghPoints,
+      dexterity: dexterityPoints,
+      intelligence: intelligencePoints,
+      wisdom: wisdomPoints,
+      charisma: charismaPoints,
     },
   });
   console.log(characters[0]);
+  console.log(characters[1]);
+  console.log(characters[2]);
 });
+
+function showAttributePoints() {
+  availablePoints =
+    totalPoints -
+    strenghPoints -
+    dexterityPoints -
+    intelligencePoints -
+    wisdomPoints -
+    charismaPoints;
+  attributePoints.textContent = availablePoints;
+  strength.textContent = strenghPoints;
+  dexterity.textContent = dexterityPoints;
+  intelligence.textContent = intelligencePoints;
+  wisdom.textContent = wisdomPoints;
+  charisma.textContent = charismaPoints;
+}
 
 function getString(formData: FormData, key: string) {
   const value = formData.get(key);

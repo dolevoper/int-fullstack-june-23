@@ -17,18 +17,18 @@
             <form name="character_details" class="container__details__form" action="">
                 <div class="container__details__form__input">
                     <label for="name">Name:</label>
-                    <input name="name" id="name" type="text">
+                    <input class="container__details__form__input__field" name="name" id="name" type="text">
                 </div>
                 <div class="container__details__form__input">
                     <label for="gender">Gender:</label>
-                    <select name="gender" id="gender">
+                    <select class="container__details__form__input__field" name="gender" id="gender">
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
                 </div>
                 <div class="container__details__form__input">
                     <label for="race">Race:</label>
-                    <select name="race" id="race">
+                    <select class="container__details__form__input__field" name="race" id="race">
                         <option value="Human">Human</option>
                         <option value="Elf">Elf</option>
                         <option value="Dwarf">Dwarf</option>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="container__details__form__input">
                     <label for="class">Class:</label>
-                    <select name="class" id="class">
+                    <select class="container__details__form__input__field" name="class" id="class">
                         <option value="Fighter">Fighter</option>
                         <option value="Barbarian">Barbarian</option>
                         <option value="Wizard">Wizard</option>
@@ -55,29 +55,29 @@
                 <span></span>
 
                 <div>Strength</div>
-                <span><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
+                <span id="removeStrength"><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
                 <div id="strength"></div>
-                <span><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
+                <span id="addStrength"><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
 
                 <div>Dexterity</div>
-                <span><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
+                <span id="removeDexterity"><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
                 <div id="dexterity"></div>
-                <span><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
+                <span id="addDexterity"><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
 
                 <div>Intelligence</div>
-                <span><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
+                <span id="removeIntelligence"><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
                 <div id="intelligence"></div>
-                <span><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
+                <span id="addIntelligence"><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
 
                 <div>Wisdom</div>
-                <span><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
+                <span id="removeWisdom"><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
                 <div id="wisdom"></div>
-                <span><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
+                <span id="addWisdom"><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
 
                 <div>Charisma</div>
-                <span><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
+                <span id="removeCharisma"><img class="svg" src="assets/minus-solid.svg" alt="minus"></span>
                 <div id="charisma"></div>
-                <span><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
+                <span id="addCharisma"><img class="svg" src="assets/plus-solid.svg" alt="plus"></span>
             </div>
         </div>
 
@@ -89,7 +89,9 @@
         </div>
 
         <div class="container__visuals">
-            <img class="container__visuals__image" src="https://picsum.photos/500/700" alt="character picture">
+            <span><img class="container__visuals__chevron" id="chevronLeft" src="assets/chevron-left-solid.svg" alt="chevron left"></span>
+            <img class="container__visuals__image" id="characterImage" src="assets/character1.png" alt="character image">
+            <span><img class="container__visuals__chevron" id="chevronRight" src="assets/chevron-right-solid.svg" alt="chevron right"></span>
         </div>
     </div>
 
