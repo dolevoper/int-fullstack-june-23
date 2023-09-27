@@ -6,12 +6,15 @@
 
 type LicenseType = "A" | "B" | "C";
 
+type carstatus = "free"|"normal"|"discount"|"banned";
+
 type Car = {
     registrationNumber: string;
     brand: string;
     type?: string;
     color: string;
     licenseType: LicenseType;
+    carstatus?: carstatus;
 };
 
 type CarArray = Car[];
@@ -76,3 +79,4 @@ function parseLicenseType(value: string): LicenseType {
 }
 
 
+alert(cars)
