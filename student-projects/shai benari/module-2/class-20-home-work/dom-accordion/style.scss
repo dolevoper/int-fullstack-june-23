@@ -12,7 +12,71 @@ html {
   font-size: 1.2rem;
   line-height: 1.6;
 }
-.
+.header{
+    width: 90%;
+    background: rgb(220, 195, 195) ;
+    margin-inline: auto;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 3px 5px rgb(224, 147, 147);
+    position: relative;
+    top: 0;
+
+}
+
 body{
- background-image: url(flwer.jpg) ;
+ background: rgba(40, 40, 224, 0.3);
+ width: 100%;
+ height: 100vh;
+ padding: 10px 5px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+.accordion{
+    width: 65%;
+    background-color: aquamarine;
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 10px;
+    margin-top: 2rem;
+}
+.accordion .accordion-container .question{
+    color: red;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-bottom: 1px solid black;
+    position: relative;
+    cursor: pointer;
+}
+.accordion .accordion-container .question::after{
+    content: '+';
+    position: absolute;
+    right: 5px;
+    font-size: 1.5rem;
+}
+.accordion .accordion-container .answer{
+line-height: 1.5rem;
+width: 100%;
+margin-top: 0.5rem;
+
+height: 0px;
+overflow: hidden;
+transition: 0.5s;
+}
+.accordion .accordion-container.active .answer{
+ height: 130px;
+}
+.accordion .accordion-container.active .question{
+    font-size: 1.2rem;
+    transition: 0.5s;
+}
+.accordion .accordion-container.active .question::after{
+    content: "-";
+    font-size: 2rem;
+    position: absolute;
+    bottom: 0.5px;
+}
+.accordion-title{
+    text-align: center;
 }
