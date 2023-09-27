@@ -13,6 +13,7 @@ body {
     color: white;
     font-family: 'Old Standard TT', serif;
     font-size: 1.2rem;
+    user-select: none;
 }
 
 .svg {
@@ -59,12 +60,16 @@ body {
         &__grid {
             display: grid;
             gap: 3rem 0;
-            grid-template-columns: 1fr auto auto auto;
+            grid-template-columns: 1fr 20px 56px 20px;
             left: 8rem;
             position: absolute;
             text-align: center;
             top: 50%;
             transform: translateY(-50%);
+
+            &__points {
+                text-align: center;
+            }
         }
     }
 

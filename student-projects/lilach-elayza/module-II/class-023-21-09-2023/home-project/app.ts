@@ -19,12 +19,12 @@ type Character = {
 type CharacterArray = Character[];
 const characters: CharacterArray = [];
 
-let totalPoints = 45;
-let strenghPoints = 5;
-let dexterityPoints = 5;
-let intelligencePoints = 5;
-let wisdomPoints = 5;
-let charismaPoints = 5;
+let totalPoints = 55;
+let strenghPoints = 7;
+let dexterityPoints = 7;
+let intelligencePoints = 7;
+let wisdomPoints = 7;
+let charismaPoints = 7;
 let availablePoints =
   totalPoints -
   strenghPoints -
@@ -36,52 +36,74 @@ let availablePoints =
 showAttributePoints();
 
 addStrength.addEventListener("click", () => {
-  strenghPoints++;
-  showAttributePoints();
+  if (strenghPoints < 20 && availablePoints > 0) {
+    strenghPoints++;
+    showAttributePoints();
+  }
 });
 
 removeStrength.addEventListener("click", () => {
-  strenghPoints--;
-  showAttributePoints();
+  if (strenghPoints > 5) {
+    strenghPoints--;
+    showAttributePoints();
+  }
 });
 addDexterity.addEventListener("click", () => {
-  dexterityPoints++;
-  showAttributePoints();
+  if (dexterityPoints < 20 && availablePoints > 0) {
+    dexterityPoints++;
+    showAttributePoints();
+  }
 });
 
 removeDexterity.addEventListener("click", () => {
-  dexterityPoints--;
-  showAttributePoints();
+  if (dexterityPoints > 5) {
+    dexterityPoints--;
+    showAttributePoints();
+  }
 });
 addIntelligence.addEventListener("click", () => {
-  intelligencePoints++;
-  showAttributePoints();
+  if (intelligencePoints < 20 && availablePoints > 0) {
+    intelligencePoints++;
+    showAttributePoints();
+  }
 });
 
 removeIntelligence.addEventListener("click", () => {
-  intelligencePoints--;
-  showAttributePoints();
+  if (intelligencePoints > 5) {
+    intelligencePoints--;
+    showAttributePoints();
+  }
 });
 addWisdom.addEventListener("click", () => {
-  wisdomPoints++;
-  showAttributePoints();
+  if (wisdomPoints < 20 && availablePoints > 0) {
+    wisdomPoints++;
+    showAttributePoints();
+  }
 });
 
 removeWisdom.addEventListener("click", () => {
-  wisdomPoints--;
-  showAttributePoints();
+  if (wisdomPoints > 5) {
+    wisdomPoints--;
+    showAttributePoints();
+  }
 });
 addCharisma.addEventListener("click", () => {
-  charismaPoints++;
-  showAttributePoints();
+  if (charismaPoints < 20 && availablePoints > 0) {
+    charismaPoints++;
+    showAttributePoints();
+  }
 });
 
 removeCharisma.addEventListener("click", () => {
-  charismaPoints--;
-  showAttributePoints();
+  if (charismaPoints > 5) {
+    charismaPoints--;
+    showAttributePoints();
+  }
 });
 
-const characterImage = document.getElementById("characterImage") as HTMLImageElement;
+const characterImage = document.getElementById(
+  "characterImage"
+) as HTMLImageElement;
 let currentCharacterIndex = 1;
 
 chevronLeft.addEventListener("click", () => {
