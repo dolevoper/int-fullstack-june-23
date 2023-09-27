@@ -15,6 +15,7 @@ type Character = {
   race: Race;
   class: Class;
   attributePoints: AttributePoints;
+  image: string;
 };
 type CharacterArray = Character[];
 const characters: CharacterArray = [];
@@ -101,9 +102,7 @@ removeCharisma.addEventListener("click", () => {
   }
 });
 
-const characterImage = document.getElementById(
-  "characterImage"
-) as HTMLImageElement;
+const characterImage = document.getElementById("characterImage") as HTMLImageElement;
 let currentCharacterIndex = 1;
 
 chevronLeft.addEventListener("click", () => {
@@ -141,10 +140,8 @@ detailsForm?.addEventListener("submit", (e) => {
       wisdom: wisdomPoints,
       charisma: charismaPoints,
     },
+    image: "assets/character" + currentCharacterIndex + ".png",
   });
-  console.log(characters[0]);
-  console.log(characters[1]);
-  console.log(characters[2]);
 });
 
 function showAttributePoints() {
