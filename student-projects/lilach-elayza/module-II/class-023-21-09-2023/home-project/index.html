@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <div class="container__details">
-            <form name="character_details" class="container__details__form" action="">
+            <form name="character_details" id="character_details" class="container__details__form" action="">
                 <div class="container__details__form__input">
                     <label for="name">Name:</label>
                     <input class="container__details__form__input__field" name="name" id="name" type="text">
@@ -83,9 +83,9 @@
         </div>
 
         <div class="container__bottom">
-            <button type="menu" class="container__bottom__button">Characters</button>
-            <button type="submit" class="container__bottom__button">Confirm</button>
-            <button type="reset" class="container__bottom__button">Cancel</button>
+            <button type="menu" form="character_details" class="container__bottom__button">Characters</button>
+            <button type="submit" form="character_details" class="container__bottom__button">Confirm</button>
+            <button type="reset" form="character_details" class="container__bottom__button">Cancel</button>
         </div>
 
         <div class="container__visuals">
