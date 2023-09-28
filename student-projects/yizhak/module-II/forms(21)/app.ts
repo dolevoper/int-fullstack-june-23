@@ -6,7 +6,7 @@
 
 type LicenseType = "A" | "B" | "C";
 
-type carstatus = "free"|"normal"|"discount"|"banned";
+type carstatus = "free" | "normal" | "discount" | "banned";
 
 type Car = {
     registrationNumber: string;
@@ -14,7 +14,7 @@ type Car = {
     type?: string;
     color: string;
     licenseType: LicenseType;
-    carstatus?: carstatus;
+    carstatus: carstatus;
 };
 
 type CarArray = Car[];
@@ -35,7 +35,8 @@ if (!addCarForm) {
             brand: getRequiredString(formData, "brand"),
             type: getString(formData, "type"),
             color: getRequiredString(formData, "color"),
-            licenseType: parseLicenseType(getRequiredString(formData, "licenseType"))
+            licenseType: parseLicenseType(getRequiredString(formData, "licenseType")),
+            carstatus: parseLicenseType2(getRequiredString(formData, "carstatus"))
         });
 
         console.log(cars);
@@ -78,13 +79,21 @@ function parseLicenseType(value: string): LicenseType {
     return value;
 }
 
+function parseLicenseType2(value: string): carstatus {
+    if (value !== "free" && value !== "normal" && value !== "banned" && value !== "discount" ) {
+        throw new Error(`Invalid car status type: ${value}`);
+    }
+
+    return value;
+}
+
 //לבדוק למה זה לא עובד!!!!!!
-console.log(cars)
+/*console.log(cars)
 
 const clear = document.getElementById("clear") as HTMLFormElement;
 
 function clearlist(){
     const formData = new FormData(clear)
-    formData.delete("cars")
-}
+    formData.delete("acrstatus") 
+}*/
 
