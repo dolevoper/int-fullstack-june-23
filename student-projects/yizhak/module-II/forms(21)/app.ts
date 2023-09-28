@@ -78,5 +78,13 @@ function parseLicenseType(value: string): LicenseType {
     return value;
 }
 
+//לבדוק למה זה לא עובד!!!!!!
+console.log(cars)
 
-alert(cars)
+const clear = document.getElementById("clear") as HTMLFormElement;
+
+function clearlist(){
+    const formData = new FormData(clear)
+    formData.delete("cars")
+}
+
