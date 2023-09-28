@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background: lightgrey;
+}
+
 #tirgool {
     position: relative;
     height: 100vh;
@@ -46,25 +50,15 @@
     font-family: cursive;
     border-radius: 10px 10px 10px 10px;
     padding: 0.2% 0.5% 0.2% 0.5%;
-    border: 0px solid green;
+    border: 3px solid yellow;
 }
 
-#tirgool #balloons .meir {
+#tirgool .balloon {
     position: absolute;
     width: 4%;
     cursor: pointer;
-    display: inline-block;
-    animation: balloonAnim 10s ease-in-out forwards;
+    transform: translateX(-50%);
     border: 0px solid green;
-}
-
-@keyframes balloonAnim {
-    0% {
-        bottom: 0%;
-    }
-    100% {
-        bottom: 100%;
-    }
 }
 
 #tirgool #life {

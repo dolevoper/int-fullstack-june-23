@@ -1,4 +1,5 @@
 const myObj = document.getElementById('world') as HTMLInputElement;
+const htmlaudio = new Audio('C:/Users/97254/Desktop/gibuy Course/meir/class_016/pacman/sounds/Chomp.mp3');
 
 // 1 => <div class='wall'></div>
 // 2 => <div class='coin'></div>
@@ -26,7 +27,7 @@ const map = [
 drawBoard();
 
 function drawBoard() {
-
+	
 	myObj.innerHTML = '';
 
 	for (let y = 0; y < map.length; y++) {
@@ -62,6 +63,7 @@ document.onkeydown = function (event: any) {
 			map[pacman.y][pacman.x] = 3;			// ground
 			pacman.x = pacman.x - 1;				//
 			map[pacman.y][pacman.x] = 5;			// 5 = pacman
+			//htmlaudio.play();
 			drawBoard();
 			setPacmanProfile(6, 6);
 		}
@@ -71,6 +73,7 @@ document.onkeydown = function (event: any) {
 			map[pacman.y][pacman.x] = 3;			// 3 = ground
 			pacman.y = pacman.y - 1;				//
 			map[pacman.y][pacman.x] = 5;			// 5 = pacman
+			//htmlaudio.play();
 			drawBoard();
 			setPacmanProfile(7, -38);
 		}
@@ -80,6 +83,7 @@ document.onkeydown = function (event: any) {
 			map[pacman.y][pacman.x] = 3;			// 3 = ground
 			pacman.x = pacman.x + 1;				//
 			map[pacman.y][pacman.x] = 5;			// 5 = pacman
+			//htmlaudio.play();
 			drawBoard();
 			setPacmanProfile(-36, 6);
 		}
@@ -89,6 +93,7 @@ document.onkeydown = function (event: any) {
 			map[pacman.y][pacman.x] = 3;			// 3 = ground
 			pacman.y = pacman.y + 1;				//
 			map[pacman.y][pacman.x] = 5;			// 5 = pacman
+			//htmlaudio.play();
 			drawBoard();
 			setPacmanProfile(-38, -39);
 		}
