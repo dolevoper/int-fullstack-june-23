@@ -65,6 +65,7 @@ document.forms.namedItem("jsonExpression")?.addEventListener("submit", (e) => {
 
 class InvalidUsernameError extends Error {}
 class InvalidEmailError extends Error {}
+class InvalidCharactersError extends Error {}
 
 type User = {
 	username: string;
@@ -88,6 +89,11 @@ function register(
 		throw new InvalidEmailError(`Invalid email: ${email}`);
 	}
 
+	if (hasInvalidCharacters(username))
+		throw new InvalidCharactersError(
+			`Username ${username} has invalid characters`
+		);
+
 	users.push({
 		username,
 		email,
@@ -96,7 +102,7 @@ function register(
 }
 
 try {
-	register("omer", "omer@gmail", "", "");
+	register("om$er", "omer@gmail", "", "");
 	register("omer", "omer@gmail", "", "");
 	register("omer2", "omergmail", "", "");
 } catch (error) {
@@ -110,4 +116,9 @@ try {
 	}
 
 	alert(error.message);
+}
+
+function hasInvalidCharacters(text: string) {
+	const invalidCharacters = /[^#%&*:<>?/{|}]+/;
+	return invalidCharacters.test(text);
 }
