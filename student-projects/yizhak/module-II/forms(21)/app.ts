@@ -84,7 +84,7 @@ function parseLicenseType2(value: string): carstatus {
         throw new Error(`Invalid car status type: ${value}`);
     }
 
-    return value;
+    return value as carstatus;
 }
 
 //לבדוק למה זה לא עובד!!!!!!
