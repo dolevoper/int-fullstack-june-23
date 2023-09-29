@@ -1,13 +1,16 @@
+const body = document.querySelector("body") as HTMLBodyElement;
+
+
 let Count = 0;
 
-const clickCountElement = document.getElementById("clickCount");
-
-document.addEventListener("click", (e) => {
-  JSON.stringify({ Count });
+body.addEventListener("click", (e) => {
+  
   Count++;
-  //clickCountElement.textContent = Count;
+  
 });
 
-localStorage.setItemetItem("Count", Count);
+const numberTostr = JSON.stringify(Count);
+  localStorage.setItem("click", numberTostr);
 
-alert("ffffffffffffff");
+body.style.backgroundColor = "blue";
+
