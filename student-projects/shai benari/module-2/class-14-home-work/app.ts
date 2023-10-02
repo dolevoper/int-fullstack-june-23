@@ -9,6 +9,7 @@
 //   age=Number(prompt("enter your age"));
 //  }
 //   alert("end");
+<<<<<<< HEAD
 // let gradeSum = Number(0);
 // let grade = Number(0);
 
@@ -47,4 +48,13 @@ for (let i=1; i<=guessNumber; i++){
     else{alert("your guss is wrong")}
     if(guessNumber<randomnum){alert("your guss is less then the number")}
     if(guessNumber>randomnum){alert("your guss is bigger then the number")}}
+=======
+let grade = 0;
+let gradeSum = 0;
+const gradesNumbers = Number(prompt("Anter the nubers of grades to make an average to"))
+for ( let i=1; i<=gradesNumbers; i++ ){
+    let grade=Number(prompt("Anter grade "))
+    let gradeSum = gradeSum+grade
+    alert(gradeSum)
+>>>>>>> main
 }
