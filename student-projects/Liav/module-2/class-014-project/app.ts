@@ -3,12 +3,20 @@ const ctxt = canvas.getContext("2d") as CanvasRenderingContext2D;
 
 const userImg = new Image();
 userImg.src = "./assets/user.png";
+
+const monsterImg = new Image();
+monsterImg.src = "./assets/monster.png";
+
+const bulletUser = new Image();
+bulletUser.src = "./assets/bullet.png";
+
 const imgWidth = 150;
 const imgHeight = 142;
 let frameX = 0;
 let frameY = 0;
 let gameFrame = 0;
 const sheetFrame = 6;
+let previousTime = 0;
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -37,6 +45,7 @@ class User {
             );
         } else if (this.direction === 'left') {
             ctxt.save(); 
+            ctxt.scale(-1,1);
             ctxt.drawImage(
                 userImg,
                 frameX,
@@ -52,7 +61,7 @@ class User {
         }
     }
 
-    update() {
+    update(deltaTime: number) {
         this.draw();
 
         // Check collision with the field platform
@@ -93,8 +102,18 @@ class User {
             this.direction = 'left';
         }
     }
-}
 
+    shoot() {
+
+        const velocity = (this.direction === "right") ? 5 : -5
+        const bullet = new Bullet(this.position.x, this.position.y, velocity, 0);
+        
+        
+        bulletList.push(bullet);
+}       
+
+
+}
 class Platform {
     position: {
         x: number;
@@ -119,29 +138,80 @@ class Platform {
     }
 }
 
+class Boss{
+    constructor(){
+
+    }
+}
+
+class Bullet{
+    width: number;
+    height: number;
+    velocity: { x: any; y: any; };
+    position: { x: any; y: any; };
+
+    constructor(positionX: number, positionY : number, velocityX: number, velocityY: number){
+
+        this.position = {
+            x: positionX,
+            y: positionY
+        };
+
+        this.velocity = {
+            x: velocityX,
+            y: velocityY
+        };
+
+        this.width = 50;
+        this.height = 50;
+    }
+
+    draw(){
+        ctxt.fillStyle = "orange"
+        ctxt.fillRect(this.position.x, this.position.y, this.width, this.height);
+
+        this.position.x += this.velocity.x
+        this.position.y += this.velocity.y
+    }
+}
+
+
 const user = new User();
 const field = new Platform(0, canvas.height - 20, canvas.width, 20);
 let floatPlatform = new Platform(500, 500, 150, 20);
-
+const bulletList: Bullet[] =  []
 
 const keys = {
     right: false,
     left: false,
 };
 
+
 window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
 
-function animate() {
+function animate(gameTime: number) {
+    if(previousTime === 0){
+        previousTime = gameTime;
+    }
+    const deltaTime = (gameTime - previousTime ) / 1000;
+    previousTime = gameTime;
+
+    // console.log(deltaTime);
     requestAnimationFrame(animate);
     let position = Math.floor(gameFrame / sheetFrame) % sheetFrame;
     frameX = imgWidth * position;
     ctxt.clearRect(0, 0, canvas.width, canvas.height);
     field.draw("green");
     floatPlatform.draw("black");
-    user.update();
+    bulletList.forEach(bullet => {
+        bullet.draw();
+    })
+
+    
+    user.update(deltaTime);
 
     if (keys.right && user.position.x < 500) {
         user.velocity.x = 3;
@@ -168,7 +238,9 @@ function animate() {
     }
 }
 
-animate();
+requestAnimationFrame(animate);
+
+
 
 window.addEventListener("keydown", ({ code }) => {
     switch (code) {
@@ -191,7 +263,14 @@ window.addEventListener("keydown", ({ code }) => {
             keys.right = true;
             keys.left = false;
             break;
+        
+        case "ControlRight":
+            case "ControlLeft":
+                user.shoot();
+                break;
     }
+
+    console.log(user.shoot);
 });
 
 window.addEventListener("keyup", ({ code }) => {
