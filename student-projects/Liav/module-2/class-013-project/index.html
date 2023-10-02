@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error handling</title>
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+
+<body>
+    <h1 id="title">Register</h1>
+        <form name="registerForm" action="">
+            <div class="register">
+                <label for="registerName">Name:</label>
+                <input id="registerName" type="text" name="registerName">
+
+                <label for="registerPassword">Password:</label>
+                <input type="password" name="registerPassword" id="registerPassword">
+                
+                <label for="registerConfirmPassword">Confirm Password:</label>
+                <input type="password" name="registerConfirmPassword" id="registerConfirmPassword">
+
+                <label for="registerEmail">Email:</label>
+                <input type="text" name="registerEmail" id="registerEmail">
+
+                <input type="submit" id="registerSumbit" value="Register">
+            </div>
+        </form>
+    </form>
+
+    <div class="users">
+        
+        <h4>Users list:</h4>
+        <ul class="users__list">
+            <li class="users__user">
+                <h5 class="users__username">Mock User</h5>
+                <h6 class="users__email">Mock User</h5>
+                <button class="users__delete-button">Delete</button>
+            </li>
+        </ul>
+
+    </div>
+    <script src="dist/app.js"></script>
+</body>
+
+</html>
