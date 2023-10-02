@@ -1,166 +1,213 @@
-
-
 const canvas = document.querySelector("canvas") as HTMLCanvasElement;
 const ctxt = canvas.getContext("2d") as CanvasRenderingContext2D;
+
+const userImg = new Image();
+userImg.src = "./assets/user.png";
+const imgWidth = 150;
+const imgHeight = 142;
+let frameX = 0;
+let frameY = 0;
+let gameFrame = 0;
+const sheetFrame = 6;
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const gravity = 0.3;
-class User{
-    width: number;
-    height: number;
-    position: { x: number; y: number; };
-    velocity: { x: number; y: number; };
 
-    constructor(){
-        this.position = {
-            x: 100,
-            y: 100
-        }
-
-        this.velocity = {
-            x: 0,
-            y: 0
-        }
-
-        this.width = 30
-        this.height = 30
-    }
-
+class User {
+    width = 100;
+    height = 100;
+    position = { x: 100, y: 100 };
+    velocity = { x: 0, y: 0 };
+    jumpCount = 0;
+    direction = 'right'; 
     draw() {
-        ctxt.fillStyle = "black"
-        ctxt.fillRect(this.position.x,
-             this.position.y, this.width, this.height);
+        if (this.direction === 'right') {
+            ctxt.drawImage(
+                userImg,
+                frameX,
+                frameY,
+                imgWidth,
+                imgHeight,
+                this.position.x,
+                this.position.y,
+                this.width,
+                this.height
+            );
+        } else if (this.direction === 'left') {
+            ctxt.save(); 
+            ctxt.drawImage(
+                userImg,
+                frameX,
+                frameY,
+                imgWidth,
+                imgHeight,
+                -this.position.x - this.width, 
+                this.position.y,
+                this.width,
+                this.height
+            );
+            ctxt.restore(); 
+        }
     }
 
     update() {
         this.draw();
+
+        // Check collision with the field platform
+        if (
+            this.position.x < field.position.x + field.width &&
+            this.position.x + this.width > field.position.x &&
+            this.position.y + this.height > field.position.y + 150
+        ) {
+            this.velocity.y = 0;
+            this.position.y = field.position.y - this.height;
+        }
+        // Check collision with the float platform
+        else if (
+            this.position.x < floatPlatform.position.x + floatPlatform.width &&
+            this.position.x + this.width > floatPlatform.position.x &&
+            this.position.y + this.height >= floatPlatform.position.y &&
+            this.position.y < floatPlatform.position.y
+        ) {
+            this.velocity.y = 0;
+            this.position.y = floatPlatform.position.y - this.height;
+        } else {
+            this.velocity.y += gravity;
+
+            if (this.position.y + this.height + this.velocity.y >= canvas.height) {
+                this.velocity.y = 0;
+                this.position.y = canvas.height - this.height;
+                this.jumpCount = 0;
+            }
+        }
+
         this.position.y += this.velocity.y;
         this.position.x += this.velocity.x;
 
-        if(this.position.y +this.height + this.velocity.y <= canvas.height){
-        this.velocity.y += gravity;
-        }else{
-            this.velocity.y = 0;
+       
+        if (this.velocity.x > 0) {
+            this.direction = 'right';
+        } else if (this.velocity.x < 0) {
+            this.direction = 'left';
         }
     }
 }
 
 class Platform {
-    position: { x: number; y: number; };
+    position: {
+        x: number;
+        y: number;
+    };
+
     width: number;
     height: number;
 
-    constructor(){
+    constructor(x: number, y: number, width: number, height: number) {
         this.position = {
-            x: 500,
-            y: 500
-        }
-
-        this.width = 200;
-        this.height = 20;
+            x: x,
+            y: y,
+        };
+        this.width = width;
+        this.height = height;
     }
 
-    draw() {
-        ctxt.fillStyle = "green"
+    draw(color: string) {
+        ctxt.fillStyle = color;
         ctxt.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 }
 
 const user = new User();
-const platform = new Platform();
+const field = new Platform(0, canvas.height - 20, canvas.width, 20);
+let floatPlatform = new Platform(500, 500, 150, 20);
+
 
 const keys = {
-    right: {
-        pressed: false 
-    },
-    left: {
-        preesed: false
-    }
-}
+    right: false,
+    left: false,
+};
 
-let runCount = 0;
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
 
-function animate(){
-    requestAnimationFrame(animate)
+function animate() {
+    requestAnimationFrame(animate);
+    let position = Math.floor(gameFrame / sheetFrame) % sheetFrame;
+    frameX = imgWidth * position;
     ctxt.clearRect(0, 0, canvas.width, canvas.height);
+    field.draw("green");
+    floatPlatform.draw("black");
     user.update();
-    platform.draw();
-    if(keys.right.pressed){
+
+    if (keys.right && user.position.x < 500) {
         user.velocity.x = 3;
-    }
-    else if(keys.left.preesed){
+        gameFrame++;
+    } else if (keys.left && user.position.x > 100) {
         user.velocity.x = -3;
-    }
-    else{
+        gameFrame--;
+    } else {
+        if (keys.right) {
+            floatPlatform.position.x -= 2;
+            gameFrame++
+        }
+        if (keys.left) {
+            floatPlatform.position.x += 2;
+            gameFrame--;
+        }
         user.velocity.x = 0;
-        if(keys.right.pressed){
-            runCount += 5;
-        }
-        else if(keys.left.preesed){
-            runCount -= 5;
-        }
+        frameX = 0;
     }
 
-    if (
-        user.position.y + user.height <= platform.position.y &&
-        user.position.y + user.height + user.velocity.y >= platform.position.y
-    ) {
-        if (
-            user.position.x + user.width >= platform.position.x &&
-            user.position.x <= platform.position.x + platform.width
-        ){
-            user.velocity.y = 0;
-            user.position.y = platform.position.y - user.height;
-        }
-    }
-    
+    if (floatPlatform.position.x + floatPlatform.width < 0) {
+         floatPlatform = new Platform(canvas.width,  Math.random() * (canvas.height - 50),  150, 20);
 
-    if(runCount > 1000){
-        alert("You got to the end!")
     }
-
 }
 
 animate();
 
-window.addEventListener("keydown", ({code}) => {
-    console.log(code);
-    switch(code){
+window.addEventListener("keydown", ({ code }) => {
+    switch (code) {
         case "ArrowUp":
-            case "Space":
-            user.velocity.y -= 20;
+        case "Space":
+            if (user.jumpCount < 2) {
+                user.velocity.y = -15;
+                user.jumpCount++;
+            }
             break;
 
         case "ArrowLeft":
-            case "KeyA":
-                keys.left.preesed = true;
+        case "KeyA":
+            keys.left = true;
+            keys.right = false;
             break;
-        
+
         case "ArrowRight":
-            case "KeyD":
-                keys.right.pressed = true;
+        case "KeyD":
+            keys.right = true;
+            keys.left = false;
             break;
     }
-})
+});
 
-window.addEventListener("keyup", ({code}) => {
-    console.log(code);
-    switch(code){
+window.addEventListener("keyup", ({ code }) => {
+    switch (code) {
         case "ArrowUp":
-            case "Space":
+        case "Space":
             break;
 
         case "ArrowLeft":
-            case "KeyA":
-                keys.left.preesed = false;
+        case "KeyA":
+            keys.left = false;
             break;
-        
+
         case "ArrowRight":
-            case "KeyD":
-                keys.right.pressed = false;
+        case "KeyD":
+            keys.right = false;
             break;
     }
-})
-
+});
