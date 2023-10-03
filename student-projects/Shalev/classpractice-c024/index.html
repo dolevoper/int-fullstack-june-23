@@ -4,25 +4,29 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Error handling</title>
-		<style>
-			form {
-				display: flex;
-				flex-direction: column;
-				gap: 1rem;
-				max-width: 75ch;
-				margin-inline: auto;
-			}
-		</style>
+		<link rel="stylesheet" href="./dist/reset.css" />
+		<link rel="stylesheet" href="./dist/style.css" />
 	</head>
 
 	<body>
-		<form name="jsonExpression">
-			<h1>JSON validator</h1>
-			<textarea name="json" id="json" cols="30" rows="10"></textarea>
-			<button>Submit</button>
-			<output name="result"></output>
+		<form class="login-form" action="login">
+			<div class="login-form__username-container">
+				<label for="username">Username</label>
+				<input type="text" name="username" id="username" />
+			</div>
+			<div class="login-form__email-container">
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email" />
+			</div>
+			<div class="login-form__password-container">
+				<label for="password">Password</label>
+				<input type="password" name="password" id="password" />
+			</div>
+			<div class="login-form__confirm-password-container">
+				<label for="confirm-password">Confirm Password</label>
+				<input type="password" name="confirm-password" id="confirm-password" />
+			</div>
 		</form>
-
 		<script src="dist/app.js"></script>
 	</body>
 </html>
