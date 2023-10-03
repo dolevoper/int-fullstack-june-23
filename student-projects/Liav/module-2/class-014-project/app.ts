@@ -100,11 +100,33 @@ class User {
     } else if (this.velocity.x < 0) {
       this.direction = "left";
     }
+    
+    // movment check
+
+    if (keys.right && user.position.x < 500) {
+      user.velocity.x = 3;
+      gameFrame++;
+    } else if (keys.left && user.position.x > 100) {
+      user.velocity.x = -3;
+      gameFrame--;
+    } else {
+      if (keys.right) {
+        floatPlatform.position.x -= 2;
+        gameFrame++;
+      }
+      if (keys.left) {
+        floatPlatform.position.x += 2;
+        gameFrame--;
+      }
+      user.velocity.x = 0;
+      frameX = 0;
+    }
+
   }
 
   shoot() {
     const velocity = this.direction === "right" ? 5 : -5;
-    const bullet = new Bullet(this.position.x, this.position.y, velocity, 0);
+    const bullet = new Bullet(this.position.x, this.position.y - -35, velocity, 0);
 
     bulletList.push(bullet);
   }
@@ -134,7 +156,32 @@ class Platform {
 }
 
 class Boss {
-  constructor() {}
+  position: { x: number; y: number; };
+  width: number;
+  height: number;
+
+  constructor(positionX: number, positionY: number) {
+    this.position = {
+      x: positionX,
+      y: positionY
+    }
+
+    this.width = 100;
+    this.height = 100;
+  }
+
+  draw(){
+    ctxt.fillStyle = "black";
+    ctxt.fillRect(this.position.x, this.position.y, this.width, this.height);
+  }
+
+//   dead(){ TODO: when bullet hit the boss he gonna die
+//     bulletList.forEach((bullet) => {
+//       if(bullet.position.x === boss.position.x && bullet.position.y === boss.position.y){
+//         boss = new Boss(0,0);
+//       }
+//   });
+// }
 }
 
 class Bullet {
@@ -159,8 +206,8 @@ class Bullet {
       y: velocityY,
     };
 
-    this.width = 50;
-    this.height = 50;
+    this.width = 25;
+    this.height = 25;
   }
 
   draw() {
@@ -176,6 +223,7 @@ const user = new User();
 const field = new Platform(0, canvas.height - 20, canvas.width, 20);
 let floatPlatform = new Platform(500, 500, 150, 20);
 const bulletList: Bullet[] = [];
+let boss = new Boss(800,850)
 
 const keys = {
   right: false,
@@ -203,27 +251,11 @@ function animate(gameTime: number) {
   bulletList.forEach((bullet) => {
     bullet.draw();
   });
-
+  boss.draw();
+  // boss.dead();
+  
   user.update(deltaTime);
 
-  if (keys.right && user.position.x < 500) {
-    user.velocity.x = 3;
-    gameFrame++;
-  } else if (keys.left && user.position.x > 100) {
-    user.velocity.x = -3;
-    gameFrame--;
-  } else {
-    if (keys.right) {
-      floatPlatform.position.x -= 2;
-      gameFrame++;
-    }
-    if (keys.left) {
-      floatPlatform.position.x += 2;
-      gameFrame--;
-    }
-    user.velocity.x = 0;
-    frameX = 0;
-  }
 
   if (floatPlatform.position.x + floatPlatform.width < 0) {
     floatPlatform = new Platform(
