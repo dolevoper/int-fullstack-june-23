@@ -1,11 +1,13 @@
-interface Serializable {
+import * as Storage from "./Storage.js";
+
+export interface Serializable {
 	STORAGE_KEY: string;
-	save(): number;
+	save(): void;
 	load(): number;
 	delete(): void;
 }
 
-class SerializableList<T> extends Array<T> implements Serializable {
+export class SerializableList<T> extends Array<T> implements Serializable {
 	STORAGE_KEY: string;
 
 	constructor(storageKey: string, arrayLength?: number) {
@@ -14,27 +16,25 @@ class SerializableList<T> extends Array<T> implements Serializable {
 		this.STORAGE_KEY = storageKey;
 	}
 
-	save(): number {
-		if (this.length === 0) return -1;
+	save() {
+		if (this.length === 0) return;
 
-		const serializedSelf = JSON.stringify(this);
-		localStorage.setItem(this.STORAGE_KEY, serializedSelf);
-
-		return 1;
+		Storage.save<SerializableList<T>>(this.STORAGE_KEY, this);
 	}
 
-	load(): number {
-		const loadedItems = localStorage.getItem(this.STORAGE_KEY);
-		if (!loadedItems) return -1;
+	load(): number {;
 
-		const parsedItems: this = JSON.parse(loadedItems);
-		parsedItems.forEach((element) => {
+		const loadedList = Storage.load<SerializableList<T>>(this.STORAGE_KEY);
+		if(!loadedList) return -1;
+
+		loadedList.forEach((element) => {
 			this.push(element);
 		});
-		return 1;
+
+		return this.length;
 	}
 
 	delete(): void {
-		localStorage.removeItem(this.STORAGE_KEY);
+		Storage.remove(this.STORAGE_KEY)
 	}
 }
