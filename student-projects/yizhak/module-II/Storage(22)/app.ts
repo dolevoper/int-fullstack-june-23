@@ -15,3 +15,5 @@ const numberTostr = JSON.stringify(Count);
 body.style.backgroundColor = "blue";
 
 //לבדןק למה זה לא עובד!
+
+
