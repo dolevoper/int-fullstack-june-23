@@ -12,11 +12,15 @@ sqwer.lineWidth = 3;
 sqwer.lineCap = "round";
 sqwer.stroke();
 
+for (let i=1; i<5; i++){
+    let x = Math.random() * 150;
+    let y = Math.random() * 150;
 sqwer.beginPath();
-sqwer.arc(250, 100, 30, 0, 2 * Math.PI);
+sqwer.arc(x, y, 20, 0, 2 * Math.PI);
 sqwer.lineWidth = 5;
 sqwer.strokeStyle = "blue";
 sqwer.stroke();
+};
 
 sqwer.beginPath();
 sqwer.moveTo(0,0);
@@ -53,13 +57,16 @@ sqwer2.stroke();
 
 const textCanvas = document.querySelector(".text");
 const text = textCanvas.getContext("2d");
-// const img = Document.querySelector(".ballon");
+
 
 text.fillStyle = "rgb(100, 20, 200)";
 text.font = "30px Arial";
 text.fillText("Hello World", 80 , 80 );
-// text.drawImage(img, 10, 10);
 
-
-
+window.onload = function(){
+const textCanvas = document.querySelector(".text");
+const text = textCanvas.getContext("2d");
+const img = Document.querySelector(".ballon");
+text.drawImage(img,200, 200);
+};
 
