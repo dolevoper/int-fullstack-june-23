@@ -9,21 +9,6 @@ for (let i = 0; i < collisions.length; i += 70) {
   collisionsMap.push(collisions.slice(i, i + 70));
 }
 
-class Boundary {
-  static width = 48;
-  static height = 48;
-  constructor({ position }) {
-    this.position = position;
-    this.width = 48;
-    this.height = 48;
-  }
-
-  draw() {
-    c!.fillStyle = 'rgba(255, 0, 0, 0.2';
-    c!.fillRect(this.position.x, this.position.y, this.width, this.height);
-  }
-}
-
 const boundaries: Boundary[] = [];
 const offset = {
   x: -1900,
@@ -44,44 +29,16 @@ collisionsMap.forEach((row, i) => {
   });
 });
 
-console.log(boundaries);
-
 const image = new Image();
 image.src = "./assets/zoomedmap.png";
+
+const foregroundImage = new Image();
+foregroundImage.src = "./assets/pokemon-map-foreground.png";
 
 const playerImage = new Image();
 playerImage.src = "./assets/playerDown.png";
 
-class Sprite {
-  constructor({ position, image, frames = { max: 1 } }) {
-    this.position = position;
-    this.image = image;
-    this.frames = frames;
-    this.image.onload = () => {
-      this.width = this.image.width / this.frames.max;
-      this.height = this.image.height;
-      console.log(this.width);
-      console.log(this.height);
-    };
-  }
 
-  draw() {
-    c?.drawImage(
-      this.image,
-      0,
-      0,
-      this.image.width / this.frames.max,
-      this.image.height,
-      this.position.x,
-      this.position.y,
-      this.image.width / this.frames.max,
-      this.image.height
-    );
-  }
-}
-
-// canvas!.width / 2 + this.image.width / 16,
-//       canvas!.height / 2 - this.image.height / 2,
 
 const player = new Sprite({
   position: {
@@ -102,6 +59,14 @@ const background = new Sprite({
   image: image,
 });
 
+const foreground = new Sprite({
+  position: {
+    x: offset.x,
+    y: offset.y,
+  },
+  image: foregroundImage,
+});
+
 const keys = {
   w: {
     pressed: false,
@@ -117,7 +82,7 @@ const keys = {
   },
 };
 
-const movables = [background, ...boundaries];
+const movables = [background, ...boundaries, foreground];
 
 function rectengularCollision({ rectangle1, rectangle2 }) {
   return (
@@ -142,6 +107,7 @@ function animate() {
     }
   });
   player.draw();
+  foreground.draw()
 
   let moving = true;
   if (keys.w.pressed && lastKey === "w") {
