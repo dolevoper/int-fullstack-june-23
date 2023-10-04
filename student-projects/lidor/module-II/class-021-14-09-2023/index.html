@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forms</title>
     <link rel="stylesheet" href="dist/styles.css" />
 </head>
-
 <body class="flow">
     <main>
         <h1>Garage Management</h1>
@@ -37,28 +35,34 @@
                     <option value="B">B</option>
                     <option value="C" selected>C</option>
                 </select>
-                </div>
-                <div class="form-input">
-                    <label for="car-status">Status:</label>
-                    <select name="carStatus" id="car-status">
-                        <option value="discount" selected>discount</option>
-                        <option value="free">free</option>
-                        <option value="banned">banned</option>
-                    </select>
-
-                    <div class="form-input" id="discount-rate" >
-                        <label for="discount-rate">discount rate:</label>
-                        <select name="Rate" id="discount-rate">
-                            <option value="10" selected>10%</option>
-                            <option value="30">30%</option>
-                            <option value="50">50%</option>
-                            <option value="70">70%</option>
-                        </select>
             </div>
-            <button type="submit">Add</button>
-        </form>
-    </main>
-    <script src="dist/app.js"></script>
-</body>
-
-</html>
+            <div class="form-input">
+                <label for="car-status">Status:</label>
+                <select name="carStatus" id="car-status">
+                    <option value="discount" selected>discount</option>
+                    <option value="free">free</option>
+                    <option value="banned">banned</option>
+                </select>
+                <div class="form-input" id="discount-rate">
+                    <label for="discount-rate">discount rate:</label>
+                    <select name="Rate" id="discount-rate">
+                        <option value="10" selected>10%</option>
+                        <option value="30">30%</option>
+                        <option value="50">50%</option>
+                        <option value="70">70%</option>
+                    </select>
+                </div>
+                <button type="submit">Add</button>
+            </form>
+            <!-- Carousel Gallery -->
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <!-- Car details will go here -->
+                </div>
+                <a class="carousel-prev" href="#">Previous</a>
+                <a class="carousel-next" href="#">Next</a>
+            </div>
+        </main>
+        <script src="dist/app.js"></script>
+    </body>
+    </html>

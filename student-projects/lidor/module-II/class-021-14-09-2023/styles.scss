@@ -1,39 +1,122 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
+/* styles.css */
 
-* {
+/* Reset some default styles */
+body, h1, h2, form, label, input, select, button {
     margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    font-family: Arial, sans-serif;
 }
 
-html {
-    font-size: calc(1rem + 0.5vw);
-    line-height: 1.6;
-}
-
+/* Set a background color and text color for the body */
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 20px;
 }
 
+/* Center the form on the page */
 main {
-    width: min(75ch, 100% - 2rem);
-    margin-inline: auto;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.flow>*+* {
-    margin-block-start: 1em;
+/* Style the form header */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
-input,
-button,
+/* Style the form sections */
+h2 {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+/* Style form input labels */
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Style form inputs */
+input[type="text"],
 select {
-    font-size: inherit;
-    color: inherit;
-    font-family: inherit;
+    width: 98%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.submitted input:invalid {
-    border-color: red;
+/* Style the submit button */
+button[type="submit"] {
+    display: block;
+    width: 95%;
+    padding: 10px;
+    margin: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #94c2f3;
+}
+
+/* Add CSS for the carousel and its components */
+.carousel {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel-inner {
+    display: flex;
+    overflow: hidden;
+    height: 100px;
+}
+
+/* Style the navigation buttons */
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.carousel-prev {
+    left: -120px;
+    width: 60px;
+    margin: 10px;
+
+}
+
+.carousel-next {
+    right: -90px;
+    width: 30px;
+    margin: 10px;
+}
+
+/* Highlight error inputs */
+.error {
+    border: 1px solid #ff0000;
 }
