@@ -35,16 +35,17 @@ body {
     margin-left: 50px;
  }
 .text{
-    position: absolute;
     width: 300px;
     height:200px;
     background-color: azure;
     border: 1px solid black;
     margin-top: 450px;
     margin-left: 50px;
+    position: relative;
  }
  .ballon{
-   display: none;
+    display: inline-block;
+    position: relative;
    width: 100px;
    height: 100px;
  }
