@@ -9,6 +9,11 @@ for (let i = 0; i < collisions.length; i += 70) {
   collisionsMap.push(collisions.slice(i, i + 70));
 }
 
+const battleZonesMap = [];
+for (let i = 0; i < battleZonesData.length; i += 70) {
+  battleZonesMap.push(battleZonesData.slice(i, i + 70));
+}
+
 const boundaries: Boundary[] = [];
 const offset = {
   x: -1900,
@@ -19,6 +24,22 @@ collisionsMap.forEach((row, i) => {
   row.forEach((symbol, j) => {
     if (symbol === 1025)
       boundaries.push(
+        new Boundary({
+          position: {
+            x: j * Boundary.width + offset.x,
+            y: i * Boundary.height + offset.y,
+          },
+        })
+      );
+  });
+});
+
+const battleZones = [];
+
+battleZonesMap.forEach((row, i) => {
+  row.forEach((symbol, j) => {
+    if (symbol === 1025)
+      battleZones.push(
         new Boundary({
           position: {
             x: j * Boundary.width + offset.x,
@@ -95,7 +116,7 @@ const keys = {
   },
 };
 
-const movables = [background, ...boundaries, foreground];
+const movables = [background, ...boundaries, foreground, ...battleZones];
 
 function rectengularCollision({ rectangle1, rectangle2 }) {
   return (
@@ -118,14 +139,33 @@ function animate() {
     ) {
     }
   });
+  battleZones.forEach((battleZone) => {
+    battleZone.draw();
+  });
   player.draw();
   foreground.draw();
+
+  if (keys.w.pressed || keys.a.pressed || keys.s.pressed || keys.d.pressed) {
+    for (let i = 0; i < battleZones.length; i++) {
+      const battleZone = battleZones[i];
+      if (
+        rectengularCollision({
+          rectangle1: player,
+          rectangle2: battleZone,
+        })
+      ) {
+        console.log("battle zone collision");
+        break;
+      }
+    }
+  }
 
   let moving = true;
   player.moving = false;
   if (keys.w.pressed && lastKey === "w") {
     player.moving = true;
     player.image = player.sprites.up;
+
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i];
       if (
@@ -144,6 +184,7 @@ function animate() {
         break;
       }
     }
+
     if (moving)
       movables.forEach((movable) => {
         movable.position.y += 1;
