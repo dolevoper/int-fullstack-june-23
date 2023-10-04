@@ -60,8 +60,8 @@ const player = new Sprite({
     up: playerUpImage,
     left: playerLeftImage,
     down: playerDownImage,
-    right: playerRightImage
-  }
+    right: playerRightImage,
+  },
 });
 
 const background = new Sprite({
@@ -99,8 +99,8 @@ const movables = [background, ...boundaries, foreground];
 
 function rectengularCollision({ rectangle1, rectangle2 }) {
   return (
-    rectangle1.position.x + rectangle1.width >= rectangle2.position.x + 5 &&
-    rectangle1.position.x <= rectangle2.position.x + rectangle2.width - 5 &&
+    rectangle1.position.x + rectangle1.width >= rectangle2.position.x + 10 &&
+    rectangle1.position.x <= rectangle2.position.x + rectangle2.width - 10 &&
     rectangle1.position.y + rectangle1.height >= rectangle2.position.y - 5 &&
     rectangle1.position.y <= rectangle2.position.y + rectangle2.height / 3
   );
@@ -116,7 +116,6 @@ function animate() {
         rectangle2: boundary,
       })
     ) {
-      console.log("collide");
     }
   });
   player.draw();
@@ -141,7 +140,6 @@ function animate() {
           },
         })
       ) {
-        console.log("collide");
         moving = false;
         break;
       }
@@ -167,7 +165,6 @@ function animate() {
           },
         })
       ) {
-        console.log("collide");
         moving = false;
         break;
       }
@@ -218,7 +215,6 @@ function animate() {
           },
         })
       ) {
-        console.log("collide");
         moving = false;
         break;
       }
