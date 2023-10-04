@@ -8,14 +8,49 @@ canvas!.height = 576;
 c!.fillStyle = "white";
 c?.fillRect(0, 0, canvas!.width, canvas!.height);
 
-const backgroundImage = new Image();
-backgroundImage.src = "./assets/zoomedmap.png";
+const image = new Image();
+image.src = "./assets/zoomedmap.png";
 
 const playerImage = new Image();
 playerImage.src = "./assets/playerDown.png";
 
-backgroundImage.onload = () => {
-  c?.drawImage(backgroundImage, -1900, -975);
+class Sprite {
+  constructor({ position, velocity, image }) {
+    this.position = position;
+    this.image = image;
+  }
+
+  draw() {
+    c?.drawImage(this.image, -1900, -975);
+  }
+}
+
+const background = new Sprite({
+  position: {
+    x: -1900,
+    y: -975,
+  },
+  image: image
+});
+
+const keys = {
+  w: {
+    pressed: false
+  },
+  a: {
+    pressed: false
+  },
+  s: {
+    pressed: false
+  },
+  d: {
+    pressed: false
+  },
+}
+
+function animate() {
+  window.requestAnimationFrame(animate);
+  background.draw();
   c?.drawImage(
     playerImage,
     0,
@@ -26,5 +61,17 @@ backgroundImage.onload = () => {
     canvas!.height / 2 - playerImage.height / 2,
     playerImage.width / 4,
     playerImage.height
-  );
-};
+  )
+
+  if ()
+}
+animate();
+
+window.addEventListener("keydown", (e) => {
+  switch (e.key) {
+    case "w":
+    case "ArrowUp":
+      console.log("pressed up");
+      break;
+  }
+});
