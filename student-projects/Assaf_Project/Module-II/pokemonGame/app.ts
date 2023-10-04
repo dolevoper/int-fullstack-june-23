@@ -9,8 +9,8 @@ c!.fillStyle = "white";
 c?.fillRect(0, 0, canvas!.width, canvas!.height);
 
 const backgroundImage = new Image();
-backgroundImage.src = "./assets/pokemon-map.png";
+backgroundImage.src = "./assets/zoomedmap.png";
 
 backgroundImage.onload = () => {
-  c?.drawImage(backgroundImage, 0, 0);
+  c?.drawImage(backgroundImage, -1950, -1000);
 };
