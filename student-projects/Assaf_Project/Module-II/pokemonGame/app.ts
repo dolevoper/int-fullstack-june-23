@@ -38,8 +38,6 @@ foregroundImage.src = "./assets/pokemon-map-foreground.png";
 const playerImage = new Image();
 playerImage.src = "./assets/playerDown.png";
 
-
-
 const player = new Sprite({
   position: {
     x: canvas!.width / 2 + 192 / 16,
@@ -88,7 +86,7 @@ function rectengularCollision({ rectangle1, rectangle2 }) {
   return (
     rectangle1.position.x + rectangle1.width >= rectangle2.position.x + 5 &&
     rectangle1.position.x <= rectangle2.position.x + rectangle2.width - 5 &&
-    rectangle1.position.y + rectangle1.height >= rectangle2.position.y -5 &&
+    rectangle1.position.y + rectangle1.height >= rectangle2.position.y - 5 &&
     rectangle1.position.y <= rectangle2.position.y + rectangle2.height / 3
   );
 }
@@ -107,10 +105,12 @@ function animate() {
     }
   });
   player.draw();
-  foreground.draw()
+  foreground.draw();
 
   let moving = true;
+  player.moving = false;
   if (keys.w.pressed && lastKey === "w") {
+    player.moving = true;
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i];
       if (
@@ -131,10 +131,11 @@ function animate() {
       }
     }
     if (moving)
-    movables.forEach((movable) => {
-      movable.position.y += 1;
-    });
+      movables.forEach((movable) => {
+        movable.position.y += 1;
+      });
   } else if (keys.a.pressed && lastKey === "a") {
+    player.moving = true;
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i];
       if (
@@ -155,10 +156,11 @@ function animate() {
       }
     }
     if (moving)
-    movables.forEach((movable) => {
-      movable.position.x += 1;
-    });
+      movables.forEach((movable) => {
+        movable.position.x += 1;
+      });
   } else if (keys.s.pressed && lastKey === "s") {
+    player.moving = true;
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i];
       if (
@@ -179,10 +181,11 @@ function animate() {
       }
     }
     if (moving)
-    movables.forEach((movable) => {
-      movable.position.y -= 1;
-    });
+      movables.forEach((movable) => {
+        movable.position.y -= 1;
+      });
   } else if (keys.d.pressed && lastKey === "d") {
+    player.moving = true;
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i];
       if (
@@ -203,9 +206,9 @@ function animate() {
       }
     }
     if (moving)
-    movables.forEach((movable) => {
-      movable.position.x -= 1;
-    });
+      movables.forEach((movable) => {
+        movable.position.x -= 1;
+      });
   }
 }
 animate();
