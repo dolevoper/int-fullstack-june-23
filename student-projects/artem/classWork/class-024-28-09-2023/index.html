@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration form</title>
+
+    <link rel="stylesheet" href="dist/styles.css" />
+  </head>
+
+  <body>
+    <h1>Registration form</h1>
+    <form name="add-new-user" id="add-user" class="flow" novalidate>
+      <h2>Add new user</h2>
+      <div class="form-input">
+        <!-- <label for="userName"></label> -->
+        <input
+          type="text"
+          name="userName"
+          id="user-name"
+          inputmode="latin-name"
+          placeholder="User name"
+          required />
+      </div>
+      <div class="form-input">
+        <!-- <label for="userEmail">Email</label> -->
+        <input
+          type="userEmail"
+          id="email"
+          name="userEmail"
+          placeholder="Email"
+          required />
+      </div>
+      <div class="form-input">
+        <!-- <label for="userPassword"></label> -->
+        <input
+          type="text"
+          id="user-password"
+          placeholder="Password"
+          name="userPassword"
+          required />
+      </div>
+      <div class="form-input">
+        <!-- <label for="passwordComfirmation"> Confirm password</label> -->
+        <input
+          type="text"
+          id="confirm-password"
+          placeholder="Confirm password"
+          name="passwordComfirmation" />
+      </div>
+      <button type="submit">Register</button>
+    </form>
+
+    <!-- <form name="jsonExpression">
+        <h1>JSON validator</h1>
+        <textarea name="json" id="json" cols="30" rows="10"></textarea>
+        <button>Submit</button>
+        <output name="result"></output>
+    </form> -->
+
+    <form></form>
+
+    <script src="dist/app.js"></script>
+  </body>
+</html>
