@@ -1,18 +1,18 @@
-import { load, remove, save} from "./Storage.js";
+import { load, remove, save } from "./Storage.js";
 
 export enum UserPrivilege {
 	Admin = "admin",
 	Client = "client",
 }
 
-export abstract class User  {
+export abstract class User {
 
 	constructor(
 		protected privilege: UserPrivilege,
 		public username: string,
 		public password: string
-	) {}
-	
+	) { }
+
 
 	public getPrivilege(): UserPrivilege {
 		return this.privilege;
@@ -49,14 +49,14 @@ export function saveCurrentUser<T = Client | Admin>(user: T): void {
 }
 export function loadCurrentUser(): Client | Admin | null {
 	const user = load<Client | Admin>(STORAGE_CURRENT_USER);
-	if(!user) return null;
+	if (!user) return null;
 
-	if(isAdmin(user)) {
-		const placeholder = new Admin("","");
-		Object.assign(placeholder,user);
+	if (isAdmin(user)) {
+		const placeholder = new Admin("", "");
+		Object.assign(placeholder, user);
 		return placeholder;
-	} else if(isClient(user)) {
-		const placeholder = new Client("","");
+	} else if (isClient(user)) {
+		const placeholder = new Client("", "");
 		Object.assign(placeholder, user);
 		return placeholder;
 	} else return null;
