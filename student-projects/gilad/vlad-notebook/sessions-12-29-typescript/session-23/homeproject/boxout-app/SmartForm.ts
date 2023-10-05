@@ -1,13 +1,24 @@
 import { Validator } from "./Validator.js";
 
 type InputType = string | number | boolean;
-
 export class SmartForm {
 
+    form!: HTMLFormElement;
     inputs!: ValidatableInput<InputType>[];
 
-    constructor(public form: HTMLFormElement) {
+    constructor(formName: string) {
+
+        this.initForm(formName);
         this.initInputs();
+    }
+
+    initForm(formName: string) {
+        const fetchedForm = document.forms.namedItem(formName);
+        if (!fetchedForm) {
+            const fileName = location.pathname.split("/").pop();
+            throw new Error(`no form named ${formName} is found at page ${fileName}!`)
+        }
+        this.form = fetchedForm;
     }
 
     initInputs() {
