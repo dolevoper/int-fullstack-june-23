@@ -1,0 +1,25 @@
+@use "defaults" as defaults;
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: defaults.$font-main;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+input {
+    all: unset;
+}
+
+button {
+    all: unset;
+}
+
+button:focus {
+    outline: revert;
+}

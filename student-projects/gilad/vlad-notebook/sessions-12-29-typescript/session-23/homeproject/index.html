@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOXOUT - Unlimited Storage</title>
+
+    <link rel="stylesheet" href="styles/dist/login.css">
+    <link rel="shortcut icon" href="./assets/main-logo/boxout-icon-16.png" type="image/x-icon">
+</head>
+
+<body>
+
+
+    <div class="main">
+        <a class="main__logo"></a>
+        <form class="login-form form" name="login-form">
+
+            <div class="form__field">
+                <label class="form__label" for="login-username">Username:</label>
+                <input required class="form__input" type="text" name="login-username" id="login-username">
+            </div>
+            <div class="form__field">
+                <label class="form__label" for="login-password">Password:</label>
+                <input required class="form__input" type="password" name="login-password" id="login-password">
+            </div>
+
+            <div class="form__field form__field--checkbox">
+                <label class="form__label form__label--small" for="login-remember">Remember me?</label>
+                <input class="form__input" type="checkbox" name="login-remember" id="login-remember">
+            </div>
+
+            <button class="form__button" type="submit">LOG IN</button>
+        </form>
+    </div>
+
+
+    <script type="module" src="boxout-app/dist/login-page.js"></script>
+</body>
+
+</html>
