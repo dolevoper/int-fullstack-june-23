@@ -100,15 +100,17 @@ class User {
     } else if (this.velocity.x < 0) {
       this.direction = "left";
     }
-    
-    // movment check
+
+    // Movement check
 
     if (keys.right && user.position.x < 500) {
       user.velocity.x = 3;
       gameFrame++;
+      userScore += 3;
     } else if (keys.left && user.position.x > 100) {
       user.velocity.x = -3;
       gameFrame--;
+      userScore -= 3;
     } else {
       if (keys.right) {
         floatPlatform.position.x -= 2;
@@ -121,16 +123,21 @@ class User {
       user.velocity.x = 0;
       frameX = 0;
     }
-
   }
 
   shoot() {
     const velocity = this.direction === "right" ? 5 : -5;
-    const bullet = new Bullet(this.position.x, this.position.y - -35, velocity, 0);
+    const bullet = new Bullet(
+      this.position.x,
+      this.position.y - 35,
+      velocity,
+      0
+    );
 
     bulletList.push(bullet);
   }
 }
+
 class Platform {
   position: {
     x: number;
@@ -153,35 +160,61 @@ class Platform {
     ctxt.fillStyle = color;
     ctxt.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
+
+  update() {
+    if (floatPlatform.position.x + floatPlatform.width < 0) {
+      floatPlatform = new Platform(
+        canvas.width,
+        Math.random() * (canvas.height - 50),
+        150,
+        20
+      );
+    }
+  }
 }
 
 class Boss {
-  position: { x: number; y: number; };
+  position: { x: number; y: number };
   width: number;
   height: number;
+  health: number;
+  isAlive: boolean;
 
   constructor(positionX: number, positionY: number) {
     this.position = {
       x: positionX,
-      y: positionY
-    }
+      y: positionY,
+    };
 
     this.width = 100;
     this.height = 100;
+    this.health = 100; // Initialize boss health
+    this.isAlive = true;
   }
 
-  draw(){
+  draw() {
     ctxt.fillStyle = "black";
     ctxt.fillRect(this.position.x, this.position.y, this.width, this.height);
+
+    
+    ctxt.fillStyle = "red";
+    ctxt.fillRect(this.position.x, this.position.y - 10, this.width, 5);
+    ctxt.fillStyle = "green";
+    const healthWidth = (this.health / 100) * this.width;
+    ctxt.fillRect(this.position.x, this.position.y - 10, healthWidth, 5);
   }
 
-//   dead(){ TODO: when bullet hit the boss he gonna die
-//     bulletList.forEach((bullet) => {
-//       if(bullet.position.x === boss.position.x && bullet.position.y === boss.position.y){
-//         boss = new Boss(0,0);
-//       }
-//   });
-// }
+  takeDamage(damage: number) {
+    if (this.isAlive) {
+      this.health -= damage;
+
+      if (this.health <= 0) {
+        this.isAlive = false;
+        this.health = 0;
+        console.log("Boss is defeated!");
+      }
+    }
+  }
 }
 
 class Bullet {
@@ -217,13 +250,30 @@ class Bullet {
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
   }
+
+  update() {
+    bulletList.forEach((bullet) => {
+      bullet.draw();
+      if (
+        bullet.position.x < boss.position.x + boss.width &&
+        bullet.position.x + bullet.width > boss.position.x &&
+        bullet.position.y < boss.position.y + boss.height &&
+        bullet.position.y + bullet.height > boss.position.y
+      ) {
+        boss.takeDamage(10);
+        bulletList.splice(bulletList.indexOf(bullet), 1);
+      }
+    });
+  }
 }
 
 const user = new User();
 const field = new Platform(0, canvas.height - 20, canvas.width, 20);
 let floatPlatform = new Platform(500, 500, 150, 20);
 const bulletList: Bullet[] = [];
-let boss = new Boss(800,850)
+let boss = new Boss(800, 850);
+const bullet = new Bullet(0, 0, 0, 0);
+let userScore = 0;
 
 const keys = {
   right: false,
@@ -248,26 +298,25 @@ function animate(gameTime: number) {
   ctxt.clearRect(0, 0, canvas.width, canvas.height);
   field.draw("green");
   floatPlatform.draw("black");
-  bulletList.forEach((bullet) => {
-    bullet.draw();
-  });
-  boss.draw();
-  // boss.dead();
-  
+  bullet.update();
+  if (boss.isAlive) {
+    boss.draw();
+  }
+  floatPlatform.update();
   user.update(deltaTime);
 
+  if (userScore === 900 && boss.isAlive) {
+    boss = new Boss(800, 850);
+  }
 
-  if (floatPlatform.position.x + floatPlatform.width < 0) {
-    floatPlatform = new Platform(
-      canvas.width,
-      Math.random() * (canvas.height - 50),
-      150,
-      20
-    );
+  if (userScore === 1000 && !boss.isAlive) {
+    alert("You won!");
+    return;
   }
 }
 
 requestAnimationFrame(animate);
+console.log("userScore: " + userScore);
 
 window.addEventListener("keydown", ({ code }) => {
   switch (code) {
