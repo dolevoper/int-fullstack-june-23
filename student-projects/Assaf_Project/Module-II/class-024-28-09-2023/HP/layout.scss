@@ -7,7 +7,12 @@ justify-content: center;
     height: 100vh;
 }
 
-.--space-between {
+.--float-right {
     float: right;
-    line-height: 1rem;
+}
+
+.--space-between {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
 }

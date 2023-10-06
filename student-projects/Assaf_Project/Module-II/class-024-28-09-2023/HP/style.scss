@@ -1,5 +1,8 @@
 :root {
     --background-color: lavender;
+    --primary-color: #3434ad;
+    --text-color-1: black;
+    --text-color-2: white;
 }
 
 .card {
@@ -8,6 +11,14 @@
     height: fit-content;
     padding: 1rem;
     border-radius: 8px;
+}
+
+.end-margin {
+    margin-inline-end: 1rem;
+}
+
+.bigger-line-height {
+    line-height: 2rem;
 }
 
 .margin-top {
@@ -24,4 +35,22 @@
 
 .button {
     cursor: pointer;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: larger;
+    padding: 5px;
+    user-select: none;
+    transition: all .3s ease;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.374);
+        color: var(--text-color-2);
+        border-color: var(--text-color-1);
+    }
+
+    &:active {
+        background-color: var(--primary-color);
+        color: var(--text-color-2);
+        border-color: var(--text-color-2);
+    }
 }
