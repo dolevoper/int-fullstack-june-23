@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,40 @@
     <link rel="stylesheet" href="dist/layout.css">
     <link rel="stylesheet" href="dist/style.css">
 </head>
+
 <body>
-    
+    <main class="centered-items full-height background-color">
+        <form class="card margin-top" name="login" novalidate>
+            <h1 class="margin-bottom">Login Form</h1>
+            <div class="">
+                <label for="username">Username</label>
+                <input class="--space-between" type="text" id="username" name="username" required autofocus />
+                <p class=""></p>
+            </div>
+            <div class="">
+                <label for="email">Email</label>
+                <input class="--space-between" type="text" id="email" name="email" required autofocus />
+                <p class=""></p>
+            </div>
+            <div class="">
+                <label for="password">Password</label>
+                <input class="--space-between" type="password" id="password" name="password" required />
+                <p class=""></p>
+            </div>
+            <div class="">
+                <label for="confirm-password">Confirm password</label>
+                <input class="--space-between" type="password" id="confirm-password" name="confirmPassword" required />
+                <p class=""></p>
+            </div>
+            <div>
+                <p class=""></p>
+                <button class="button margin-top" type="submit">Login</button>
+            </div>
+        </form>
+
+    </main>
+
     <script src="dist/login.js"></script>
 </body>
+
 </html>

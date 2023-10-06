@@ -1,0 +1,27 @@
+:root {
+    --background-color: lavender;
+}
+
+.card {
+    background-color: #cccccc;
+    box-shadow: 8px 8px 4px 0px rgba(0, 0, 0, 0.3);
+    height: fit-content;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.margin-top {
+    margin-top: 2rem;
+}
+
+.margin-bottom {
+    margin-bottom: 1rem;
+}
+
+.background-color {
+    background-color: var(--background-color);
+}
+
+.button {
+    cursor: pointer;
+}
