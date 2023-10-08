@@ -4,8 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="dist/home.css">
 </head>
 <body>
+<header>
+    <nav>
+        <a href="home.html">Hone</a>
+        <a href="canvas.html">Canvas</a>
+    </nav>
+</header>
+   <h1> Home Page</h1>
+   <form class="home">
+    <div class="box-continor">
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" autofocus placeholder="First name" required>
+    </div>
+    <div class="box-continor">
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" autofocus placeholder="Last name" required>
+    </div>
+    <div class="box-continor">
+        <label for="password">Password</label>
+        <input type="password" id="password" autofocus placeholder="Password" required>
+    </div>
+    <div class="box-continor">
+        <label for="confirm-password">Password</label>
+        <input type="password" id="confirm-password" autofocus placeholder="Confirm password" required>
+    </div>
+    <div class="box-continor">
+        <label for="e-mail">Email</label>
+        <input type="email" id="e-mail" autofocus placeholder="Enter E-mail" required>
+    </div>
+    <div class="box-continor">
+        <label for="gender">Male</label>
+        <input type="checkbox" id="gender" autofocus placeholder="male" >
+        <label for="gender">Female</label>
+        <input type="checkbox" id="gender" autofocus placeholder="FEmale" >
+    </div>
+    <div class="box-continor">
+        <label for="age-range">Age</label>
+        <select name="age" id="age-range">
+            <option value="0">Under 18</option>
+            <option value="1">18-30</option>
+            <option value="2">31-50</option>
+            <option value="3">51-70</option>
+            <option value="4">Above 70</option>
+        </select>
+    </div>
+   </form>
     
 </body>
 </html>
