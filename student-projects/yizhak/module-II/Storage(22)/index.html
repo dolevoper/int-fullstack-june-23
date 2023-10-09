@@ -5,7 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body id="count">
+<body id="count" load>
+
+    <form action="#" id="form[login]">
+        
+        <div class="form-div">
+        <label for="username">user name</label>
+        <input type="text" placeholder="user name" id="username" name="username" required>
+        </div>
+
+        <div class="form-div">
+            <label for="password">password</label>
+            <input type="password" placeholder="password" id="password" name="password" required>
+        </div>
+        <button type="submit">send</button>
+    </form>
     <script src="dist/app.js"></script>
 </body>
 </html>
