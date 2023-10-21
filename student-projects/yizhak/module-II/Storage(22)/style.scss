@@ -1,31 +1,31 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    width: 100%;
-    height: 100%;
-    background-color: var(--secend-color);
+  width: 100%;
+  height: 100%;
+  background-color: var(--secend-color);
 }
 
-:root{
-    --first-color: #121212;
-    --secend-color: white;
+:root {
+  --first-color: #121212;
+  --secend-color: white;
 }
 
 p {
-    color: var(--first-color);
+  color: var(--first-color);
 }
 
 .darkmode {
-    background-color: var(--first-color);
+  background-color: var(--first-color);
+  color: var(--secend-color);
+  width: 100%;
+  height: 100%;
+  transition: 0.3s;
+  p {
     color: var(--secend-color);
-    width: 100%;
-    height: 100%;
-    transition: 0.3s;
-    p{
-        color: var(--secend-color);
-    }
+  }
 }
