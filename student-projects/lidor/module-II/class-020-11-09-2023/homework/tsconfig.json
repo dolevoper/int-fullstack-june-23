@@ -3,8 +3,7 @@
         "target": "ESNext",
         "lib": ["ESNext", "DOM", "DOM.Iterable"],
         "strictNullChecks": true,
-        "noImplicitAny": true,
-        "useUnknownInCatchVariables": true
+        "noImplicitAny": true
     },
     "include": ["./*.ts"]
 }

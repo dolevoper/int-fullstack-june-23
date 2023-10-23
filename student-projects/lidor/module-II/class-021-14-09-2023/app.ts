@@ -5,6 +5,9 @@
 // (Choose 2 or 3, or do both if you finish the first quickly)
 
 type LicenseType = "A" | "B" | "C";
+type carStatus = "free" | "discount" |"banned";
+
+type discountRate = "10" | "30" | "50" | "70";
 
 type Car = {
     registrationNumber: string;
@@ -12,13 +15,15 @@ type Car = {
     type?: string;
     color: string;
     licenseType: LicenseType;
+    Status: carStatus;
+    Rate : discountRate; 
 };
 
 type CarArray = Car[];
 
 const cars: CarArray = [];
 
-const addCarForm = document.querySelector("form[name='add-new-car']");
+const addCarForm = document.querySelector("form[name='add-new-car']") as HTMLFormElement | null;
 if (!addCarForm) {
     console.error("Couldn't find add car form.");
 } else {
@@ -28,11 +33,13 @@ if (!addCarForm) {
         const formData = new FormData(e.target as HTMLFormElement);
 
         cars.push({
-            registrationNumber: getRequiredString(formData, "registrationNumber"),
+            registrationNumber: getRequiredString(formData, "registrationNumber")e,
             brand: getRequiredString(formData, "brand"),
             type: getString(formData, "type"),
             color: getRequiredString(formData, "color"),
-            licenseType: parseLicenseType(getRequiredString(formData, "licenseType"))
+            licenseType: parseLicenseType(getRequiredString(formData, "licenseType")),
+            Status :getCarStatus(getRequiredString(formData, "carStatus")),
+            Rate :  getCarRate(getRequiredString(formData, "Rate")),
         });
 
         console.log(cars);
@@ -74,3 +81,37 @@ function parseLicenseType(value: string): LicenseType {
 
     return value;
 }
+
+function getCarStatus (value: string): carStatus {
+    if (value !== "free" && value !== "discount" && value !== "banned") {
+        throw new Error(`Invalid status : ${value}`);
+    }
+
+    return value;
+}
+
+
+function getCarRate (value: string): discountRate {
+    if (value !== "10" && value !== "30" && value !== "50" && value !== "70") {
+        throw new Error(`Invalid status : ${value}`);
+    }
+
+    return value;
+}
+
+function toggleDiscountRateVisibility() {
+    const carStatusSelect = document.getElementById("car-status");
+    const discountRate = document.getElementById("discount-rate");
+
+    
+    carStatusSelect!.addEventListener("change", function () {
+        if (carStatusSelect!.value === "discount") {
+            discountRate!.style.display = "block";
+        } else {
+            discountRate!.style.display = "none";
+        }
+    });
+}
+
+
+toggleDiscountRateVisibility();
