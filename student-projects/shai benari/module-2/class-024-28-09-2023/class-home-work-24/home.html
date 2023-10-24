@@ -14,22 +14,22 @@
     </nav>
 </header>
    <h1> Home Page</h1>
-   <form class="home">
+   <form name="home">
     <div class="box-continor">
         <label for="first-name">First Name</label>
-        <input type="text" id="first-name" autofocus placeholder="First name" required>
+        <input type="text" id="first-name" autofocus placeholder="First name" name="firstName" required>
     </div>
     <div class="box-continor">
         <label for="last-name">Last Name</label>
-        <input type="text" id="last-name" autofocus placeholder="Last name" required>
+        <input type="text" id="last-name" autofocus placeholder="Last name" name="lastName" required>
     </div>
     <div class="box-continor">
         <label for="password">Password</label>
-        <input type="password" id="password" autofocus placeholder="Password" required>
+        <input type="password" id="password" autofocus placeholder="Password" name="password" required>
     </div>
     <div class="box-continor">
         <label for="confirm-password">Password</label>
-        <input type="password" id="confirm-password" autofocus placeholder="Confirm password" required>
+        <input type="password" id="confirm-password" autofocus placeholder="Confirm password" name="confirmPassword" required>
     </div>
     <div class="box-continor">
         <label for="e-mail">Email</label>
@@ -51,6 +51,9 @@
             <option value="4">Above 70</option>
         </select>
     </div>
+    <button type="submit">Add</button>
+    <button type="reset">Remove</button>
+
    </form>
     <script src="dist/home.js"></script>
 </body>
