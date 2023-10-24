@@ -26,7 +26,8 @@ const cars: CarArray = [];
 const addCarForm = document.querySelector("form[name='add-new-car']") as HTMLFormElement | null;
 if (!addCarForm) {
     console.error("Couldn't find add car form.");
-} else {
+} 
+else {
     addCarForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
