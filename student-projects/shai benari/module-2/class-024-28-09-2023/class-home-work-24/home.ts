@@ -26,6 +26,7 @@ else {
         e.preventDefault();
 
         const formData = new FormData(e.target as HTMLFormElement);
+        console.log(formData)
 
 
     UsersData.push({
@@ -34,8 +35,9 @@ else {
       password: getRequiredString(formData, "password"),
       confirmPassword: getRequiredString(formData, "confirmPassword"),
       // gender: parseGender(getRequiredString(formData, "gender")),
-      age: parseAge(getRequiredString(formData, "age"))
+      age: parseAge(getRequiredString(formData, "age"));
 
+     
     });
       console.log(UsersData);
     });
