@@ -4,42 +4,42 @@ class calculator{
         this.bottomScrenTextElement = bottomScrenTextElement
         this.clear();
     }
-}
 
-clear(){
+ clear(){
 this.topScren ='';
 this.bottomScren = '';
 this.operation = undefined;
 }
-delet(){
+function delet(){
 
 }
-appendNumber(number){
-this.bottomScren = number;
+function appendNumber(number){
+    if(number === '.' &&  this.bottomScren.incudes('.') ) return;
+this.bottomScren = this.bottomScren.topScren() + number.topScren();
 }
-chooseOperation(operation){
+function chooseOperation(operation){
 
 }
-compute(){
+function compute(){
 
 }
-updateDisplay(){
+function updateDisplay(){
     this.bottomScrenTextElement.innerText = this.bottomScren;
 }
 
 
-const numberButton = document.querySelectorAll(`[data-number]`);
-const operationButton = document.querySelectorAll(`[data-operation]`);
-const equalButton = document.querySelector(`[data-equaln]`);
-const deletlButton = document.querySelector(`[data-delete]`);
-const allClearButton = document.querySelector(`[data-all-clear]`);
-const topScrenTextElement = document.querySelector(`[data-top-scren]`) as HTMLDivElement;
-const bottomScrenTextElement = document.querySelector(`[ data-bottom-scren]`) as HTMLDivElement;
+const numberButton = document.querySelectorAll('[data-number]');
+const operationButton = document.querySelectorAll('[data-operation]');
+const equalButton = document.querySelector('[data-equaln]');
+const deletlButton = document.querySelector('[data-delete]');
+const allClearButton = document.querySelector('[data-all-clear]');
+const topScrenTextElement = document.querySelector('[data-top-scren]') as HTMLDivElement;
+const bottomScrenTextElement = document.querySelector('[ data-bottom-scren]') as HTMLDivElement;
 
 const calculator = new calculator(topScrenTextElement, bottomScrenTextElement);
 numberButton.forEach(button => {
-    button.addEventListener(`click`,() =>){
+    button.addEventListener(`click`,() =>{
         calculator.appendNumber(button.innerText);
         calculator.updateDisplay();
-    }
+    })
 });
