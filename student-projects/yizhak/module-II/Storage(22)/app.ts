@@ -15,7 +15,7 @@ const form = document.querySelector("form[name='login']") as HTMLFormElement;
 const username = document.getElementById("username") as HTMLInputElement;
 const userpassword = document.getElementById("password") as HTMLInputElement;
 const resetbtn = document.getElementById("reset") as HTMLButtonElement;
-const send = document.getElementById("btnsend") as HTMLButtonElement;// לבדוק למה זה null
+const send = document.getElementById("btnsend") as HTMLButtonElement;
 
 
 type user = [
