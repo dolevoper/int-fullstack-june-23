@@ -156,6 +156,21 @@ detailsForm?.addEventListener("submit", (e) => {
   localStorage.setItem("characters", charactersString);
 });
 
+const charactersButton = document.querySelector("#charactersButton");
+charactersButton?.addEventListener("click", () => {
+  const characterList = document.querySelector(".characterSelection__innerWindow__characterList") as HTMLUListElement;
+  while (characterList.firstChild) {
+    characterList.removeChild(characterList.firstChild);
+  }
+  characters.forEach(function(character) {
+    const listItem = document.createElement("li");
+    listItem.textContent = character.name;
+    characterList?.appendChild(listItem);
+  });
+  const characterSelection = document.querySelector(".characterSelection") as HTMLDivElement;
+  characterSelection.style.visibility = (characterSelection.style.visibility === "visible") ? "hidden" : "visible";
+});
+
 function showAttributePoints() {
   availablePoints =
     totalPoints -
