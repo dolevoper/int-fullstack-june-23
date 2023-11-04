@@ -1,0 +1,406 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#gallery {
+    max-width: 1920px;
+    display: block;
+    direction: ltr;
+    font-size: 1vw;
+    color: #000000;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto 2% auto;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 0px solid green;
+}
+
+#gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#gallery h1, #gallery h2, #gallery h3, #gallery h4, #gallery h5, #gallery h6{
+    font-weight: normal;
+    line-height: 100%;
+}
+
+#gallery .flex-container-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin: 1% auto 0 auto;
+    border: 0px solid green;
+}
+
+#gallery .flex-container-search > div {
+    width: 50%;
+    text-align: left;
+    border: 0px solid red;
+}
+
+#gallery .flex-container-search > div .search {
+    width: 95%;
+    text-align: left;
+    border-radius: 5px 5px 5px 5px;
+    border: 0px solid #000000;
+}
+
+#gallery .flex-container-search > div .search .searchBox {
+    width: 85%;
+    outline: none;
+    font-size: 1em;
+    padding: 0 2% 0 2%;
+    vertical-align: middle;
+}
+
+#gallery .flex-container-search > div a.myLink {
+    border: 1px solid green;
+}
+
+#gallery .flex-container-search > div a.home {
+    color: #ffffff;
+    line-height: 100%;
+    background: gray;
+    transition: 0.3s all;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.7% 3% 0.7% 3%;
+    border: 0px solid green;
+}
+
+#gallery .flex-container-search > div a.home:hover {
+    color: orange
+}
+
+#gallery .flex-container-search > div a.basket {
+    position: relative;
+    width: 6%;
+    display: inline-block;
+    vertical-align: middle;
+    border: 0px solid red;
+}
+
+#gallery .flex-container-search > div a.basket span {
+    position: absolute;
+    top: 0;
+    right: -50%;
+    padding: 14%;
+    width: 1.8em;
+    height: 1.8em;
+    font-size: 0.8em;
+    color: #ffffff;
+    background: red;
+    text-align: center;
+    border-radius: 50%;
+}
+
+#gallery .flex-container-search > div a.cont {
+    float: right;
+    color: #ffffff;
+    margin: 0 0 0 2%;
+    font-weight: bold;
+    line-height: 100%;
+    background: gray;
+    transition: 0.3s all;
+    padding: 1% 2% 1% 2%;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 0px solid green;
+}
+
+#gallery .flex-container-search > div a.cont:hover {
+    color: orange;
+}
+
+#gallery .flex-content {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1.3%;
+    width: 70%;
+    margin: 2% auto 0 auto;
+    border: 0px solid green;
+}
+
+#gallery .flex-content > div {
+    width: 24%;
+    margin: 0 0 2% 0;
+    padding: 0 0 2% 0;
+    border-radius: 10px;
+    border: 1px solid green;
+}
+
+#gallery .flex-content > div .myTitle {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 2% 0 2% 0;
+    background: lightgreen;
+    border-radius: 10px 10px 0 0;
+    border: 0px solid red;
+}
+
+#gallery .flex-content > div img {
+    width: 8em;
+    height: 8em;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 7% auto 0 auto;
+    box-shadow: 0 0 0 10px lightblue;
+}
+
+#gallery .flex-content > div .mainTxt {
+    width: 95%;
+    font-size: 0.9em;
+    text-align: justify;
+    margin: 7% auto 0 auto;
+    border: 0px solid yellow;
+}
+
+#gallery .flex-content > div button {
+    width: 50%;
+    font-size: 1em;
+    cursor: pointer;
+    color: #ffffff;
+    margin: 10% 0 0 0;
+    font-weight: bold;
+    background: gray;
+    padding: 1% 2% 1% 2%;
+    transition: 0.3s all;
+    border-radius: 5px 5px 5px 5px;
+}
+
+#gallery .flex-content > div button:hover {
+    color: lightsalmon;
+}
+
+/******************** Rgistration ********************/
+
+#gallery .myRegistrationForm {
+    width: 70%;
+    text-align: left;
+    margin: 2% auto 0 auto;
+    border: 0px solid green;
+}
+
+#gallery .myRegistrationForm h1 {
+    display: block;
+    font-size: 1.5em;
+    line-height: 100%;
+    font-weight: bold;
+    border: 0px solid green;
+}
+
+#gallery .myRegistrationForm form {
+    width: 50%;
+    margin: 1% 0 0 0;
+    display: inline-block;
+    border: 0px solid yellow;
+}
+
+#gallery .myRegistrationForm form .field-group {
+    text-align: left;
+    margin: 0 0 1.5% 0;
+}
+
+#gallery .myRegistrationForm form .field-group label {
+    width: 30%;
+    font-weight: bold;
+    display: inline-block;
+    border: 0px solid green;
+}
+
+#gallery .myRegistrationForm form .field-group input[type='text'], #gallery .myRegistrationForm form .field-group input[type='password'] {
+    font-size: 1.1em;
+    padding: 0.3% 0.5% 0.3% 0.5%;
+    border: 1px solid gray;
+}
+
+#gallery .myRegistrationForm form .field-group span {
+    color: #ffffff;
+    display: block;
+    font-size: 0.7em;
+    font-weight: bold;
+    background: red;
+    border: 0px solid green;
+}
+
+#gallery .myRegistrationForm form .regBtn {
+    font-size: 1em;
+    cursor: pointer;
+    margin: 1% 0 0 0;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s all;
+    padding: 1% 2% 1% 2%;
+    border: 1px solid gray;
+}
+
+#gallery .myRegistrationForm form .regBtn:hover {
+    color: orange;
+}
+
+/******************** Sign in ********************/
+
+#gallery .mySigninForm {
+    width: 70%;
+    margin: 0 auto;
+    text-align: left;
+    border: 0px solid green;
+}
+
+#gallery .mySigninForm h1 {
+    display: block;
+    font-size: 1.5em;
+    line-height: 100%;
+    font-weight: bold;
+    border: 0px solid green;
+}
+
+#gallery .mySigninForm form {
+    width: 50%;
+    margin: 1% 0 0 0;
+    border: 0px solid yellow;
+}
+
+#gallery .mySigninForm form .field-group {
+    text-align: left;
+    margin: 0 0 1.5% 0;
+}
+
+#gallery .mySigninForm form .field-group label {
+    width: 16%;
+    font-weight: bold;
+    display: inline-block;
+    border: 0px solid green;
+}
+
+#gallery .mySigninForm form .field-group input[type='text'], #gallery .mySigninForm form .field-group input[type='password'] {
+    font-size: 1.1em;
+    padding: 0.3% 0.5% 0.3% 0.5%;
+    border: 1px solid gray;
+}
+
+#gallery .mySigninForm form .signin-error {
+    color: #ffffff;
+    display: block;
+    font-size: 0.7em;
+    font-weight: bold;
+    background: red;
+    border: 0px solid green;
+}
+
+#gallery .mySigninForm form .signinBtn {
+    font-size: 1em;
+    cursor: pointer;
+    margin: 1% 0 0 0;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s all;
+    padding: 1% 2% 1% 2%;
+    border: 1px solid gray;
+}
+
+#gallery .mySigninForm form .signinBtn:hover {
+    color: orange;
+}
+
+/********* Products *********/
+
+#gallery .prodWrap {
+    width: 70%;
+    margin: 0 auto;
+    border: 0px solid green;
+}
+
+#gallery .prodWrap .noProd {
+    font-size: 1.2em;
+    margin: 1% 0 0 0;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 5px 5px 5px 5px;
+    background: lightpink;
+    padding: 0.5% 1% 0.5% 1%;
+    border: 0px solid green;
+}
+
+#gallery .prodWrap .flex-content-prod {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    border: 0px solid green;
+}
+
+#gallery .prodWrap .flex-content-prod > div {
+    width: 50%;
+    text-align: left;
+    padding: 1% 1% 0 1%;
+    border: 0px solid orange;
+}
+
+#gallery .prodWrap .flex-content-prod > div .prodImg {
+    width: 30%;
+    border: 0px solid orange;
+}
+
+#gallery .prodWrap .flex-content-prod > div .prodTitle {
+    font-weight: bold;
+    font-size: 1.3em;
+    border: 0px solid green;
+}
+
+#gallery .prodWrap .flex-content-prod > div ul {
+    list-style-type: none;
+    margin: 2% 0 0 0;
+    border: 0px solid green;
+}
+
+#gallery .prodWrap .flex-content-prod > div .newPrc {
+    margin: 2% 0 0 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: 0px solid green;
+}
+
+#gallery .prodWrap .flex-content-prod > div .oldPrc {
+    margin: 2% 0 0 0;
+    font-size: 1em;
+    border: 0px solid green;
+}
+
+#gallery .prodWrap .flex-content-prod > div .oldPrc span {
+    text-decoration: line-through;
+}
+
+#gallery .prodWrap .flex-content-prod > div a.buyit {
+    width: 22%;
+    display: block;
+    color: #ffffff;
+    margin: 2% 0 0 0;
+    font-weight: bold;
+    line-height: 100%;
+    text-align: center;
+    border-radius: 5px;
+    background: gray;
+    transition: 0.3s all;
+    text-decoration: none;
+    padding: 1.5% 2% 1.5% 2%;
+    border: 0px solid green;
+}
+
+#gallery .prodWrap .flex-content-prod > div a.buyit:hover {
+    color: orange;
+}
+
+/*********** Form Error ***********/
+/*
+#gallery .myRegistrationForm form # {
+    border: 1px solid green;
+}
+*/

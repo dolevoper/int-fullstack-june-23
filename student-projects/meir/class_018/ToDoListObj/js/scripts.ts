@@ -10,7 +10,7 @@ Add another entity to your system and model the relation between the entities an
 Example: students and teachers - you can manage the students separately (add student, modify his details, remove student, etc.), you can manage the teachers separately (add, modify, remove, etc.) and there is also a relation between students and teachers (a student can take a class with a teacher). So there are also operations on the **relation** (enroll a student into a class, student quits a class, etc.)
 */
 
-const Cars: any = {};
+let Cars: any = {};
 const myArrayAfter = [];
 let myCarIs: number | string = "";
 const myArray = ['name', 'model', 'weight', 'color', 'doors'];

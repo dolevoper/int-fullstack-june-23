@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link type="text/css" rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    
+    <div id="gallery">
+
+        <div class="flex-container-search">
+            
+            <div><a href="index.html">Index</a></div>
+            <div>
+                <a href="signin.html" class="cont">Sign in</a>
+                <a href="register.html" class="cont">Register</a>
+            </div>
+        </div>
+        
+        <div class="mySigninForm">
+
+            <h1>Sign in</h1>
+            <form name="signin" onsubmit="return validationSignin(event);">
+
+                <div class="field-group">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email">
+                    <span id="email-error"></span>
+                </div>
+
+                <div class="field-group">
+                    <label for="password">Password:</label>
+                    <input type="text" id="password" name="password">
+                    <span id="password-error"></span>
+                </div>
+
+                <div id="signin-error" class="signin-error"></div>
+
+                <button type="submit" class="signinBtn">Sign in</button>
+
+            </form>
+
+        </div>
+        
+
+    </div>
+    
+    <script src="js/dist/signin.js"></script>
+
+</body>
+</html>

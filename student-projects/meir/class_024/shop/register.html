@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link type="text/css" rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    
+    <div id="gallery">
+
+        <div class="flex-container-search">
+            
+            <div><a href="index.html" class="home">Index</a></div>
+            <div>
+                <a href="signin.html" class="cont">Sign in</a>
+                <a href="register.html" class="cont">Register</a>
+            </div>
+        </div>
+       
+        <div class="myRegistrationForm">
+
+            <h1>Register</h1>
+            
+            <form name="registration" id="RegistrationForm" onsubmit="return validationRegister(event);">
+
+                <div class="field-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" maxlength="30">
+                    <span id="firstName-error"></span>
+                </div>
+
+                <div class="field-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" maxlength="30">
+                    <span id="lastName-error"></span>
+                </div>
+                
+                <div class="field-group">
+                    <label for="idnumber">ID Number:</label>
+                    <input type="text" id="idnumber" name="idnumber" maxlength="9">
+                    <span id="idnumber-error"></span>
+                </div>
+
+                <div class="field-group">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" maxlength="40">
+                    <span id="email-error"></span>
+                </div>
+
+                <div class="field-group">
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone" maxlength="10">
+                    <span id="phone-error"></span>
+                </div>
+
+                <div class="field-group">
+                    <label for="password">Password:</label>
+                    <input type="text" id="password" name="password" maxlength="15">
+                    <span id="password-error"></span>
+                </div>
+
+                <div class="field-group">
+                    <label for="confirmpassword">Confirm Password:</label>
+                    <input type="text" id="confirmpassword" name="confirmpassword" maxlength="15">
+                    <span id="confirmpassword-error"></span>
+                </div>
+
+                <div class="field-group">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" maxlength="30">
+                    <span id="city-error"></span>
+                </div>
+
+                <div class="field-group">
+                    <label for="street">Street:</label>
+                    <input type="text" id="street" name="street" maxlength="30">
+                    <span id="street-error"></span>
+                </div>
+
+                <div class="field-group">
+                    <label for="housenumber">House Number:</label>
+                    <input type="text" id="housenumber" name="housenumber" maxlength="2">
+                    <span id="housenumber-error"></span>
+                </div>
+                
+                <div class="field-group">
+                    <input type="hidden" id="shoping" name="shoping" value="0">
+                </div>
+                
+                <button type="submit" class="regBtn">Register</button>
+                <!--<button class="regBtn" onclick="return ValidateForm()">Register</button>-->
+
+            </form>
+
+        </div>
+        
+
+    </div>
+    
+    <script src="js/dist/register.js"></script>
+
+</body>
+</html>
