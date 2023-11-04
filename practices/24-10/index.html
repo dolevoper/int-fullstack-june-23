@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .yellow {
+            color: yellow;
+        } 
+        .red {
+            color: red;
+        }
+
+        .green {
+            color: green;
+        }
+    </style>
+</head>
+<body onload="onLoad()">
+    <form onsubmit="handleSubmit(event)">
+        <input type="text" name="word" id="word">
+        <button type="submit">Check!</button>
+    </form>
+    <div style="display: flex;" id="guessedWords"></div>
+    <div style="display: flex;" id="letterList"></div>
+    
+</body>
+<script src="./dist/app.js"></script>
+</html>
