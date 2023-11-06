@@ -11,14 +11,24 @@
 <body>
     <h1>Counter app</h1>
 
-    <article class="counter">
-        <div id="value" class="value">0</div>
-        <div class="actions">
-            <button id="btn-increase">➕</button>
-            <button>✖️2️</button>
-            <button id="btn-decrease">➖</button>
-        </div>
-    </article>
+    <div class="cluster">
+        <article id="counter1" class="counter">
+            <div class="value">0</div>
+            <div class="actions">
+                <button class="btn-increase">➕</button>
+                <button class="btn-double">✖️2️</button>
+                <button class="btn-decrease">➖</button>
+            </div>
+        </article>
+        <article id="counter2" class="counter">
+            <div class="value">0</div>
+            <div class="actions">
+                <button class="btn-increase">➕</button>
+                <button class="btn-double">✖️2️</button>
+                <button class="btn-decrease">➖</button>
+            </div>
+        </article>
+    </div>
 
     <script src="dist/counter.js"></script>
 </body>

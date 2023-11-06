@@ -23,17 +23,11 @@ h1 {
     line-height: 1.2;
 }
 
-.cluster {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-}
-
 .counter {
     border: 2px solid currentColor;
     border-radius: 16px;
     width: min(100% - 2rem, 40ch);
+    margin-inline: auto;
     padding: 1rem;
 
     .value {
