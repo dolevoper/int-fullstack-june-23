@@ -15,7 +15,7 @@ type Car = {
     color: string;
     licenseType: LicenseType;
     status: status;
-    // DiscountRate?: string;
+    DiscountRate: string;
 
 };
 
@@ -26,7 +26,8 @@ const cars: CarArray = [];
 const addCarForm = document.querySelector("form[name='add-new-car']") as HTMLFormElement | null;
 if (!addCarForm) {
     console.error("Couldn't find add car form.");
-} else {
+} 
+else {
     addCarForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
@@ -39,7 +40,7 @@ if (!addCarForm) {
             color: getRequiredString(formData, "color"),
             licenseType: parseLicenseType(getRequiredString(formData, "licenseType")),
             status: parseStatus(getRequiredString(formData, "status")),
-            // DiscountRate: getString(formData, "DiscountRate"),
+            DiscountRate: getString(formData, "DiscountRate"),
         });
 
         console.log(cars);
