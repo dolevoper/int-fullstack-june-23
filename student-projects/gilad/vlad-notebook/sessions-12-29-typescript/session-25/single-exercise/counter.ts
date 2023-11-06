@@ -32,13 +32,15 @@ class Counter {
         return this._value;
     }
 
-    public increase() {
-        this._value++;
+    public increase(amount?: number) {
+        this._value += amount ? amount : 1;
+
         updateValueElement();
     }
 
-    public decrease() {
-        this._value--;
+    public decrease(amount?: number) {
+        this._value -= amount ? amount : 1;
+
         updateValueElement();
     }
 }
@@ -55,7 +57,14 @@ counter2.increase();
 console.log(counter1.value, counter2.value);
 // =================================
 
-document.getElementById("btn-increase")?.addEventListener("click", counter1.increase.bind(counter1));
+document.getElementById("btn-increase")?.addEventListener("click", function () {
+    counter1.increase();
+});
+
+
+document.getElementById("btn-double")?.addEventListener("click", function () {
+    counter1.increase(counter1.value);
+});
 
 document.getElementById("btn-decrease")?.addEventListener("click", function () {
     counter1.decrease();
