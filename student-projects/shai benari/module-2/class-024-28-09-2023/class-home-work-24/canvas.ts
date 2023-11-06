@@ -23,10 +23,10 @@ function animate(){
     c.stroke();
 
     if (x > innerWidth - radios || x < 0 + radios)
-        dx = -dx;
-     // dy -= 1;
+     dx = -dx;
+     dy -= 1;
         x += dx;
-        // dy  += 1;
+        dy  += 1;
     x += dx;
     if (y > innerHeight - radios || y < 0 + radios)
     dy = -dy;
