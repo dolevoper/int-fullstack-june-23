@@ -1,5 +1,3 @@
-const valueElement = document.getElementById("value");
-
 // =================================
 // let counter = 0;
 
@@ -28,23 +26,49 @@ const valueElement = document.getElementById("value");
 class Counter {
     private _value = 0;
 
+    constructor(private counterElement: HTMLElement) { }
+
     get value() {
         return this._value;
     }
 
-    public increase() {
-        this._value++;
-        updateValueElement();
+    bindEvents() {
+        this.counterElement.querySelector(".btn-increase")?.addEventListener("click", this.increase.bind(this));
+        this.counterElement.querySelector(".btn-double")?.addEventListener("click", this.double.bind(this));
+        this.counterElement.querySelector(".btn-decrease")?.addEventListener("click", this.decrease.bind(this));
     }
 
-    public decrease() {
+    increase() {
+        this._value++;
+        this.updateValueElement();
+    }
+
+    double() {
+        this._value *= 2;
+        this.updateValueElement();
+    }
+
+    decrease() {
         this._value--;
-        updateValueElement();
+        this.updateValueElement();
+    }
+
+    private updateValueElement() {
+        const valueElement = this.counterElement.querySelector(".value");
+
+        if (!valueElement) {
+            return;
+        }
+
+        valueElement.textContent = this._value.toString();
     }
 }
 
-const counter1 = new Counter();
-const counter2 = new Counter();
+const counter1 = new Counter(document.getElementById("counter1")!);
+counter1.bindEvents();
+
+const counter2 = new Counter(document.getElementById("counter2")!);
+counter2.bindEvents();
 
 counter1.increase();
 
@@ -54,17 +78,3 @@ counter2.increase();
 
 console.log(counter1.value, counter2.value);
 // =================================
-
-document.getElementById("btn-increase")?.addEventListener("click", counter1.increase.bind(counter1));
-
-document.getElementById("btn-decrease")?.addEventListener("click", function () {
-    counter1.decrease();
-});
-
-function updateValueElement() {
-    if (!valueElement) {
-        return;
-    }
-
-    valueElement.textContent = `${counter1.value}`;
-}
