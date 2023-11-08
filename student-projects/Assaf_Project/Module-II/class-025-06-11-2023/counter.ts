@@ -42,6 +42,11 @@ class Counter {
         updateValueElement();
     }
 
+    public half() {
+        this._value /= 2;
+        updateValueElement();
+    }
+
     public decrease() {
         this._value--;
         updateValueElement();
@@ -63,6 +68,8 @@ console.log(counter1.value, counter2.value);
 document.getElementById("btn-increase")?.addEventListener("click", counter1.increase.bind(counter1));
 
 document.getElementById("btn-double")?.addEventListener("click", counter1.double.bind(counter1));
+
+document.getElementById("btn-half")?.addEventListener("click", counter1.half.bind(counter1));
 
 document.getElementById("btn-decrease")?.addEventListener("click", function () {
     counter1.decrease();
