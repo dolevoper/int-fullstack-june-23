@@ -1,4 +1,4 @@
-const valueElement = document.getElementsByClassName("value");
+const valueElement = document.getElementById("value");
 
 // =================================
 // let counter = 0;
@@ -42,6 +42,11 @@ class Counter {
         updateValueElement();
     }
 
+    public half() {
+        this._value /= 2;
+        updateValueElement();
+    }
+
     public decrease() {
         this._value--;
         updateValueElement();
@@ -60,26 +65,20 @@ counter2.increase();
 console.log(counter1.value, counter2.value);
 // =================================
 
-document.getElementsByClassName("btn-increase")?.addEventListener("click", counter1.increase.bind(counter1));
+document.getElementById("btn-increase")?.addEventListener("click", counter1.increase.bind(counter1));
 
-document.getElementsByClassName("btn-double")?.addEventListener("click", counter1.double.bind(counter1));
+document.getElementById("btn-double")?.addEventListener("click", counter1.double.bind(counter1));
 
-document.getElementsByClassName("btn-decrease")?.addEventListener("click", function () {
+document.getElementById("btn-half")?.addEventListener("click", counter1.half.bind(counter1));
+
+document.getElementById("btn-decrease")?.addEventListener("click", function () {
     counter1.decrease();
 });
 
-function updateValueElement1() {
+function updateValueElement() {
     if (!valueElement) {
         return;
     }
 
     valueElement.textContent = `${counter1.value}`;
-}
-
-function updateValueElement2() {
-    if (!valueElement) {
-        return;
-    }
-
-    valueElement.textContent = `${counter2.value}`;
 }
