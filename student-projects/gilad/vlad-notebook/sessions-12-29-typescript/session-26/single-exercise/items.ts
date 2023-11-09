@@ -2,7 +2,6 @@ export type Item =
     | "espresso"
     | "milk";
 
-// export type Items = Item[];
 export type Items = Record<Item, number>;
 
 export function empty(): Items {
@@ -13,14 +12,10 @@ export function empty(): Items {
 }
 
 export function fromArray(items: Item[]): Items {
-    const itemsRecord: Items = {
-        "espresso": 0,
-        "milk": 0
-    };
+    const itemsRecord: Items = empty();
     items.forEach(item => {
         itemsRecord[item] = getItemCountInArray(items, item);
     });
-    console.log(itemsRecord)
     return itemsRecord;
 }
 
