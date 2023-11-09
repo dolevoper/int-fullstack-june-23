@@ -9,11 +9,23 @@ body{
 .balloon-img{
     position: absolute;
     cursor: pointer;
+  
 }
+
 img{
+    position: relative;
     width: 60px;
     height: 80px;
+    transition: 0.1s ease-in-out;
+    animation-name: example;
+    animation-duration: 10s;
+     
 }
+@keyframes example {
+    from {bottom: 0px;}
+    to {bottom: 700px;}
+}
+
 header{
     display: inline-block;
     background-color: aliceblue;

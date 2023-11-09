@@ -1,4 +1,4 @@
-const life = ["lf1" , "lf2" , "lf3" , "lf4" , "lf5"];
+
  let y = 0;
     document.querySelectorAll('.balloon-img').forEach((balloon) => {
         balloon.addEventListener('click',(event) => {
@@ -24,7 +24,7 @@ function createBalloon(){
     document.body.appendChild(balloon)
     balloon.onclick = () => {
     balloon.remove();
-    // animate();
+    
     
     }
 }
@@ -34,10 +34,3 @@ document.addEventListener('keydown', (ev) => {
         clearInterval(gameLoop);
     }
 })
-// function animate(){
-//     if( y < innerHeight ){
-//        y += 100;
-//        createBalloon();
-       
-//     }
-// }
