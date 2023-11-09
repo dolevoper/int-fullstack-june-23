@@ -10,7 +10,7 @@
 // [ ] Resource management
 // [ ] Compound orders (2 double espresso)
 
-import { Items, fromArray, empty, addItem, everyItem, hasItem, getItemCount } from "./items.js";
+import { Items, fromArray, empty, addItem, getItemCount } from "./items.js";
 
 type Order = {
     name: string,

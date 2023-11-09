@@ -10,7 +10,7 @@ export function empty(): Items {
 }
 
 export function fromArray(items: Item[]): Items {
-    const result: Items = {};
+    const result = {} as Items;
     items.forEach(item => {
         result[item] = (result[item] || 0) + 1;
     });
