@@ -3,14 +3,14 @@
 //      - Color available orders green
 //      - Click on an available order to close it and remove items
 // [ ] Recieve score on delivered orders
-// [ ] Incoming orders
+// [ ] Incoming orders (setInterval, setTimeout)
 // [ ] Time orders
 // [ ] Improve score acording to order supply time
 // [ ] Add items and order types
 // [ ] Resource management
 // [ ] Compound orders (2 double espresso)
 
-import { Items, fromArray, empty, addItem, everyItem, hasItem, getItemCount } from "./items.js";
+import { Items, fromArray, empty, addItem, getItemCount, items } from "./items.js";
 
 type Order = {
     name: string,
@@ -22,10 +22,10 @@ const orders: Order[] = [
     { name: "Double espresso", items: fromArray(["espresso", "espresso"]) }
 ];
 
-const items: Items = empty();
+const inventory: Items = empty();
 
 function useCoffeeMachine() {
-    addItem(items, "espresso");
+    addItem(inventory, "espresso");
 
     // for (let i = 0; i < orders.length; i++) {
     //      const order = orders[i];
@@ -52,9 +52,9 @@ document
     ?.addEventListener("click", useCoffeeMachine);
 
 function orderIsAvailable(order: Order) {
-    // TODO: run dynamically for every item type
-    return getItemCount(items, "espresso") === getItemCount(order.items, "espresso") &&
-        getItemCount(items, "milk") === getItemCount(order.items, "milk");
+    return items.every(
+        (item) => getItemCount(inventory, item) === getItemCount(order.items, item)
+    );
 }
 
 function markOrderAvailable(order: Order) {
