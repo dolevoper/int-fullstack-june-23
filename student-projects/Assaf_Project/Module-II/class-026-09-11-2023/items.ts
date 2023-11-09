@@ -28,3 +28,5 @@ export function everyItem(items: Items, predicate: (value: "espresso", index: nu
 export function getItemCount(items: Items, itemToCount: Item) {
     return items.filter((item) => item === itemToCount).length;
 }
+
+//*************************************************** */
