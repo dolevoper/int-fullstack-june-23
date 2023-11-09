@@ -29,6 +29,8 @@ h1 {
     width: min(100% - 2rem, 40ch);
     margin-inline: auto;
     padding: 1rem;
+    display: inline-block;
+    
 
     .value {
         font-size: 5rem;
@@ -54,5 +56,16 @@ h1 {
                 background: #ddd;
             }
         }
+    }
+}
+
+#remove {
+    background-color: red;
+    border-radius: 12px;
+    padding: 2px;
+    border: 2px solid gray;
+
+    &:hover {
+        background: #aaa;
     }
 }
