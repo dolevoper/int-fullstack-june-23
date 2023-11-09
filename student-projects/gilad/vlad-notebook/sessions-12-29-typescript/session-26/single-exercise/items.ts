@@ -29,7 +29,7 @@ export function addItem(items: Items, itemToAdd: Item) {
 }
 
 export function getItemCount(items: Items, itemToCount: Item) {
-    return items.filter((item) => item === itemToCount).length;
+    return items[itemToCount];
 }
 
 function getItemCountInArray(items: Item[], itemToCount: Item) {
