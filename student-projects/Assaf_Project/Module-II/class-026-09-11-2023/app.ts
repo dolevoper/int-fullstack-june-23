@@ -27,41 +27,30 @@ const orders: Order[] = [
 const items: Items = empty();
 
 function useCoffeeMachine() {
-    setTimeout(() => {
-  addItem(items, "Espresso");
+  setTimeout(() => {
+    addItem(items, "Espresso");
+    processOrders();
 
-  // for (let i = 0; i < orders.length; i++) {
-  //      const order = orders[i];
-  for (const order of orders) {
-    if (orderIsAvailable(order)) {
-      markOrderAvailable(order);
+    // for (let i = 0; i < orders.length; i++) {
+    //      const order = orders[i];
+
+    const itemsList = document.getElementById("items-list");
+
+    if (!itemsList) {
+      return;
     }
-  }
 
-  const itemsList = document.getElementById("items-list");
+    const li = document.createElement("li");
+    li.textContent = "Espresso";
 
-  if (!itemsList) {
-    return;
-  }
-
-  const li = document.createElement("li");
-  li.textContent = "Espresso";
-
-  itemsList.append(li);
-}, 3500);
+    itemsList.append(li);
+  }, 3500);
 }
 
 function useMilkFoamer() {
   setTimeout(() => {
     addItem(items, "Foamed milk");
-
-    // for (let i = 0; i < orders.length; i++) {
-    //      const order = orders[i];
-    for (const order of orders) {
-      if (orderIsAvailable(order)) {
-        markOrderAvailable(order);
-      }
-    }
+    processOrders();
 
     const itemsList = document.getElementById("items-list");
 
@@ -79,12 +68,7 @@ function useMilkFoamer() {
 function useIceDispenser() {
   setTimeout(() => {
     addItem(items, "Ice cubes");
-
-    for (const order of orders) {
-      if (orderIsAvailable(order)) {
-        markOrderAvailable(order);
-      }
-    }
+    processOrders();
 
     const itemsList = document.getElementById("items-list");
 
@@ -97,6 +81,14 @@ function useIceDispenser() {
 
     itemsList.append(li);
   }, 2000);
+}
+
+function processOrders() {
+  for (const order of orders) {
+    if (orderIsAvailable(order)) {
+      markOrderAvailable(order);
+    }
+  }
 }
 
 document
