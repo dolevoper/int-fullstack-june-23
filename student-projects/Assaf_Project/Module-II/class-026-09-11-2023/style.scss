@@ -38,13 +38,19 @@ main {
     flex: 1;
 }
 
+.padding {
+    padding-inline-start: 1rem;
+}
+
 #orders {
     border: 1px solid blue;
     grid-column: 1 / span 2;
+    padding-inline-start: 1rem;
 }
 
 #actions {
     border: 1px solid red;
+    padding-inline: 1rem;
 
     >ul {
         list-style: none;
@@ -54,6 +60,7 @@ main {
 
 #items {
     border: 1px solid green;
+    padding-inline-start: 1rem;
 }
 
 .items-cluster {
@@ -69,4 +76,8 @@ main {
         line-height: 1;
         border-radius: 1.5em;
     }
+}
+
+.clickable {
+    cursor: pointer;
 }

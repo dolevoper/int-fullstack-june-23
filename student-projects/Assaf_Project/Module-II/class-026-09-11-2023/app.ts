@@ -20,7 +20,7 @@ type Order = {
 const orders: Order[] = [
     { name: "Espresso", items: fromArray(["Espresso"]) },
     { name: "Double espresso", items: fromArray(["Espresso", "Espresso"]) },
-    { name: "Double espresso", items: fromArray(["Espresso", "Foamed milk"]) }
+    { name: "Latte", items: fromArray(["Espresso", "Foamed milk"]) }
 ];
 
 const items: Items = empty();
