@@ -85,8 +85,17 @@ function useIceDispenser() {
 
 function processOrders() {
   for (const order of orders) {
+    const orderElement = document.getElementById(order.name);
+
     if (orderIsAvailable(order)) {
       markOrderAvailable(order);
+      if (orderElement) {
+        orderElement.classList.add("available-order");
+      }
+    } else {
+      if (orderElement) {
+        orderElement.classList.remove("available-order");
+      }
     }
   }
 }
