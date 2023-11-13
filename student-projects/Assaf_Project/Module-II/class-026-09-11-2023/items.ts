@@ -1,4 +1,4 @@
-export type Item = "Espresso" | "Foamed milk";
+export type Item = "Espresso" | "Foamed milk" | "Ice cubes";
 
 // export type Items = Item[];
 export type Items = Record<Item, number>;
