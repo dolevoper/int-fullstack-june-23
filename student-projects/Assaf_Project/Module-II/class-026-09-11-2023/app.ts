@@ -18,14 +18,15 @@ type Order = {
 };
 
 const orders: Order[] = [
-    { name: "Espresso", items: fromArray(["espresso"]) },
-    { name: "Double espresso", items: fromArray(["espresso", "espresso"]) }
+    { name: "Espresso", items: fromArray(["Espresso"]) },
+    { name: "Double espresso", items: fromArray(["Espresso", "Espresso"]) },
+    { name: "Double espresso", items: fromArray(["Espresso", "Foamed milk"]) }
 ];
 
 const items: Items = empty();
 
 function useCoffeeMachine() {
-    addItem(items, "espresso");
+    addItem(items, "Espresso");
 
     // for (let i = 0; i < orders.length; i++) {
     //      const order = orders[i];
@@ -46,15 +47,41 @@ function useCoffeeMachine() {
 
     itemsList.append(li);
 }
+function useMilkFoamer() {
+    addItem(items, "Foamed milk");
+
+    // for (let i = 0; i < orders.length; i++) {
+    //      const order = orders[i];
+    for (const order of orders) {
+        if (orderIsAvailable(order)) {
+            markOrderAvailable(order);
+        }
+    }
+
+    const itemsList = document.getElementById("items-list");
+
+    if (!itemsList) {
+        return;
+    }
+
+    const li = document.createElement("li");
+    li.textContent = "Foamed milk";
+
+    itemsList.append(li);
+}
 
 document
     .getElementById("coffee-machine")
     ?.addEventListener("click", useCoffeeMachine);
 
+document
+    .getElementById("milk-foamer")
+    ?.addEventListener("click", useMilkFoamer);
+
 function orderIsAvailable(order: Order) {
     // TODO: run dynamically for every item type
-    return getItemCount(items, "espresso") === getItemCount(order.items, "espresso") &&
-        getItemCount(items, "milk") === getItemCount(order.items, "milk");
+    return getItemCount(items, "Espresso") === getItemCount(order.items, "Espresso") &&
+        getItemCount(items, "Foamed milk") === getItemCount(order.items, "Foamed milk");
 }
 
 function markOrderAvailable(order: Order) {
