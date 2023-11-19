@@ -32,8 +32,17 @@ function displyCurrentCard(){
     document.querySelector("#currentCard .card__front")!.textContent = currentCard.front;
     document.querySelector("#currentCard .card__back")!.textContent = currentCard.front;
    
-console.log(cards[currenCardsIndx]);
 };
+document.getElementById("btnFlip")?.addEventListener("click" , function() {
+    document.getElementById("currentCard")?.classList.toggle("card--flipped");
+});
+document.getElementById("#btnNextCard")?.addEventListener("click" , function() {
+   if(currenCardsIndx === cards.length -1){
+    return;
+   }
 
+    currenCardsIndx++;
+    displyCurrentCard();
+});
 displyCurrentCard();
 

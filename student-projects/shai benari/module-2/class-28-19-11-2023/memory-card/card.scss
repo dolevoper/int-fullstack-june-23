@@ -12,3 +12,35 @@ html{
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: min(100%-2rem, 70ch);
+    margin-inline: auto;
+}
+    
+.card{
+    background: lightgreen;
+    color: whitesmoke;
+    font-weight: 600;
+    font-size: 2rem;
+    border-radius: 8px;
+    aspect-ratio: 3/4;
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+
+    &__back{
+        display: none;
+    }
+    &--flipped &__back{
+        display: block;
+        background-color: azure;
+    }
+    &--flipped &__back{
+        display: none;
+    }
+}
