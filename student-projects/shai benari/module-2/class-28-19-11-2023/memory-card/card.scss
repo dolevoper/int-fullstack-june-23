@@ -19,12 +19,20 @@ main{
     width: min(100%-2rem, 70ch);
     margin-inline: auto;
 }
+.don-massge{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-inline: auto;
+    font-size: 2rem;
+    
+}
     
 .card{
     background: lightgreen;
     color: whitesmoke;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 3rem;
     border-radius: 8px;
     aspect-ratio: 3/4;
 
@@ -36,12 +44,16 @@ main{
     &__back{
         display: none;
     }
-    &--flipped &__back{
+    &--flipped  &__back{
         display: block;
-        background-color: azure;
         color: black;
     }
-    &--flipped &__back{
+    &--flipped  &__front{
         display: none;
     }
+}
+button{
+    font-size: 1.5rem;
+    padding: 4px 0;
+    font-weight: 600;
 }
