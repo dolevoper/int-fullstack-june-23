@@ -1,0 +1,62 @@
+*,
+*::before , ::after{
+    box-sizing: border-box;
+}
+*{
+    margin: 0;
+}
+html{
+    font-size: calc(1rem + 0.5vw);
+    line-height: 1.6;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1{
+    line-height: 1.2;
+    align-items: center;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    
+   
+}
+#continer-mt-2{
+    width: 20rem;
+    height: 20rem;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 1px solid black;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+.form-grop{
+    margin-right: 18%;
+padding: 5px 10px;
+}
+
+input{
+margin: 8px 15px;
+padding: 5px 10px;
+align-items: center;
+
+}
+.col{
+    margin-left: 22%;
+}
+.row{
+    
+    margin-left: 5%;
+    margin-right: auto;
+    padding: 5px 10px;
+    
+}
+.btn{
+    padding: 0.2rem 2.9rem;
+    font-size: 1rem;
+    background-color: aqua;
+}
