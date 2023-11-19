@@ -30,7 +30,7 @@ main{
 
     display: grid;
     align-items: center;
-    justify-content: center;
+    justify-items: center;
 
 
     &__back{
@@ -39,6 +39,7 @@ main{
     &--flipped &__back{
         display: block;
         background-color: azure;
+        color: black;
     }
     &--flipped &__back{
         display: none;

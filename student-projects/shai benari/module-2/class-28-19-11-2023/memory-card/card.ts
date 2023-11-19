@@ -30,14 +30,15 @@ let currenCardsIndx = 0;
 function displyCurrentCard(){
     const currentCard = cards[currenCardsIndx];
     document.querySelector("#currentCard .card__front")!.textContent = currentCard.front;
-    document.querySelector("#currentCard .card__back")!.textContent = currentCard.front;
+    document.querySelector("#currentCard .card__back")!.textContent = currentCard.back;
    
 };
-document.getElementById("btnFlip")?.addEventListener("click" , function() {
-    document.getElementById("currentCard")?.classList.toggle("card--flipped");
+document.querySelector("#btnFlip")?.addEventListener("click" , function() {
+    document.querySelector("#currentCard")?.classList.toggle("card--flipped");
 });
-document.getElementById("#btnNextCard")?.addEventListener("click" , function() {
+document.querySelector("#btnNextCard")?.addEventListener("click" , function() {
    if(currenCardsIndx === cards.length -1){
+    document.querySelector("#donMassge")!.innerHTML = "<h2>All done</h2>";
     return;
    }
 
