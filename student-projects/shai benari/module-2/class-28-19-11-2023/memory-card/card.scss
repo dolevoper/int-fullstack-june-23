@@ -51,6 +51,13 @@ main{
     &--flipped  &__front{
         display: none;
     }
+    &__feedback{
+        display: grid;
+        grid-auto-flow: column;
+        gap: 1rem;
+        
+       
+    }
 }
 button{
     font-size: 1.5rem;

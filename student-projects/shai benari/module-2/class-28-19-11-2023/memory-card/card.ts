@@ -1,6 +1,10 @@
+type Feedback = 0|1|2|3|4|5;
+
 type Card = {
     front: string,
     back: string,
+    lastFeedback?: Feedback,
+
 };
 const cards: Card[] = [
     {
@@ -45,5 +49,29 @@ document.querySelector("#btnNextCard")?.addEventListener("click" , function() {
     currenCardsIndx++;
     displyCurrentCard();
 });
+// function giveFeedback(feedback: Feedback){
+//     cards[currenCardsIndx].lastFeedback = feedback;
+
+function parseFeedback(feedback: unknown): Feedback {
+    const asNumber = Number(feedback);
+
+    if (asNumber < 0 || asNumber > 5 || !Number.isInteger(asNumber)) {
+        throw new Error();
+    }
+
+    return asNumber as Feedback;
+}
+
+ document.querySelector("#feedbackForm")?.addEventListener("submit" , function(e){
+    e.preventDefault();
+    
+    const feedback = parseFeedback((e.submitter as HTMLButtonElement).value);
+    parseFeedback(feedback);
+    
+ });
+
+
 displyCurrentCard();
+
+
 
