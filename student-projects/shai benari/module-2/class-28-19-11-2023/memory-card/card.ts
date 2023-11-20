@@ -41,6 +41,7 @@ document.querySelector("#btnFlip")?.addEventListener("click" , function() {
     document.querySelector("#currentCard")?.classList.toggle("card--flipped");
 });
 document.querySelector("#btnNextCard")?.addEventListener("click" , function() {
+    document.querySelector("#donMassge")!.innerHTML = "<h2></h2>"
    if(currenCardsIndx === cards.length -1){
     document.querySelector("#donMassge")!.innerHTML = "<h2>All done</h2>";
     return;
@@ -49,8 +50,6 @@ document.querySelector("#btnNextCard")?.addEventListener("click" , function() {
     currenCardsIndx++;
     displyCurrentCard();
 });
-// function giveFeedback(feedback: Feedback){
-//     cards[currenCardsIndx].lastFeedback = feedback;
 
 function parseFeedback(feedback: unknown): Feedback {
     const asNumber = Number(feedback);
@@ -62,11 +61,14 @@ function parseFeedback(feedback: unknown): Feedback {
     return asNumber as Feedback;
 }
 
- document.querySelector("#feedbackForm")?.addEventListener("submit" , function(e){
+ document.querySelector("#feedbackForm")?.addEventListener("submit" , function(e: SubmitEvent){
     e.preventDefault();
     
     const feedback = parseFeedback((e.submitter as HTMLButtonElement).value);
     parseFeedback(feedback);
+    const sfeedback = String(feedback);
+    document.querySelector("#donMassge")!.innerHTML ="You choose option #" + sfeedback;
+  
     
  });
 
