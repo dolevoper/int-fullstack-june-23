@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,8 @@
     <style>
         .yellow {
             color: yellow;
-        } 
+        }
+
         .red {
             color: red;
         }
@@ -17,6 +19,7 @@
         }
     </style>
 </head>
+
 <body onload="onLoad()">
     <form onsubmit="handleSubmit(event)">
         <input type="text" name="word" id="word">
@@ -24,7 +27,8 @@
     </form>
     <div style="display: flex;" id="guessedWords"></div>
     <div style="display: flex;" id="letterList"></div>
-    
+
 </body>
 <script src="./dist/app.js"></script>
+
 </html>
