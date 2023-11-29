@@ -33,7 +33,7 @@ main{
     color: whitesmoke;
     font-weight: 600;
     font-size: 3rem;
-    border-radius: 8px;
+    border-radius: 12px;
     aspect-ratio: 3/4;
 
     display: grid;
@@ -63,4 +63,23 @@ button{
     font-size: 1.5rem;
     padding: 4px 0;
     font-weight: 600;
+}
+INPUT{
+    font-size: 1.5rem;
+    padding: 4px 5PX;
+    font-weight: 600;
+    border-radius: 10PX;
+}
+
+#addCard{
+    background: rgb(108, 132, 241);
+    color: whitesmoke;
+    font-weight: 500;
+    font-size: 2rem;
+    border-radius: 12px;
+    aspect-ratio: 3/2;
+
+    display: grid;
+    align-items: center;
+    justify-items: center;
 }
