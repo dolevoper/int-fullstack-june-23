@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // console.log(Number(process.argv[2]) + Number(process.argv[3]));
 
 // NPM - Node Package Manager
@@ -16,3 +17,8 @@ else{
 
 }
 printMame();
+=======
+console.log(Number(process.argv[2]) + Number(process.argv[3]));
+
+// NPM - Node Package Manager
+>>>>>>> 788df24 (margr)
