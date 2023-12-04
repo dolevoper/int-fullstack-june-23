@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "lib": ["ESNext", ],
+        "strictNullChecks": true,
+        "noImplicitAny": true,
+        "useUnknownInCatchVariables": true
+    },
+    "include": ["./*.ts"]
+}
