@@ -2,9 +2,12 @@
     "compilerOptions": {
         "target": "ESNext",
         "lib": ["ESNext"],
+        "moduleResolution": "NodeNext",
+        "module": "NodeNext",
         "strictNullChecks": true,
         "noImplicitAny": true,
-        "useUnknownInCatchVariables": true
+        "useUnknownInCatchVariables": true,
+        "esModuleInterop": true
     },
     "include": ["./*.ts"]
 }
