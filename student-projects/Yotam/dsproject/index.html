@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="dist/styles.css">
+  <link rel="icon" href="favicon.ico">
+  <script src="dist/index.js"></script>
+</head>
+<body>
+  <form id="recordForm" onsubmit="calculateBMI(); return false;">
+    <h2>New Record</h2>
+
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required pattern=".{3,12}" title="3-12 characters">
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required pattern=".{3,12}" title="3-12 characters">
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required min="18" max="45">
+    </div>
+
+    <div class="form-group">
+      <fieldset>
+        <legend>Gender:</legend>
+        <label><input type="radio" name="gender" value="male">Male</label>
+        <label><input type="radio" name="gender" value="female">Female</label>
+        <label><input type="radio" name="gender" value="other">Other</label>
+      </fieldset>
+    </div>
+
+    <div class="form-group">
+      <label for="height">Height (meters):</label>
+      <input type="number" id="height" name="height" step="0.01" min="1.30" max="2.30" required>
+    </div>
+
+    <div class="form-group">
+      <label for="weight">Weight (kg):</label>
+      <input type="number" id="weight" name="weight" step="0.01" min="40" max="130" required>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" id="saveButton">Submit</button>
+      <button type="button" id="loadButton">Load</button>
+    </div>
+    
+  </form>
+
+</body>
+</html>

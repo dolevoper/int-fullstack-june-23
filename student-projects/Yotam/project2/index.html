@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module II project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Actvity tracker</h1>
+
+    <form>
+        <label for="textInput">New activity</label>
+        <select id="activity" name="activity">
+            <option value="running">Running</option>
+            <option value="cycling">Cycling</option>
+            <option value="swimming">Swimming</option>
+            <option value="yoga">Yoga</option>
+            <option value="weightlifting">Weightlifting</option>
+            <option value="hiking">Hiking</option>
+        </select>
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date" placeholder="DD-MM-YY" pattern="\d{2}-\d{2}-\d{2}" required>
+
+        <label for="startTime">Start Time:</label>
+        <input type="text" id="startTime" name="startTime" placeholder="HH:MM" pattern="\d{2}:\d{2}" required>
+
+        <label for="endTime">End Time:</label>
+        <input type="text" id="endTime" name="endTime" placeholder="HH:MM" pattern="\d{2}:\d{2}" required>
+
+        <button type="submit" onclick="submitForm"()>"Add</button>
+    </form>
+
+
+    <script type="module" src="/dist/index.js"></script>
+</body>
+</html>
