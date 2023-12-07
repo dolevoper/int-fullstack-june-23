@@ -9,6 +9,10 @@ console.log(fileContents.split("\n").length);
 //     if (fileContents[i] === "\n") {
 //         ++lines;
 //     }
+<<<<<<< HEAD
 // }  
+=======
+// }
+>>>>>>> main
 
 // console.log(lines);
