@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from "fs";
 
+
 type user = {
     id: string
     firsName: string
@@ -21,4 +22,15 @@ let users: user[]=[
     phoneNumber: '052-3272397'
 }
 ];
-console.log(users)
+users.push({
+    id: Math.random().toString(16).slice(2,8),
+firsName:  process.argv[2],
+lestName: process.argv[3],
+phoneNumber: process.argv[4],
+});
+
+writeFileSync( "users.json", JSON.stringify( users ), "utf8" );
+
+const fileContents = readFileSync("./users.json", "utf-8");
+
+console.log("The users are: " , fileContents);
