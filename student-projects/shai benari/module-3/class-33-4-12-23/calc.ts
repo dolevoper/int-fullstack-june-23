@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // console.log(Number(process.argv[2]) + Number(process.argv[3]));
 
 // NPM - Node Package Manager
@@ -22,3 +23,8 @@ console.log(Number(process.argv[2]) + Number(process.argv[3]));
 
 // NPM - Node Package Manager
 >>>>>>> 788df24 (margr)
+=======
+console.log(Number(process.argv[2]) + Number(process.argv[3]));
+
+// NPM - Node Package Manager
+>>>>>>> 13a81bf (marge changes)
