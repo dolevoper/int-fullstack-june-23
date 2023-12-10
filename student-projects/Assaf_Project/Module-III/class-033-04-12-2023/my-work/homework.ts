@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import * as readline from "node:readline";
 import { randomUUID } from "crypto";
+import { userInfo } from "os";
 
 type User = {
   id: string;
@@ -16,7 +17,7 @@ if (!existsSync(filePath)) {
 }
 
 const fileData = readFileSync("./users.json", "utf-8");
-const fileContents: User[] = fileData.trim() ? JSON.parse(fileData) : [];
+const users: User[] = fileData.trim() ? JSON.parse(fileData) : [];
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -35,11 +36,19 @@ Available operations:
   (option) => {
     switch (option.toLowerCase().trim()) {
       case "list":
-        console.log("list >>>");
+        if (users.length < 0) {
+          console.log("There are no users to show...");
+        } else {
+          console.log("All users ID's:");
+          for (let i = 0; i < users.length; i++) {
+            console.log(i + 1 + ". " + users[i].id);
+          }
+        }
+        rl.close();
         break;
       case "read":
         rl.question("Enter user ID to show details: ", (input) => {
-          const matchingUser = fileContents.find((user) => user.id === input);
+          const matchingUser = users.find((user) => user.id === input);
 
           if (!matchingUser) {
             console.log(`No user found with ID ${input}`);
@@ -66,10 +75,10 @@ Available operations:
                 lastName: capitalize(lastNameAnswer.trim().toLowerCase()),
                 phoneNumber: phoneNumberAnswer.trim(),
               };
-              fileContents.push(newUser);
+              users.push(newUser);
               writeFileSync(
                 "./users.json",
-                JSON.stringify(fileContents, null, 2)
+                JSON.stringify(users, null, 2)
               );
               console.log(
                 `New user added!\nName: ${newUser.firstName} ${newUser.lastName}\nPhone number: ${newUser.phoneNumber}\nID: ${newUser.id}`
@@ -83,44 +92,49 @@ Available operations:
         console.log("update >>>");
         rl.close();
         break;
-        case "delete":
-            rl.question("Enter user ID to DELETE: ", (input) => {
-              const matchingUserIndex = fileContents.findIndex((user) => user.id === input);
-          
-              if (!matchingUserIndex) {
-                console.log(`No user found with ID ${input}`);
-                rl.close();
-              } else {
-                const matchingUser = fileContents[matchingUserIndex];
-          
-                console.log(
-                  `Matching user's details:\nFirst Name: ${
-                    matchingUser.firstName
-                  }\nLast Name: ${matchingUser.lastName}\nPhone Number: ${
-                    matchingUser.phoneNumber || "N/A"
-                  }`
-                );
-          
-                rl.question("Are you sure you want to DELETE? (y/n) ", (answer) => {
-                  switch (answer.trim().toLowerCase()) {
-                    case "yes":
-                    case "y":
-                      fileContents.splice(matchingUserIndex, 1);
-          
-                      writeFileSync("./users.json", JSON.stringify(fileContents, null, 2));
-          
-                      console.log("User has been deleted!");
-                      break;
-                    case "no":
-                    case "n":
-                      console.log("Deletion canceled...");
-                      break;
-                  }
-                  rl.close();
-                });
+      case "delete":
+        rl.question("Enter user ID to DELETE: ", (input) => {
+          const matchingUserIndex = users.findIndex(
+            (user) => user.id === input
+          );
+
+          if (matchingUserIndex === -1) {
+            console.log(`No user found with ID ${input}`);
+            rl.close();
+          } else {
+            const matchingUser = users[matchingUserIndex];
+
+            console.log(
+              `Matching user's details:\nFirst Name: ${
+                matchingUser.firstName
+              }\nLast Name: ${matchingUser.lastName}\nPhone Number: ${
+                matchingUser.phoneNumber || "N/A"
+              }`
+            );
+
+            rl.question("Are you sure you want to DELETE? (y/n) ", (answer) => {
+              switch (answer.trim().toLowerCase()) {
+                case "yes":
+                case "y":
+                  users.splice(matchingUserIndex, 1);
+
+                  writeFileSync(
+                    "./users.json",
+                    JSON.stringify(users, null, 2)
+                  );
+
+                  console.log("User has been deleted!");
+                  break;
+                case "no":
+                case "n":
+                  console.log("Deletion canceled...");
+                  break;
               }
+              rl.close();
             });
-            break;
+          }
+        });
+        break;
       case "stop":
       case "end":
       case "quit":
