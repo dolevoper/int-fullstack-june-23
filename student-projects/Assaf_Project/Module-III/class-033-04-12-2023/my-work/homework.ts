@@ -76,12 +76,12 @@ Available operations:
                 phoneNumber: phoneNumberAnswer.trim(),
               };
               users.push(newUser);
-              writeFileSync(
-                "./users.json",
-                JSON.stringify(users, null, 2)
-              );
+              saveUsersInfo();
+              const phoneNumberToShow = newUser.phoneNumber
+                ? newUser.phoneNumber
+                : "N/A";
               console.log(
-                `New user added!\nName: ${newUser.firstName} ${newUser.lastName}\nPhone number: ${newUser.phoneNumber}\nID: ${newUser.id}`
+                `New user added!\nName: ${newUser.firstName} ${newUser.lastName}\nPhone number: ${phoneNumberToShow}\nID: ${newUser.id}`
               );
               rl.close();
             });
@@ -89,8 +89,56 @@ Available operations:
         });
         break;
       case "update":
-        console.log("update >>>");
-        rl.close();
+        rl.question("Enter user ID in order to update: ", (input) => {
+          const matchingUser = users.find((user) => user.id === input);
+
+          if (!matchingUser) {
+            console.log(`No user found with ID ${input}`);
+            rl.close();
+          } else {
+            console.log(
+              `Matching user's details:\nFirst Name: ${
+                matchingUser.firstName
+              }\nLast Name: ${matchingUser.lastName}\nPhone Number: ${
+                matchingUser.phoneNumber || "N/A"
+              }`
+            );
+            rl.question(
+              "Which field would you like to update? \n1. First Name\n2. Last Name\n3. Phone Number\n",
+              (choice) => {
+                switch (choice) {
+                  case "1":
+                    rl.question("Please enter first name: ", (input) => {
+                      matchingUser.firstName = input;
+                      console.log("First name updated!");
+                      saveUsersInfo();
+                      rl.close();
+                    });
+                    break;
+                  case "2":
+                    rl.question("Please enter last name: ", (input) => {
+                      matchingUser.lastName = input;
+                      console.log("Last name updated!");
+                      saveUsersInfo();
+                      rl.close();
+                    });
+                    break;
+                  case "3":
+                    rl.question("Please enter phone number: ", (input) => {
+                      matchingUser.phoneNumber = input;
+                      console.log("Phone number updated!");
+                      saveUsersInfo();
+                      rl.close();
+                    });
+                    break;
+                  default:
+                    console.log(`${choice} was not an option...`);
+                    rl.close();
+                }
+              }
+            );
+          }
+        });
         break;
       case "delete":
         rl.question("Enter user ID to DELETE: ", (input) => {
@@ -117,12 +165,7 @@ Available operations:
                 case "yes":
                 case "y":
                   users.splice(matchingUserIndex, 1);
-
-                  writeFileSync(
-                    "./users.json",
-                    JSON.stringify(users, null, 2)
-                  );
-
+                  saveUsersInfo();
                   console.log("User has been deleted!");
                   break;
                 case "no":
@@ -153,4 +196,8 @@ function capitalize(text: string) {
     .split(" ")
     .map((word) => `${word.charAt(0).toUpperCase()}${word.slice(1)}`)
     .join(" ");
+}
+
+function saveUsersInfo() {
+  writeFileSync("./users.json", JSON.stringify(users, null, 1));
 }
