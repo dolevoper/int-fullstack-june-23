@@ -1,0 +1,14 @@
+[
+  {
+    "id": "24b4df71-1285-4591-be05-fcc008451df8",
+    "firstName": "assaf",
+    "lastName": "basri",
+    "phoneNumber": "0542532973"
+  },
+  {
+    "id": "aab12b04-11e0-4415-8b05-1010f64a7b28",
+    "firstName": "yoav",
+    "lastName": "basri",
+    "phoneNumber": "0544759779"
+  }
+]
