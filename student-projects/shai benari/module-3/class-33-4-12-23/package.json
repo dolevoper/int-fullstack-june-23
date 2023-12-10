@@ -2,11 +2,16 @@
   "name": "class-033-04-12-2023",
   "version": "1.0.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  "description": "",
+>>>>>>> 95ed3ce (math)
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "calc": "ts-node-esm calc.ts"
+<<<<<<< HEAD
 =======
   "description": "",
   "main": "index.js",
@@ -14,17 +19,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
 >>>>>>> 788df24 (margr)
+=======
+>>>>>>> 95ed3ce (math)
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/chalk": "^2.2.0",
-    "@types/node": "^20.10.3",
+    "@types/node": "^20.10.4",
     "ts-node": "^10.9.1",
     "typescript": "^5.3.2"
   },
   "dependencies": {
+<<<<<<< HEAD
 <<<<<<< HEAD
     "chalk": "^5.3.0",
     "nodemon": "^3.0.2"
@@ -34,4 +42,8 @@
     "chalk": "^5.3.0"
   }
 >>>>>>> 788df24 (margr)
+=======
+    "chalk": "^5.3.0"
+  }
+>>>>>>> 95ed3ce (math)
 }
