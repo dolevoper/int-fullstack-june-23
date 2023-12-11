@@ -32,6 +32,7 @@ Available operations:
 - Create - Create a new user
 - Update - Update all the given details for the user with the given ID
 - Delete - Given a user ID, delete the user from the system
+- Search - Filter all users with given value
 `,
   (option) => {
     switch (option.toLowerCase().trim()) {
@@ -176,6 +177,34 @@ Available operations:
               rl.close();
             });
           }
+        });
+        break;
+      case "search":
+        rl.question("Enter value to search by: ", (value) => {
+          const lowercasedValue = value.toLowerCase();
+
+          const matchingUsers = users.filter(
+            (user) =>
+              user.firstName.toLowerCase().includes(lowercasedValue) ||
+              user.lastName.toLowerCase().includes(lowercasedValue) ||
+              user.phoneNumber?.includes(lowercasedValue)
+          );
+
+          if (matchingUsers.length === 0) {
+            console.log("No users containing the input value...");
+          } else {
+            console.log("Matching user(s) details:");
+            matchingUsers.forEach((matchingUser) => {
+              console.log(
+                `ID: ${matchingUser.id}\nFirst Name: ${
+                  matchingUser.firstName
+                }\nLast Name: ${matchingUser.lastName}\nPhone Number: ${
+                  matchingUser.phoneNumber || "N/A"
+                }\n----------------------------------------`
+              );
+            });
+          }
+          rl.close();
         });
         break;
       case "stop":
