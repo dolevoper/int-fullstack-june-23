@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import * as readline from "node:readline";
 import { randomUUID } from "crypto";
+import chalk from "chalk";
 
 type User = {
   id: string;
@@ -38,12 +39,12 @@ Available operations:
 - end - Exterminate the app
 `,
     (option) => {
-      handleUserSelection(option);
+      menuNavigation(option);
     }
   );
 }
 
-function handleUserSelection(option: string) {
+function menuNavigation(option: string) {
   switch (option.toLowerCase().trim()) {
     case "list":
       listUsers();
@@ -70,7 +71,7 @@ function handleUserSelection(option: string) {
       rl.close();
       break;
     default:
-      console.log(option + " is not an option...");
+      console.log(`${option} is not an option...`);
       setTimeout(app, 3000);
   }
 }
@@ -98,7 +99,7 @@ function read() {
       showUserDetails(matchingUser);
     }
 
-    setTimeout(app, 3000);
+    setTimeout(app, 5000);
   });
 }
 
@@ -190,23 +191,37 @@ function deleteUser() {
       console.log(`Matching user's details:`);
       showUserDetails(matchingUser);
 
-      rl.question("Are you sure you want to DELETE? (y/n) ", (answer) => {
-        switch (answer.trim().toLowerCase()) {
-          case "yes":
-          case "y":
-            users.splice(matchingUserIndex, 1);
-            saveUsersInfo();
-            console.log("User has been deleted!");
-            break;
-          case "no":
-          case "n":
-            console.log("Deletion canceled...");
-            break;
-        }
-        setTimeout(app, 3000);
-      });
+      setTimeout(() => verifyDeletion(matchingUser, matchingUserIndex), 3000);
     }
   });
+}
+
+function verifyDeletion(matchingUser: User, matchingUserIndex: number) {
+  rl.question(
+    `Are you sure you want to ` +
+      chalk.red("DELETE ") +
+      chalk.blueBright(matchingUser.firstName, matchingUser.lastName) +
+      `? (y/n) `,
+    (answer) => {
+      switch (answer.trim().toLowerCase()) {
+        case "yes":
+        case "y":
+          users.splice(matchingUserIndex, 1);
+          saveUsersInfo();
+          console.log("User has been deleted!");
+          break;
+        case "no":
+        case "n":
+          console.log(
+            `Deletion of ` +
+              chalk.blueBright(matchingUser.firstName, matchingUser.lastName) +
+              ` canceled...`
+          );
+          break;
+      }
+      setTimeout(app, 3000);
+    }
+  );
 }
 
 function search() {
@@ -234,11 +249,15 @@ function search() {
 
 function showUserDetails(matchingUser: User) {
   console.log(
-    `ID: ${matchingUser.id}\nFirst Name: ${
-      matchingUser.firstName
-    }\nLast Name: ${matchingUser.lastName}\nPhone Number: ${
-      matchingUser.phoneNumber || "N/A"
-    }\n----------------------------------------`
+    `ID: ` +
+      chalk.yellowBright(matchingUser.id) +
+      `\nFirst Name: ` +
+      chalk.yellowBright(matchingUser.firstName) +
+      `\nLast Name: ` +
+      chalk.yellowBright(matchingUser.lastName) +
+      `\nPhone Number: ` +
+      chalk.yellowBright(matchingUser.phoneNumber || "N/A") +
+      `\n----------------------------------------`
   );
 }
 
