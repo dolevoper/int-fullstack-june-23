@@ -12,7 +12,9 @@
 const path = import('path')
 console.log(path)
 
+import { freemem, totalmem } from 'os';
 import {add, substract, devide, multiply} from './math.js';
+import { emit } from 'process';
 
 
 console.log( "add :" ,add(6,2));
@@ -26,3 +28,19 @@ function myName(name:string) {
 }
 
 myName("shai");
+
+const os = import('os');
+
+let totalMemory = totalmem();
+let freeMemory = freemem();
+
+// console.log(`Total memory: ${totalMemory}`);
+// console.log(`free memory: ${freeMemory}`);
+
+// const EventEmitter = import('events');
+// const emitter = new EventEmitter();
+
+// emitter.on('messegeLogged', function(){
+//     console.log('event triger');
+// });
+// emitter.emit('massege logged');
