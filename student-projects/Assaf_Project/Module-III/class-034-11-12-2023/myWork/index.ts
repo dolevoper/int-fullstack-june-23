@@ -38,9 +38,9 @@ app.get("/", (req, res) => {
   const usersHTML = users
     .map(
       (user) =>
-        `<p>Name: ${user.firstName} ${user.lastName} 
-        <br>Phone: ${user.phone || "N/A"}
-        <br>ID: ${user.id}</p>`
+        `<p class="big-font --capitalize">Name: <span class="--yellow">${user.firstName} ${user.lastName}</span> 
+        <br>Phone: <span class="--yellow">${user.phone || "N/A"}</span>
+        <br>ID: <span class="--yellow">${user.id}</span></p>`
     )
     .join("---------------");
 
@@ -78,6 +78,15 @@ const indexHTML = `<!DOCTYPE html>
         .bigger-font {
             font-size: x-large;
         }
+        .big-font {
+            font-size: larger;
+        }
+        .--yellow {
+            color: yellow;
+        }
+        .--capitalize {
+            text-transform: capitalize;
+        }
     </style>
 </head>
 
@@ -91,8 +100,8 @@ const indexHTML = `<!DOCTYPE html>
         <p>this is a counter</p>
         <p id="counter">{counter}</p>
     </article>
-    <article class="bigger-font">
-        <p>Users: </p>
+    <article>
+        <p class="bigger-font">Users: </p>
         <p id="users">{users}</p>
     </article>
 </main>
