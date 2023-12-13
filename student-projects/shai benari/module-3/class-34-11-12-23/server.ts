@@ -9,7 +9,12 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
-app.use(express.static('pablic'));
+app.get('/', (req, res,)=>{
+    res.render('new.ejs', {firstName:'test'});
+});
+
+
+// app.use(express.static('pablic'));
 
 // app.get('/',(req,res)=>{
 //     console.log('here')
@@ -18,37 +23,40 @@ app.use(express.static('pablic'));
 //     res.render('index.ejs',{text: "world"});
 
 // });
+
 // app.get('/users/new', (req, res)=>{
 //     res.send('users new form')
 // });
 
-// // app.get('/users', (req, res)=>{
-// //     res.send('user list')
-// // });
-
-
-// app.post('/', (req, res)=>{
-//     res.send('Creat new user')
+// app.get('/users', (req, res)=>{
+//     res.send('user list')
 // });
 
-// app.get('/:id', (req, res)=>{
+
+
+app.post('/', (req, res)=>{
+    console.log(req.body.firstName);
+    res.send('Creat new user');
+});
+
+app.get('/:id', (req, res)=>{
    
     
-//     res.send(`Get user by id : ${req.params.id}` );
-// });
-// app.put('/ :id', (req, res)=>{
+    res.send(`Get user by id : ${req.params.id}` );
+});
+app.put('/ :id', (req, res)=>{
     
-//     res.send(`update user by id : ${req.params.id}` );
-// });
-// app.delete('/ :id', (req, res)=>{
+    res.send(`update user by id : ${req.params.id}` );
+});
+app.delete('/ :id', (req, res)=>{
     
-//     res.send(`delete user by id : ${req.params.id}` );
-// });
+    res.send(`delete user by id : ${req.params.id}` );
+});
 
-// const users =[{name: 'Tom'} , {name: 'Itai'}];
-// app.param('id',(req, res, next, id )=>{
-//     console.log(users[id]);
-//     next()
-// });
+const users =[{name: 'Tom'} , {name: 'Itai'}];
+app.param('id',(req, res, next, id )=>{
+    console.log(users[id]);
+    next()
+});
 
 app.listen(3000)
