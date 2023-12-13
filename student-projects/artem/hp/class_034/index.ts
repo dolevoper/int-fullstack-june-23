@@ -1,5 +1,6 @@
 import { createServer } from "http";
-import express from "express";
+// import express from "express";
+import express, { Request, Response } from "express";
 
 const app = express();
 
@@ -40,33 +41,72 @@ const users: User[] = [
   },
 ];
 
-// Print the array of users
-console.log(users);
+// let visitCounter: number = 0;
 
-let visitCounter: number = 0;
+// app.use((req, res, next) => {
+//   visitCounter += 1;
+//   next();
+// });
 
-app.use((req, res, next) => {
-  visitCounter += 1;
-  next();
-});
-
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
+  const userId = users
+    .map((it) => {
+      return `${it.id}. Name: ${it.name}. Surname: ${it.surname}. Phone: ${it.phoneNumber}.`;
+    })
+    .join("<br>");
   const htmlcontent = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Visit Counter</title>
+      <title>Users:</title>
+
+
     </head>
     <body>
-      <h1>Welcome to the Visit Counter</h1>
-      <p>This page has been visited ${visitCounter} times.</p>
+      <h1>Users</h1>
+
+      <p>${userId}</p>
+
     </body>
     </html>
   `;
 
   res.send(htmlcontent);
+});
+
+app.get("/:userId", (req: Request, res: Response) => {
+  const userId = parseInt(req.params.userId, 10);
+  const selectedUser = users.find((it) => it.id === userId);
+  if (selectedUser) {
+    const userDetails = `
+      User details:<br>
+      ID: ${selectedUser.id}<br>
+      Name: ${selectedUser.name}<br>
+      Surname: ${selectedUser.surname}<br>
+      Phone: ${selectedUser.phoneNumber}
+    `;
+
+    const htmlcontent = `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Details</title>
+      </head>
+      <body>
+        <h1>User Details</h1>
+        <p>${userDetails}</p>
+      </body>
+      </html>
+    `;
+
+    res.send(htmlcontent);
+  } else {
+    res.status(404).send("User not found");
+  }
 });
 
 const server = createServer(app);
