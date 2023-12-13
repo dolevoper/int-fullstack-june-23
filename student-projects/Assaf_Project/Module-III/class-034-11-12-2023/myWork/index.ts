@@ -1,6 +1,28 @@
 import express from "express";
 import { createServer } from "http";
 
+type User = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  phone?: string;
+};
+
+let users: User[] = [
+  {
+    id: 546520389,
+    firstName: "assaf",
+    lastName: "basri",
+    phone: "0542532973",
+  },
+  {
+    id: 428654089,
+    firstName: "john",
+    lastName: "wick",
+    phone: "",
+  },
+];
+
 let counter = 0;
 
 const app = express();
@@ -13,7 +35,19 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
   counter++;
 
-  const updatedHTML = indexHTML.replace(`{counter}`, String(counter));
+  const usersHTML = users
+    .map(
+      (user) =>
+        `<p>Name: ${user.firstName} ${user.lastName} 
+        <br>Phone: ${user.phone || "N/A"}
+        <br>ID: ${user.id}</p>`
+    )
+    .join("---------------");
+
+  const updatedHTML = indexHTML
+    .replace(`{counter}`, String(counter))
+    .replace(`{users}`, usersHTML);
+
   res.send(updatedHTML);
 });
 
@@ -56,6 +90,10 @@ const indexHTML = `<!DOCTYPE html>
     <article class="bigger-font">
         <p>this is a counter</p>
         <p id="counter">{counter}</p>
+    </article>
+    <article class="bigger-font">
+        <p>Users: </p>
+        <p id="users">{users}</p>
     </article>
 </main>
 </body>
