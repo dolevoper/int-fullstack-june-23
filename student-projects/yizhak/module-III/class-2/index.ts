@@ -1,4 +1,5 @@
 import { createServer } from "http";
+import { Express } from "express";
 
 const server = createServer((req, res) => {
     //ה"רק" זה הבקשה, וה"רס" זה התשובה ואפשר לגשת אליהם
