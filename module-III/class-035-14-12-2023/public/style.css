@@ -5,3 +5,38 @@ html {
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+button,
+input {
+    font-size: inherit;
+    font-family: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li.done {
+    text-decoration: line-through;
+}
+
+nav menu {
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+nav menu li:first-child {
+    list-style: none;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+}
+
+main>*+* {
+    margin-top: 2em;
+}

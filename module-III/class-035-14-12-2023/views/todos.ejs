@@ -9,26 +9,48 @@
 </head>
 
 <body>
-    <h1>Todos</h1>
-    <form action="/addTodo" method="post">
-        <input type="text" name="todo" autofocus />
-        <button type="submit">Add</button>
-    </form>
-    <ul>
-        <% for (let todo of todos) { %>
-            <li>
-                <%= todo %>
-            </li>
-            <% } %>
-    </ul>
-    <p>Todos count: <%= todos.length %>
-    </p>
-    <form action="/resetTodos" method="post">
-        <button type="submit">Reset todos</button>
-    </form>
-    <p>
-        <%= visits %> "people" has viewed this page
-    </p>
+    <main>
+        <h1>Todos</h1>
+        <form action="/addTodo" method="post">
+            <input type="text" name="todo" autofocus />
+            <button type="submit">Add</button>
+        </form>
+        <nav>
+            <menu>
+                <li><a href="/">All</a></li>
+                <li><a href="/pending">Pending</a></li>
+                <li><a href="/done">Done</a></li>
+            </menu>
+        </nav>
+        <ul>
+            <% for (let todo of todos) { %>
+                <li<%- todo.isDone ? ' class="done"' : "" %>>
+                    <form action="/toggleTodo" method="post">
+                        <input type="hidden" name="id" value="<%= todo.id %>" />
+                        <button type="submit">
+                            <%= todo.isDone ? "✅" : "❔" %>
+                        </button>
+                        <%= todo.text %>
+                    </form>
+                    </li>
+                    <% } %>
+        </ul>
+        <p>Todos count: <%= todos.length %>
+        </p>
+        <menu class="actions">
+            <form action="/resetTodos" method="post">
+                <button type="submit">Reset todos</button>
+            </form>
+            <form action="/clearDone" method="post">
+                <button type="submit">Clear done todos</button>
+            </form>
+        </menu>
+    </main>
+    <footer>
+        <p>
+            <%= visits %> "people" has viewed this page
+        </p>
+    </footer>
 </body>
 
 </html>
