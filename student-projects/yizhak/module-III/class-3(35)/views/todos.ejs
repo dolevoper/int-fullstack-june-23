@@ -19,20 +19,21 @@
 
 <body>
     <h1>Todos</h1>
-    <form action="/addTodo">
+    <form action="/addTodo" method="post">
         <input type="text" name="todo" autofocus />
         <button type="submit">Add</button>
     </form>
+
     <ul>
         <% for (let todo of todos) { %>
             <li>
-                <%= todo %>
+                <%= todo %> <form action="/toggle" method="post"><button type="submit">toggle</button></form>
             </li>
             <% } %>
     </ul>
     <p>Todos count: <%= todos.length %>
     </p>
-    <form action="/resetTodo">
+    <form action="/resetTodo" method="post">
     <button type="submit">reset todos</button>
     </form>
     <p>

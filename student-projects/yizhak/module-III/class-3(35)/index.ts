@@ -1,9 +1,9 @@
-import { readFileSync } from "fs";
+import { readFileSync, writeFileSync} from "fs";
 import { createServer } from "http";
 import express from "express";
 
 const todosFilePath = "./todos.json";
-const todos = JSON.parse(readFileSync("./todos.json", "utf-8")) as string[];
+const todos = JSON.parse(readFileSync(todosFilePath, "utf-8")) as string[];
 
 const app = express();
 let counter = 0;
@@ -23,8 +23,9 @@ app.get("/", (req, res) => {
     res.render("todos", { todos, counter: counter++});
 });
 
-app.get("/addTodo", (req, res) => {
-    const newTodo = req.query.todo?.toString();
+app.post("/addTodo", (req, res) => {
+    const newTodo = req.body.todo?.toString();
+    const toggle = req.body.toggle
 
     if (!newTodo) {
         res.status(400);
@@ -38,7 +39,16 @@ app.get("/addTodo", (req, res) => {
     res.redirect("/");
 });
 
+app.post("/resetTodos", (_, res) => {
+    todos.splice(0, todos.length);
+    writeFileSync(todosFilePath, "[]");
+    res.redirect("/");
+});
 
+app.post ("/toggle", (req, res) => {
+    const toggle = req.body.todo
+    res.send(`<s>${toggle}</s>`)
+})
 const server = createServer(app);
 
 server.listen(3000, () => console.log("server listening on port 3000"));
