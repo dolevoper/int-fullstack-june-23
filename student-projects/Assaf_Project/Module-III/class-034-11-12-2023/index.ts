@@ -152,6 +152,9 @@ const indexHTML = `<!DOCTYPE html>
         .--yellow {
             color: yellow;
         }
+        .--lightcyan {
+            color: lightcyan;
+        }
         .--capitalize {
             text-transform: capitalize;
         }
@@ -164,6 +167,7 @@ const indexHTML = `<!DOCTYPE html>
 <body class="background">
 <header>
 <h1 class="page-title">Welcome Users</h1>
+<a class="--lightcyan" href="/">home</a>
 </header>
 
 <main>
