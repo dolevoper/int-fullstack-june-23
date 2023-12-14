@@ -40,9 +40,11 @@ app.get("/addTodo", (req, res) => {
 app.get("/clearTodo", (req, res) => {
 
     todos.splice(0);
+    writeFileSync(todosFilePath, "[]");
 
     res.redirect("/");
 });
+
 app.use(express.static("public"));
 
 const server = createServer(app);
