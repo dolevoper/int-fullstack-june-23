@@ -6,19 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todos</title>
     <link rel="stylesheet" href="/style.css" />
-    <style>
-        html {
-            font-size: calc(1rem + 0.5vw);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-    </style>
 </head>
 
 <body>
     <h1>Todos</h1>
+    <form action="/addTodo">
+        <input type="text" name="todo" autofocus />
+        <button type="submit">Add</button>
+    </form>
     <ul>
         <% for (let todo of todos) { %>
             <li>
@@ -26,7 +21,14 @@
             </li>
             <% } %>
     </ul>
+
+    <form action="/clearTodo">
+        <button type="submit">Clear All</button>
+    </form>
     <p>Todos count: <%= todos.length %>
+    </p>
+    <p>
+        <%= visits %> "people" has viewed this page
     </p>
 </body>
 
