@@ -19,6 +19,10 @@
 
 <body>
     <h1>Todos</h1>
+    <form action="/addTodo">
+        <input type="text" name="todo" autofocus />
+        <button type="submit">Add</button>
+    </form>
     <ul>
         <% for (let todo of todos) { %>
             <li>
@@ -28,6 +32,9 @@
     </ul>
     <p>Todos count: <%= todos.length %>
     </p>
+    <form action="/resetTodo">
+    <button type="submit">reset todos</button>
+    </form>
     <p>
         counter: <%= counter %> 
     </p>
