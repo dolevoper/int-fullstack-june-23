@@ -10,7 +10,7 @@
 
 <body>
     <h1>Todos</h1>
-    <form action="/addTodo">
+    <form action="/addTodo" method="post">
         <input type="text" name="todo" autofocus />
         <button type="submit">Add</button>
     </form>
@@ -23,6 +23,9 @@
     </ul>
     <p>Todos count: <%= todos.length %>
     </p>
+    <form action="/resetTodos" method="post">
+        <button type="submit">Reset todos</button>
+    </form>
     <p>
         <%= visits %> "people" has viewed this page
     </p>

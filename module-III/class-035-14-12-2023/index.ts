@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from "fs";
 import { createServer } from "http";
 import express from "express";
+import { urlencoded } from "body-parser";
 
 const todosFilePath = "./todos.json";
 const todos = JSON.parse(readFileSync(todosFilePath, "utf-8")) as string[];
@@ -16,14 +17,16 @@ const logRequests = (prefix = ""): express.RequestHandler => (req, _, next) => {
     next();
 };
 
+app.use(urlencoded());
+
 app.use(logRequests("Todos App"));
 
 app.get("/", (_, res) => {
     res.render("todos", { todos, visits: ++visits });
 });
 
-app.get("/addTodo", (req, res) => {
-    const newTodo = req.query.todo?.toString();
+app.post("/addTodo", (req, res) => {
+    const newTodo = req.body.todo?.toString();
 
     if (!newTodo) {
         res.status(400);
@@ -34,6 +37,12 @@ app.get("/addTodo", (req, res) => {
     todos.push(newTodo);
     writeFileSync(todosFilePath, JSON.stringify(todos));
 
+    res.redirect("/");
+});
+
+app.post("/resetTodos", (_, res) => {
+    todos.splice(0, todos.length);
+    writeFileSync(todosFilePath, "[]");
     res.redirect("/");
 });
 
