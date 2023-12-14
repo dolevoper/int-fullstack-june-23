@@ -65,9 +65,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/:userId", (req, res) => {
-  const userId = Number(req.params.userId);
-  const matchingUser = users.find((u) => u.id === userId);
-  console.log(userId);
+  const { userId, matchingUser } = getIdAndMatchingUser(req);
 
   if (isNaN(userId)) {
     res.send("<h1>this is not a number</h1>");
@@ -90,8 +88,7 @@ app.get("/:userId", (req, res) => {
 });
 
 app.post("/:userId", (req, res) => {
-  const userId = Number(req.params.userId);
-  console.log(userId);
+  const { userId, matchingUser } = getIdAndMatchingUser(req);
 
   if (isNaN(userId)) {
     res.send("<h1>this is not a number</h1>");
@@ -101,9 +98,7 @@ app.post("/:userId", (req, res) => {
     return;
   }
 
-  const existingUser = users.find((u) => u.id === userId);
-
-  if (existingUser) {
+  if (matchingUser) {
     res.send("<h1>User with this ID already exists</h1>");
   } else {
     const newUser: User = {
@@ -201,3 +196,10 @@ const form = `<form method="post">
 <input type="text" id="phoneNumber" name="phoneNumber"><br>
 <button>Submit</button>
 </form>`;
+
+function getIdAndMatchingUser(req: any) {
+  const userId = Number(req.params.userId);
+  const matchingUser = users.find((u) => u.id === userId);
+  return { userId, matchingUser };
+}
+
