@@ -1,0 +1,46 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(1rem + 0.5vw);
+  line-height: 1.6;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.text{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+} 
+h1{
+    background-color: azure;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 2px solid rgb(196, 196, 242);
+    border-radius: 10px;
+
+}
+.header::after {
+content: "🍔";
+}
+.header::before {
+    content: "🍔";
+    }
+
+a{
+margin-left: 10%;
+}
+.emoji{
+   font-size: 3rem;
+}
+
