@@ -51,7 +51,7 @@ app.post("/addTodo", (req, res) => {
     }
 
     todos.push(newTodo);
-    writeFileSync(todosFilePath, JSON.stringify(todos));
+    writeFileSync(todosFilePath, JSON.stringify(todos, null ,4));
 
     res.redirect("/");
 });
@@ -65,7 +65,7 @@ app.post("/toggleTodo/:id", (req, res) => {
         }
     });
     
-    writeFileSync(todosFilePath, JSON.stringify(todos));
+    writeFileSync(todosFilePath, JSON.stringify(todos, null ,4));
     res.redirect("/");
 });
 
@@ -86,7 +86,7 @@ app.post("/clearDoneTodos", (_, res) => {
         index--;
     }
     
-    writeFileSync(todosFilePath, JSON.stringify(todos));
+    writeFileSync(todosFilePath, JSON.stringify(todos, null ,4));
 
     res.redirect("/");
 });
