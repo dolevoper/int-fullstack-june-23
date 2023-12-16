@@ -65,6 +65,7 @@ app.post("/toggleTodo/:id", (req, res) => {
         }
     });
     
+    writeFileSync(todosFilePath, JSON.stringify(todos));
     res.redirect("/");
 });
 
