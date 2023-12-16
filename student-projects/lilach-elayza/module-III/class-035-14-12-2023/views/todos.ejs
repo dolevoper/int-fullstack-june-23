@@ -18,25 +18,36 @@
         <% for (let todo of todos) { %>
             <li class="<%= todo.completed ? 'completed' : '' %>">
                 <% if (todo.completed) { %>
-                    <s><%= todo.name %></s>
-                <% } else { %>
-                <%= todo.name %>
-                <% } %>
-                    <form class="toggleButton" action="/toggleTodo/<%= todo.id %>" method="post"><button type="submit">Toggle</button></form>
+                    <s>
+                        <%= todo.name %>
+                    </s>
+                    <% } else { %>
+                        <%= todo.name %>
+                            <% } %>
+                                <form class="toggleButton" action="/toggleTodo/<%= todo.id %>" method="post"><button
+                                        type="submit">Toggle</button></form>
             </li>
             <% } %>
     </ul>
     <p>Todos count: <%= todos.length %>
     </p>
 
-    <form action="/resetTodos" method="post">
-        <button type="submit">Reset Todos</button>
+    <span>Show:</span>
+
+    <form class="viewOptions" action="/todos" method="get">
+        <button type="submit" name="filter" value="all">All Todos</button>
+        <button type="submit" name="filter" value="pending">Pending Todos</button>
+        <button type="submit" name="filter" value="completed">Done Todos</button>
     </form>
 
     <form action="/clearDoneTodos" method="post">
         <button type="submit">Clear Done Todos</button>
     </form>
-    
+
+    <form action="/resetTodos" method="post">
+        <button type="submit">Reset Todos</button>
+    </form>
+
     <p>
         <%= visits %> "people" has viewed this page
     </p>

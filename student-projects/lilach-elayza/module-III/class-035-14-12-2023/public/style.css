@@ -12,4 +12,12 @@ body {
 
 .toggleButton {
     display: inline;
+    position: relative;
+    bottom: 0.15rem;
+}
+
+.viewOptions {
+    display: inline;
+    position: relative;
+    bottom: 0.15rem;
 }

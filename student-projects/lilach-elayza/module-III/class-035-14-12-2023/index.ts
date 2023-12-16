@@ -11,7 +11,8 @@ type Todo = {
 }
 
 const todosFilePath = "./todos.json";
-let todos = JSON.parse(readFileSync(todosFilePath, "utf-8")) as Todo[];
+
+const todos = JSON.parse(readFileSync(todosFilePath, "utf-8")) as Todo[];
 
 const app = express();
 
@@ -70,15 +71,36 @@ app.post("/toggleTodo/:id", (req, res) => {
 app.post("/resetTodos", (_, res) => {
     todos.splice(0, todos.length);
     writeFileSync(todosFilePath, "[]");
+
     res.redirect("/");
 });
 
 app.post("/clearDoneTodos", (_, res) => {
-    todos = todos.filter(todo => !todo.completed);
+    let index = todos.length - 1;
 
+    while (index >= 0) {
+        if (todos[index].completed) {
+            todos.splice(index, 1);
+        }
+        index--;
+    }
+    
     writeFileSync(todosFilePath, JSON.stringify(todos));
 
     res.redirect("/");
+});
+
+app.get("/todos", (req, res) => {
+    const filter = req.query.filter;
+    let filteredTodos = todos;
+
+    if (filter === 'completed') {
+        filteredTodos = todos.filter(todo => todo.completed);
+    } else if (filter === 'pending'){
+        filteredTodos = todos.filter(todo => !todo.completed);
+    }
+
+    res.render('todos', { todos: filteredTodos, visits: ++visits });
 });
 
 app.use(express.static("public"));
