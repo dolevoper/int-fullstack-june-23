@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>This is Music 101</h1>
+        <nav>
+            <a href="/">home</a>
+            <a href="/courses">courses</a>
+            <a href="/teachers">teachers</a>
+        </nav>
+    </header>
+
+    <main>
+        <form class="add-teacher-form" action="/addTeacher" method="post">
+            <label for="name">Name:</label>
+            <input class="first-column" type="text" name="name" id="name" required autofocus>
+
+            <div class="first-column">
+                <label for="knowledge">Knowledge:</label>
+                <input type="checkbox" name="knowledge" value="theory"> Theory
+                <input type="checkbox" name="knowledge" value="practical"> Practical
+            </div>
+
+            <button class="first-column" type="submit">Add Teacher</button>
+        </form>
+        <ul class="--padding">
+            <% for (let teacher of teachers) { %>
+                <li>
+                    <%= teacher.name %> - <%= teacher.knowledge %>
+                </li>
+                <% } %>
+        </ul>
+        <p>Total views: <%= views %>
+        </p>
+    </main>
+</body>
+
+</html>
