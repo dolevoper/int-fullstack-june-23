@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+
+<body>
+    <h1>Hello fetch</h1>
+    <button id="btn">Click me</button>
+    <script>
+        btn.addEventListener("click", async () => {
+            const payload = JSON.stringify({ userName: "omer" });
+
+            const res = await fetch("/getUserData", {
+                method: "post",
+                body: payload,
+                headers: {
+                    "Content-Length": payload.length,
+                    "Content-Type": "application/json"
+                }
+            });
+            const userData = await res.json();
+
+            console.log(userData);
+        });
+    </script>
+</body>
+
+</html>
