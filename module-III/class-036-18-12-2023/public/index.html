@@ -13,7 +13,6 @@
     <script>
         btn.addEventListener("click", async () => {
             const payload = JSON.stringify({ userName: "omer" });
-
             const res = await fetch("/getUserData", {
                 method: "post",
                 body: payload,
