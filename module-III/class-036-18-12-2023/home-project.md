@@ -7,6 +7,11 @@ Based on the project from class 35:
    - After success manually update the DOM
    - Don't inline the code - use js files from the public folder
 
+Pay attention to:
+
+- Body of requests is now JSON, so you should use the correct middleware from body parser
+- In the server - instead of `res.render` and `res.redirect` you should use `res.send` to return JSON or a combination of `res.status` and `res.end`
+
 Bonuses:
 
 1. Show loading state while AJAX is happening
