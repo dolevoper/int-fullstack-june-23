@@ -120,6 +120,12 @@ app.post("/resetTodos", (_, res) => {
   res.redirect("back");
 });
 
+app.post("/clearDone", (req, res) => {
+  todos = todos.filter((todo) => !todo.isDone);
+  saveTodos();
+  res.redirect("back");
+});
+
 app.use(express.static("public"));
 
 const server = createServer(app);

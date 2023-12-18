@@ -60,7 +60,7 @@ body {
     display: flex;
 }
 
-.btn {
+.clearBtn {
     cursor: pointer;
     border: none;
     background-color: transparent;
@@ -77,8 +77,9 @@ body {
     margin-inline-start: 0;
 }
 
-.navigation-menu a {
+.btn {
     color: inherit;
+    cursor: pointer;
     border: 1px solid #979797;
     border-radius: 4px;
     padding: 4px;
@@ -87,17 +88,21 @@ body {
     transition: all 300ms ease;
 }
 
-.navigation-menu a:hover {
+.btn:hover {
     color: blue;
     border-color: rgba(0, 0, 0, 0.15);
     background-color: rgba(0, 0, 0, 0.15);
 }
 
-.navigation-menu a:active {
+.btn:active {
     color: red;
     background-color: #efefef;
 }
 
 .flexed {
     display: flex;
+}
+
+.--gap {
+    gap: 1ch;
 }
