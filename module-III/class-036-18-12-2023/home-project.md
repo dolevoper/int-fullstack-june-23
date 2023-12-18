@@ -1,3 +1,5 @@
+Based on the project from class 35:
+
 1. In the server - use async/await instead of `readFileSync`/`writeFileSync`
    \*\* Recommendation - do it first with promises then with async/await
 2. In the client, remove the forms and use AJAX (`fetch`)
