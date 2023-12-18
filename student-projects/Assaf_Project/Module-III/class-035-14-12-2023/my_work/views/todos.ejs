@@ -17,19 +17,20 @@
             <input type="text" name="todo" autofocus />
             <button type="submit">Add</button>
         </form>
-        <ul>
+        <ul class="todo-list">
             <% for (let todo of todos) { %>
-                <li>
-                    <span class="--inline-flex">
-                        <%= todo %>
-                            <form action="/toggleTodo" method="post">
-                                <button class="toggleBtn" type="submit">Toggle</button>
-                            </form>
-                    </span>
-                </li>
-                <% } %>
+                <li<%- todo.isDone ? ` class="--done" ` : "" %>>
+                    <form action="/toggle" method="post">
+                        <input type="hidden" name="id" value="<%= todo.id %>">
+                        <button class="toggleBtn" type="submit">
+                            <%= todo.isDone ? "❌" : "✅" %>
+                        </button>
+                        <%=todo.text%>
+                    </form>
+                    </li>
+                    <% } %>
         </ul>
-        <p class="--padding">Todos count: <%= todos.length %>
+        <p>Todos count: <%= todos.length %>
         </p>
         <form action="/resetTodos" method="post">
             <button type="submit">Reset todos</button>

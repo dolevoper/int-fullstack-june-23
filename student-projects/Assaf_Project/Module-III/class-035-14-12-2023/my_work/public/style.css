@@ -61,10 +61,18 @@ body {
 }
 
 .toggleBtn {
-    margin-inline-start: 1rem;
     cursor: pointer;
+    border: none;
+    background-color: transparent;
 }
 
 .--done {
     text-decoration: line-through;
+}
+
+.todo-list {
+    list-style: none;
+    padding-block: 1rem;
+    padding-inline-start: 0;
+    margin-inline-start: 0;
 }
