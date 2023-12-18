@@ -56,6 +56,15 @@ body {
     padding: 1rem;
 }
 
+.--inline-flex {
+    display: flex;
+}
+
+.toggleBtn {
+    margin-inline-start: 1rem;
+    cursor: pointer;
+}
+
 .--done {
     text-decoration: line-through;
 }

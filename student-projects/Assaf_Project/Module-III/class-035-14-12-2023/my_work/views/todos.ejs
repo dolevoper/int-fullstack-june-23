@@ -20,7 +20,12 @@
         <ul>
             <% for (let todo of todos) { %>
                 <li>
-                    <%= todo %>
+                    <span class="--inline-flex">
+                        <%= todo %>
+                            <form action="/toggleTodo" method="post">
+                                <button class="toggleBtn" type="submit">Toggle</button>
+                            </form>
+                    </span>
                 </li>
                 <% } %>
         </ul>
