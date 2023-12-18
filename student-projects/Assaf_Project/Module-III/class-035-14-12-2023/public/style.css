@@ -1,0 +1,11 @@
+html {
+    font-size: calc(1rem + 0.5vw);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.--toggle {
+    text-decoration: line-through;
+}
