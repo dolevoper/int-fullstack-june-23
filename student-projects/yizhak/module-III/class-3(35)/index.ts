@@ -58,7 +58,7 @@ app.use("/pending", ( _,res, next) => {
 app.use("/done", (_, res) => {
     res.render("todos",{ todos: todos.filter((todo) => todo.isDone), counter: counter++})
 })
-
+//לא עובד הרסט טודו
 app.post("/resetTodos", (_, res) => {
     todos.splice(0, todos.length);
 
