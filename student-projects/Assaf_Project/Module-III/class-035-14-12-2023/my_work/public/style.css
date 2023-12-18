@@ -52,3 +52,15 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.add-teacher-form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.first-column {
+    grid-column: 1 / 2;
+}
+
+.--padding {
+    padding-block: 1rem;
+}
