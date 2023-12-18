@@ -60,7 +60,7 @@ body {
     display: flex;
 }
 
-.toggleBtn {
+.btn {
     cursor: pointer;
     border: none;
     background-color: transparent;
@@ -96,4 +96,8 @@ body {
 .navigation-menu a:active {
     color: red;
     background-color: #efefef;
+}
+
+.flexed {
+    display: flex;
 }

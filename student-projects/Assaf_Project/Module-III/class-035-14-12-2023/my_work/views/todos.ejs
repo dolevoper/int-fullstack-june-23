@@ -24,22 +24,31 @@
         </form>
         <ul class="todo-list">
             <% for (let todo of todos) { %>
-                <li<%- todo.isDone ? ` class="--done" ` : "" %>>
+                <li<%- todo.isDone ? ` class="flexed --done" ` : ` class="flexed" ` %>>
                     <form action="/toggle" method="post">
                         <input type="hidden" name="id" value="<%= todo.id %>">
-                        <button class="toggleBtn" type="submit">
+                        <button class="btn" type="submit">
                             <%= todo.isDone ? "❌" : "✅" %>
                         </button>
                         <%=todo.text%>
+                    </form>
+                    <form action="/deleteTodo" method="post">
+                        <input type="hidden" name="delete" value="<%= todo.id %>">
+                        <button class="btn" type="submit">🗑️</button>
                     </form>
                     </li>
                     <% } %>
         </ul>
         <p>Todos count: <%= todos.length %>
         </p>
-        <form action="/resetTodos" method="post">
-            <button type="submit">Reset todos</button>
-        </form>
+        <menu>
+            <form action="/resetTodos" method="post">
+                <button type="submit">Reset todos</button>
+            </form>
+            <form action="/clearDone" method="post">
+                <button type="submit">Clear Done</button>
+            </form>
+        </menu>
     </main>
     <article class="--padding">
         <p>

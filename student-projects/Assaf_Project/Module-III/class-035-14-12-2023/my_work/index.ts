@@ -34,7 +34,7 @@ app.get("/", (_, res) => {
   res.render("todos", { todos, visits: ++visits });
 });
 
-app.get("/pending", (req, res) => {
+app.get("/pending", (_, res) => {
   res.render("todos", {
     todos: todos.filter((todo) => !todo.isDone),
     visits: ++visits,
@@ -70,7 +70,6 @@ app.post("/addTodo", (req, res) => {
 
 app.post("/toggle", (req, res) => {
   const toggleId = req.body.id;
-  console.log(toggleId);
 
   if (!toggleId) {
     res.status(400);
@@ -92,10 +91,33 @@ app.post("/toggle", (req, res) => {
   res.redirect("back");
 });
 
+app.post("/deleteTodo", (req, res) => {
+  const todoId = req.body.delete;
+
+  if (!todoId) {
+    res.status(400);
+    res.send("Couldn't find Todo ID");
+    return;
+  }
+
+  const todo = todos.find((todo) => todo.id === todoId);
+
+  if (!todo) {
+    res.status(400);
+    res.send(`Couldn't find ${todoId}`);
+    return;
+  }
+
+  const todoIndex = todos.indexOf(todo);
+  todos.splice(todoIndex, 1);
+  saveTodos();
+  res.redirect("/");
+});
+
 app.post("/resetTodos", (_, res) => {
   todos.splice(0, todos.length);
   writeFileSync(todosFilePath, "[]");
-  res.redirect("/");
+  res.redirect("back");
 });
 
 app.use(express.static("public"));
@@ -105,5 +127,5 @@ const server = createServer(app);
 server.listen(3000, () => console.log("server listening on port 3000"));
 
 function saveTodos() {
-  writeFileSync(todosFilePath, JSON.stringify(todos));
+  writeFileSync(todosFilePath, JSON.stringify(todos, null, 1));
 }
