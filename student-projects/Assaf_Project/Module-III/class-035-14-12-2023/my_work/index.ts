@@ -34,6 +34,20 @@ app.get("/", (_, res) => {
   res.render("todos", { todos, visits: ++visits });
 });
 
+app.get("/pending", (req, res) => {
+  res.render("todos", {
+    todos: todos.filter((todo) => !todo.isDone),
+    visits: ++visits,
+  });
+});
+
+app.get("/done", (_, res) => {
+  res.render("todos", {
+    todos: todos.filter((todo) => todo.isDone),
+    visits: ++visits,
+  });
+});
+
 app.post("/addTodo", (req, res) => {
   const newTodo = req.body.todo;
 
@@ -51,7 +65,7 @@ app.post("/addTodo", (req, res) => {
 
   writeFileSync(todosFilePath, JSON.stringify(todos));
 
-  res.redirect("/");
+  res.redirect("back");
 });
 
 app.post("/toggle", (req, res) => {
@@ -75,7 +89,7 @@ app.post("/toggle", (req, res) => {
   todo.isDone = !todo.isDone;
   saveTodos();
 
-  res.redirect("/");
+  res.redirect("back");
 });
 
 app.post("/resetTodos", (_, res) => {
