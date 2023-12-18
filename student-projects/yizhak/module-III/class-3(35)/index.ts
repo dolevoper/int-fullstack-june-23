@@ -4,7 +4,7 @@ import express from "express";
 import { urlencoded } from "body-parser";
 
 const todosFilePath = "./todos.json";
-const todos = JSON.parse(readFileSync(todosFilePath, "utf-8")) as string[];
+const todos = JSON.parse(readFileSync(todosFilePath, "utf-8")) as todo[];
 
 type todo = {
     text: string,
@@ -19,10 +19,14 @@ const logRequests = (prefix = ""): express.RequestHandler => (req, _, next) => {
     console.log(prefix, req.method, req.url);
     next();
 }
+
+app.use(urlencoded({ extended: true }));
+
 app.use((req, res, next) => {
     console.log(req.method, req.url);
     next();
 });
+
 app.use(logRequests("Todos App"));
 
 app.get("/", (req, res) => {
@@ -30,7 +34,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/addTodo", (req, res) => {
-    const newTodo = req.body.todo
+    const newTodo = req.body.todo;
 
     if (!newTodo) {
         res.status(400); 
@@ -38,15 +42,22 @@ app.post("/addTodo", (req, res) => {
         return;
     }
 
-    todos.push(newTodo);
+    todos.push({
+        text: newTodo,
+        isDone: false
+    });
     writeFileSync(todosFilePath, JSON.stringify(todos));
 
     res.redirect("/");
 });
 
-// app.use("/pending", ( _,res, next) => {
-//     res.render("todos", { todos: todos.filter((todo) => !todo.isDone), counter: counter++})
-// });
+app.use("/pending", ( _,res, next) => {
+    res.render("todos", { todos: todos.filter((todo) => !todo.isDone), counter: counter++})
+});
+
+app.use("/done", (_, res) => {
+    res.render("todos",{ todos: todos.filter((todo) => todo.isDone), counter: counter++})
+})
 
 app.post("/resetTodos", (_, res) => {
     todos.splice(0, todos.length);
@@ -56,10 +67,10 @@ app.post("/resetTodos", (_, res) => {
     res.redirect("/");
 });
 
-app.post ("/toggle", (req, res) => {
-    const toggle = req.body.todo
-    res.send(`<s>${toggle}</s>`)
-})
+// app.post ("/toggle", (req, res) => {
+//     const toggle = req.body.todo
+//     res.send(`<s>${toggle}</s>`)
+// })
 
 const server = createServer(app);
 
