@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>server</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Todos</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-<h1>Title</h1>    
+    <header class="--padding">
+        <h1>Todos</h1>
+        <nav>
+            <a class="btn" href="/">All</a>
+            <a class="btn" href="/pending">Pending</a>
+            <a class="btn" href="/done">Done</a>
+        </nav>
+    </header>
+    <main class="--padding">
+        <form action="/addTodo" method="post">
+            <input id="todo-input" type="text" name="todo" autofocus />
+            <button id="addBtn" class="btn">Add</button>
+        </form>
+        <div id="list-container">
+            <ul id="todo-list" class="todo-list">
+            </ul>
+        </div>
+        <p>Todos count: { todosCount }
+        </p>
+        <menu class="flexed --gap">
+            <form action="/resetTodos" method="post">
+                <button class="btn" type="submit">Reset todos</button>
+            </form>
+            <form action="/clearDone" method="post">
+                <button class="btn" type="submit">Clear Done</button>
+            </form>
+        </menu>
+    </main>
+    <article class="--padding">
+        <p>
+           { views } "people" has viewed this page
+        </p>
+    </article>
+
+    <script src="app.js"></script>
 </body>
+
 </html>
