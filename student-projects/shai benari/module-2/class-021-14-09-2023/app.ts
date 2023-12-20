@@ -16,10 +16,14 @@ type Car = {
     licenseType: LicenseType;
     status: status;
 <<<<<<< HEAD
+<<<<<<< HEAD
     DiscountRate: string;
 =======
     // DiscountRate?: string;
 >>>>>>> shai/class-14-home-work
+=======
+    // DiscountRate: string;
+>>>>>>> shai/modl-3/34
 
 };
 
@@ -31,11 +35,16 @@ const addCarForm = document.querySelector("form[name='add-new-car']") as HTMLFor
 if (!addCarForm) {
     console.error("Couldn't find add car form.");
 <<<<<<< HEAD
+<<<<<<< HEAD
 } 
 else {
 =======
 } else {
 >>>>>>> shai/class-14-home-work
+=======
+} 
+else {
+>>>>>>> shai/modl-3/34
     addCarForm.addEventListener("submit", function (e) {
         e.preventDefault();
 

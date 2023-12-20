@@ -1,5 +1,8 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> shai/modl-3/34
 // console.log(Number(process.argv[2]) + Number(process.argv[3]));
 
 // NPM - Node Package Manager
@@ -17,6 +20,7 @@ else{
 }
 
 }
+<<<<<<< HEAD
 printMame();
 =======
 console.log(Number(process.argv[2]) + Number(process.argv[3]));
@@ -28,3 +32,6 @@ console.log(Number(process.argv[2]) + Number(process.argv[3]));
 
 // NPM - Node Package Manager
 >>>>>>> 13a81bf (marge changes)
+=======
+printMame();
+>>>>>>> shai/modl-3/34

@@ -9,6 +9,10 @@ console.log(fileContents.split("\n").length);
 //     if (fileContents[i] === "\n") {
 //         ++lines;
 //     }
+<<<<<<< HEAD
 // }  
+=======
+// }
+>>>>>>> shai/modl-3/34
 
 // console.log(lines);

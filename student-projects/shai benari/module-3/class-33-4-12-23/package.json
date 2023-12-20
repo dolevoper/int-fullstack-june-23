@@ -3,14 +3,18 @@
   "version": "1.0.0",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   "description": "",
 >>>>>>> 95ed3ce (math)
+=======
+>>>>>>> shai/modl-3/34
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "calc": "ts-node-esm calc.ts"
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   "description": "",
@@ -21,23 +25,33 @@
 >>>>>>> 788df24 (margr)
 =======
 >>>>>>> 95ed3ce (math)
+=======
+>>>>>>> shai/modl-3/34
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/chalk": "^2.2.0",
+<<<<<<< HEAD
     "@types/node": "^20.10.4",
+=======
+    "@types/node": "^20.10.3",
+>>>>>>> shai/modl-3/34
     "ts-node": "^10.9.1",
     "typescript": "^5.3.2"
   },
   "dependencies": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> shai/modl-3/34
     "chalk": "^5.3.0",
     "nodemon": "^3.0.2"
   },
   "description": ""
+<<<<<<< HEAD
 =======
     "chalk": "^5.3.0"
   }
@@ -46,4 +60,6 @@
     "chalk": "^5.3.0"
   }
 >>>>>>> 95ed3ce (math)
+=======
+>>>>>>> shai/modl-3/34
 }

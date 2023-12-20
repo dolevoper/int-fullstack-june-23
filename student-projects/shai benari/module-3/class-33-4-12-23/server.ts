@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // let x = 2
 // let y = 3
 // console.log(x+y)
@@ -44,3 +45,11 @@ let freeMemory = freemem();
 //     console.log('event triger');
 // });
 // emitter.emit('massege logged');
+=======
+let x = 2
+let y = 3
+console.log(x+y)
+console.log("helow world");
+const add = 5+6;
+console.log(`add result : ${add} ` );
+>>>>>>> shai/modl-3/34
