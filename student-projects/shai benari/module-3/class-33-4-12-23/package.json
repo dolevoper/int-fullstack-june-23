@@ -4,11 +4,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   "description": "",
 >>>>>>> 95ed3ce (math)
 =======
 >>>>>>> shai/modl-3/34
+=======
+  "description": "",
+>>>>>>> shai/modol-3
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -34,14 +38,19 @@
   "devDependencies": {
     "@types/chalk": "^2.2.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@types/node": "^20.10.4",
 =======
     "@types/node": "^20.10.3",
 >>>>>>> shai/modl-3/34
+=======
+    "@types/node": "^20.10.4",
+>>>>>>> shai/modol-3
     "ts-node": "^10.9.1",
     "typescript": "^5.3.2"
   },
   "dependencies": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -62,4 +71,8 @@
 >>>>>>> 95ed3ce (math)
 =======
 >>>>>>> shai/modl-3/34
+=======
+    "chalk": "^5.3.0"
+  }
+>>>>>>> shai/modol-3
 }

@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> shai/modol-3
 // let x = 2
 // let y = 3
 // console.log(x+y)
@@ -44,6 +47,7 @@ let freeMemory = freemem();
 // emitter.on('messegeLogged', function(){
 //     console.log('event triger');
 // });
+<<<<<<< HEAD
 // emitter.emit('massege logged');
 =======
 let x = 2
@@ -53,3 +57,6 @@ console.log("helow world");
 const add = 5+6;
 console.log(`add result : ${add} ` );
 >>>>>>> shai/modl-3/34
+=======
+// emitter.emit('massege logged');
+>>>>>>> shai/modol-3

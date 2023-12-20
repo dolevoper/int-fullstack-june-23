@@ -13,6 +13,10 @@ console.log(fileContents.split("\n").length);
 // }  
 =======
 // }
+<<<<<<< HEAD
 >>>>>>> shai/modl-3/34
+=======
+>>>>>>> main
+>>>>>>> shai/modol-3
 
 // console.log(lines);

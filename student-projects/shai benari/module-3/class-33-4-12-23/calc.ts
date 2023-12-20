@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> shai/modl-3/34
 // console.log(Number(process.argv[2]) + Number(process.argv[3]));
@@ -35,3 +36,8 @@ console.log(Number(process.argv[2]) + Number(process.argv[3]));
 =======
 printMame();
 >>>>>>> shai/modl-3/34
+=======
+console.log(Number(process.argv[2]) + Number(process.argv[3]));
+
+// NPM - Node Package Manager
+>>>>>>> shai/modol-3
