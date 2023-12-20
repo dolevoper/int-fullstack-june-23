@@ -1,0 +1,24 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: calc(1rem + 0.5vw);
+    line-height: 1.6;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+#exer-canvas{
+    width: 200px;
+    height: 150px;
+   background-color: azure;
+   border: 1px solid black;
+}
