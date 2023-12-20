@@ -1,0 +1,72 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+
+body {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100hv;
+   text-align: center; 
+   background-image: url(picture/woman.jpg) no-repeat center center / cover;
+
+}
+.main-content{
+    width: 550px;
+    height: 400px;
+}
+.hader{
+    border: 2px solid white;
+    background-color: black;
+    border-radius: 15px;
+    color: white;
+    padding: 5px 10px;
+    width: 80%;
+    margin: 20px auto;
+}
+.main-content{
+    width: 70%;
+    height: 20rem;
+    border: 2px solid black;
+    border-radius: 15px;
+    margin-top: 5rem;
+    background-color: white;
+    box-shadow: 2ps 5px grey;
+
+}
+.main-content .text-erea{
+    line-height: 1.3;
+    font-size: 1.2rem;
+}
+.main-content .person{
+    font-size: 1.5rem;
+    line-height: 1.2;
+    color: red;
+    text-transform: uppercase;
+    margin: 1rem;
+}
+.main-content .buttonQoute{
+    position: relative;
+    border: 2px solid black;
+    font-size: 1.3rem;
+    padding: 10px 15px;
+    background-color: grey;
+    border-radius: 10px;
+    color: white;
+   margin-bottom: 1rem;
+
+}
+

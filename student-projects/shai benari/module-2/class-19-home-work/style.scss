@@ -1,0 +1,54 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: hsl(0deg 0% 80%);
+    background-image: url(picture/woman.jpg) no-repeat center center/cover;
+}
+.header{
+    background-color: azure;
+    
+    
+}
+.header-main{
+    text-align: center;
+
+}
+.box{
+    width: 8rem;
+    height: 10rem;
+    border: 3px solid black;
+    border-radius: 6px;
+    background-color: aqua;
+    margin: 2rem 0 0 1rem;
+    display: inline-block;
+}
+.button-header{
+    text-align: center;
+    padding: 0.5rem;
+}
+button {
+  display: block;
+  position: relative;
+  left: 2.5rem;
+  top: 3rem;
+  padding: 2px 10px;
+  border-radius: 5px;
+  background-color: rgb(214, 214, 97);
+  
+}
+
+  
