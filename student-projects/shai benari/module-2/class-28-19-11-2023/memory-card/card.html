@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory cards</title>
+    <link rel="stylesheet" href="dist/card.css">
+ 
+</head>
+
+<body>
+    <main>
+        <h1>Total recoll</h1>
+        <article id="donMassge" class="don-massge"></article>
+        <article id="currentCard" class="card">
+            <p class="card__front"></p>
+            <p class="card__back"></p>
+        </article>
+        <button id="btnFlip" class="btn">Flip</button>
+        <form id="feedbackForm" class="card__feedback">
+            <button name="feedback" value="0">0</button>
+            <button name="feedback" value="1">1</button>
+            <button name="feedback" value="2">2</button>
+            <button name="feedback" value="3">3</button>
+            <button name="feedback" value="4">4</button>
+            <button name="feedback" value="5">5</button>
+        </form>
+        <button id="btnNextCard" class="btn">Next card</button>
+        <form id="addCard">
+            <h3>Add card option</h3>
+            <div class="add__card">
+                <label for="name" >Card front (E)</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="add__card">
+                <label for="name" >Card back (H)</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="add__card">
+                <BUtton ID="btnNewCard">New Card</BUtton>
+            </div>
+
+        </form>
+    </main>
+    
+
+    <script src="dist/card.js"></script>
+</body>
+</html>

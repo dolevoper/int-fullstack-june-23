@@ -1,0 +1,58 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: calc(1rem + 0.5vw);
+    line-height: 1.6;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+.counter {
+    border: 2px solid currentColor;
+    border-radius: 16px;
+    width: min(100% - 2rem, 40ch);
+    margin-inline: auto;
+    padding: 1rem;
+
+    .value {
+        font-size: 5rem;
+        text-align: center;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: space-between;
+        font-size: 2rem;
+
+        button {
+            border: 2px solid currentColor;
+            border-radius: 16px;
+            padding: 0.5em;
+            cursor: pointer;
+
+            &:hover {
+                background: #aaa;
+            }
+
+            &:active {
+                background: #ddd;
+            }
+        }
+    }
+}
