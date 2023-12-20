@@ -1,0 +1,17 @@
+*,
+*::before , ::after{
+    box-sizing: border-box;
+}
+*{
+    margin: 0;
+}
+html{
+    font-size: calc(1rem + 0.5vw);
+    line-height: 1.6;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1, h2, h3, h4, h5, h6{
+    line-height: 1.2;
+}
