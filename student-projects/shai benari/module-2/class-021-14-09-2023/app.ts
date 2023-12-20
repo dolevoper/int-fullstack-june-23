@@ -15,7 +15,11 @@ type Car = {
     color: string;
     licenseType: LicenseType;
     status: status;
+<<<<<<< HEAD
     DiscountRate: string;
+=======
+    // DiscountRate?: string;
+>>>>>>> shai/class-14-home-work
 
 };
 
@@ -26,8 +30,12 @@ const cars: CarArray = [];
 const addCarForm = document.querySelector("form[name='add-new-car']") as HTMLFormElement | null;
 if (!addCarForm) {
     console.error("Couldn't find add car form.");
+<<<<<<< HEAD
 } 
 else {
+=======
+} else {
+>>>>>>> shai/class-14-home-work
     addCarForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
@@ -40,7 +48,11 @@ else {
             color: getRequiredString(formData, "color"),
             licenseType: parseLicenseType(getRequiredString(formData, "licenseType")),
             status: parseStatus(getRequiredString(formData, "status")),
+<<<<<<< HEAD
             DiscountRate: getString(formData, "DiscountRate"),
+=======
+            // DiscountRate: getString(formData, "DiscountRate"),
+>>>>>>> shai/class-14-home-work
         });
 
         console.log(cars);
