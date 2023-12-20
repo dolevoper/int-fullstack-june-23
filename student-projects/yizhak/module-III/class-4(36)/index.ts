@@ -3,6 +3,7 @@ import express from "express";
 import { readFile, writeFile } from "fs/promises";
 import { json } from "body-parser";
 import { randomUUID } from "crypto";
+import { todo } from "node:test";
 
 const app = express();
 
@@ -28,8 +29,11 @@ app.use(json());
 
 
 app.get("/", async (_, res) => {
+    const data = await readFile("./todos.json", "utf-8");
+
+    const todos = JSON.parse(data) as Todo[];
+
     try {
-        let todos = JSON.parse( await readFile("./todos.json", "utf-8")) as Todo[];
 
         if(!todos) {
             res.status(404);
@@ -39,7 +43,7 @@ app.get("/", async (_, res) => {
 
         const data = await readFile("./todos.json", "utf8");
         console.log(data);
-        res.render("todos", { data, visits: ++visits });
+        res.send(data);
     } 
     catch (error) {
         console.log(error);
@@ -48,9 +52,9 @@ app.get("/", async (_, res) => {
 });
 
 app.get("/pending", async (_, res) => {
-    let todos = JSON.parse( await readFile("./todos.json", "utf-8")) as Todo[];
-
-    res.render("todos", { todos: todos.filter((todo) => !todo.isDone), visits: ++visits });
+    res.send(
+        //איך אתה תופס את התשובה ומרנדר אותה?
+    );
 });
 
 app.get("/done", async (_, res) => {
@@ -59,24 +63,25 @@ app.get("/done", async (_, res) => {
 });
 
 app.post("/addTodo", async (req, res) => {
-    let todos = JSON.parse( await readFile("./todos.json", "utf-8")) as Todo[];
     try {
-        const newTodo = req.body.todo;
-    if (!newTodo) {
+        const newTodo = req.body.todo.json.parse(todo) as Todo[];
+        const data = res.json.toString();
+
+        if (!newTodo) {
         res.status(400);
         res.send("Must provide a todo to add");
         return;
-    }
+        }
 
-    todos.push({
+        newTodo.push({
         id: randomUUID(),
-        text: newTodo,
+        text: data,
         isDone: false
     });
-    writeFile("./todos.json", JSON.stringify(todos));
-
-    res.redirect("back");
+    writeFile("./todos.json", JSON.stringify(data));
+    res.redirect("/");
     }
+    
     catch (error) {
         console.log(error)
     }
