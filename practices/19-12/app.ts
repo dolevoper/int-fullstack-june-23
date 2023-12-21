@@ -27,31 +27,31 @@ const handleGetData = async () => {
 //    }
 // }
 
-const handlePromise = () => {
-  console.log("promise start");
-  const myPromise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("foo");
-    }, 5000);
-  });
+// const handlePromise = () => {
+//   console.log("promise start");
+//   const myPromise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("foo");
+//     }, 5000);
+//   });
 
-  myPromise
-    .then((data) => {
-      console.log(data);
-      console.log(data);
-      console.log(data);
-      console.log(data);
-      console.log(data);
-      console.log(data);
-      console.log(data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  console.log("promise end");
-};
+//   myPromise
+//     .then((data) => {
+//       console.log(data);
+//       console.log(data);
+//       console.log(data);
+//       console.log(data);
+//       console.log(data);
+//       console.log(data);
+//       console.log(data);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+//   console.log("promise end");
+// };
 
-// handlePromise();
+// // handlePromise();
 
 handleGetData();
 console.log("end");
