@@ -1,0 +1,46 @@
+@use "defaults"as defaults;
+@use "reset";
+
+.game-screen {
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.food {
+
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    // background-color: red;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    &__img {
+        background: url("../../assets/food/apple.svg") no-repeat center center;
+        background-size: contain;
+        width: 100%;
+        height: 100%;
+
+    }
+}
+
+.game-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pause {
+    width: 100px;
+    background-color: azure;
+    border: solid 2px black;
+    font-size: 2rem;
+}
+
+.score,
+.lives {
+    font-weight: bold;
+    font-size: 4rem;
+    text-align: center;
+}

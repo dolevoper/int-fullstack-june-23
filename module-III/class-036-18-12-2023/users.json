@@ -1,0 +1,10 @@
+[
+    {
+        "name": "omer",
+        "data": "./omerData.json"
+    },
+    {
+        "name": "lilach",
+        "data": "./lilachData.json"
+    }
+]

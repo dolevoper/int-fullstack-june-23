@@ -1,0 +1,88 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+menu {
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+html {
+    font-size: calc(1rem + 0.5vw);
+    line-height: 1.6;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+h1,
+h2 {
+    line-height: 1.2;
+}
+
+main {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    flex: 1;
+}
+
+.padding {
+    padding-inline-start: 1rem;
+}
+
+#orders {
+    border: 1px solid blue;
+    grid-column: 1 / span 2;
+    padding-inline-start: 1rem;
+}
+
+#actions {
+    border: 1px solid red;
+    padding-inline: 1rem;
+
+    >ul {
+        list-style: none;
+        padding: 0;
+    }
+}
+
+#items {
+    border: 1px solid green;
+    padding-inline-start: 1rem;
+}
+
+.items-cluster {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    gap: 1rem;
+
+    >li {
+        padding: 0.25em 0.5em;
+        border: 1px solid black;
+        line-height: 1;
+        border-radius: 1.5em;
+    }
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.available-order {
+    background-color: green;
+    cursor: pointer;
+  }

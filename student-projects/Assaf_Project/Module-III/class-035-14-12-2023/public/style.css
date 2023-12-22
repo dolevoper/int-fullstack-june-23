@@ -1,0 +1,108 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+html {
+    font-size: calc(1rem + 0.5vw);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.--padding {
+    padding: 1rem;
+}
+
+.--inline-flex {
+    display: flex;
+}
+
+.clearBtn {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.--done {
+    text-decoration: line-through;
+}
+
+.todo-list {
+    list-style: none;
+    padding-block: 1rem;
+    padding-inline-start: 0;
+    margin-inline-start: 0;
+}
+
+.btn {
+    color: inherit;
+    cursor: pointer;
+    border: 1px solid #979797;
+    border-radius: 4px;
+    padding: 4px;
+    text-decoration: none;
+    background-color: #ececec;
+    transition: all 300ms ease;
+}
+
+.btn:hover {
+    color: blue;
+    border-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    color: red;
+    background-color: #efefef;
+}
+
+.flexed {
+    display: flex;
+}
+
+.--gap {
+    gap: 1ch;
+}

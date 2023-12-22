@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+h1 {
+    color: blue;
+}
+
+// #app{
+//     border :solid black;
+// }
+form {
+    margin: 100px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+form input, form button , select, textarea {
+    margin: 5px;
+    border :solid black;
+    border-radius: 10px;
+}
+
+ul {
+    border:5px  solid pink;
+    border-radius: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+

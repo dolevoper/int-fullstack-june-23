@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: calc(1rem + 0.5vw);
+    line-height: 1.6;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    width: min(75ch, 100% - 2rem);
+    margin-inline: auto;
+}
+
+.flow>*+* {
+    margin-block-start: 1em;
+}
+
+input,
+button,
+select {
+    font-size: inherit;
+    color: inherit;
+    font-family: inherit;
+}
+
+.submitted input:invalid {
+    border-color: red;
+}

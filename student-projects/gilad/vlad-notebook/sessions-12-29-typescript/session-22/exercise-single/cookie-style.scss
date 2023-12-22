@@ -1,0 +1,19 @@
+@use "reset";
+
+.cookie {
+
+    width: 50%;
+    margin-inline: auto;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    &__counter {
+        font-size: 2rem;
+    }
+
+    &__clicker {
+        font-size: 5rem;
+    }
+}

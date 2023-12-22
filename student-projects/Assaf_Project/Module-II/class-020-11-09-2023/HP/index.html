@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gun Range</title>
+    <link rel="stylesheet" href="dist/resets.css">
+    <link rel="stylesheet" href="dist/grid.css">
+    <link rel="stylesheet" href="dist/animations.css">
+    <link rel="stylesheet" href="dist/styles.css">
+</head>
+
+<body>
+    <audio id="hit-audio" src="assets/smash.wav"></audio>
+    <audio id="throw-audio" src="assets/swoosh.mp3"></audio>
+    <audio id="error-audio" src="assets/error.mp3"></audio>
+    <audio id="lose-audio" src="assets/lose.wav"></audio>
+    <audio id="shot-audio" src="assets/rifle-gun-shot.wav"></audio>
+    <header class="game-header">
+        <span class="score"></span>
+        <button class="restart__button">Restart</button>
+        <ul class="lives">
+        </ul>
+    </header>
+    <main class="play-field">
+        <div class="my-cursor"><img src="assets/crosshair.png" alt="cursor"></div>
+        <div class="sky">
+        </div>
+        <div class="ground">
+            <div class="tree">
+                <div class="tree__leaves"></div>
+                <div class="tree__trunk"></div>
+            </div>
+            <div class="tree">
+                <div class="tree__leaves"></div>
+                <div class="tree__trunk"></div>
+            </div>
+            <div class="tree">
+                <div class="tree__leaves"></div>
+                <div class="tree__trunk"></div>
+            </div>
+            <div class="tree">
+                <div class="tree__leaves"></div>
+                <div class="tree__trunk"></div>
+            </div>
+            <div class="tree">
+                <div class="tree__leaves"></div>
+                <div class="tree__trunk"></div>
+            </div>
+            <div class="tree">
+                <div class="tree__leaves"></div>
+                <div class="tree__trunk"></div>
+            </div>
+            <div class="tree">
+                <div class="tree__leaves"></div>
+                <div class="tree__trunk"></div>
+            </div>
+            <div class="tree">
+                <div class="tree__leaves"></div>
+                <div class="tree__trunk"></div>
+            </div>
+            <div class="tree">
+                <div class="tree__leaves"></div>
+                <div class="tree__trunk"></div>
+            </div>
+        </div>
+    </main>
+    <script src="dist/app.js"></script>
+</body>
+
+</html>

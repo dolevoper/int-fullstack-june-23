@@ -1,0 +1,108 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Old Standard TT', serif;
+    font-size: 1.2rem;
+    user-select: none;
+}
+
+.svg {
+    cursor: pointer;
+    margin: 0 0.5rem;
+    width: 12px;
+}
+
+.container {
+    background-color: rgb(18, 14, 9);
+    display: grid;
+    grid-template-columns: 55% auto;
+    grid-template-rows: 90% auto;
+    height: 100vh;
+    margin-inline: auto;
+    max-width: 1440px;
+
+    &__details {
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 5rem 8rem;
+
+            &__input {
+
+                &__field {
+                    font-family: 'Old Standard TT', serif;
+                    font-size: 1.1rem;
+                    min-width: 8rem;
+                    padding: 0.2rem 0;
+                    text-align: center;
+                }
+            }
+
+            &__attributes {
+                display: grid;
+                grid-template-columns: 150px 15px 40px 15px;
+                gap: 2rem;
+
+                &__points {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    &__visuals {
+        align-items: center;
+        display: flex;
+        grid-area: 1 / 2 / 2 / 3;
+        justify-content: space-between;
+        position: relative;
+        margin-right: 4rem;
+
+        &__chevron {
+            width: 15px;
+            cursor: pointer;
+        }
+
+        &__image {
+            left: 50%;
+            max-width: 400px;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &__bottom {
+        grid-area: 2 / 1 / 3 / 3;
+        display: flex;
+        justify-content: space-around;
+        margin: 1.4rem 0;
+
+        &__button {
+            background-color: rgb(74, 55, 34);
+            border-radius: 15px;
+            border: 1px solid rgb(109, 81, 51);
+            color: rgb(254, 186, 114);
+            font-family: 'Old Standard TT', serif;
+            font-size: 1rem;
+            padding: 0 2rem;
+
+            &:hover {
+                background-color: rgb(118, 87, 54);
+                cursor: pointer;
+            }
+        }
+    }
+}

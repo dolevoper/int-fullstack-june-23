@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+.continer {
+    position: relative;
+    overflow: hidden;
+    background: url("https://t4.ftcdn.net/jpg/03/16/36/59/360_F_316365913_WKVKZW7gzsqqhkx4PgGyu0rArj5GykHK.jpg");
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+.balloon {
+    border-radius: 50% 50% 60% 60%;
+    position: relative;
+    height: 80px;
+    width: 60px;
+    background-color: red;
+    z-index: 3;
+    animation: floatUp 20s ease infinite;
+    cursor: pointer;
+}
+@keyframes floatUp {
+    0% {
+        transform: translateY(0); /* Start from the initial position */
+    }
+    50% {
+        transform: translateY(-800px); /* Go up to 100px */
+    }
+    100% {
+        transform: translateY(-700px); /* Return to the initial position */
+    }
+}

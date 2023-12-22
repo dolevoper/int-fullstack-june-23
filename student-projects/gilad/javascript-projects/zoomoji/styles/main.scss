@@ -1,0 +1,236 @@
+@use 'reset';
+@use 'defaults'as defaults;
+@use 'cage';
+@use 'animal';
+
+.wrapper {
+    height: 100%;
+    background-color: defaults.$color-ui-stroke;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    --zoo-border: 0.5rem;
+}
+
+.zoo {
+
+    background-color: defaults.$color-zoo-background;
+
+    position: absolute;
+    top: var(--zoo-border);
+    left: var(--zoo-border);
+    right: var(--zoo-border);
+    bottom: var(--zoo-border);
+}
+
+.game-menu {
+    --game-menu-offset: var(--zoo-border);
+    --main-button-offset: 0;
+    --menu-list-height: 11rem;
+
+    display: flex;
+    gap: 1rem;
+    align-items: end;
+    justify-content: flex-end;
+
+    position: absolute;
+    bottom: calc(var(--zoo-border) + var(--game-menu-offset));
+    left: calc(var(--zoo-border) + var(--game-menu-offset));
+    right: calc(var(--zoo-border) + var(--game-menu-offset));
+
+}
+
+.ui-menu {
+
+    flex: 1;
+
+    overflow-y: hidden;
+    overflow-x: auto;
+
+    height: var(--menu-list-height);
+
+    background-color: defaults.$color-ui-menu-fg;
+    border-bottom: solid 12px defaults.$color-ui-menu-bg;
+    border-radius: 5rem;
+    padding: 1rem;
+
+    &__list {
+
+        width: 90%;
+        height: 100%;
+
+        padding: 0.25rem;
+        margin-top: 0.25rem;
+        margin-inline: auto;
+
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 1rem;
+
+        border-radius: 0.5rem;
+
+        overflow-y: overlay;
+        overflow-x: overlay;
+        list-style: none;
+
+        &::-webkit-scrollbar {
+            width: 2em;
+            height: 0.5rem;
+            background-color: defaults.$color-ui-menu-bg;
+            border: solid 2px defaults.$color-ui-menu-fg;
+            border-radius: 1rem;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: defaults.$color-ui-button-fg;
+            border: solid 2px transparent;
+            border-radius: 1rem;
+        }
+    }
+
+    &__item {
+        flex-shrink: 0;
+        flex-basis: 8rem;
+
+        border-radius: 0.5rem;
+        margin-bottom: 0.25rem;
+
+        background-color: defaults.$color-ui-item-bg;
+
+        &:hover {
+            scale: 105%;
+        }
+    }
+
+}
+
+.object-card {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    &__info {
+        display: flex;
+        align-items: start;
+        justify-content: space-around;
+        padding: 0.25rem;
+        max-height: 2.5rem;
+    }
+
+    &__title {
+        word-break: keep-all;
+        font-size: 1rem;
+    }
+
+    &__info-icon {
+        width: 2rem;
+        height: 2rem;
+        margin-inline: 0.2rem;
+        background-size: contain;
+
+        &--herbivore {
+            background: url("../../assets/menu/icons/diets/diet-herbivore.svg") no-repeat center center;
+        }
+
+        &--carnivore {
+            background: url("../../assets/menu/icons/diets/diet-carnivore.svg") no-repeat center center;
+        }
+
+        &--omnivore {
+            background: url("../../assets/menu/icons/diets/diet-omnivore.svg") no-repeat center center;
+        }
+
+        &--fishivore {
+            background: url("../../assets/menu/icons/diets/diet-fishivore.svg") no-repeat center center;
+        }
+    }
+
+    &__img {
+        margin-inline: auto;
+        flex: 1;
+        max-height: 60%;
+        max-width: 60%;
+        background-image: radial-gradient(circle, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1), transparent, transparent);
+    }
+}
+
+.ui-button {
+    --button-size: 6rem;
+    --border-multiplier: 6;
+    --border-size: calc(var(--button-size) / var(--border-multiplier));
+    --outline-size: calc(var(--button-size) / 18);
+
+    display: inline-block;
+    width: var(--button-size);
+    height: var(--button-size);
+    padding: calc(var(--button-size) / 6);
+
+    background-color: defaults.$color-ui-button-fg;
+    border-bottom: solid var(--border-size) defaults.$color-ui-button-bg;
+    border-radius: var(--button-size);
+
+    outline: solid var(--outline-size) defaults.$color-ui-stroke;
+    outline-offset: calc(0rem - var(--outline-size)*1);
+    margin-top: 0.5rem;
+    margin-inline: auto;
+
+    &:hover {
+        scale: 105%;
+    }
+
+    &:active {
+        --border-multiplier: 8;
+    }
+
+    &__icon {
+        margin-top: calc(var(--button-size) / 15);
+        height: 100%;
+        background: url("../../assets/menu/icons/paws.svg") no-repeat center center;
+        background-size: contain;
+
+        &--animals {
+            margin-top: 0;
+            background: url("../../assets/animals/rhino.svg") no-repeat center center;
+            background-size: contain;
+        }
+
+        &--cages {
+            margin-top: 0;
+            background: url("../../assets/menu/icons/cage.svg") no-repeat center center;
+            background-size: contain;
+        }
+
+        &--food {
+            margin-top: 0.25rem;
+            background: url("../../assets/menu/icons/food.svg") no-repeat center center;
+            background-size: contain;
+        }
+    }
+
+    &--medium {
+        --button-size: 6rem;
+    }
+
+    &--small {
+        --button-size: 4rem;
+    }
+
+    &--very-small {
+        --button-size: 2rem;
+    }
+}
+
+
+.expanding-menu {
+    margin-right: calc(var(--main-button-offset)/2);
+    margin-bottom: var(--main-button-offset);
+
+    &__expandable-items {
+        display: flex;
+        flex-direction: column;
+    }
+}

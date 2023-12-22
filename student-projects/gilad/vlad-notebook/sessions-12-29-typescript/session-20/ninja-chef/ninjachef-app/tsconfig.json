@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"lib": ["ESNext", "DOM"],
+		"strictNullChecks": true,
+		"noImplicitAny": true,
+		"strictPropertyInitialization": true
+	},
+	"include": ["./*.ts"]
+}

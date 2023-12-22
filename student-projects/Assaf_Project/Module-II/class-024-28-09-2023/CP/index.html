@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/styles.css">
+</head>
+
+<body>
+<main class="flex-centered whole-page">
+    <form class="login-form" name="login" novalidate>
+        <h1>Login Form</h1>
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required autofocus />
+            <p class="error-message"></p>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required autofocus />
+            <p class="error-message"></p>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+            <p class="error-message"></p>
+        </div>
+        <div>
+            <label for="confirm-password">Confirm password</label>
+            <input type="password" id="confirm-password" name="confirmPassword" required />
+            <p class="error-message"></p>
+        </div>
+        <div>
+            <p class="danger form-error"></p>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+
+</main>
+
+<script src="dist/app.js"></script>
+</body>
+</html>

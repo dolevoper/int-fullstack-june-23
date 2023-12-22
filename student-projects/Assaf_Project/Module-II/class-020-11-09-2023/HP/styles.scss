@@ -1,0 +1,234 @@
+:root {
+    --sky-color: skyblue;
+    --ground-color: green;
+    --primary-color: burlywood;
+    --secondary-color: crimson;
+    --leaves-color: darkolivegreen;
+    --tree-trunk-color: saddlebrown;
+    --object-size-large: calc(var(--object-size-medium)*4);
+    --object-size-medium: 20px;
+    --object-size-small: calc(var(--object-size-medium)/2);
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+}
+
+.score {
+    margin-inline: var(--object-size-small);
+    font-size: 4vw;
+
+    @media screen and (max-width: 400px) {
+        font-size: 7vw;
+    }
+
+    @media screen and (min-width: 800px) {
+        font-size: 2.5vw;
+    }
+}
+
+.lives {
+    margin-inline: var(--object-size-small);
+    display: flex;
+    gap: .5rem;
+    list-style: none;
+
+    &__hearts {
+        max-width: 3vw;
+
+        @media screen and (max-width: 400px) {
+            max-width: 5vw;
+        }
+
+        @media screen and (min-width: 800px) {
+            max-width: 2vw;
+        }
+    }
+}
+
+.sky {
+    background: var(--sky-color);
+}
+
+.ground {
+    background: var(--ground-color);
+    position: relative;
+}
+
+.tree {
+    position: relative;
+
+    &:nth-child(1) {
+        left: -20%;
+        top: -4%;
+        scale: .4;
+        z-index: 0;
+    }
+
+    &:nth-child(2) {
+        left: 70%;
+        top: -5%;
+        scale: .5;
+        z-index: 0;
+    }
+
+    &:nth-child(3) {
+        left: 10%;
+        top: -5%;
+        scale: .6;
+        z-index: 0;
+    }
+
+    &:nth-child(4) {
+        left: 40%;
+        scale: .7;
+        z-index: 0;
+    }
+
+    &:nth-child(5) {
+        left: 45%;
+        scale: .9;
+        z-index: 2;
+    }
+
+    &:nth-child(6) {
+        left: 70%;
+        scale: 1;
+        z-index: 2;
+    }
+
+    &:nth-child(7) {
+        left: 70%;
+        scale: 1.2;
+        z-index: 2;
+    }
+
+    &:nth-child(8) {
+        left: 100%;
+        scale: 1.4;
+        z-index: 2;
+    }
+
+    &:nth-child(9) {
+        left: 50%;
+        scale: 1.7;
+        z-index: 2;
+    }
+}
+
+.tree__leaves {
+    height: var(--object-size-large);
+    aspect-ratio: 1;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background: linear-gradient(90deg, rgba(65, 94, 18, 1) 25%, rgba(85, 107, 47, 1) 51%, rgba(65, 94, 18, 1) 77%);
+    ;
+    position: absolute;
+    top: -100px;
+    border: 2px solid rgba(2, 38, 14, 0.66);
+}
+
+.tree__trunk {
+    position: absolute;
+    background: linear-gradient(90deg, rgba(108, 55, 17, 1) 22%, rgba(128, 65, 20, 1) 52%, rgba(108, 55, 17, 1) 77%);
+    height: var(--object-size-large);
+    aspect-ratio: 1 / 4;
+    left: calc(var(--object-size-large) - (var(--object-size-large)/1.6));
+    top: -20px;
+}
+
+.disc {
+    height: calc(var(--object-size-medium)*1.5);
+    aspect-ratio: 3 / 1;
+    background-color: var(--secondary-color);
+    border-radius: var(--object-size-large);
+    left: calc(0px - (var(--object-size-large)));
+    position: absolute;
+    z-index: 1;
+    animation: flyingDisc 2s cubic-bezier(.29, .64, .75, .7) infinite normal forwards;
+
+    @media screen and (max-width: 400px) {
+        animation: flyingDisc 1.4s cubic-bezier(.29, .64, .75, .7) infinite normal forwards;
+        height: calc(var(--object-size-medium));
+    }
+
+    @media screen and (min-width: 800px) {
+        animation: flyingDisc 3s cubic-bezier(.29, .64, .75, .7) infinite normal forwards;
+        height: calc(var(--object-size-medium)*1.7);
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        background-color: var(--primary-color);
+        height: var(--object-size-small);
+        width: 100%;
+        height: 10%;
+        top: 50%;
+    }
+
+}
+
+.--golden {
+    @extend .disc;
+    background-color: goldenrod;
+    animation-duration: 1.4s;
+
+    @media screen and (max-width: 400px) {
+        animation: flyingDisc 1.2s cubic-bezier(.29, .64, .75, .7) infinite normal forwards;
+        height: calc(var(--object-size-medium));
+    }
+
+    @media screen and (min-width: 800px) {
+        animation: flyingDisc 2.4s cubic-bezier(.29, .64, .75, .7) infinite normal forwards;
+        height: calc(var(--object-size-medium)*1.7);
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        background-color: blueviolet;
+        height: var(--object-size-small);
+        width: 100%;
+        height: 10%;
+        top: 50%;
+    }
+
+}
+
+.my-cursor {
+    max-width: max(6vw, 70px);
+    z-index: 999;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.restart__button {
+    position: fixed;
+    left: 45%;
+    background-color: rgba(255, 255, 255, 0.205);
+    border: none;
+    font-size: 4vw;
+    cursor: none;
+    transition: all .2s ease;
+
+    @media screen and (max-width: 400px) {
+        font-size: 7vw;
+    }
+
+    @media screen and (min-width: 800px) {
+        font-size: 2.5vw;
+    }
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.112);
+    }
+
+    &:active {
+        background-color: var(--tree-trunk-color);
+        color: white;
+    }
+}

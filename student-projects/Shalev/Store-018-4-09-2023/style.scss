@@ -1,0 +1,34 @@
+.title-container {
+	display: flex;
+	justify-content: center;
+
+	&__title {
+		color: white;
+		font-family: 'Poppins', sans-serif;
+		font-size: 2.5rem;
+		position: absolute;
+		top: 20px;
+	}
+}
+
+.button-container {
+	display: flex;
+	justify-content: center;
+
+	&__btn {
+		background: white;
+		border: 2px black;
+		border-radius: 30px;
+		width: 150px;
+		height: 80px;
+		font-size: 3rem;
+		color: black;
+		font-family: 'Rubik', sans-serif;
+		transition: transform 0.5s;
+
+		&:hover {
+			cursor: pointer;
+			transform: scale(1.1);
+		}
+	}
+}

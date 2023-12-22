@@ -1,0 +1,12 @@
+@use "reset";
+
+.field-errors {
+
+    &__list {
+        list-style: "⚠️ ";
+    }
+
+    &__item {
+        color: red;
+    }
+}
