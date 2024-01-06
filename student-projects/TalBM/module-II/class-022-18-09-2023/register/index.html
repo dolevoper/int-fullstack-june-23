@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h1>Registration page</h1>
+    <form name="add-new-user" class="RegisterForm">
+        <div>
+            <label for="firstName">first name:</label>
+            <input type="text" id="firstName" name="first-name" autofocus autocomplete="given-name" required/>
+        </div>
+        <div>
+            <label for="lastName">last name:</label>
+            <input type="text" id="lastName" name="last-name" autocomplete="family-name" required/>
+        </div>
+        <div>
+            <label for="age">age:</label>
+            <input type="text" id="age" name="age" inputmode="numeric" pattern="\d+" required/>
+        </div>
+        <div>
+            <label for="gender">gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">male</option>
+                <option value="female">female</option>
+            </select>
+        </div>
+        <div>
+            <label for="email">email:</label>
+            <input type="email" id="email" name="email" inputmode="email" autocomplete="email" required/>
+        </div>
+        <div>
+            <label for="userName">user name:</label>
+            <input type="text" id="userName" name="user-name" autocomplete="username" required/>
+        </div>
+        <div>
+            <label for="password">password:</label>
+            <input type="password" id="password" name="password" autocomplete="current-password" required/>
+        </div>
+        <button>submit</button>
+    </form>
+    <script src="dist/app.js"></script>
+</body>
+</html>
