@@ -1,0 +1,14 @@
+html{
+    font-size: calc(1rem + 0.5vw);
+   
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    color: palevioletred;
+    border-radius: 5px black;
+    
+    /* text-align: center; */
+}
+.ul li{
+    text-align: center;
+}

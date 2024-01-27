@@ -1,0 +1,22 @@
+{
+  "name": "gili-practice",
+  "version": "1.0.0",
+  "description": "this is a project to intruduce node.js",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node server.ts",
+    "start": "node server.js"
+  },
+  "author": "gili",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.3",
+    "nodemon": "^3.0.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  }
+}

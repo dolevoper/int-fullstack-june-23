@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="./dist/from.css">
+   
+</head>
+<body>
+    
+  <div id="login-container">
+    <h2>Login</h2>
+    <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" autocomplete="off">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" autocomplete="current-password">
+        <br>
+        <label for="remember">Remember Me:</label>
+        <input type="checkbox" id="remember">
+        <br>
+        <button type="button" onclick="login()">Login</button>
+    </form>
+</div>
+
+<div id="dashboard-container">
+    <h2>Dashboard</h2>
+    <div id="dashboard-info"></div>
+</div>
+
+<script src="./dist/app.js"></script>
+
+
+
+
+
+    
+</body>
+</html>
