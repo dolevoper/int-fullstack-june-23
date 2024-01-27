@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guitar Shop Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            background-color: lightgray;
+            border: 1px solid black;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        div {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"],
+        select {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guitar Shop</h1>
+    <form action="#" method="post">
+        <div>
+            <label for="manufacturer">Manufacturer:</label>
+            <select id="manufacturer" name="manufacturer" required>
+                <option value="Fender">Fender</option>
+                <option value="Gibson">Gibson</option>
+                <option value="MusicMan">MusicMan</option>
+                <option value="Ibanez">Ibanez</option>
+            </select>
+        </div>
+        <div>
+            <label for="model">Model Name:</label>
+            <input type="text" id="model" name="model" pattern=".{3,}" title="Model name must be at least 3 characters long" required>
+        </div>
+        <div>
+            <label for="madein">Made In:</label>
+            <select id="madein" name="madein" required>
+                <option value="USA">USA</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Japan">Japan</option>
+            </select>
+        </div>
+        <div>
+            <label for="year">Year of Manufacture:</label>
+            <select id="year" name="year" required>
+            </select>
+        </div>
+        <div>
+            <button type="submit">Add to database</button>
+        </div>
+        <div>
+            <button type="clear">Clear data</button>
+        </div>
+    </form>
+
+    <script>
+        const yearDropdown = document.getElementById("year");
+
+        for (let year = 1950; year <= 2023; year++) {
+            const option = document.createElement("option");
+            option.value = year;
+            option.text = year;
+            yearDropdown.appendChild(option);
+        }
+    </script>
+    
+    <script src="dist/guitarshop.js"></script>
+</body>
+</html>

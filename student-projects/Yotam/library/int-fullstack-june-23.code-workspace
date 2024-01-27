@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"name": "int-fullstack-june-23",
+			"path": "../../../int-fullstack-june-23"
+		},
+		{
+			"name": "int-fullstack-june-23-1",
+			"path": "../../../int-fullstack-june-23-1"
+		}
+	],
+	"settings": {
+		"compile-hero.disable-compile-files-on-did-save-code": true,
+		"liveServer.settings.port": 5501
+	}
+}

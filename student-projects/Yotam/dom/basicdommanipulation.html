@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Players</title>
+</head>
+<body>
+    <h1>Football Players</h1>
+    <p>Show which players?</p>
+    <label>
+        <input type="radio" name="playerFilter" value="alive"> Alive
+    </label>
+    <label>
+        <input type="radio" name="playerFilter" value="deceased"> Deceased
+    </label>
+    <label>
+        <input type="radio" name="playerFilter" value="all" checked> All
+    </label>
+    <button id="buttonClicked">Apply Filter</button>
+    <div id="playerList"></div>
+    <script src="dist/basicdommanipulation.js"></script>
+</body>
+</html>

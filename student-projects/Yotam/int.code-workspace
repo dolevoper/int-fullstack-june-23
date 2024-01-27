@@ -10,5 +10,7 @@
 			"path": "../../.."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Yotam"
+	}
 }
