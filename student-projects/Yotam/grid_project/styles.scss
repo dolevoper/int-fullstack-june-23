@@ -10,21 +10,28 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
 }
 
 header {
   display: flex;
+  min-height: 200px;
+  max-height: 300px; 
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   padding: 20px;
   background-color: $primary-color;
   color: #fff;
 
   .header-left {
+
     .header-title {
       margin: 0;
       font-size: 28px;
       animation: shake 1s infinite;
+      text-align: left;
+
+
     }
   }
 
@@ -55,51 +62,21 @@ header {
 main.grid-container {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(7, minmax(100px, 1fr)); 
+  grid-template-rows: repeat(30, minmax(40px, 1fr));  
   gap: 1px;
   padding: 20px;
 
   .grid-item {
     padding: 20px;
     text-align: center;
-
-    &:nth-child(1) {
-      background-color: yellow;
-    }
-
-    &:nth-child(2) {
-      background-color: green;
-    }
-
-    &:nth-child(3) {
-      background-color: red;
-    }
-
-    &:nth-child(4) {
-      background-color: blue;
-    }
-
-    &:nth-child(5) {
-      background-color: orange;
-    }
-
-    &:nth-child(6) {
-      background-color: purple;
-    }
-
-    &:nth-child(7) {
-      background-color: pink;
-    }
-
-    &:nth-child(8) {
-      background-color: teal;
-    }
-
-    &:nth-child(9) {
-      background-color: brown;
-    }
   }
 }
+
+.container > *:nth-child(odd) {
+  background-color: lightgray;
+}
+
 
 footer {
   text-align: left;
@@ -124,5 +101,14 @@ footer {
   }
   75% {
     transform: translateX(-5px);
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  header {
+    min-height: 80px;
+    max-height: 150px;
   }
 }
