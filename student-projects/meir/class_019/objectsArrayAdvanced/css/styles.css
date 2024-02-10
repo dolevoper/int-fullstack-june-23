@@ -1,0 +1,84 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    /*background: #536a70;*/
+}
+
+#gallery {
+    max-width: 1920px;
+    display: block;
+    direction: ltr;
+    font-size: 1vw;
+    color: #000000;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto 2% auto;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 0px solid green;
+}
+
+#gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#gallery h1, #gallery h2, #gallery h3, #gallery h4, #gallery h5, #gallery h6{
+    font-weight: normal;
+    line-height: 100%;
+}
+
+#gallery .flex-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 2% auto 0 auto;
+    border: 0px solid green;
+}
+
+#gallery .flex-content > div {
+    width: 24%;
+    margin: 0 0 2% 0;
+    padding: 0 0 2% 0;
+    border: 1px solid green;
+}
+
+#gallery .flex-content > div .myTitle {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 2% 0 2% 0;
+    background: lightgreen;
+    border: 0px solid red;
+}
+
+#gallery .flex-content > div img {
+    width: 8em;
+    height: 8em;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 7% auto 0 auto;
+    box-shadow: 0 0 0 10px lightblue;
+}
+
+#gallery .flex-content > div .mainTxt {
+    width: 88%;
+    font-size: 0.9em;
+    text-align: justify;
+    margin: 7% auto 0 auto;
+    border: 0px solid yellow;
+}
+
+#gallery .flex-content > div button {
+    width: 50%;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 5% 0 0 0;
+    font-weight: bold;
+    background: gray;
+    padding: 1% 2% 1% 2%;
+    border-radius: 5px 5px 5px 5px;
+}

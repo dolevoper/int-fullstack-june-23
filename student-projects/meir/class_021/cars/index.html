@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body class="flow">
+    <main>
+        <h1>Garage Management</h1>
+        <form name="add-new-car" class="flow" novalidate>
+            <h2>Add new car</h2>
+            
+            <div class="form-input">
+                <label for="registration-number">Registration Number</label>
+                <input type="text" id="registration-number" inputmode="numeric" name="registrationNumber" pattern="\d+"
+                    minlength="7" maxlength="8" required autofocus />
+            </div>
+
+            <div class="form-input">
+                <label for="brand">Brand</label>
+                <input type="text" id="brand" name="brand" required />
+            </div>
+
+            <div class="form-input">
+                <label for="type">Type</label>
+                <input type="text" id="type" name="type" />
+            </div>
+
+            <div class="form-input">
+                <label for="color">Color</label>
+                <input type="text" id="color" name="color" required />
+            </div>
+
+            <div class="form-input">
+                <label for="license-type">License Type</label>
+                <select name="licenseType" id="license-type">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C" selected>C</option>
+                </select>
+            </div>
+
+            <div class="form-input">
+                <label for="status">Status</label>
+                <select name="status" id="status">
+                    <option value="Normal">Normal</option>
+                    <option value="Free" selected>Free</option>
+                    <option value="Discount">Discount</option>
+                    <option value="Banned">banned</option>
+                </select>
+            </div>
+
+            <div class="form-input">
+                <label for="discountRate">Discount Rate</label>
+                <input type="text" id="discountRate" name="discountRate" required />
+            </div>
+
+            <button type="submit">Add</button>
+        </form>
+
+        <div class="carStatus"></div>
+
+    </main>
+    <script src="js/dist/scripts.js"></script>
+</body>
+
+</html>

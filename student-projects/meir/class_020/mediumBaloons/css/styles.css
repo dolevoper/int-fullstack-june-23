@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: lightgrey;
+}
+
+#tirgool {
+    position: relative;
+    height: 100vh;
+    max-width: 1920px;
+    display: block;
+    direction: ltr;
+    font-size: 1vw;
+    color: #000000;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto 0 auto;
+    font-family: arial;
+    border: 0px solid green;
+}
+
+#tirgool img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#tirgool h1, #tirgool h2, #tirgool h3, #tirgool h4, #tirgool h5, #tirgool h6 {
+    font-weight: normal;
+    line-height: 100%;
+}
+
+#tirgool #balloons {
+    height: 100vh;
+    border: 0px solid orange;
+}
+
+#tirgool #score {
+    position: absolute;
+    top: 2%;
+    left: 1%;
+    color: yellow;
+    font-size: 1.3em;
+    font-weight: bold;
+    background: green;
+    font-family: cursive;
+    border-radius: 10px 10px 10px 10px;
+    padding: 0.2% 0.5% 0.2% 0.5%;
+    border: 3px solid yellow;
+}
+
+#tirgool .balloon {
+    position: absolute;
+    width: 4%;
+    cursor: pointer;
+    transform: translateX(-50%);
+    border: 0px solid green;
+}
+
+#tirgool #life {
+    position: absolute;
+    top: 2%;
+    right: 1%;
+    width: 15%;
+    text-align: right;
+    border: 0px solid green;
+}
+
+#tirgool #life img {
+    width: 17%;
+    float: right;
+    margin: 0 0 0 3%;
+    border: 0px solid green;
+}

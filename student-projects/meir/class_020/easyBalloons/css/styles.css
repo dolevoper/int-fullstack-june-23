@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#tirgool {
+    max-width: 1920px;
+    display: block;
+    direction: ltr;
+    font-size: 1vw;
+    color: #000000;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto 2% auto;
+    font-family: arial;
+    border: 0px solid green;
+}
+
+#tirgool img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#tirgool h1, #tirgool h2, #tirgool h3, #tirgool h4, #tirgool h5, #tirgool h6 {
+    font-weight: normal;
+    line-height: 100%;
+}
