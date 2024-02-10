@@ -1,0 +1,23 @@
+html {
+    font-size: calc(1rem + 0.5vw);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.toggleButton {
+    display: inline;
+    position: relative;
+    bottom: 0.15rem;
+}
+
+.viewOptions {
+    display: inline;
+    position: relative;
+    bottom: 0.15rem;
+}

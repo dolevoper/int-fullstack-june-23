@@ -1,0 +1,36 @@
+.cage {
+    --cage-size: 40vh;
+    --cage-x: 20%;
+    --cage-y: 10%;
+    max-width: var(--cage-size);
+    max-height: var(--cage-size);
+
+    display: flex;
+    justify-content: center;
+
+    position: absolute;
+    top: var(--cage-y);
+    left: var(--cage-x);
+
+    &__background {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    &__animals {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    @media (orientation: landscape) {
+        --cage-size: 40vh;
+    }
+
+    @media (orientation: portrait) {
+        --cage-size: 40vw;
+
+    }
+}

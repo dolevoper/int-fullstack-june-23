@@ -1,0 +1,38 @@
+
+body{
+  background-color: white;
+  overflow: hidden;
+}
+.balloon-container {
+  position: relative;
+  width: 100%;
+  // height: 100%; 
+  background-color: skyblue; 
+}
+
+h1{
+  color: white;
+  text-align: center;
+}
+.soaring-balloon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  animation: floatUp 3s linear infinite;
+  
+}
+
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

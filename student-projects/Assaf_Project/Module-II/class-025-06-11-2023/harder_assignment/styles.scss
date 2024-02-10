@@ -1,0 +1,67 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: calc(1rem + 0.5vw);
+    line-height: 1.6;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+:root {
+    --primary-color: #abababa0;
+    --secondary-color: #3710ff;
+}
+
+.counter {
+    border: 2px solid currentColor;
+    border-radius: 16px;
+    width: min(100% - 2rem, 40ch);
+    margin-inline: auto;
+    background-color: var(--primary-color);
+    box-shadow: 4px 4px 10px 0px rgba(0 0 0 / 0.3);
+    padding: 1rem;
+
+    .value {
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.5rem;
+
+        button {
+            border: 2px solid currentColor;
+            border-radius: 16px;
+            padding: 0.5em;
+            cursor: pointer;
+            
+            transition: 200ms all ease;
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.34);
+            }
+
+            &:active {
+                background: var(--secondary-color);
+            }
+        }
+    }
+}

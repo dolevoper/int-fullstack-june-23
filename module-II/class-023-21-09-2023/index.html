@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            aspect-ratio: 1;
+            margin-inline: auto;
+            background: red;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                rotate: 0deg;
+            }
+
+            to {
+                rotate: 360deg;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div>
+        <button onclick="sayHello()">say hello</button>
+        <button onclick="freeze()">freeze</button>
+
+        <script>
+            function sayHello() {
+                alert("hello");
+            }
+
+            function freeze() {
+                console.log("freeze start");
+                const endTime = new Date();
+
+                endTime.setSeconds(endTime.getSeconds() + 5);
+
+                let i = 0;
+
+                while (new Date() < endTime) {
+                    i++;
+                }
+                console.log("freeze end");
+            }
+        </script>
+    </div>
+</body>
+
+</html>

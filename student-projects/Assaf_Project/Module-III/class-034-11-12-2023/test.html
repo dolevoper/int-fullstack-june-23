@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <style>
+        .page-title {
+            color: red;
+        }
+
+        .text-color {
+            color: white;
+        }
+
+        .background {
+            font-size: xx-large;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Users</h1>
+    </header>
+
+    <main>
+        <article>
+            <p>this is a counter</p>
+            <div onload="addCount()" id="counter">0</div>
+        </article>
+
+        <form action="/:userId" method="post">
+            <label for="firstName">First Name: </label><br>
+            <input type="text" id="firstName" name="firstName"><br>
+            <label for="lastName">Last Name: </label><br>
+            <input type="text" id="lastName" name="lastName"><br>
+            <label for="phoneNumber">Phone Number: </label><br>
+            <input type="text" id="phoneNumber" name="phoneNumber">
+        </form>
+
+        <a href="/"></a>
+    </main>
+</body>
+
+</html>

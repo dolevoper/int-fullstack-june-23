@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+
+<body>
+
+
+    <form name="form-user-login" novalidate>
+
+        <div class="field-username">
+            <label for="field-username-input">Username:</label>
+            <input name="field-username-input" type="text" id="field-username-input">
+        </div>
+        <div class="field-password">
+            <label for="field-password-input">Password:</label>
+            <input name="field-password-input" type="password" id="field-password-input">
+        </div>
+        <div class="field-submit">
+            <input type="submit">
+        </div>
+        <div class="field-errors">
+            <ul class="field-errors__list">
+            </ul>
+        </div>
+
+    </form>
+
+    <script type="module" src="dist/user-login.js"> </script>
+</body>
+
+</html>

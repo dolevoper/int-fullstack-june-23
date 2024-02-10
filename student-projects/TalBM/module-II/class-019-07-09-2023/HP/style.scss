@@ -1,0 +1,100 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    &__nav {
+        display: flex;
+        align-items: baseline;
+        width: 180px;
+        justify-content: space-between;
+        &__button {
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+    }
+}
+
+.top {
+    &__toggle {
+        width: 8rem;
+        height: 2rem;
+        background-color: gainsboro;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+        &__checkbox {
+            display: none;
+            &:checked {
+                +.top__toggle__tog {
+                    transform: translateX(4rem);
+                    background: black;
+                }
+                ~.top__toggle__texta {
+                    color: rgb(169, 169, 169);
+                }
+                ~.top__toggle__textb {
+                    color: white;
+                }
+            }
+        }
+        &__tog {
+            width: 4rem;
+            height: 2rem;
+            position: absolute;
+            border-radius: 10px;
+            left: 0;
+            top:0;
+            cursor: pointer;
+            background:white;
+            border: 0.1rem solid gainsboro;
+            transition: 0.4s;
+        }
+        &__slide {
+            width: 8rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            cursor: pointer;
+        }
+        &__texta {
+            text-transform: capitalize;
+            font-size: 0.7rem;
+            z-index: 1;
+            color: black;
+            cursor: pointer;
+        }
+        &__textb {
+            text-transform: capitalize;
+            font-size: 0.7rem;
+            z-index: 1;
+            color: rgb(169, 169, 169);
+            cursor: pointer;
+        }
+    }
+}
+
+.info {
+    padding: 20px;
+    float: left;
+    line-height: 3;
+}
+
+.image {
+    float: right;
+    margin-right: 100px;
+    margin-top: 40px;
+    width: 500px;
+    img {
+        width: 100%;
+    }
+}

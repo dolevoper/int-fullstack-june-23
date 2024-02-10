@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/style.css">
+</head>
+<body onload="makeImage();">
+    <header class="header">
+        <h1>cars</h1>
+        <div class="header__nav">
+            <button onclick= "previousCar()" class="header__nav__button">
+                <svg viewBox="-5.5 0 26 26" fill="currentColor" width="0.7rem" height="0.7rem">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                        <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-423.000000, -1196.000000)" fill="#000000">
+                            <path d="M428.115,1209 L437.371,1200.6 C438.202,1199.77 438.202,1198.43 437.371,1197.6 C436.541,1196.76 435.194,1196.76 434.363,1197.6 L423.596,1207.36 C423.146,1207.81 422.948,1208.41 422.985,1209 C422.948,1209.59 423.146,1210.19 423.596,1210.64 L434.363,1220.4 C435.194,1221.24 436.541,1221.24 437.371,1220.4 C438.202,1219.57 438.202,1218.23 437.371,1217.4 L428.115,1209" id="chevron-left" sketch:type="MSShapeGroup"> </path>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+            <h3 id="carCompany"></h3>
+            <button onclick= "nextCar()"  class="header__nav__button">
+                <svg viewBox="-5.5 0 26 26" fill="currentColor" width="0.7rem" height="0.7rem">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                        <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-474.000000, -1196.000000)" fill="#000000">
+                            <path d="M488.404,1207.36 L477.637,1197.6 C476.806,1196.76 475.459,1196.76 474.629,1197.6 C473.798,1198.43 473.798,1199.77 474.629,1200.6 L483.885,1209 L474.629,1217.4 C473.798,1218.23 473.798,1219.57 474.629,1220.4 C475.459,1221.24 476.806,1221.24 477.637,1220.4 L488.404,1210.64 C488.854,1210.19 489.052,1209.59 489.015,1209 C489.052,1208.41 488.854,1207.81 488.404,1207.36" id="chevron-right" sketch:type="MSShapeGroup"> </path>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+        </div>
+        <div class="top__toggle">
+            <label class="top__toggle__slide" for="toggle">
+                <input class="top__toggle__checkbox" type="checkbox" id="toggle">
+                <label class="top__toggle__tog" for="toggle"></label>
+                <label class="top__toggle__texta" for="toggle">light mode</label>
+                <label class="top__toggle__textb" for="toggle">dark mode</label>
+            </label>
+        </div>
+    </header>
+    <main>
+        <div class="info"><h1 id="carFullName"></h1>
+        <p id="carYear"></p>
+        <p id="carPower"></p>
+        <p id="carColor"></p></div>
+        <div class="image" id="content"></div>
+    </main>
+    <script src="dist/app.js"></script>
+</body>
+</html>
