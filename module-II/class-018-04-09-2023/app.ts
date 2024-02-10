@@ -131,7 +131,7 @@ const quotes = [
     {
         quote: "If you think your boss is stupid, remember: you wouldn’t have a job if he was any smarter.",
         author: "John Gotti",
-        liked: false
+        liked: true
     },
     {
         quote: "Show me a man who is a good loser and I’ll show you a man who is playing golf with his boss.",
